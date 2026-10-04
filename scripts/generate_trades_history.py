@@ -189,11 +189,40 @@ def generate_all_trades_history():
     total_w = sum(1 for t in all_trades if t["return_pct"] > 0)
     overall_win_rate = round(total_w / total_t * 100.0, 1) if total_t > 0 else 0.0
 
+    # Compute per-symbol performance statistics for drill-down lookup
+    symbol_stats: Dict[str, Any] = {}
+    unique_symbols = sorted(list(set(t["symbol"] for t in all_trades)))
+    for sym in unique_symbols:
+        s_trades = [t for t in all_trades if t["symbol"] == sym]
+        s_wins = [t for t in s_trades if t["return_pct"] > 0]
+        s_losses = [t for t in s_trades if t["return_pct"] <= 0]
+        s_win_rate = round(len(s_wins) / len(s_trades) * 100.0, 1) if s_trades else 0.0
+        s_avg_ret = round(sum(t["return_pct"] for t in s_trades) / len(s_trades), 2) if s_trades else 0.0
+        s_best = round(max(t["return_pct"] for t in s_trades), 2) if s_trades else 0.0
+        s_worst = round(min(t["return_pct"] for t in s_trades), 2) if s_trades else 0.0
+        s_pnl = sum(t["pnl_vnd"] for t in s_trades)
+        s_avg_hold = round(sum(t["holding_days"] for t in s_trades) / len(s_trades), 1) if s_trades else 0.0
+
+        symbol_stats[sym] = {
+            "symbol": sym,
+            "sector": SECTOR_MAP.get(sym, "Bluechip"),
+            "total_trades": len(s_trades),
+            "win_trades": len(s_wins),
+            "loss_trades": len(s_losses),
+            "win_rate": s_win_rate,
+            "avg_return_pct": s_avg_ret,
+            "best_trade_pct": s_best,
+            "worst_trade_pct": s_worst,
+            "total_pnl_vnd": s_pnl,
+            "avg_holding_days": s_avg_hold
+        }
+
     output_payload = {
         "last_updated": pd.Timestamp.now().strftime("%Y-%m-%d %H:%M:%S"),
         "total_trades": total_t,
         "overall_win_rate": overall_win_rate,
         "strategies_stats": strategies_stats,
+        "symbol_stats": symbol_stats,
         "trades": all_trades
     }
 

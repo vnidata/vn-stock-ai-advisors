@@ -1,7 +1,12 @@
 // BSC Quant - AI Portfolio Advisor Web Dashboard
-// Master Controller: Live Recommendations, Trades History, Time Filters, Performance & Evolution
+// Master Controller: Holdings, New Signals, News Actions, Trades History, Per-Symbol Analytics, Performance & Evolution
 
+let globalDailyData = null;
 let allTrades = [];
+let allSymbolStats = {};
+let selectedSymbol = null;
+let currentHoldingsAdvisor = 'all';
+let currentSignalFilter = 'all';
 let filteredTrades = [];
 let currentTradePage = 1;
 let tradePageSize = 15;
@@ -9,8 +14,32 @@ let equityCurvesData = null;
 let equityChartInstance = null;
 let allNewsArticles = [];
 
+const SECTOR_VIETNAMESE = {
+  "Materials": "Thép & Vật Liệu",
+  "Technology": "Công Nghệ & Viễn Thông",
+  "Banking": "Ngân Hàng",
+  "Securities": "Chứng Khoán",
+  "Chemicals": "Hóa Chất & Phân Bón",
+  "RealEstate": "Bất Động Sản Dân Cư",
+  "IndustrialRealEstate": "BĐS Khu Công Nghiệp",
+  "Retail": "Bán Lẻ & Chuỗi",
+  "Consumer": "Tiêu Dùng & Thực Phẩm",
+  "Energy": "Dầu Khí & Năng Lượng",
+  "Logistics": "Cảng Biển & Logistics",
+  "Agriculture": "Nông Nghiệp & Chăn Nuôi",
+  "Industrial": "Công Nghiệp Cơ Điện",
+  "Bluechip": "Cổ Phiếu Trụ Bluechip"
+};
+
+function getSectorVi(sector) {
+  return SECTOR_VIETNAMESE[sector] || sector || "Cổ Phiếu Bluechip";
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   setupTabs();
+  setupHoldingsControls();
+  setupSignalControls();
+  setupSymbolStatsControls();
   setupTradeFilters();
   setupNewsFilters();
   setupChartZoom();
@@ -53,8 +82,11 @@ async function loadDashboardData() {
   try {
     // 1. Fetch daily summary
     const summaryRes = await fetch("data/daily_summary.json").catch(() => null);
-    const summaryData = summaryRes && summaryRes.ok ? await summaryRes.json() : getFallbackDailySummary();
-    renderDailySummary(summaryData);
+    globalDailyData = summaryRes && summaryRes.ok ? await summaryRes.json() : getFallbackDailySummary();
+    renderDailySummary(globalDailyData);
+    renderHoldingsTable(globalDailyData);
+    renderNewSignals(globalDailyData);
+    renderNewsActionRecommendations(globalDailyData);
 
     // 2. Fetch 15-year performance metrics
     const perfRes = await fetch("data/performance_15y.json").catch(() => null);
@@ -67,14 +99,17 @@ async function loadDashboardData() {
     equityCurvesData = curvesRes && curvesRes.ok ? await curvesRes.json() : getFallbackEquityCurves();
     renderEquityChart(equityCurvesData);
 
-    // 4. Fetch Trades History (New Feature)
+    // 4. Fetch Trades History & Symbol Stats
     const tradesRes = await fetch("data/trades_history.json").catch(() => null);
     if (tradesRes && tradesRes.ok) {
       const tradesPayload = await tradesRes.json();
       allTrades = tradesPayload.trades || [];
+      allSymbolStats = tradesPayload.symbol_stats || {};
     } else {
       allTrades = getFallbackTrades();
+      allSymbolStats = getFallbackSymbolStats();
     }
+    renderSymbolStatsTable(allSymbolStats);
     applyTradeFilters();
 
     // 5. Fetch News & Corporate Disclosures Intelligence
@@ -223,6 +258,421 @@ function renderDailySummary(data) {
     `;
     container.appendChild(card);
   });
+}
+
+// ==========================================
+// 3A. CURRENT HOLDINGS CONTROLLER & RENDERER
+// ==========================================
+function setupHoldingsControls() {
+  const chips = document.querySelectorAll(".holdings-chip");
+  chips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      chips.forEach(c => c.classList.remove("active"));
+      chip.classList.add("active");
+      currentHoldingsAdvisor = chip.getAttribute("data-advisor");
+      renderHoldingsTable(globalDailyData);
+    });
+  });
+
+  const btnTable = document.getElementById("btn-view-table");
+  const btnCards = document.getElementById("btn-view-cards");
+  const tableContainer = document.getElementById("holdings-table-container");
+  const cardsContainer = document.getElementById("strategy-cards-container");
+
+  if (btnTable && btnCards && tableContainer && cardsContainer) {
+    btnTable.addEventListener("click", () => {
+      btnTable.classList.add("active");
+      btnCards.classList.remove("active");
+      tableContainer.style.display = "block";
+      cardsContainer.style.display = "none";
+    });
+
+    btnCards.addEventListener("click", () => {
+      btnCards.classList.add("active");
+      btnTable.classList.remove("active");
+      tableContainer.style.display = "none";
+      cardsContainer.style.display = "grid";
+    });
+  }
+}
+
+function renderHoldingsTable(data) {
+  if (!data) return;
+  const holdings = data.current_holdings || [];
+
+  const filtered = currentHoldingsAdvisor === 'all' ? 
+    holdings : 
+    holdings.filter(h => h.advisor === currentHoldingsAdvisor || h.advisor_name.includes(currentHoldingsAdvisor));
+
+  const totalCount = holdings.length;
+  const wins = holdings.filter(h => h.current_return_pct > 0).length;
+  const losses = holdings.filter(h => h.current_return_pct <= 0).length;
+  const avgRet = totalCount > 0 ? (holdings.reduce((acc, h) => acc + h.current_return_pct, 0) / totalCount).toFixed(2) : "0.0";
+  const safeCount = holdings.filter(h => h.current_return_pct >= 0).length;
+  const atRiskCount = holdings.filter(h => h.current_return_pct <= -3.0).length;
+
+  const kpiCountElem = document.getElementById("kpi-holdings-count");
+  if (kpiCountElem) kpiCountElem.innerText = `${totalCount} mã`;
+  
+  const kpiAvgRetElem = document.getElementById("kpi-holdings-avg-ret");
+  if (kpiAvgRetElem) {
+    kpiAvgRetElem.innerText = `${avgRet >= 0 ? '+' : ''}${avgRet}%`;
+    kpiAvgRetElem.className = avgRet >= 0 ? "kpi-value text-green" : "kpi-value text-red";
+  }
+
+  const kpiWinRatioElem = document.getElementById("kpi-holdings-win-ratio");
+  if (kpiWinRatioElem) kpiWinRatioElem.innerText = `${wins} vị thế lãi / ${losses} vị thế lỗ`;
+
+  const kpiSafeElem = document.getElementById("kpi-holdings-safe");
+  if (kpiSafeElem) kpiSafeElem.innerText = `${safeCount} mã`;
+
+  const kpiRiskElem = document.getElementById("kpi-holdings-at-risk");
+  if (kpiRiskElem) kpiRiskElem.innerText = `${atRiskCount} mã`;
+
+  const tbody = document.getElementById("holdings-table-body");
+  if (!tbody) return;
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="13" class="text-center text-muted" style="padding: 24px;">Không có vị thế nắm giữ nào cho chuyên gia đã chọn.</td></tr>`;
+    return;
+  }
+
+  let html = "";
+  filtered.forEach(h => {
+    const isWin = h.current_return_pct >= 0;
+    const retSign = isWin ? "+" : "";
+    const retClass = isWin ? "text-green" : "text-red";
+    const dailyChgSign = h.daily_change_pct >= 0 ? "+" : "";
+    const dailyChgClass = h.daily_change_pct >= 0 ? "change-badge pos" : "change-badge neg";
+
+    let statusPillClass = "status-pill neutral";
+    if (h.status_badge === "pos-bold") statusPillClass = "status-pill pos-bold";
+    else if (h.status_badge === "pos") statusPillClass = "status-pill pos";
+    else if (h.status_badge === "neg") statusPillClass = "status-pill neg";
+
+    html += `
+      <tr>
+        <td><span class="ticker-pill">${h.symbol}</span></td>
+        <td><span class="sector-label">${h.advisor_name}</span></td>
+        <td><span class="sector-label">${getSectorVi(h.sector)}</span></td>
+        <td class="text-center font-mono"><strong>${h.weight_pct}%</strong></td>
+        <td class="text-right font-mono">${Number(h.entry_price).toFixed(2)}</td>
+        <td class="text-right font-mono"><strong>${Number(h.current_price).toFixed(2)}</strong></td>
+        <td class="text-center"><span class="${dailyChgClass}">${dailyChgSign}${h.daily_change_pct}%</span></td>
+        <td class="text-center font-mono ${retClass}"><strong>${retSign}${h.current_return_pct}%</strong></td>
+        <td class="text-center font-mono">${h.holding_days}d</td>
+        <td class="text-right font-mono text-red">${Number(h.stop_loss).toFixed(2)}</td>
+        <td class="text-right font-mono text-green">${Number(h.target_price).toFixed(2)}</td>
+        <td class="text-center"><span class="${statusPillClass}">${h.status_text || 'ĐANG NẮM GIỮ'}</span></td>
+        <td style="font-size: 0.82rem; color: var(--text-muted);">${h.action_advice || 'Duy trì vị thế'}</td>
+      </tr>
+    `;
+  });
+
+  tbody.innerHTML = html;
+}
+
+// ==========================================
+// 3B. NEW BUY/SELL SIGNALS CONTROLLER & RENDERER
+// ==========================================
+function setupSignalControls() {
+  const sigBtns = document.querySelectorAll(".sig-filter-btn");
+  sigBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      sigBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      currentSignalFilter = btn.getAttribute("data-sig-filter");
+      renderNewSignals(globalDailyData);
+    });
+  });
+}
+
+function renderNewSignals(data) {
+  if (!data) return;
+  const signals = data.new_signals || [];
+
+  const buyCount = signals.filter(s => s.signal_badge === "buy").length;
+  const tpCount = signals.filter(s => s.signal_badge === "profit").length;
+  const slCount = signals.filter(s => s.signal_badge === "stop").length;
+
+  const kpiBuy = document.getElementById("kpi-sig-buy");
+  if (kpiBuy) kpiBuy.innerText = `${buyCount} tín hiệu`;
+
+  const kpiTp = document.getElementById("kpi-sig-tp");
+  if (kpiTp) kpiTp.innerText = `${tpCount} tín hiệu`;
+
+  const kpiSl = document.getElementById("kpi-sig-sl");
+  if (kpiSl) kpiSl.innerText = `${slCount} tín hiệu`;
+
+  const tbody = document.getElementById("signals-table-body");
+  if (!tbody) return;
+
+  const filtered = currentSignalFilter === "all" ? 
+    signals : 
+    signals.filter(s => s.signal_badge === currentSignalFilter);
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="12" class="text-center text-muted" style="padding: 24px;">Không có tín hiệu nào cho bộ lọc đã chọn.</td></tr>`;
+    return;
+  }
+
+  let html = "";
+  filtered.forEach(sig => {
+    let badgeClass = "signal-badge buy";
+    if (sig.signal_badge === "profit") badgeClass = "signal-badge profit";
+    else if (sig.signal_badge === "stop") badgeClass = "signal-badge stop";
+    else if (sig.signal_badge === "rebalance") badgeClass = "signal-badge rebalance";
+
+    html += `
+      <tr>
+        <td><strong style="color: var(--color-cyan); font-family: var(--font-mono);">${sig.id}</strong></td>
+        <td><span class="ticker-pill">${sig.symbol}</span></td>
+        <td><span class="${badgeClass}">${sig.signal_type}</span></td>
+        <td><span class="sector-label">${sig.recommended_advisor}</span></td>
+        <td><span class="sector-label">${getSectorVi(sig.sector)}</span></td>
+        <td class="text-right font-mono"><strong>${Number(sig.signal_price).toFixed(2)}</strong></td>
+        <td class="text-right font-mono text-green">${Number(sig.target_price).toFixed(2)} (+${sig.target_return_pct}%)</td>
+        <td class="text-right font-mono text-red">${Number(sig.stop_loss).toFixed(2)} (${sig.max_loss_pct}%)</td>
+        <td class="text-center font-mono text-gold"><strong>${sig.rr_ratio}</strong></td>
+        <td class="text-center font-mono">${sig.recommended_weight_pct}%</td>
+        <td style="font-size: 0.82rem; color: var(--text-main); font-weight: 500;">${sig.technical_reason}</td>
+        <td style="font-size: 0.82rem; color: var(--text-muted);">${sig.advisor_rationale}</td>
+      </tr>
+    `;
+  });
+
+  tbody.innerHTML = html;
+}
+
+// ==========================================
+// 3C. NEWS ACTION RECOMMENDATIONS RENDERER
+// ==========================================
+function renderNewsActionRecommendations(data) {
+  if (!data) return;
+  const newsActions = data.news_action_recommendations || {};
+  const catalysts = newsActions.catalysts || [];
+  const redFlags = newsActions.red_flags || [];
+
+  // 1. Catalyst Box
+  const catContainer = document.getElementById("catalyst-actions-list");
+  if (catContainer) {
+    if (catalysts.length === 0) {
+      catContainer.innerHTML = `<div class="text-center text-muted" style="padding: 16px;">Chưa phát hiện mã cổ phiếu có catalyst vượt ngưỡng đột phá.</div>`;
+    } else {
+      let catHtml = "";
+      catalysts.forEach(item => {
+        catHtml += `
+          <div class="action-stock-card">
+            <div class="action-stock-header">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span class="ticker-pill">${item.symbol}</span>
+                <span class="sector-label">${getSectorVi(item.sector)}</span>
+                <span class="news-badge pos">+${item.net_sentiment.toFixed(2)}</span>
+              </div>
+              <span class="badge tag-green">${item.sentiment_multiplier.toFixed(2)}x [THƯỞNG ĐIỂM]</span>
+            </div>
+            <div class="action-stock-headline">${item.latest_headline}</div>
+            <div>
+              <span class="action-stock-advice advice-boost">🎯 Khuyến nghị: ${item.action_desc}</span>
+            </div>
+          </div>
+        `;
+      });
+      catContainer.innerHTML = catHtml;
+    }
+  }
+
+  // 2. Red Flag Box
+  const redContainer = document.getElementById("redflag-actions-list");
+  if (redContainer) {
+    if (redFlags.length === 0) {
+      redContainer.innerHTML = `
+        <div class="action-stock-card" style="border-color: rgba(16, 185, 129, 0.3);">
+          <div style="display: flex; align-items: center; gap: 10px; color: var(--color-green);">
+            <span style="font-size: 1.2rem;">✅</span>
+            <strong>HỆ THỐNG AN TOÀN TUYỆT ĐỐI:</strong>
+          </div>
+          <p style="font-size: 0.84rem; color: var(--text-muted); margin-top: 4px;">
+            Không phát hiện mã nào trong vũ trụ đầu tư dính sai phạm, thanh tra khởi tố hay kiểm toán từ chối trong 24h qua.
+          </p>
+        </div>
+      `;
+    } else {
+      let redHtml = "";
+      redFlags.forEach(item => {
+        redHtml += `
+          <div class="action-stock-card">
+            <div class="action-stock-header">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span class="ticker-pill">${item.symbol}</span>
+                <span class="sector-label">${getSectorVi(item.sector)}</span>
+                <span class="news-badge neg-danger">${item.net_sentiment.toFixed(2)}</span>
+              </div>
+              <span class="badge tag-red">0.00x [VETO PHỦ QUYẾT]</span>
+            </div>
+            <div class="action-stock-headline text-red">${item.latest_headline}</div>
+            <div>
+              <span class="action-stock-advice advice-veto">🛑 Phủ Quyết: ${item.action_desc}</span>
+            </div>
+          </div>
+        `;
+      });
+      redContainer.innerHTML = redHtml;
+    }
+  }
+}
+
+// ==========================================
+// 3D. PER-SYMBOL PERFORMANCE ANALYTICS & DRILL-DOWN
+// ==========================================
+function setupSymbolStatsControls() {
+  const searchInput = document.getElementById("symbol-stats-search");
+  if (searchInput) {
+    let debounce;
+    searchInput.addEventListener("input", () => {
+      clearTimeout(debounce);
+      debounce = setTimeout(() => {
+        renderSymbolStatsTable(allSymbolStats, searchInput.value);
+      }, 200);
+    });
+  }
+
+  const btnClear = document.getElementById("btn-clear-symbol-filter");
+  if (btnClear) {
+    btnClear.addEventListener("click", () => {
+      clearSymbolSelection();
+    });
+  }
+}
+
+function selectSymbol(sym) {
+  selectedSymbol = sym;
+  const symData = allSymbolStats[sym];
+
+  const banner = document.getElementById("selected-symbol-banner");
+  if (banner && symData) {
+    document.getElementById("selected-sym-code").innerText = sym;
+    document.getElementById("selected-sym-title").innerText = `Chi Tiết Hiệu Suất Cổ Phiếu ${sym} (${getSectorVi(symData.sector)})`;
+    const pnlSign = symData.total_pnl_vnd >= 0 ? "+" : "";
+    const pnlBillion = (symData.total_pnl_vnd / 1000000000).toFixed(2);
+    document.getElementById("selected-sym-summary").innerHTML = `
+      Ngành: <strong>${getSectorVi(symData.sector)}</strong> · 
+      Win Rate: <strong class="text-green">${symData.win_rate}%</strong> (${symData.win_trades} thắng / ${symData.loss_trades} thua) · 
+      Tổng Lệnh: <strong>${symData.total_trades}</strong> · 
+      Lãi TB: <strong>${symData.avg_return_pct >= 0 ? '+' : ''}${symData.avg_return_pct}%</strong> · 
+      Trade Tốt Nhất: <strong class="text-green">+${symData.best_trade_pct}%</strong> · 
+      Trade Tệ Nhất: <strong class="text-red">${symData.worst_trade_pct}%</strong> · 
+      Tổng PnL: <strong class="${symData.total_pnl_vnd >= 0 ? 'text-green' : 'text-red'}">${pnlSign}${pnlBillion} Tỷ ₫</strong> · 
+      Giữ TB: <strong>${symData.avg_holding_days} ngày</strong>
+    `;
+    banner.style.display = "flex";
+  }
+
+  const symInput = document.getElementById("filter-symbol");
+  if (symInput) symInput.value = sym;
+
+  document.querySelectorAll("#symbol-stats-tbody tr").forEach(tr => {
+    if (tr.getAttribute("data-symbol") === sym) {
+      tr.classList.add("active-symbol-row");
+    } else {
+      tr.classList.remove("active-symbol-row");
+    }
+  });
+
+  applyTradeFilters();
+
+  if (banner) {
+    banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
+function clearSymbolSelection() {
+  selectedSymbol = null;
+  const banner = document.getElementById("selected-symbol-banner");
+  if (banner) banner.style.display = "none";
+
+  const symInput = document.getElementById("filter-symbol");
+  if (symInput) symInput.value = "";
+
+  document.querySelectorAll("#symbol-stats-tbody tr").forEach(tr => {
+    tr.classList.remove("active-symbol-row");
+  });
+
+  applyTradeFilters();
+}
+
+function renderSymbolStatsTable(statsMap, searchTerm = "") {
+  const tbody = document.getElementById("symbol-stats-tbody");
+  if (!tbody || !statsMap) return;
+
+  const symbols = Object.keys(statsMap);
+  if (symbols.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="12" class="text-center text-muted">Chưa có dữ liệu thống kê theo mã.</td></tr>`;
+    return;
+  }
+
+  const term = searchTerm.trim().toUpperCase();
+  const filteredSymbols = symbols.filter(sym => !term || sym.includes(term) || (statsMap[sym].sector && statsMap[sym].sector.toUpperCase().includes(term)));
+
+  filteredSymbols.sort((a, b) => statsMap[b].total_trades - statsMap[a].total_trades);
+
+  let html = "";
+  filteredSymbols.forEach(sym => {
+    const s = statsMap[sym];
+    const winRateClass = s.win_rate >= 50 ? "text-green" : "text-gold";
+    const retClass = s.avg_return_pct >= 0 ? "text-green" : "text-red";
+    const retSign = s.avg_return_pct >= 0 ? "+" : "";
+    const pnlSign = s.total_pnl_vnd >= 0 ? "+" : "";
+    const pnlClass = s.total_pnl_vnd >= 0 ? "text-green" : "text-red";
+    const pnlBillion = (s.total_pnl_vnd / 1000000000).toFixed(2);
+    const isActive = selectedSymbol === sym ? "active-symbol-row" : "";
+
+    html += `
+      <tr class="${isActive}" data-symbol="${sym}">
+        <td><span class="ticker-pill">${sym}</span></td>
+        <td><span class="sector-label">${getSectorVi(s.sector)}</span></td>
+        <td class="text-center font-mono"><strong>${s.total_trades}</strong></td>
+        <td class="text-center font-mono text-green">${s.win_trades}</td>
+        <td class="text-center font-mono text-red">${s.loss_trades}</td>
+        <td class="text-center font-mono ${winRateClass}"><strong>${s.win_rate}%</strong></td>
+        <td class="text-center font-mono ${retClass}"><strong>${retSign}${s.avg_return_pct}%</strong></td>
+        <td class="text-right font-mono text-green">+${s.best_trade_pct}%</td>
+        <td class="text-right font-mono text-red">${s.worst_trade_pct}%</td>
+        <td class="text-right font-mono ${pnlClass}"><strong>${pnlSign}${pnlBillion} Tỷ ₫</strong></td>
+        <td class="text-center font-mono">${s.avg_holding_days}d</td>
+        <td class="text-center">
+          <button class="btn-symbol-inspect" data-sym="${sym}">Xem Lệnh ➔</button>
+        </td>
+      </tr>
+    `;
+  });
+
+  tbody.innerHTML = html;
+
+  tbody.querySelectorAll("tr").forEach(tr => {
+    tr.addEventListener("click", () => {
+      const sym = tr.getAttribute("data-symbol");
+      if (sym) selectSymbol(sym);
+    });
+  });
+
+  tbody.querySelectorAll(".btn-symbol-inspect").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const sym = btn.getAttribute("data-sym");
+      if (sym) selectSymbol(sym);
+    });
+  });
+}
+
+function getFallbackSymbolStats() {
+  return {
+    "HPG": { "symbol": "HPG", "sector": "Materials", "total_trades": 163, "win_trades": 94, "loss_trades": 69, "win_rate": 57.7, "avg_return_pct": 2.99, "best_trade_pct": 39.76, "worst_trade_pct": -9.32, "total_pnl_vnd": 1581168756046, "avg_holding_days": 18.7 },
+    "FPT": { "symbol": "FPT", "sector": "Technology", "total_trades": 182, "win_trades": 112, "loss_trades": 70, "win_rate": 61.5, "avg_return_pct": 3.45, "best_trade_pct": 42.15, "worst_trade_pct": -8.54, "total_pnl_vnd": 1892450000000, "avg_holding_days": 21.2 },
+    "VCB": { "symbol": "VCB", "sector": "Banking", "total_trades": 145, "win_trades": 85, "loss_trades": 60, "win_rate": 58.6, "avg_return_pct": 2.75, "best_trade_pct": 28.40, "worst_trade_pct": -6.20, "total_pnl_vnd": 1120300000000, "avg_holding_days": 19.5 },
+    "MBB": { "symbol": "MBB", "sector": "Banking", "total_trades": 158, "win_trades": 90, "loss_trades": 68, "win_rate": 57.0, "avg_return_pct": 2.65, "best_trade_pct": 33.10, "worst_trade_pct": -7.10, "total_pnl_vnd": 1240000000000, "avg_holding_days": 17.8 },
+    "TCB": { "symbol": "TCB", "sector": "Banking", "total_trades": 138, "win_trades": 78, "loss_trades": 60, "win_rate": 56.5, "avg_return_pct": 2.50, "best_trade_pct": 31.50, "worst_trade_pct": -7.50, "total_pnl_vnd": 980000000000, "avg_holding_days": 18.0 }
+  };
 }
 
 // ==========================================
@@ -404,6 +854,11 @@ function setupTradeFilters() {
     document.getElementById("filter-symbol").value = "";
     document.getElementById("filter-outcome").value = "all";
     
+    selectedSymbol = null;
+    const banner = document.getElementById("selected-symbol-banner");
+    if (banner) banner.style.display = "none";
+    document.querySelectorAll("#symbol-stats-tbody tr").forEach(tr => tr.classList.remove("active-symbol-row"));
+
     rangePills.forEach(p => p.classList.remove("active"));
     document.querySelector('.range-pill[data-range="all"]').classList.add("active");
 

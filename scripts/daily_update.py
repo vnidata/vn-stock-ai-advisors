@@ -212,7 +212,184 @@ def run_daily_update():
             "news_notes": news_notes
         }
 
-    # 4. Assemble Daily Summary JSON payload with News Intelligence Radar
+    # 4. Generate structured Current Holdings, New Signals, and News Action Recommendations
+    # 4A. Consolidated Current Holdings
+    all_current_holdings = []
+    for adv_name, s_data in strategy_recommendations.items():
+        adv_clean = adv_name.replace("AI_Advisor_", "")
+        for item in s_data.get("top5", []):
+            sym = item["symbol"]
+            ret = item["current_return_pct"]
+            pnl_vnd = int(item["weight_pct"] * 10000000 * (ret / 100.0))  # Simulated PnL based on allocated capital
+
+            if ret >= 10.0:
+                status_text = "GẦN TARGET (+15%)"
+                status_badge = "pos-bold"
+                action_advice = "Sẵn sàng chốt lời từng phần / Nâng Trailing Stop"
+            elif ret > 0:
+                status_text = "ĐANG CÓ LÃI"
+                status_badge = "pos"
+                action_advice = "Tiếp tục nắm giữ theo xu hướng tăng"
+            elif ret > -3.0:
+                status_text = "TÍCH LŨY / HÒA VỐN"
+                status_badge = "neutral"
+                action_advice = "Giữ vị thế, quan sát hỗ trợ MA20"
+            else:
+                status_text = "CẢNH BÁO STOP LOSS"
+                status_badge = "neg"
+                action_advice = "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng"
+
+            all_current_holdings.append({
+                "symbol": sym,
+                "advisor": adv_name,
+                "advisor_name": adv_clean,
+                "sector": item["sector"],
+                "weight_pct": item["weight_pct"],
+                "entry_price": item["entry_price"],
+                "current_price": item["current_price"],
+                "daily_change_pct": item["daily_change_pct"],
+                "current_return_pct": ret,
+                "pnl_vnd": pnl_vnd,
+                "holding_days": s_data.get("rebalance_days", 14),
+                "stop_loss": item["stop_loss"],
+                "target_price": item["target_price"],
+                "status_text": status_text,
+                "status_badge": status_badge,
+                "action_advice": action_advice,
+                "technical_signal": item["technical_signal"],
+                "news_status": item["news_status"],
+                "news_badge": item["news_badge"],
+                "volume": item["volume"]
+            })
+
+    # 4B. Generate Actionable New Signals (Buy / Take Profit / Stop Loss / Switch)
+    new_signals = []
+    sig_id = 1
+    # Buy signals for strong candidates
+    for sym in symbols:
+        sym_news = news_sentiment_map.get(sym, {})
+        if sym_news.get("has_red_flag", False):
+            continue
+        df_feat = market_data.get(sym)
+        if df_feat is None or df_feat.empty:
+            continue
+        latest = df_feat.iloc[-1]
+        rs = float(latest.get("rs_rating", 50.0))
+        vol_ratio = float(latest.get("vol_ratio", 1.0))
+        dist_sma20 = float(latest.get("dist_sma20", 0.0))
+        curr_p = current_prices.get(sym, 0.0)
+
+        if rs >= 75 and dist_sma20 > -0.01:
+            target_p = round(curr_p * 1.15, 2)
+            sl_p = round(curr_p * 0.955, 2)
+            reason_tech = f"RS rating {rs:.0f} dẫn dắt ngành | {'Bùng nổ Vol ' + str(round(vol_ratio, 1)) + 'x' if vol_ratio >= 1.2 else 'Bám sát trên MA20'}"
+            advisor_rationale = "Tối ưu hóa tỷ lệ RR 3.3 : 1 (Mục tiêu +15% / Cắt lỗ -4.5%) - Điểm vào sóng tăng"
+
+            new_signals.append({
+                "id": f"SIG-BUY-{sig_id:02d}",
+                "symbol": sym,
+                "sector": SECTOR_MAP.get(sym, "Bluechip"),
+                "signal_type": "MUA MỚI",
+                "signal_badge": "buy",
+                "recommended_advisor": "Chủ Động (2W) & CANSLIM",
+                "signal_price": curr_p,
+                "target_price": target_p,
+                "target_return_pct": 15.0,
+                "stop_loss": sl_p,
+                "max_loss_pct": -4.5,
+                "rr_ratio": "3.3 : 1",
+                "recommended_weight_pct": 20.0,
+                "technical_reason": reason_tech,
+                "advisor_rationale": advisor_rationale,
+                "news_status": sym_news.get("status", "THÔNG TIN BÌNH ỔN"),
+                "news_badge": sym_news.get("status_badge", "neutral")
+            })
+            sig_id += 1
+
+    # Take profit signals (return >= 12% or target profit reached)
+    for h in all_current_holdings:
+        if h["current_return_pct"] >= 10.0:
+            new_signals.append({
+                "id": f"SIG-TP-{sig_id:02d}",
+                "symbol": h["symbol"],
+                "sector": h["sector"],
+                "signal_type": "CHỐT LỜI",
+                "signal_badge": "profit",
+                "recommended_advisor": h["advisor_name"],
+                "signal_price": h["current_price"],
+                "target_price": h["target_price"],
+                "target_return_pct": h["current_return_pct"],
+                "stop_loss": h["stop_loss"],
+                "max_loss_pct": 0.0,
+                "rr_ratio": "Đã đạt mục tiêu",
+                "recommended_weight_pct": 0.0,
+                "technical_reason": f"Lợi nhuận đạt +{h['current_return_pct']}% tiến sát mục tiêu chốt lời",
+                "advisor_rationale": "Chủ động hiện thực hóa lợi nhuận, nâng tiền mặt về mức an toàn",
+                "news_status": h["news_status"],
+                "news_badge": h["news_badge"]
+            })
+            sig_id += 1
+
+    # Stop loss signals (return <= -4.0%)
+    for h in all_current_holdings:
+        if h["current_return_pct"] <= -4.0:
+            new_signals.append({
+                "id": f"SIG-SL-{sig_id:02d}",
+                "symbol": h["symbol"],
+                "sector": h["sector"],
+                "signal_type": "CẮT LỖ BẢO VỆ VỐN",
+                "signal_badge": "stop",
+                "recommended_advisor": h["advisor_name"],
+                "signal_price": h["current_price"],
+                "target_price": h["target_price"],
+                "target_return_pct": h["current_return_pct"],
+                "stop_loss": h["stop_loss"],
+                "max_loss_pct": -4.5,
+                "rr_ratio": "Bảo vệ vốn",
+                "recommended_weight_pct": 0.0,
+                "technical_reason": f"Hiệu suất suy giảm {h['current_return_pct']}%, chạm ngưỡng kỷ luật dừng lỗ",
+                "advisor_rationale": "Cắt lỗ dứt khoát -4.5% để triệt tiêu nguy cơ sụt giảm tài sản lớn (Max DD)",
+                "news_status": h["news_status"],
+                "news_badge": h["news_badge"]
+            })
+            sig_id += 1
+
+    # 4C. News Action Recommendations
+    news_actions = {
+        "catalysts": [],
+        "red_flags": [],
+        "cautions": [],
+        "summary": {
+            "total_catalysts": 0,
+            "total_red_flags": 0,
+            "total_cautions": 0
+        }
+    }
+    for sym, s_info in news_sentiment_map.items():
+        item = {
+            "symbol": sym,
+            "sector": SECTOR_MAP.get(sym, "Bluechip"),
+            "net_sentiment": s_info.get("net_sentiment", 0.0),
+            "sentiment_multiplier": s_info.get("sentiment_multiplier", 1.0),
+            "status": s_info.get("status", "THÔNG TIN BÌNH ỔN"),
+            "status_badge": s_info.get("status_badge", "neutral"),
+            "latest_headline": s_info.get("latest_headline", "Không có tin bất thường"),
+            "action_desc": s_info.get("action_desc", "Duy trì khuyến nghị gốc"),
+            "news_count": s_info.get("news_count", 0),
+            "re_eval_note": s_info.get("re_eval_note", "")
+        }
+        if s_info.get("has_red_flag", False) or s_info.get("sentiment_multiplier", 1.0) == 0.0:
+            news_actions["red_flags"].append(item)
+        elif s_info.get("has_catalyst", False) or s_info.get("sentiment_multiplier", 1.0) > 1.0:
+            news_actions["catalysts"].append(item)
+        else:
+            news_actions["cautions"].append(item)
+
+    news_actions["summary"]["total_catalysts"] = len(news_actions["catalysts"])
+    news_actions["summary"]["total_red_flags"] = len(news_actions["red_flags"])
+    news_actions["summary"]["total_cautions"] = len(news_actions["cautions"])
+
+    # 5. Assemble Daily Summary JSON payload
     daily_payload = {
         "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S (UTC+7)"),
         "trading_date": latest_date_str,
@@ -231,6 +408,9 @@ def run_daily_update():
             "system_verdict": news_report.get("system_verdict", "AN TOÀN"),
             "last_scanned": news_report.get("last_updated", "")
         },
+        "current_holdings": all_current_holdings,
+        "new_signals": new_signals,
+        "news_action_recommendations": news_actions,
         "universe_count": len(market_data),
         "strategies": strategy_recommendations
     }

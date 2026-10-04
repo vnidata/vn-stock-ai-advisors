@@ -62,14 +62,17 @@
 
     <!-- Navigation Tabs Bar -->
     <nav class="dashboard-tabs">
-      <button class="tab-btn active" data-tab="tab-recommendations">
-        <span class="tab-icon">🎯</span> Khuyến Nghị Hôm Nay (Top 5)
+      <button class="tab-btn active" data-tab="tab-holdings">
+        <span class="tab-icon">💼</span> Danh Mục Hiện Hữu
       </button>
-      <button class="tab-btn" data-tab="tab-news">
-        <span class="tab-icon">📰</span> Tin Tức & Cảnh Báo Bất Thường
+      <button class="tab-btn" data-tab="tab-signals">
+        <span class="tab-icon">⚡</span> Tín Hiệu Mua/Bán Mới
+      </button>
+      <button class="tab-btn" data-tab="tab-news-actions">
+        <span class="tab-icon">📰</span> Khuyến Nghị Theo Tin Tức
       </button>
       <button class="tab-btn" data-tab="tab-trades">
-        <span class="tab-icon">📜</span> Lịch Sử Lệnh & Hiệu Suất Quá Khứ
+        <span class="tab-icon">📜</span> Lịch Sử Lệnh & Tra Cứu Từng Mã
       </button>
       <button class="tab-btn" data-tab="tab-performance">
         <span class="tab-icon">🏆</span> Xếp Hạng 15 Năm & Đồ Thị Vốn
@@ -79,30 +82,173 @@
       </button>
     </nav>
 
-    <!-- TAB 1: TODAY'S TOP 5 RECOMMENDATIONS -->
-    <div class="tab-pane active" id="tab-recommendations">
+    <!-- TAB 1: CURRENT PORTFOLIO HOLDINGS -->
+    <div class="tab-pane active" id="tab-holdings">
       <section class="dashboard-section">
         <div class="section-header">
           <div>
-            <h2 class="section-title">Khuyến Nghị Top 5 Cổ Phiếu Hôm Nay (Copy Trading)</h2>
-            <p class="section-subtitle">Tối ưu danh mục 5 mã dẫn dắt theo từng khẩu vị rủi ro, cập nhật giá đóng cửa hiện tại và hiệu suất nắm giữ</p>
+            <h2 class="section-title">Danh Mục Cổ Phiếu Đang Nắm Giữ (Current Portfolio Holdings)</h2>
+            <p class="section-subtitle">Theo dõi trạng thái thời gian thực các mã đang nắm giữ: giá vốn, giá hiện tại, lãi/lỗ %, số ngày giữ và ngưỡng quản trị rủi ro T+2</p>
           </div>
           <div class="rebalance-tag" id="rebalance-status-tag">Dữ liệu EOD Khớp Lệnh Mới Nhất</div>
         </div>
 
-        <div class="strategy-cards-grid" id="strategy-cards-container">
-          <div class="loading-spinner">Đang nạp dữ liệu danh mục khuyến nghị...</div>
+        <!-- Holdings Summary KPI Grid -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-label">TỔNG VỊ THẾ NẮM GIỮ</div>
+            <div class="kpi-value text-blue" id="kpi-holdings-count">0 mã</div>
+            <div class="kpi-sub">Các chuyên gia AI đang giải ngân</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">HIỆU SUẤT TẠM TÍNH BÌNH QUÂN</div>
+            <div class="kpi-value text-green" id="kpi-holdings-avg-ret">+0.0%</div>
+            <div class="kpi-sub" id="kpi-holdings-win-ratio">0 vị thế lãi / 0 vị thế lỗ</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">VỊ THẾ AN TOÀN TRÊN NỀN MA20</div>
+            <div class="kpi-value text-cyan" id="kpi-holdings-safe">0 mã</div>
+            <div class="kpi-sub">Đang bảo toàn lợi nhuận</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">CẢNH BÁO STOP LOSS (-4.5%)</div>
+            <div class="kpi-value text-red" id="kpi-holdings-at-risk">0 mã</div>
+            <div class="kpi-sub">Kỷ luật cắt lỗ bảo toàn vốn</div>
+          </div>
+        </div>
+
+        <!-- Holdings Filter & View Mode Controls -->
+        <div class="holdings-control-bar">
+          <div class="advisor-chips-group">
+            <span class="range-label">Chuyên gia:</span>
+            <button class="holdings-chip active" data-advisor="all">Tất Cả Chuyên Gia</button>
+            <button class="holdings-chip" data-advisor="AI_Advisor_ChuDong_2W">Chủ Động (2W)</button>
+            <button class="holdings-chip" data-advisor="AI_Advisor_NhipNhang_1M">Nhịp Nhàng (1M)</button>
+            <button class="holdings-chip" data-advisor="AI_Advisor_BenBi_3M">Bền Bỉ (3M)</button>
+            <button class="holdings-chip" data-advisor="AI_Advisor_CANSLIM_Breakout">CANSLIM Breakout</button>
+          </div>
+          <div class="view-toggle-group">
+            <button class="view-toggle-btn active" id="btn-view-table">📋 Bảng Tổng Hợp Vị Thế</button>
+            <button class="view-toggle-btn" id="btn-view-cards">🗂️ Thẻ Khuyến Nghị (Top 5)</button>
+          </div>
+        </div>
+
+        <!-- View 1: Consolidated Holdings Table -->
+        <div class="table-card" id="holdings-table-container">
+          <div class="table-responsive">
+            <table class="data-table" id="holdings-table">
+              <thead>
+                <tr>
+                  <th>Mã CP</th>
+                  <th>Chuyên Gia AI</th>
+                  <th>Ngành</th>
+                  <th class="text-center">Tỷ Trọng</th>
+                  <th class="text-right">Giá Vốn</th>
+                  <th class="text-right">Giá Hiện Tại</th>
+                  <th class="text-center">Trong Ngày</th>
+                  <th class="text-center">Lãi/Lỗ Hiện Tại</th>
+                  <th class="text-center">Số Ngày Giữ</th>
+                  <th class="text-right">Cắt Lỗ (-4.5%)</th>
+                  <th class="text-right">Mục Tiêu (+15%)</th>
+                  <th class="text-center">Trạng Thái Vị Thế</th>
+                  <th>Hành Động Đề Xuất</th>
+                </tr>
+              </thead>
+              <tbody id="holdings-table-body">
+                <tr><td colspan="13" class="text-center">Đang tải danh mục cổ phiếu đang nắm giữ...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- View 2: Advisor Top 5 Cards Container -->
+        <div class="strategy-cards-grid" id="strategy-cards-container" style="display: none; margin-top: 16px;">
+          <div class="loading-spinner">Đang nạp thẻ khuyến nghị theo chuyên gia...</div>
         </div>
       </section>
     </div>
 
-    <!-- TAB: FINANCIAL NEWS & ABNORMAL RISK RADAR -->
-    <div class="tab-pane" id="tab-news">
+    <!-- TAB 2: NEW BUY/SELL SIGNALS -->
+    <div class="tab-pane" id="tab-signals">
       <section class="dashboard-section">
         <div class="section-header">
           <div>
-            <h2 class="section-title">Rà Soát Tin Tức, Công Bố Thông Tin & Cảnh Báo Bất Thường</h2>
-            <p class="section-subtitle">Hệ thống NLP phân tích thời gian thực tin tức tài chính, công bố thông tin (CBTT) và sự kiện bất thường để tự động tái đánh giá danh mục</p>
+            <h2 class="section-title">Tín Hiệu Mua / Bán Mới Phát Sinh (New Buy/Sell Signals)</h2>
+            <p class="section-subtitle">Tín hiệu giao dịch tự động kích hoạt tại kỳ EOD gần nhất: MUA MỚI, CHỐT LỜI (+15%), CẮT LỖ KỶ LUẬT (-4.5%) và ĐẢO DANH MỤC</p>
+          </div>
+          <div class="rebalance-tag" id="signals-sync-tag">Kỳ Khớp Lệnh Gần Nhất</div>
+        </div>
+
+        <!-- Signals KPI Grid -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-label">TÍN HIỆU MUA MỚI</div>
+            <div class="kpi-value text-green" id="kpi-sig-buy">0 tín hiệu</div>
+            <div class="kpi-sub">Bùng nổ RS > 75 & Vượt MA20</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">TÍN HIỆU CHỐT LỜI</div>
+            <div class="kpi-value text-gold" id="kpi-sig-tp">0 tín hiệu</div>
+            <div class="kpi-sub">Chạm mục tiêu kỳ vọng (+15%)</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">TÍN HIỆU CẮT LỖ BẢO TOÀN VỐN</div>
+            <div class="kpi-value text-red" id="kpi-sig-sl">0 tín hiệu</div>
+            <div class="kpi-sub">Siết kỷ luật -4.5% tối đa</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">TỶ LỆ LỢI NHUẬN / RỦI RO (R:R)</div>
+            <div class="kpi-value text-cyan" id="kpi-sig-rr">3.3 : 1</div>
+            <div class="kpi-sub">Kỳ vọng +15% / Rủi ro -4.5%</div>
+          </div>
+        </div>
+
+        <!-- Signals Filter Bar -->
+        <div class="signals-filter-bar">
+          <div class="signals-filter-buttons">
+            <button class="sig-filter-btn active" data-sig-filter="all">Tất Cả Tín Hiệu</button>
+            <button class="sig-filter-btn" data-sig-filter="buy">🟢 Tín Hiệu MUA MỚI</button>
+            <button class="sig-filter-btn" data-sig-filter="profit">🟡 Tín Hiệu CHỐT LỜI</button>
+            <button class="sig-filter-btn" data-sig-filter="stop">🔴 Tín Hiệu CẮT LỖ</button>
+          </div>
+        </div>
+
+        <!-- Signals Table Card -->
+        <div class="table-card">
+          <div class="table-responsive">
+            <table class="data-table" id="signals-table">
+              <thead>
+                <tr>
+                  <th>Mã Tín Hiệu</th>
+                  <th>Mã CP</th>
+                  <th>Loại Tín Hiệu</th>
+                  <th>Chuyên Gia Đề Xuất</th>
+                  <th>Ngành</th>
+                  <th class="text-right">Giá Tín Hiệu</th>
+                  <th class="text-right">Giá Mục Tiêu</th>
+                  <th class="text-right">Ngưỡng Dừng Lỗ</th>
+                  <th class="text-center">Tỷ Lệ R:R</th>
+                  <th class="text-center">Tỷ Trọng Đề Xuất</th>
+                  <th>Xung Lực Kỹ Thuật</th>
+                  <th>Luận Điểm Giao Dịch</th>
+                </tr>
+              </thead>
+              <tbody id="signals-table-body">
+                <tr><td colspan="12" class="text-center">Đang tải danh sách tín hiệu giao dịch mới...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- TAB 3: NEWS ACTION RECOMMENDATIONS -->
+    <div class="tab-pane" id="tab-news-actions">
+      <section class="dashboard-section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Khuyến Nghị Hành Động Dựa Trên Phân Tích Tin Tức & Bất Thường</h2>
+            <p class="section-subtitle">Hệ thống AI NLP quét liên tục tin tức tài chính, công bố thông tin (CBTT) và sự kiện bất thường để đưa ra khuyến nghị hành động tức thời</p>
           </div>
           <div class="rebalance-tag" id="news-sync-time">Cập nhật tự động đa nguồn</div>
         </div>
@@ -131,7 +277,38 @@
           </div>
         </div>
 
-        <!-- AI Symbol News Re-evaluation Matrix -->
+        <!-- 3 Categorized Action Boxes -->
+        <div class="news-action-boxes-grid">
+          <!-- Box 1: Catalysts -->
+          <div class="action-box border-catalyst">
+            <div class="action-box-header">
+              <span class="action-box-icon">🔥</span>
+              <div>
+                <h3 class="action-box-title text-green">NHÓM ƯU TIÊN MUA ĐÓN SÓNG (CATALYST BOOST)</h3>
+                <span class="action-box-sub">Hệ số thưởng điểm +15% đến +20% (1.20x) nhờ KQKD vượt trội & vĩ mô hỗ trợ</span>
+              </div>
+            </div>
+            <div class="action-box-content" id="catalyst-actions-list">
+              <div class="loading-spinner">Đang phân tích các mã có catalyst tích cực...</div>
+            </div>
+          </div>
+
+          <!-- Box 2: Red Flags -->
+          <div class="action-box border-redflag">
+            <div class="action-box-header">
+              <span class="action-box-icon">⚠️</span>
+              <div>
+                <h3 class="action-box-title text-red">NHÓM CẢNH BÁO & PHỦ QUYẾT RỦI RO (RED FLAG VETO)</h3>
+                <span class="action-box-sub">Hệ số Phủ Quyết 0.00x: Tuyệt đối không giải ngân / Bán tháo cắt giảm ngay lập tức</span>
+              </div>
+            </div>
+            <div class="action-box-content" id="redflag-actions-list">
+              <div class="loading-spinner">Đang kiểm tra rủi ro bất thường và phủ quyết...</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Symbol Re-evaluation Matrix Table -->
         <div class="news-matrix-card">
           <div class="matrix-header">
             <div>
@@ -177,11 +354,10 @@
             <div class="loading-spinner">Đang nạp dòng tin tức...</div>
           </div>
         </div>
-
       </section>
     </div>
 
-    <!-- TAB 3: TRADE HISTORY & ORDER PERFORMANCE -->
+    <!-- TAB 4: TRADE HISTORY & ORDER PERFORMANCE -->
     <div class="tab-pane" id="tab-trades">
       <section class="dashboard-section">
         <div class="section-header">
@@ -225,10 +401,61 @@
           </div>
         </div>
 
+        <!-- PER-SYMBOL PERFORMANCE ANALYTICS SECTION -->
+        <div class="symbol-analytics-card">
+          <div class="symbol-analytics-header">
+            <div>
+              <h3 class="matrix-title">📊 Bảng Tổng Hợp Hiệu Suất Theo Từng Mã Chứng Khoán</h3>
+              <span class="matrix-hint">Thống kê toàn diện Win Rate, Lãi/Lỗ và Số ngày nắm giữ của từng cổ phiếu — Nhấp vào mã để tra cứu chi tiết lịch sử lệnh</span>
+            </div>
+            <div class="symbol-search-box">
+              <input type="text" id="symbol-stats-search" class="filter-input input-sm" placeholder="Tìm mã CP trong bảng...">
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table symbol-stats-table" id="symbol-stats-table">
+              <thead>
+                <tr>
+                  <th>Mã CP</th>
+                  <th>Ngành</th>
+                  <th class="text-center">Tổng Lệnh</th>
+                  <th class="text-center">Lệnh Thắng</th>
+                  <th class="text-center">Lệnh Thua</th>
+                  <th class="text-center">Win Rate (%)</th>
+                  <th class="text-center">Lãi/Lỗ TB (%)</th>
+                  <th class="text-right">Trade Tốt Nhất</th>
+                  <th class="text-right">Trade Tệ Nhất</th>
+                  <th class="text-right">Tổng PnL VND</th>
+                  <th class="text-center">Giữ TB (ngày)</th>
+                  <th class="text-center">Thao Tác</th>
+                </tr>
+              </thead>
+              <tbody id="symbol-stats-tbody">
+                <tr><td colspan="12" class="text-center">Đang tải bảng thống kê hiệu suất từng mã...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SELECTED SYMBOL DRILL-DOWN BANNER -->
+        <div class="selected-symbol-banner" id="selected-symbol-banner" style="display: none;">
+          <div class="selected-symbol-info">
+            <div class="symbol-badge-large" id="selected-sym-code">HPG</div>
+            <div>
+              <div class="selected-sym-title" id="selected-sym-title">Chi Tiết Lịch Sử Lệnh Cổ Phiếu HPG</div>
+              <div class="selected-sym-stats" id="selected-sym-summary">
+                Ngành: Thép & Vật Liệu · Win Rate: 57.7% · Tổng lệnh: 163 · Lãi TB: +2.99% · PnL: +1.581 tỷ ₫
+              </div>
+            </div>
+          </div>
+          <button class="btn-clear-symbol" id="btn-clear-symbol-filter">❌ Xem Tất Cả Mã</button>
+        </div>
+
         <!-- Filter & Search Control Panel -->
         <div class="filter-panel-card">
           <div class="filter-row-header">
-            <span class="filter-title">🔍 BỘ LỌC & TRA CỨU THEO THỜI GIAN</span>
+            <span class="filter-title">🔍 BỘ LỌC & TRA CỨU THEO THỜI GIAN VÀ CHUYÊN GIA</span>
             <button class="btn-reset-filter" id="btn-reset-filters">Đặt Lại Bộ Lọc</button>
           </div>
 
