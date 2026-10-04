@@ -126,13 +126,15 @@ def generate_all_trades_history():
     print("Loading data for trade history generator...")
     config = get_default_config()
     client = VnStockClient(cache_dir=config.data_cache_dir)
-    bm_df = client.get_historical_quotes(config.benchmark_symbol, start_date="2010-01-01", end_date="2025-12-31")
+    today_str = pd.Timestamp.now().strftime("%Y-%m-%d")
+    print(f"Generating full trade history from 2010-01-01 to {today_str} (including year 2026)...")
+    bm_df = client.get_historical_quotes(config.benchmark_symbol, start_date="2010-01-01", end_date=today_str)
     bm_df = TechnicalFeatureEngineer.compute_features(bm_df)
 
     symbols = ["FPT", "HPG", "VCB", "MBB", "TCB", "ACB", "SSI", "VND", "VHM", "MWG", "MSN", "VNM", "DGC", "GAS", "GMD"]
     market_data = {}
     for sym in symbols:
-        df = client.get_historical_quotes(sym, start_date="2010-01-01", end_date="2025-12-31")
+        df = client.get_historical_quotes(sym, start_date="2010-01-01", end_date=today_str)
         if df is not None and len(df) > 30:
             market_data[sym] = TechnicalFeatureEngineer.compute_features(df, benchmark_df=bm_df)
 

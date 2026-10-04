@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-04 20:05:11 (UTC+7)",
+  "last_updated": "2026-10-04 20:17:32 (UTC+7)",
   "trading_date": "2026-10-02",
   "vnindex": {
     "close": 1737.71,
@@ -14,7 +14,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 2,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-04 20:05:10"
+    "last_scanned": "2026-10-04 20:17:32"
   },
   "current_holdings": [
     {
