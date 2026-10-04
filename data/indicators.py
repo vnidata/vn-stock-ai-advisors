@@ -89,17 +89,10 @@ class TechnicalFeatureEngineer:
         df["vol_sma_20"] = volume.rolling(20).mean()
         df["vol_ratio"] = volume / (df["vol_sma_20"] + 1e-9)
         
-        # On-Balance Volume (OBV)
-        obv = [0]
-        for i in range(1, len(df)):
-            if close.iloc[i] > close.iloc[i - 1]:
-                obv.append(obv[-1] + volume.iloc[i])
-            elif close.iloc[i] < close.iloc[i - 1]:
-                obv.append(obv[-1] - volume.iloc[i])
-            else:
-                obv.append(obv[-1])
-        df["obv"] = obv
-        df["obv_sma20"] = pd.Series(obv).rolling(20).mean()
+        # On-Balance Volume (OBV) - Vectorized
+        direction = np.sign(close.diff().fillna(0))
+        df["obv"] = (direction * volume).cumsum()
+        df["obv_sma20"] = df["obv"].rolling(20).mean()
         df["obv_trend"] = (df["obv"] > df["obv_sma20"]).astype(int)
 
         # 6. 52-Week High / Low & Drawdown

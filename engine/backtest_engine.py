@@ -77,14 +77,20 @@ class BacktestEngine:
         rebalance_cycle = advisor.rebalance_days
         portfolio_snapshots = []
 
+        # Precompute price lookup map for O(1) access
+        price_lookup: Dict[str, Dict[Any, float]] = {}
+        for sym, df in market_data_dict.items():
+            if "time" in df.columns and "close" in df.columns:
+                price_lookup[sym] = dict(zip(pd.to_datetime(df["time"]), df["close"].astype(float)))
+
         # 2. Daily simulation loop
         for current_date in trading_days:
-            # Build current price map
-            current_prices = {}
-            for sym, df in market_data_dict.items():
-                row = df[df["time"] == current_date]
-                if not row.empty:
-                    current_prices[sym] = float(row["close"].iloc[0])
+            # Build current price map in O(1)
+            current_prices = {
+                sym: price_lookup[sym][current_date]
+                for sym in price_lookup
+                if current_date in price_lookup[sym]
+            }
 
             # Check if current day is a rebalance day
             if days_since_rebalance >= rebalance_cycle:

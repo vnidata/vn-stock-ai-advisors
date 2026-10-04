@@ -1,10 +1,13 @@
 {
-  "last_updated": "2026-10-04 16:03:37 (UTC+7)",
+  "last_updated": "2026-10-04 17:29:10 (UTC+7)",
   "trading_date": "2026-10-02",
   "vnindex": {
     "close": 1737.71,
     "change_pct": -0.66,
-    "regime": "BEAR"
+    "regime": "BEAR",
+    "gainers": 2,
+    "losers": 11,
+    "unchanged": 2
   },
   "universe_count": 15,
   "strategies": {
@@ -13,51 +16,80 @@
       "description": "Chiến lược Chủ Động: Tần suất 2 tuần/lần, nhắm tới khách hàng Táo bạo, tối đa hóa Alpha qua đà tăng trưởng và bùng nổ thanh khoản.",
       "rebalance_days": 10,
       "allocation_method": "RankLadder",
+      "current_cycle_return_pct": 0.86,
+      "winning_picks": 3,
+      "total_picks": 5,
+      "cash_ratio_pct": 2.1,
       "top5": [
         {
           "symbol": "GMD",
           "weight_pct": 27.4,
           "score": 0.3645,
           "sector": "Logistics",
+          "entry_price": 77.0,
           "current_price": 77.6,
-          "stop_loss": 72.17,
-          "target_price": 89.24
+          "daily_change_pct": -1.15,
+          "current_return_pct": 0.78,
+          "stop_loss": 71.61,
+          "target_price": 88.55,
+          "volume": 1073400,
+          "technical_signal": "Giữ vững nền MA20"
         },
         {
           "symbol": "MSN",
           "weight_pct": 22.5,
           "score": 0.3348,
           "sector": "Consumer",
+          "entry_price": 67.7,
           "current_price": 70.7,
-          "stop_loss": 65.75,
-          "target_price": 81.3
+          "daily_change_pct": -0.28,
+          "current_return_pct": 4.43,
+          "stop_loss": 62.96,
+          "target_price": 77.86,
+          "volume": 8880100,
+          "technical_signal": "Giữ vững nền MA20"
         },
         {
           "symbol": "TCB",
           "weight_pct": 18.6,
           "score": 0.2976,
           "sector": "Banking",
+          "entry_price": 32.25,
           "current_price": 32.25,
+          "daily_change_pct": -2.27,
+          "current_return_pct": 0.0,
           "stop_loss": 29.99,
-          "target_price": 37.09
+          "target_price": 37.09,
+          "volume": 14182100,
+          "technical_signal": "Tích lũy chờ dòng tiền"
         },
         {
           "symbol": "MWG",
           "weight_pct": 15.7,
           "score": 0.2717,
           "sector": "Retail",
+          "entry_price": 71.7,
           "current_price": 73.2,
-          "stop_loss": 68.08,
-          "target_price": 84.18
+          "daily_change_pct": 0.83,
+          "current_return_pct": 2.09,
+          "stop_loss": 66.68,
+          "target_price": 82.45,
+          "volume": 2571800,
+          "technical_signal": "Giữ vững nền MA20"
         },
         {
           "symbol": "VNM",
           "weight_pct": 13.7,
           "score": 0.226,
           "sector": "Consumer",
+          "entry_price": 60.3,
           "current_price": 57.3,
-          "stop_loss": 53.29,
-          "target_price": 65.89
+          "daily_change_pct": -2.22,
+          "current_return_pct": -4.98,
+          "stop_loss": 56.08,
+          "target_price": 69.34,
+          "volume": 3579300,
+          "technical_signal": "Tích lũy chờ dòng tiền"
         }
       ]
     },
@@ -66,51 +98,80 @@
       "description": "Chiến lược Nhịp Nhàng: Tần suất 1 tháng/lần, nhắm tới khách hàng Cân bằng, duy trì tăng trưởng ổn định và hạn chế biến động thái quá.",
       "rebalance_days": 21,
       "allocation_method": "EQW",
+      "current_cycle_return_pct": -1.11,
+      "winning_picks": 3,
+      "total_picks": 5,
+      "cash_ratio_pct": 2.0,
       "top5": [
         {
           "symbol": "GMD",
           "weight_pct": 19.6,
           "score": 0.3172,
           "sector": "Logistics",
+          "entry_price": 77.4,
           "current_price": 77.6,
-          "stop_loss": 72.17,
-          "target_price": 89.24
+          "daily_change_pct": -1.15,
+          "current_return_pct": 0.26,
+          "stop_loss": 71.98,
+          "target_price": 89.01,
+          "volume": 1073400,
+          "technical_signal": "Giữ vững nền MA20"
         },
         {
           "symbol": "MSN",
           "weight_pct": 19.6,
           "score": 0.2929,
           "sector": "Consumer",
+          "entry_price": 69.0,
           "current_price": 70.7,
-          "stop_loss": 65.75,
-          "target_price": 81.3
+          "daily_change_pct": -0.28,
+          "current_return_pct": 2.46,
+          "stop_loss": 64.17,
+          "target_price": 79.35,
+          "volume": 8880100,
+          "technical_signal": "Giữ vững nền MA20"
         },
         {
           "symbol": "TCB",
           "weight_pct": 19.6,
           "score": 0.2674,
           "sector": "Banking",
+          "entry_price": 32.6,
           "current_price": 32.25,
-          "stop_loss": 29.99,
-          "target_price": 37.09
+          "daily_change_pct": -2.27,
+          "current_return_pct": -1.07,
+          "stop_loss": 30.32,
+          "target_price": 37.49,
+          "volume": 14182100,
+          "technical_signal": "Tích lũy chờ dòng tiền"
         },
         {
           "symbol": "MWG",
           "weight_pct": 19.6,
           "score": 0.2459,
           "sector": "Retail",
+          "entry_price": 73.1,
           "current_price": 73.2,
-          "stop_loss": 68.08,
-          "target_price": 84.18
+          "daily_change_pct": 0.83,
+          "current_return_pct": 0.14,
+          "stop_loss": 67.98,
+          "target_price": 84.06,
+          "volume": 2571800,
+          "technical_signal": "Giữ vững nền MA20"
         },
         {
           "symbol": "VNM",
           "weight_pct": 19.6,
           "score": 0.2445,
           "sector": "Consumer",
+          "entry_price": 61.9,
           "current_price": 57.3,
-          "stop_loss": 53.29,
-          "target_price": 65.89
+          "daily_change_pct": -2.22,
+          "current_return_pct": -7.43,
+          "stop_loss": 57.57,
+          "target_price": 71.18,
+          "volume": 3579300,
+          "technical_signal": "Tích lũy chờ dòng tiền"
         }
       ]
     },
@@ -119,51 +180,80 @@
       "description": "Chiến lược Bền Bỉ: Tần suất 3 tháng/lần, nhắm tới khách hàng Thận trọng và NAV lớn, tối ưu hóa chi phí giao dịch, bảo toàn vốn.",
       "rebalance_days": 63,
       "allocation_method": "RiskParity",
+      "current_cycle_return_pct": -0.79,
+      "winning_picks": 2,
+      "total_picks": 5,
+      "cash_ratio_pct": 2.0,
       "top5": [
         {
           "symbol": "GMD",
           "weight_pct": 23.6,
           "score": 0.481,
           "sector": "Logistics",
+          "entry_price": 76.4,
           "current_price": 77.6,
-          "stop_loss": 72.17,
-          "target_price": 89.24
+          "daily_change_pct": -1.15,
+          "current_return_pct": 1.57,
+          "stop_loss": 71.05,
+          "target_price": 87.86,
+          "volume": 1073400,
+          "technical_signal": "Giữ vững nền MA20"
         },
         {
           "symbol": "MSN",
           "weight_pct": 17.4,
           "score": 0.4456,
           "sector": "Consumer",
+          "entry_price": 71.8,
           "current_price": 70.7,
-          "stop_loss": 65.75,
-          "target_price": 81.3
+          "daily_change_pct": -0.28,
+          "current_return_pct": -1.53,
+          "stop_loss": 66.77,
+          "target_price": 82.57,
+          "volume": 8880100,
+          "technical_signal": "Giữ vững nền MA20"
         },
         {
           "symbol": "TCB",
           "weight_pct": 17.0,
           "score": 0.4293,
           "sector": "Banking",
+          "entry_price": 33.6,
           "current_price": 32.25,
-          "stop_loss": 29.99,
-          "target_price": 37.09
+          "daily_change_pct": -2.27,
+          "current_return_pct": -4.02,
+          "stop_loss": 31.25,
+          "target_price": 38.64,
+          "volume": 14182100,
+          "technical_signal": "Tích lũy chờ dòng tiền"
         },
         {
           "symbol": "VNM",
           "weight_pct": 20.7,
           "score": 0.4224,
           "sector": "Consumer",
+          "entry_price": 54.9,
           "current_price": 57.3,
-          "stop_loss": 53.29,
-          "target_price": 65.89
+          "daily_change_pct": -2.22,
+          "current_return_pct": 4.37,
+          "stop_loss": 51.06,
+          "target_price": 63.13,
+          "volume": 3579300,
+          "technical_signal": "Tích lũy chờ dòng tiền"
         },
         {
           "symbol": "MWG",
           "weight_pct": 19.3,
           "score": 0.4186,
           "sector": "Retail",
+          "entry_price": 77.69,
           "current_price": 73.2,
-          "stop_loss": 68.08,
-          "target_price": 84.18
+          "daily_change_pct": 0.83,
+          "current_return_pct": -5.78,
+          "stop_loss": 72.25,
+          "target_price": 89.34,
+          "volume": 2571800,
+          "technical_signal": "Giữ vững nền MA20"
         }
       ]
     },
@@ -172,51 +262,80 @@
       "description": "Chuyên gia CANSLIM/VSA: Săn đón điểm bùng nổ khối lượng, dẫn dắt chỉ số RS và cổ phiếu thiết lập đỉnh cao mới.",
       "rebalance_days": 10,
       "allocation_method": "EQW",
+      "current_cycle_return_pct": 0.45,
+      "winning_picks": 3,
+      "total_picks": 5,
+      "cash_ratio_pct": 2.0,
       "top5": [
         {
           "symbol": "GMD",
           "weight_pct": 19.6,
           "score": 0.4332,
           "sector": "Logistics",
+          "entry_price": 77.0,
           "current_price": 77.6,
-          "stop_loss": 72.17,
-          "target_price": 89.24
+          "daily_change_pct": -1.15,
+          "current_return_pct": 0.78,
+          "stop_loss": 71.61,
+          "target_price": 88.55,
+          "volume": 1073400,
+          "technical_signal": "Giữ vững nền MA20"
         },
         {
           "symbol": "MSN",
           "weight_pct": 19.6,
           "score": 0.3925,
           "sector": "Consumer",
+          "entry_price": 67.7,
           "current_price": 70.7,
-          "stop_loss": 65.75,
-          "target_price": 81.3
+          "daily_change_pct": -0.28,
+          "current_return_pct": 4.43,
+          "stop_loss": 62.96,
+          "target_price": 77.86,
+          "volume": 8880100,
+          "technical_signal": "Giữ vững nền MA20"
         },
         {
           "symbol": "TCB",
           "weight_pct": 19.6,
           "score": 0.3471,
           "sector": "Banking",
+          "entry_price": 32.25,
           "current_price": 32.25,
+          "daily_change_pct": -2.27,
+          "current_return_pct": 0.0,
           "stop_loss": 29.99,
-          "target_price": 37.09
+          "target_price": 37.09,
+          "volume": 14182100,
+          "technical_signal": "Tích lũy chờ dòng tiền"
         },
         {
           "symbol": "MWG",
           "weight_pct": 19.6,
           "score": 0.3223,
           "sector": "Retail",
+          "entry_price": 71.7,
           "current_price": 73.2,
-          "stop_loss": 68.08,
-          "target_price": 84.18
+          "daily_change_pct": 0.83,
+          "current_return_pct": 2.09,
+          "stop_loss": 66.68,
+          "target_price": 82.45,
+          "volume": 2571800,
+          "technical_signal": "Giữ vững nền MA20"
         },
         {
           "symbol": "VNM",
           "weight_pct": 19.6,
           "score": 0.2732,
           "sector": "Consumer",
+          "entry_price": 60.3,
           "current_price": 57.3,
-          "stop_loss": 53.29,
-          "target_price": 65.89
+          "daily_change_pct": -2.22,
+          "current_return_pct": -4.98,
+          "stop_loss": 56.08,
+          "target_price": 69.34,
+          "volume": 3579300,
+          "technical_signal": "Tích lũy chờ dòng tiền"
         }
       ]
     }

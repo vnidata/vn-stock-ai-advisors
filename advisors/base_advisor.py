@@ -67,11 +67,14 @@ class BaseAdvisor(ABC):
         Point-in-Time quantitative scoring function for a single stock.
         Uses strictly past data prior to as_of_date.
         """
-        past_df = df[df["time"] < as_of_date]
-        if len(past_df) < 30:
+        # High-performance Point-in-Time indexing via searchsorted
+        times = df["time"].values
+        target = np.datetime64(pd.to_datetime(as_of_date))
+        idx = int(np.searchsorted(times, target))
+        if idx < 30:
             return -999.0
 
-        latest = past_df.iloc[-1]
+        latest = df.iloc[idx - 1]
         
         # 1. Momentum factors
         roc_20 = latest.get("roc_20", 0.0)
