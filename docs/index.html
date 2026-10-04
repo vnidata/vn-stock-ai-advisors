@@ -54,9 +54,9 @@
         <div class="stat-sub">Lợi nhuận: +448.9% | MDD: -20.1%</div>
       </div>
       <div class="market-stat-card">
-        <div class="stat-header">QUY TẮC THỰC CHIẾN HOSE</div>
-        <div class="stat-badge badge-info">VIỆT NAM T+2</div>
-        <div class="stat-note">Khóa T+2, Lô 100, Biên độ ±7%, Phí 0.35%</div>
+        <div class="stat-header">KHUNG THỜI GIAN VẬN HÀNH</div>
+        <div class="stat-badge badge-live"><span class="pulse-dot"></span> THỰC CHIẾN: 2026 – NAY</div>
+        <div class="stat-note">Kiểm định chuẩn: 2010 – 2025 (15 năm)</div>
       </div>
     </section>
 
@@ -362,8 +362,32 @@
       <section class="dashboard-section">
         <div class="section-header">
           <div>
-            <h2 class="section-title">Nhật Ký & Lịch Sử Hiệu Suất Lệnh Giao Dịch Quá Khứ</h2>
-            <p class="section-subtitle">Tra cứu toàn diện hơn 4.000 lệnh giao dịch khép vòng (Round-trip Trades) theo thời gian, mã cổ phiếu và chuyên gia AI</p>
+            <h2 class="section-title">Nhật Ký & Lịch Sử Hiệu Suất Lệnh Giao Dịch</h2>
+            <p class="section-subtitle">Tra cứu toàn diện các lệnh kiểm định chuẩn 15 năm (2010–2025) và các lệnh thực chiến thời gian thực từ 2026 đến nay</p>
+          </div>
+        </div>
+
+        <!-- PHASE SWITCHER: LIVE REAL-TIME (2026+) vs STANDARDIZED BACKTEST (2010-2025) -->
+        <div class="phase-switcher-card">
+          <div class="phase-switcher-header">
+            <div>
+              <div class="phase-title">⚡ CHẾ ĐỘ DỮ LIỆU: KIỂM ĐỊNH CHUẨN 15 NĂM (2010–2025) vs THỰC CHIẾN THỜI GIAN THỰC (2026–NAY)</div>
+              <div class="phase-desc">Chiến lược được kiểm định chuẩn hóa 15 năm (2010 - 2025). Sau khi công bố chính thức vào 01/01/2026, chiến lược tự động kích hoạt chế độ thực chiến thời gian thực.</div>
+            </div>
+          </div>
+          <div class="phase-buttons-group">
+            <button class="phase-btn active" data-phase="live" id="btn-phase-live">
+              <span class="pulse-dot"></span> Lệnh Thực Chiến Thời Gian Thực (2026 – Nay)
+              <span class="phase-count" id="count-phase-live">(103 lệnh)</span>
+            </button>
+            <button class="phase-btn" data-phase="backtest" id="btn-phase-backtest">
+              <span>🏛️</span> Kiểm Định Backtest Chuẩn 15 Năm (2010 – 2025)
+              <span class="phase-count" id="count-phase-backtest">(1.765 lệnh)</span>
+            </button>
+            <button class="phase-btn" data-phase="all" id="btn-phase-all">
+              <span>🌐</span> Toàn Bộ Lịch Sử (2010 – Nay)
+              <span class="phase-count" id="count-phase-all">(1.868 lệnh)</span>
+            </button>
           </div>
         </div>
 
@@ -462,12 +486,13 @@
           <!-- Quick Time Range Pills -->
           <div class="quick-range-group">
             <span class="range-label">Khoảng thời gian:</span>
-            <button class="range-pill active" data-range="all">Tất Cả (2010 - 2026)</button>
+            <button class="range-pill active" data-range="2026">🔴 Thực Chiến 2026 (YTD)</button>
+            <button class="range-pill" data-range="15y">🏛️ Kiểm Định (2010 - 2025)</button>
+            <button class="range-pill" data-range="all">Tất Cả (2010 - 2026)</button>
             <button class="range-pill" data-range="1m">1 Tháng</button>
             <button class="range-pill" data-range="3m">3 Tháng</button>
             <button class="range-pill" data-range="6m">6 Tháng</button>
             <button class="range-pill" data-range="1y">1 Năm</button>
-            <button class="range-pill" data-range="2026">Năm 2026 (YTD)</button>
             <button class="range-pill" data-range="2025">Năm 2025</button>
             <button class="range-pill" data-range="2024">Năm 2024</button>
             <button class="range-pill" data-range="2023">Năm 2023</button>
@@ -479,7 +504,7 @@
           <div class="filters-grid">
             <div class="filter-field">
               <label for="filter-from-date">Từ ngày:</label>
-              <input type="date" id="filter-from-date" class="filter-input" value="2010-01-01">
+              <input type="date" id="filter-from-date" class="filter-input" value="2026-01-01">
             </div>
             <div class="filter-field">
               <label for="filter-to-date">Đến ngày:</label>
@@ -517,6 +542,7 @@
               <thead>
                 <tr>
                   <th>Mã Lệnh</th>
+                  <th>Chế Độ</th>
                   <th>Chuyên Gia AI</th>
                   <th>Mã CP</th>
                   <th>Ngành</th>
@@ -531,7 +557,7 @@
               </thead>
               <tbody id="trades-table-body">
                 <tr>
-                  <td colspan="11" class="text-center">Đang nạp dữ liệu lịch sử lệnh giao dịch...</td>
+                  <td colspan="12" class="text-center">Đang nạp dữ liệu lịch sử lệnh giao dịch...</td>
                 </tr>
               </tbody>
             </table>
@@ -661,6 +687,34 @@
           <div>
             <h2 class="section-title">Hội Đồng Tiến Hóa Darwinian (Tự Khắc Phục Điểm Yếu)</h2>
             <p class="section-subtitle">Cơ chế giám sát sức khỏe thuật toán, khám nghiệm tử thi lỗi và lai ghép gene thành công</p>
+          </div>
+        </div>
+
+        <!-- STANDARDIZED PROTOCOL BANNER -->
+        <div class="evolution-protocol-card">
+          <div class="protocol-header">
+            <span class="protocol-badge">QUY TRÌNH TIẾN HÓA & CÔNG BỐ CHIẾN LƯỢC</span>
+            <h3 class="protocol-title">Chu Kỳ Thẩm Định 15 Năm (2010–2025) ➔ Phê Duyệt Công Bố ➔ Giao Dịch Thực Chiến 2026</h3>
+          </div>
+          <div class="protocol-steps-grid">
+            <div class="protocol-step">
+              <span class="step-num">GIAI ĐOẠN 1</span>
+              <h4 class="step-title">Kiểm Định Backtest Chuẩn 15 Năm (2010 - 2025)</h4>
+              <p class="step-desc">Thẩm định qua 15 năm chu kỳ thị trường (Bong bóng 2018, Đại dịch Covid-19, Siết tín dụng 2022). Đo lường Sharpe Ratio, CAGR, Max Drawdown và kiểm tra độ bền vững không bị overfitting.</p>
+              <div class="step-status text-blue">✅ Hoàn tất thẩm định 1.765 lệnh</div>
+            </div>
+            <div class="protocol-step">
+              <span class="step-num">GIAI ĐOẠN 2</span>
+              <h4 class="step-title">Hội Đồng Darwinian Phê Duyệt & Công Bố</h4>
+              <p class="step-desc">Khám nghiệm tử thi loại bỏ chuyên gia yếu kém (Mean Reversion MDD -33.9%). Lai ghép tạo ra các chuyên gia tối ưu (CANSLIM Breakout, Bền Bỉ 3M). Chính thức công bố và cấp vốn vận hành.</p>
+              <div class="step-status text-gold">📜 Công bố chính thức: 01/01/2026</div>
+            </div>
+            <div class="protocol-step highlight">
+              <span class="step-num text-green">GIAI ĐOẠN 3 (HIỆN HỮU)</span>
+              <h4 class="step-title">Giao Dịch Thực Chiến Thời Gian Thực (2026 – Nay)</h4>
+              <p class="step-desc">Chiến lược được đưa vào vận hành thực tế: Tự động quét dữ liệu EOD hàng ngày từ Vnstock, liên kết tin tức tài chính, sinh tín hiệu Mua/Bán và quản trị danh mục thực tế theo thời gian thực.</p>
+              <div class="step-status text-green">🔴 Đang vận hành trực tiếp (103 lệnh YTD)</div>
+            </div>
           </div>
         </div>
 

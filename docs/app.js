@@ -4,6 +4,9 @@
 let globalDailyData = null;
 let allTrades = [];
 let allSymbolStats = {};
+let currentPhaseSymbolStats = {};
+let currentPhaseFilter = 'live'; // 'live', 'backtest', 'all'
+let tradesPayloadMetadata = null;
 let selectedSymbol = null;
 let currentHoldingsAdvisor = 'all';
 let currentSignalFilter = 'all';
@@ -40,6 +43,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   setupHoldingsControls();
   setupSignalControls();
   setupSymbolStatsControls();
+  setupPhaseSwitcher();
   setupTradeFilters();
   setupNewsFilters();
   setupChartZoom();
@@ -103,13 +107,28 @@ async function loadDashboardData() {
     const tradesRes = await fetch("data/trades_history.json").catch(() => null);
     if (tradesRes && tradesRes.ok) {
       const tradesPayload = await tradesRes.json();
+      tradesPayloadMetadata = tradesPayload;
       allTrades = tradesPayload.trades || [];
       allSymbolStats = tradesPayload.symbol_stats || {};
+
+      // Update Phase Switcher counts
+      if (tradesPayload.live_execution_summary) {
+        const liveCountElem = document.getElementById("count-phase-live");
+        if (liveCountElem) liveCountElem.innerText = `(${tradesPayload.live_execution_summary.total_trades.toLocaleString('vi-VN')} lệnh)`;
+      }
+      if (tradesPayload.backtest_audit_summary) {
+        const btCountElem = document.getElementById("count-phase-backtest");
+        if (btCountElem) btCountElem.innerText = `(${tradesPayload.backtest_audit_summary.total_trades.toLocaleString('vi-VN')} lệnh)`;
+      }
+      if (tradesPayload.total_trades) {
+        const allCountElem = document.getElementById("count-phase-all");
+        if (allCountElem) allCountElem.innerText = `(${tradesPayload.total_trades.toLocaleString('vi-VN')} lệnh)`;
+      }
     } else {
       allTrades = getFallbackTrades();
       allSymbolStats = getFallbackSymbolStats();
     }
-    renderSymbolStatsTable(allSymbolStats);
+    updatePhaseSymbolStats();
     applyTradeFilters();
 
     // 5. Fetch News & Corporate Disclosures Intelligence
@@ -525,6 +544,67 @@ function renderNewsActionRecommendations(data) {
 // ==========================================
 // 3D. PER-SYMBOL PERFORMANCE ANALYTICS & DRILL-DOWN
 // ==========================================
+function computeSymbolStats(tradesList) {
+  if (!tradesList || tradesList.length === 0) return {};
+  const stats = {};
+  tradesList.forEach(t => {
+    const sym = t.symbol;
+    if (!stats[sym]) {
+      stats[sym] = {
+        symbol: sym,
+        sector: t.sector || "Materials",
+        total_trades: 0,
+        win_trades: 0,
+        loss_trades: 0,
+        win_rate: 0,
+        avg_return_pct: 0,
+        best_trade_pct: -999,
+        worst_trade_pct: 999,
+        total_pnl_vnd: 0,
+        avg_holding_days: 0,
+        _total_return: 0,
+        _total_days: 0
+      };
+    }
+    const s = stats[sym];
+    s.total_trades += 1;
+    if (t.return_pct > 0) s.win_trades += 1;
+    else s.loss_trades += 1;
+    s._total_return += t.return_pct;
+    s._total_days += (t.holding_days || 1);
+    s.total_pnl_vnd += (t.pnl_vnd || 0);
+    if (t.return_pct > s.best_trade_pct) s.best_trade_pct = t.return_pct;
+    if (t.return_pct < s.worst_trade_pct) s.worst_trade_pct = t.return_pct;
+  });
+
+  Object.keys(stats).forEach(sym => {
+    const s = stats[sym];
+    s.win_rate = s.total_trades > 0 ? Number(((s.win_trades / s.total_trades) * 100).toFixed(1)) : 0;
+    s.avg_return_pct = s.total_trades > 0 ? Number((s._total_return / s.total_trades).toFixed(2)) : 0;
+    s.avg_holding_days = s.total_trades > 0 ? Number((s._total_days / s.total_trades).toFixed(1)) : 0;
+    if (s.best_trade_pct === -999) s.best_trade_pct = 0;
+    if (s.worst_trade_pct === 999) s.worst_trade_pct = 0;
+  });
+
+  return stats;
+}
+
+function updatePhaseSymbolStats() {
+  let targetTrades = allTrades;
+  if (currentPhaseFilter === "live") {
+    targetTrades = allTrades.filter(t => t.is_live);
+  } else if (currentPhaseFilter === "backtest") {
+    targetTrades = allTrades.filter(t => !t.is_live);
+  }
+  currentPhaseSymbolStats = computeSymbolStats(targetTrades);
+  if (Object.keys(currentPhaseSymbolStats).length === 0 && Object.keys(allSymbolStats).length > 0) {
+    currentPhaseSymbolStats = allSymbolStats;
+  }
+  const searchInput = document.getElementById("symbol-stats-search");
+  const term = searchInput ? searchInput.value : "";
+  renderSymbolStatsTable(currentPhaseSymbolStats, term);
+}
+
 function setupSymbolStatsControls() {
   const searchInput = document.getElementById("symbol-stats-search");
   if (searchInput) {
@@ -532,7 +612,7 @@ function setupSymbolStatsControls() {
     searchInput.addEventListener("input", () => {
       clearTimeout(debounce);
       debounce = setTimeout(() => {
-        renderSymbolStatsTable(allSymbolStats, searchInput.value);
+        renderSymbolStatsTable(currentPhaseSymbolStats, searchInput.value);
       }, 200);
     });
   }
@@ -547,7 +627,7 @@ function setupSymbolStatsControls() {
 
 function selectSymbol(sym) {
   selectedSymbol = sym;
-  const symData = allSymbolStats[sym];
+  const symData = currentPhaseSymbolStats[sym] || allSymbolStats[sym];
 
   const banner = document.getElementById("selected-symbol-banner");
   if (banner && symData) {
@@ -817,6 +897,57 @@ function renderArticlesList(articles) {
 // ==========================================
 // 4. TRADES HISTORY & TIME RANGE SEARCH
 // ==========================================
+function setupPhaseSwitcher() {
+  const phaseBtns = document.querySelectorAll(".phase-btn");
+  phaseBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const phase = btn.getAttribute("data-phase");
+      setPhaseMode(phase, true);
+    });
+  });
+}
+
+function setPhaseMode(phase, updateDates = true) {
+  currentPhaseFilter = phase;
+
+  // Update button active state
+  document.querySelectorAll(".phase-btn").forEach(b => {
+    if (b.getAttribute("data-phase") === phase) {
+      b.classList.add("active");
+    } else {
+      b.classList.remove("active");
+    }
+  });
+
+  const rangePills = document.querySelectorAll(".range-pill");
+
+  if (updateDates) {
+    const fromInput = document.getElementById("filter-from-date");
+    const toInput = document.getElementById("filter-to-date");
+    rangePills.forEach(p => p.classList.remove("active"));
+
+    if (phase === "live") {
+      if (fromInput) fromInput.value = "2026-01-01";
+      if (toInput) toInput.value = "2026-12-31";
+      const p26 = document.querySelector('.range-pill[data-range="2026"]');
+      if (p26) p26.classList.add("active");
+    } else if (phase === "backtest") {
+      if (fromInput) fromInput.value = "2010-01-01";
+      if (toInput) toInput.value = "2025-12-31";
+      const p15 = document.querySelector('.range-pill[data-range="15y"]');
+      if (p15) p15.classList.add("active");
+    } else {
+      if (fromInput) fromInput.value = "2010-01-01";
+      if (toInput) toInput.value = "2026-12-31";
+      const pAll = document.querySelector('.range-pill[data-range="all"]');
+      if (pAll) pAll.classList.add("active");
+    }
+  }
+
+  updatePhaseSymbolStats();
+  applyTradeFilters();
+}
+
 function setupTradeFilters() {
   // Quick range pills
   const rangePills = document.querySelectorAll(".range-pill");
@@ -848,8 +979,6 @@ function setupTradeFilters() {
 
   // Reset button
   document.getElementById("btn-reset-filters").addEventListener("click", () => {
-    document.getElementById("filter-from-date").value = "2010-01-01";
-    document.getElementById("filter-to-date").value = "2026-12-31";
     document.getElementById("filter-advisor").value = "all";
     document.getElementById("filter-symbol").value = "";
     document.getElementById("filter-outcome").value = "all";
@@ -859,10 +988,7 @@ function setupTradeFilters() {
     if (banner) banner.style.display = "none";
     document.querySelectorAll("#symbol-stats-tbody tr").forEach(tr => tr.classList.remove("active-symbol-row"));
 
-    rangePills.forEach(p => p.classList.remove("active"));
-    document.querySelector('.range-pill[data-range="all"]').classList.add("active");
-
-    applyTradeFilters();
+    setPhaseMode("live", true);
   });
 
   // Page size select
@@ -881,29 +1007,47 @@ function setDatesByRange(range) {
   if (range === "all") {
     fromInput.value = "2010-01-01";
     toInput.value = "2026-12-31";
+    setPhaseMode("all", false);
+  } else if (range === "15y") {
+    fromInput.value = "2010-01-01";
+    toInput.value = "2025-12-31";
+    setPhaseMode("backtest", false);
+  } else if (range === "2026") {
+    fromInput.value = "2026-01-01";
+    toInput.value = "2026-12-31";
+    setPhaseMode("live", false);
   } else if (range === "1m") {
     const d = new Date(now);
     d.setMonth(d.getMonth() - 1);
     fromInput.value = d.toISOString().split("T")[0];
     toInput.value = now.toISOString().split("T")[0];
+    setPhaseMode("live", false);
   } else if (range === "3m") {
     const d = new Date(now);
     d.setMonth(d.getMonth() - 3);
     fromInput.value = d.toISOString().split("T")[0];
     toInput.value = now.toISOString().split("T")[0];
+    setPhaseMode("live", false);
   } else if (range === "6m") {
     const d = new Date(now);
     d.setMonth(d.getMonth() - 6);
     fromInput.value = d.toISOString().split("T")[0];
     toInput.value = now.toISOString().split("T")[0];
+    setPhaseMode("live", false);
   } else if (range === "1y") {
     const d = new Date(now);
     d.setFullYear(d.getFullYear() - 1);
     fromInput.value = d.toISOString().split("T")[0];
     toInput.value = now.toISOString().split("T")[0];
+    setPhaseMode("all", false);
   } else if (/^\d{4}$/.test(range)) {
     fromInput.value = `${range}-01-01`;
     toInput.value = `${range}-12-31`;
+    if (parseInt(range, 10) <= 2025) {
+      setPhaseMode("backtest", false);
+    } else {
+      setPhaseMode("live", false);
+    }
   }
 }
 
@@ -915,6 +1059,10 @@ function applyTradeFilters() {
   const outcome = document.getElementById("filter-outcome").value;
 
   filteredTrades = allTrades.filter(t => {
+    // 0. Phase Filter (Live vs Backtest)
+    if (currentPhaseFilter === "live" && !t.is_live) return false;
+    if (currentPhaseFilter === "backtest" && t.is_live) return false;
+
     // 1. Date Range Filter
     const exitDate = t.exit_date;
     if (exitDate < fromDate || exitDate > toDate) return false;
@@ -968,7 +1116,7 @@ function renderTradesTable() {
   if (filteredTrades.length === 0) {
     tbody.innerHTML = `
       <tr>
-        <td colspan="11" class="text-center" style="padding: 30px; color: var(--text-muted);">
+        <td colspan="12" class="text-center" style="padding: 30px; color: var(--text-muted);">
           Không tìm thấy lệnh giao dịch nào phù hợp với bộ lọc đã chọn.
         </td>
       </tr>
@@ -1000,10 +1148,14 @@ function renderTradesTable() {
     const advisorShort = t.advisor ? t.advisor.replace("AI_Advisor_", "") : "Advisor";
     const pnlFormatted = t.pnl_vnd ? Number(t.pnl_vnd).toLocaleString("vi-VN") : "0";
     const pnlClass = isWin ? "text-green" : "text-red";
+    const phaseBadge = t.is_live ? 
+      `<span class="badge tag-red" style="font-size: 0.72rem; display: inline-flex; align-items: center; gap: 4px;"><span class="pulse-dot" style="width: 5px; height: 5px;"></span> THỰC CHIẾN</span>` : 
+      `<span class="badge badge-info" style="font-size: 0.72rem;">🏛️ KIỂM ĐỊNH</span>`;
 
     html += `
       <tr>
         <td><strong style="color: var(--color-cyan); font-family: var(--font-mono);">${t.id}</strong></td>
+        <td>${phaseBadge}</td>
         <td><span class="sector-label">${advisorShort}</span></td>
         <td><span class="ticker-pill">${t.symbol}</span></td>
         <td><span class="sector-label">${t.sector || 'Bluechip'}</span></td>

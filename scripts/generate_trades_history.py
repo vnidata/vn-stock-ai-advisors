@@ -182,9 +182,36 @@ def generate_all_trades_history():
     # Sort trades descending by exit_date
     all_trades.sort(key=lambda x: x["exit_date"], reverse=True)
 
-    # Re-index IDs cleanly
+    # Re-index IDs cleanly and tag phase (Backtest Audit 2010-2025 vs Live Real-Time 2026)
     for idx, t in enumerate(all_trades):
         t["id"] = f"TRD-{idx + 1:04d}"
+        is_live = t["exit_date"] >= "2026-01-01"
+        t["is_live"] = is_live
+        t["phase"] = "LIVE_EXECUTION" if is_live else "BACKTEST_AUDIT"
+        t["phase_badge"] = "live" if is_live else "backtest"
+        t["phase_label"] = "Thực Chiến (Live 2026)" if is_live else "Kiểm Định (2010-2025)"
+
+    # Segment trades into Backtest (2010-2025) and Live (2026+)
+    backtest_trades = [t for t in all_trades if t["exit_date"] <= "2025-12-31"]
+    live_trades = [t for t in all_trades if t["exit_date"] >= "2026-01-01"]
+
+    bt_wins = sum(1 for t in backtest_trades if t["return_pct"] > 0)
+    bt_losses = len(backtest_trades) - bt_wins
+    bt_win_rate = round(bt_wins / len(backtest_trades) * 100.0, 1) if backtest_trades else 0.0
+    bt_gross_win = sum(t["pnl_vnd"] for t in backtest_trades if t["return_pct"] > 0)
+    bt_gross_loss = abs(sum(t["pnl_vnd"] for t in backtest_trades if t["return_pct"] <= 0))
+    bt_pf = round(bt_gross_win / bt_gross_loss, 2) if bt_gross_loss > 0 else 2.0
+    bt_avg_win = round(sum(t["return_pct"] for t in backtest_trades if t["return_pct"] > 0) / bt_wins, 2) if bt_wins else 0.0
+    bt_avg_loss = round(sum(t["return_pct"] for t in backtest_trades if t["return_pct"] <= 0) / bt_losses, 2) if bt_losses else 0.0
+
+    live_wins = sum(1 for t in live_trades if t["return_pct"] > 0)
+    live_losses = len(live_trades) - live_wins
+    live_win_rate = round(live_wins / len(live_trades) * 100.0, 1) if live_trades else 0.0
+    live_gross_win = sum(t["pnl_vnd"] for t in live_trades if t["return_pct"] > 0)
+    live_gross_loss = abs(sum(t["pnl_vnd"] for t in live_trades if t["return_pct"] <= 0))
+    live_pf = round(live_gross_win / live_gross_loss, 2) if live_gross_loss > 0 else 2.0
+    live_avg_win = round(sum(t["return_pct"] for t in live_trades if t["return_pct"] > 0) / live_wins, 2) if live_wins else 0.0
+    live_avg_loss = round(sum(t["return_pct"] for t in live_trades if t["return_pct"] <= 0) / live_losses, 2) if live_losses else 0.0
 
     # Overall stats
     total_t = len(all_trades)
@@ -221,6 +248,35 @@ def generate_all_trades_history():
 
     output_payload = {
         "last_updated": pd.Timestamp.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "audit_protocol": {
+            "backtest_standard_period": "2010-01-01 đến 2025-12-31 (15 năm kiểm định chuẩn)",
+            "live_execution_period": "2026-01-01 đến Hiện Tại (Vận hành thực chiến thời gian thực)",
+            "deployment_date": "2026-01-01",
+            "status": "OFFICIALLY_DEPLOYED_FOR_LIVE_TRADING"
+        },
+        "backtest_audit_summary": {
+            "period": "2010 - 2025",
+            "total_trades": len(backtest_trades),
+            "win_trades": bt_wins,
+            "loss_trades": bt_losses,
+            "win_rate": bt_win_rate,
+            "profit_factor": bt_pf,
+            "avg_win_pct": bt_avg_win,
+            "avg_loss_pct": bt_avg_loss,
+            "total_pnl_vnd": sum(t["pnl_vnd"] for t in backtest_trades)
+        },
+        "live_execution_summary": {
+            "period": "2026 (YTD)",
+            "deployment_date": "2026-01-01",
+            "total_trades": len(live_trades),
+            "win_trades": live_wins,
+            "loss_trades": live_losses,
+            "win_rate": live_win_rate,
+            "profit_factor": live_pf,
+            "avg_win_pct": live_avg_win,
+            "avg_loss_pct": live_avg_loss,
+            "total_pnl_vnd": sum(t["pnl_vnd"] for t in live_trades)
+        },
         "total_trades": total_t,
         "overall_win_rate": overall_win_rate,
         "strategies_stats": strategies_stats,
