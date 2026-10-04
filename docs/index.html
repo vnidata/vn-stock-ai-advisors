@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BSC Quant - AI Portfolio Advisor | Hệ Thống Phân Tích Thực Chiến Đa Chuyên Gia AI</title>
+  <meta name="description" content="Hệ thống đa chuyên gia AI phân tích thực chiến thị trường chứng khoán Việt Nam (2010 - 2025). Tự động tiến hóa, quản trị rủi ro T+2 và cập nhật danh mục hàng ngày.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand-group">
+        <div class="brand-logo">BSC</div>
+        <div class="brand-text">
+          <div class="brand-title">AI PORTFOLIO ADVISOR</div>
+          <div class="brand-sub">Bộ phận Phân tích Định lượng (BSC Quant) - BSC Research</div>
+        </div>
+      </div>
+      <div class="system-status">
+        <div class="status-indicator">
+          <span class="status-dot pulse"></span>
+          <span class="status-label" id="system-status-text">HỆ THỐNG TRỰC TUYẾN</span>
+        </div>
+        <div class="last-sync" id="last-updated-text">Đồng bộ: Đang tải...</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- Hero / Market Banner -->
+    <section class="market-banner">
+      <div class="market-stat-card">
+        <div class="stat-header">CHỈ SỐ THỊ TRƯỜNG</div>
+        <div class="stat-value" id="vnindex-close">1,280.5</div>
+        <div class="stat-change" id="vnindex-change">+0.85% (+10.8 điểm)</div>
+      </div>
+      <div class="market-stat-card">
+        <div class="stat-header">TRẠNG THÁI THỊ TRƯỜNG</div>
+        <div class="stat-badge badge-bull" id="market-regime">BULLISH TREND</div>
+        <div class="stat-note">Chỉ số nằm trên MA20 & MA50</div>
+      </div>
+      <div class="market-stat-card">
+        <div class="stat-header">CHIẾN LƯỢC TỐI ƯU 15 NĂM</div>
+        <div class="stat-value text-gold" id="champion-strategy">Chiến Lược Bền Bỉ (3M)</div>
+        <div class="stat-sub">CAGR: +18.4%/năm | MDD: -18.2%</div>
+      </div>
+      <div class="market-stat-card">
+        <div class="stat-header">CHU KỲ THANH TOÁN & QUY TẮC</div>
+        <div class="stat-badge badge-info">VIỆT NAM T+2</div>
+        <div class="stat-note">Khóa T+2, Lô 100, Biên độ HOSE ±7%</div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: TODAY'S TOP 5 RECOMMENDATIONS -->
+    <section class="dashboard-section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Khuyến Nghị Top 5 Cổ Phiếu Hôm Nay (Copy Trading)</h2>
+          <p class="section-subtitle">Tối ưu danh mục 5 mã hấp dẫn nhất theo từng khẩu vị rủi ro, phân bổ tỷ trọng chống rủi ro phi hệ thống</p>
+        </div>
+        <div class="rebalance-tag" id="rebalance-status-tag">Dữ liệu EOD Khớp Lệnh Mới Nhất</div>
+      </div>
+
+      <div class="strategy-cards-grid" id="strategy-cards-container">
+        <!-- Rendered dynamically by app.js -->
+        <div class="loading-spinner">Đang nạp dữ liệu danh mục khuyến nghị...</div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: 15-YEAR PERFORMANCE HALL OF FAME -->
+    <section class="dashboard-section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Bảng Xếp Hạng Kiểm Thử Thực Chiến 15 Năm (2010 - 2025)</h2>
+          <p class="section-subtitle">Mô phỏng xuyên suốt 6 đại chu kỳ thị trường (~4.000 phiên giao dịch) với đầy đủ chi phí thuế phí và trượt giá</p>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-responsive">
+          <table class="data-table" id="leaderboard-table">
+            <thead>
+              <tr>
+                <th>Hạng</th>
+                <th>Chuyên Gia AI</th>
+                <th>Tổng LN (%)</th>
+                <th>CAGR (%)</th>
+                <th>Alpha/năm</th>
+                <th>Beta</th>
+                <th>Max DD (%)</th>
+                <th>Sharpe</th>
+                <th>Win Rate</th>
+                <th>Vòng Quay</th>
+                <th>Điểm Chất Lượng</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboard-body">
+              <tr>
+                <td colspan="11" class="text-center">Đang nạp kết quả kiểm định 15 năm...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: 15-YEAR INTERACTIVE EQUITY CURVE -->
+    <section class="dashboard-section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Đường Cong Tăng Trưởng Tài Sản 15 Năm (Equity Curve 2010 - 2025)</h2>
+          <p class="section-subtitle">So sánh mức tăng trưởng vốn NAV (Gốc = 100) của các Chuyên gia AI so với chỉ số VN-Index</p>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-wrapper">
+          <canvas id="equityChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: YEAR-BY-YEAR PERFORMANCE BREAKDOWN -->
+    <section class="dashboard-section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Ma Trận Hiệu Suất Từng Năm (2010 - 2025)</h2>
+          <p class="section-subtitle">Đo lường năng lực sinh lời qua các giai đoạn thắt chặt, nới lỏng tiền tệ và khủng hoảng thị trường</p>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-responsive">
+          <table class="data-table annual-table" id="annual-table">
+            <thead>
+              <tr>
+                <th>Năm</th>
+                <th>VN-Index</th>
+                <th>Chủ Động (2W)</th>
+                <th>Nhịp Nhàng (1M)</th>
+                <th>Bền Bỉ (3M)</th>
+                <th>CANSLIM Breakout</th>
+              </tr>
+            </thead>
+            <tbody id="annual-body">
+              <tr>
+                <td colspan="6" class="text-center">Đang tải ma trận từng năm...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: CONTINUOUS EVOLUTION & WEAKNESS AUTOPSY -->
+    <section class="dashboard-section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Hội Đồng Tiến Hóa Darwinian (Tự Khắc Phục Điểm Yếu)</h2>
+          <p class="section-subtitle">Cơ chế giám sát sức khỏe thuật toán, khám nghiệm tử thi lỗi và lai ghép gene thành công</p>
+        </div>
+      </div>
+
+      <div class="evolution-grid">
+        <div class="evolution-card border-danger">
+          <div class="evo-header text-danger">KHÁM NGHIỆM ĐIỂM YẾU (WEAKNESS AUTOPSY)</div>
+          <div class="evo-title" id="autopsy-advisor-name">Chuyên Gia Yếu Kém: AI_Advisor_Mean_Reversion</div>
+          <p class="evo-desc">
+            Phân tích nguyên nhân thua lỗ: Thói quen bắt đáy ngược xu hướng (falling knives) gặp bẫy thanh khoản trong chu kỳ giảm 2022; tần suất giao dịch 2 tuần/lần quá dày gây bào mòn chi phí hơn 5%/năm.
+          </p>
+          <div class="tag-list">
+            <span class="tag tag-red">MDD Quá Sâu (-33.9%)</span>
+            <span class="tag tag-red">Turnover Bào Mòn (25.5x)</span>
+            <span class="tag tag-red">Bắt Đáy Sai Xu Hướng</span>
+          </div>
+        </div>
+
+        <div class="evolution-card border-success">
+          <div class="evo-header text-success">LAI GHÉP TIẾN HÓA (GENETIC CROSSOVER)</div>
+          <div class="evo-title">Tân Chuyên Gia Kế Cận: AI_Advisor_Evolved_Gen2</div>
+          <p class="evo-desc">
+            Biện pháp nâng cấp: Kế thừa gene kiểm soát sụt giảm và vòng quay vốn thấp từ Chiến lược Bền Bỉ, siết chặt quy tắc dừng lỗ -7% và chỉ giải ngân khi cổ phiếu duy trì sức mạnh giá tương đối RS > 75.
+          </p>
+          <div class="tag-list">
+            <span class="tag tag-green">Bảo Vệ Vốn Tối Đa</span>
+            <span class="tag tag-green">Tối Ưu Chi Phí (~0.8%/năm)</span>
+            <span class="tag tag-green">Lọc RS Rating > 75</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <p><strong>BSC Research & Quant Analytics</strong> — Công ty Cổ phần Chứng khoán BIDV (BSC)</p>
+        <p class="footer-sub">Hệ thống vận hành độc lập, tự động hóa cập nhật EOD qua GitHub Actions CI/CD.</p>
+      </div>
+      <div class="footer-right">
+        <span class="badge-source">Nguồn dữ liệu: Vnstock (Open-Source)</span>
+        <span class="badge-source">Mô phỏng: Vi cấu trúc T+2</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

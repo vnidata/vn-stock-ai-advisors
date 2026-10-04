@@ -1,0 +1,27 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Data cache (keep git repo light for GitHub Pages)
+data/cache/*.parquet
+data/cache/*.csv
+!data/cache/.gitkeep
+
+# IDE / System
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Output temporary files
+*.tmp
