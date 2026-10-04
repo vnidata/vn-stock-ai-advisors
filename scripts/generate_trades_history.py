@@ -24,7 +24,7 @@ from advisors.canslim_advisor import CanslimAdvisor
 
 
 VIETNAMESE_REASONS = {
-    "STOP_LOSS": "Cắt Lỗ Vi Phạm (-7%)",
+    "STOP_LOSS": "Cắt Lỗ Vi Phạm (-4.5%)",
     "TRAILING_STOP": "Chốt Lời Trailing Stop",
     "TAKE_PROFIT": "Chốt Lời Mục Tiêu (+15%)",
     "REBALANCE_TARGET_TOP5": "Tái Cơ Cấu Danh Mục Top 5",
@@ -38,7 +38,7 @@ VIETNAMESE_REASONS = {
 def map_reason(raw_reason: str) -> str:
     r = str(raw_reason).upper()
     if "STOP_LOSS" in r:
-        return "Cắt Lỗ Vi Phạm (-7%)"
+        return "Cắt Lỗ Vi Phạm (-4.5%)"
     elif "TRAILING" in r:
         return "Chốt Lời Trailing Stop"
     elif "TAKE_PROFIT" in r:

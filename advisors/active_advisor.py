@@ -29,8 +29,8 @@ class ActiveAdvisor(BaseAdvisor):
         }
         super().__init__(
             name=name,
-            description="Chiến lược Chủ Động: Tần suất 2 tuần/lần, nhắm tới khách hàng Táo bạo, tối đa hóa Alpha qua đà tăng trưởng và bùng nổ thanh khoản.",
-            rebalance_days=10,  # 2 weeks
+            description="Chiến lược Chủ Động: Tần suất 3 tuần/lần, nhắm tới khách hàng Táo bạo, tối đa hóa Alpha qua đà tăng trưởng và bùng nổ thanh khoản.",
+            rebalance_days=15,  # 3 weeks (15 trading days)
             portfolio_size=5,
             allocation_method=AllocationMethod.RANK_LADDER,
             genome=genome or default_genome

@@ -76,6 +76,29 @@ class BaseAdvisor(ABC):
 
         latest = df.iloc[idx - 1]
         
+        # Strict Conviction Gate 1: Macro Market Regime Check
+        if benchmark_df is not None and not benchmark_df.empty:
+            bm_times = benchmark_df["time"].values
+            bm_idx = int(np.searchsorted(bm_times, target))
+            if bm_idx > 50:
+                bm_latest = benchmark_df.iloc[bm_idx - 1]
+                bm_close = bm_latest["close"]
+                bm_sma50 = bm_latest.get("sma_50", bm_close)
+                bm_sma20 = bm_latest.get("sma_20", bm_close)
+                if bm_close < bm_sma50 and bm_sma20 < bm_sma50:
+                    # Bear regime: Only allow top leaders with RS > 75 and price > SMA50
+                    if latest.get("rs_rating", 50.0) < 75.0 or latest.get("close", 0) < latest.get("sma_50", 99999):
+                        return -999.0
+
+        # Strict Conviction Gate 2: Quality & Trend Direction
+        # Avoid crashing stocks or severe breakdowns below SMA50
+        dist_sma50 = latest.get("dist_sma50", 0.0)
+        rsi_14 = latest.get("rsi_14", 50.0)
+        rs_rating_raw = latest.get("rs_rating", 50.0)
+
+        if dist_sma50 < -0.04 or rsi_14 < 42.0 or rs_rating_raw < 52.0:
+            return -999.0
+
         # 1. Momentum factors
         roc_20 = latest.get("roc_20", 0.0)
         roc_60 = latest.get("roc_60", 0.0)
@@ -89,14 +112,13 @@ class BaseAdvisor(ABC):
         obv_trend = latest.get("obv_trend", 0.0)
 
         # 4. Relative Strength vs VN-Index
-        rs_rating = latest.get("rs_rating", 50.0) / 100.0  # Normalize to [0, 1]
+        rs_rating = rs_rating_raw / 100.0  # Normalize to [0, 1]
 
         # 5. Low Volatility factor (Lower volatility = higher score)
         vol_20d = latest.get("volatility_20d", 0.30)
         low_vol_score = 1.0 / (1.0 + vol_20d)
 
         # 6. Mean Reversion factor (RSI oversold bounce)
-        rsi_14 = latest.get("rsi_14", 50.0)
         mean_rev_score = (50.0 - rsi_14) / 50.0 if rsi_14 < 45 else 0.0
 
         # 7. Drawdown Recovery (Proximity to 52w high)
@@ -144,12 +166,17 @@ class BaseAdvisor(ABC):
             score = self.score_symbol(sym, df, as_of_date, benchmark_df)
             if score > -900:
                 symbol_scores[sym] = score
-                past = df[df["time"] < as_of_date]
-                symbol_vols[sym] = past["volatility_20d"].iloc[-1] if ("volatility_20d" in past.columns and not past.empty) else 0.25
+                times = df["time"].values
+                target = np.datetime64(pd.to_datetime(as_of_date))
+                idx = int(np.searchsorted(times, target))
+                past_vol = float(df["volatility_20d"].iloc[idx - 1]) if ("volatility_20d" in df.columns and idx > 0) else 0.25
+                symbol_vols[sym] = past_vol
 
-        # Step 3: Select Top N (default 5)
+        # Step 3: Select Top N (default 5) with positive conviction
         sorted_symbols = sorted(symbol_scores.keys(), key=lambda s: symbol_scores[s], reverse=True)
-        top_symbols = sorted_symbols[:self.portfolio_size]
+        qualified_symbols = [s for s in sorted_symbols if symbol_scores[s] > 0.0]
+        top_symbols = qualified_symbols[:self.portfolio_size]
+        eligible_pool = qualified_symbols[:max(8, self.portfolio_size + 3)]
 
         # Step 4: Allocate capital weights
         target_weights = self.allocator.allocate(
@@ -162,6 +189,7 @@ class BaseAdvisor(ABC):
             "advisor_name": self.name,
             "as_of_date": as_of_date,
             "top_symbols": top_symbols,
+            "eligible_pool": eligible_pool,
             "scores": {s: round(symbol_scores[s], 4) for s in top_symbols},
             "target_weights": target_weights
         }

@@ -103,22 +103,52 @@ class BacktestEngine:
                 
                 target_weights = recommendation.get("target_weights", {})
                 target_symbols = list(target_weights.keys())
+                eligible_pool = recommendation.get("eligible_pool", target_symbols)
 
-                # A. Liquidate positions no longer recommended (if T+2 passed)
-                for held_sym in list(tracker.positions.keys()):
-                    if held_sym not in target_symbols:
-                        price = current_prices.get(held_sym, tracker.positions[held_sym].current_price)
-                        tracker.execute_sell(
-                            date=current_date,
-                            symbol=held_sym,
-                            shares_to_sell=None,
-                            current_price=price,
-                            reason="EXIT_TARGET_BASKET"
-                        )
+                # A. Hysteresis Buffer Zone:
+                # Keep currently held stocks as long as they stay inside eligible_pool (Top 8 with conviction)
+                retained_held = [s for s in tracker.positions.keys() if s in eligible_pool]
+                to_liquidate = [s for s in tracker.positions.keys() if s not in eligible_pool]
 
-                # B. Calculate rebalance cash allocations
+                for held_sym in to_liquidate:
+                    price = current_prices.get(held_sym, tracker.positions[held_sym].current_price)
+                    tracker.execute_sell(
+                        date=current_date,
+                        symbol=held_sym,
+                        shares_to_sell=None,
+                        current_price=price,
+                        reason="EXIT_TARGET_BASKET"
+                    )
+
+                # Fill available portfolio slots with highest ranked new candidates
+                max_pos = advisor.portfolio_size
+                slots_needed = max_pos - len(retained_held)
+                new_additions = [s for s in target_symbols if s not in retained_held][:max(0, slots_needed)]
+                active_symbols = retained_held + new_additions
+
+                # Re-calculate weights for active_symbols
+                if active_symbols:
+                    symbol_vols = {}
+                    for s in active_symbols:
+                        v = 0.25
+                        if s in market_data_dict and "volatility_20d" in market_data_dict[s].columns:
+                            times = market_data_dict[s]["time"].values
+                            t_target = np.datetime64(pd.to_datetime(current_date))
+                            idx = int(np.searchsorted(times, t_target))
+                            if idx > 0:
+                                v = float(market_data_dict[s]["volatility_20d"].iloc[idx - 1])
+                        symbol_vols[s] = v
+
+                    active_weights = advisor.allocator.allocate(
+                        selected_symbols=active_symbols,
+                        volatility_dict=symbol_vols
+                    )
+                else:
+                    active_weights = {}
+
+                # B. Execute rebalance with tolerance band (avoid micro-churn)
                 current_nav = tracker.get_nav(current_prices)
-                for sym, weight in target_weights.items():
+                for sym, weight in active_weights.items():
                     price = current_prices.get(sym, 0.0)
                     if price <= 0:
                         continue
@@ -126,8 +156,18 @@ class BacktestEngine:
                     target_dollar_val = current_nav * weight
                     current_pos_val = tracker.positions[sym].market_value if sym in tracker.positions else 0.0
 
-                    if target_dollar_val > current_pos_val:
-                        # Buy delta
+                    if sym not in tracker.positions:
+                        # New position entry: enter with target budget
+                        if target_dollar_val > 0:
+                            tracker.execute_buy(
+                                date=current_date,
+                                symbol=sym,
+                                target_amount=target_dollar_val,
+                                current_price=price,
+                                reason="REBALANCE_TARGET_TOP5"
+                            )
+                    elif target_dollar_val > current_pos_val * 1.25:
+                        # Significantly underweight by > 25%: top up position
                         buy_budget = target_dollar_val - current_pos_val
                         tracker.execute_buy(
                             date=current_date,
@@ -136,8 +176,8 @@ class BacktestEngine:
                             current_price=price,
                             reason="REBALANCE_TARGET_TOP5"
                         )
-                    elif current_pos_val > target_dollar_val * 1.2:
-                        # Trim position if overweight > 20%
+                    elif current_pos_val > target_dollar_val * 1.30:
+                        # Significantly overweight by > 30%: trim excess
                         excess_shares = int((current_pos_val - target_dollar_val) / price)
                         tracker.execute_sell(
                             date=current_date,
@@ -150,8 +190,8 @@ class BacktestEngine:
                 days_since_rebalance = 0
                 portfolio_snapshots.append({
                     "date": current_date,
-                    "recommended_top5": target_symbols,
-                    "target_weights": target_weights
+                    "recommended_top5": active_symbols,
+                    "target_weights": active_weights
                 })
             else:
                 days_since_rebalance += 1

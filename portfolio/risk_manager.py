@@ -11,11 +11,11 @@ from .position_tracker import PositionTracker
 
 @dataclass
 class RiskParameters:
-    stop_loss_pct: float = -0.07          # -7% hard stop loss
+    stop_loss_pct: float = -0.045               # -4.5% tight stop loss
     trailing_stop_activation_pct: float = 0.15 # Activate trailing stop at +15% profit
-    trailing_stop_callback_pct: float = 0.05   # Sell if drops 5% from high watermark
-    max_portfolio_drawdown_limit: float = -0.20 # -20% portfolio emergency cashout
-    bear_regime_cash_target: float = 0.40      # Keep 40% cash when VN-Index is in bear downtrend
+    trailing_stop_callback_pct: float = 0.04   # Sell if drops 4% from high watermark
+    max_portfolio_drawdown_limit: float = -0.15 # -15% portfolio emergency cashout
+    bear_regime_cash_target: float = 0.50      # Keep 50% cash when VN-Index is in bear downtrend
 
 
 class RiskManager:

@@ -29,8 +29,8 @@ class HarmonyAdvisor(BaseAdvisor):
         }
         super().__init__(
             name=name,
-            description="Chiến lược Nhịp Nhàng: Tần suất 1 tháng/lần, nhắm tới khách hàng Cân bằng, duy trì tăng trưởng ổn định và hạn chế biến động thái quá.",
-            rebalance_days=21,  # 1 month
+            description="Chiến lược Nhịp Nhàng: Tần suất ~5 tuần/lần, nhắm tới khách hàng Cân bằng, duy trì tăng trưởng ổn định và hạn chế biến động thái quá.",
+            rebalance_days=25,  # ~5 weeks (25 trading days)
             portfolio_size=5,
             allocation_method=AllocationMethod.EQUAL_WEIGHT,
             genome=genome or default_genome

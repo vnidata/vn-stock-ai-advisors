@@ -198,7 +198,7 @@ function renderDailySummary(data) {
               <th class="text-right">Giá Đóng Cửa</th>
               <th class="text-center">Phiên Nay</th>
               <th class="text-center">Hiệu Suất</th>
-              <th class="text-right">Cắt Lỗ (-7%)</th>
+              <th class="text-right">Cắt Lỗ (-4.5%)</th>
               <th class="text-right">Mục Tiêu (+15%)</th>
               <th>Tín Hiệu Kỹ Thuật</th>
             </tr>

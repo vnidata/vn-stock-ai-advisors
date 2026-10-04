@@ -29,7 +29,7 @@ class CanslimAdvisor(BaseAdvisor):
         super().__init__(
             name=name,
             description="Chuyên gia CANSLIM/VSA: Săn đón điểm bùng nổ khối lượng, dẫn dắt chỉ số RS và cổ phiếu thiết lập đỉnh cao mới.",
-            rebalance_days=10,
+            rebalance_days=15,  # 3 weeks (15 trading days)
             portfolio_size=5,
             allocation_method=AllocationMethod.EQUAL_WEIGHT,
             genome=genome or default_genome
