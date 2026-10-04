@@ -143,10 +143,12 @@ class BaseAdvisor(ABC):
         self,
         as_of_date: pd.Timestamp,
         market_data_dict: Dict[str, pd.DataFrame],
-        benchmark_df: Optional[pd.DataFrame] = None
+        benchmark_df: Optional[pd.DataFrame] = None,
+        news_sentiment_dict: Optional[Dict[str, Dict[str, Any]]] = None
     ) -> Dict[str, Any]:
         """
-        Evaluate universe and produce Top 5 stock recommendations + target weights.
+        Evaluate universe, re-evaluate news sentiment/disclosures/red flags,
+        and produce Top 5 stock recommendations + target weights.
         """
         # Step 1: Point-in-time liquidity filter (Top 30 liquid stocks)
         liquid_pool = self.universe_manager.filter_liquid_universe(
@@ -155,22 +157,39 @@ class BaseAdvisor(ABC):
             top_n=30
         )
 
-        # Step 2: Score all candidate equities in the liquid pool
+        # Step 2: Score all candidate equities in the liquid pool with News Re-evaluation
         symbol_scores = {}
         symbol_vols = {}
+        news_re_eval_notes = {}
 
         for sym in liquid_pool:
             if sym not in market_data_dict or sym == "VNINDEX":
                 continue
             df = market_data_dict[sym]
             score = self.score_symbol(sym, df, as_of_date, benchmark_df)
-            if score > -900:
-                symbol_scores[sym] = score
-                times = df["time"].values
-                target = np.datetime64(pd.to_datetime(as_of_date))
-                idx = int(np.searchsorted(times, target))
-                past_vol = float(df["volatility_20d"].iloc[idx - 1]) if ("volatility_20d" in df.columns and idx > 0) else 0.25
-                symbol_vols[sym] = past_vol
+            if score <= -900:
+                continue
+
+            # News Sentiment & Red Flag Re-evaluation Gate
+            if news_sentiment_dict and sym in news_sentiment_dict:
+                news_info = news_sentiment_dict[sym]
+                # 1. Red Flag Veto Check: abnormal news / legal / audit disqualification
+                if news_info.get("has_red_flag") or news_info.get("re_eval_action") in ["VETO_REJECT", "EMERGENCY_SELL"]:
+                    news_re_eval_notes[sym] = "BỊ PHỦ QUYẾT: Xuất hiện tin tức bất thường / rủi ro nghiêm trọng"
+                    continue  # Veto: Disqualify from recommendation basket!
+
+                # 2. Catalyst Boost Check
+                mult = news_info.get("sentiment_multiplier", 1.0)
+                if mult != 1.0:
+                    score = score * mult
+                    news_re_eval_notes[sym] = f"ĐIỀU CHỈNH TIN TỨC: Hệ số {mult:.2f}x ({news_info.get('status', '')})"
+
+            symbol_scores[sym] = score
+            times = df["time"].values
+            target = np.datetime64(pd.to_datetime(as_of_date))
+            idx = int(np.searchsorted(times, target))
+            past_vol = float(df["volatility_20d"].iloc[idx - 1]) if ("volatility_20d" in df.columns and idx > 0) else 0.25
+            symbol_vols[sym] = past_vol
 
         # Step 3: Select Top N (default 5) with positive conviction
         sorted_symbols = sorted(symbol_scores.keys(), key=lambda s: symbol_scores[s], reverse=True)
@@ -191,7 +210,8 @@ class BaseAdvisor(ABC):
             "top_symbols": top_symbols,
             "eligible_pool": eligible_pool,
             "scores": {s: round(symbol_scores[s], 4) for s in top_symbols},
-            "target_weights": target_weights
+            "target_weights": target_weights,
+            "news_re_eval_notes": news_re_eval_notes
         }
 
     def clone(self, new_name: Optional[str] = None) -> "BaseAdvisor":

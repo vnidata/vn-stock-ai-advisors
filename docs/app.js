@@ -7,10 +7,12 @@ let currentTradePage = 1;
 let tradePageSize = 15;
 let equityCurvesData = null;
 let equityChartInstance = null;
+let allNewsArticles = [];
 
 document.addEventListener("DOMContentLoaded", async () => {
   setupTabs();
   setupTradeFilters();
+  setupNewsFilters();
   setupChartZoom();
   await loadDashboardData();
 });
@@ -74,6 +76,13 @@ async function loadDashboardData() {
       allTrades = getFallbackTrades();
     }
     applyTradeFilters();
+
+    // 5. Fetch News & Corporate Disclosures Intelligence
+    const newsRes = await fetch("data/news_intelligence.json").catch(() => null);
+    if (newsRes && newsRes.ok) {
+      const newsData = await newsRes.json();
+      renderNewsIntelligence(newsData);
+    }
 
   } catch (error) {
     console.error("Error loading dashboard data:", error);
@@ -156,7 +165,10 @@ function renderDailySummary(data) {
           <td class="text-center"><span class="${retClass}">${retSign}${currRet}%</span></td>
           <td class="text-right text-red">${item.stop_loss ? Number(item.stop_loss).toFixed(2) : '-'}</td>
           <td class="text-right text-green">${item.target_price ? Number(item.target_price).toFixed(2) : '-'}</td>
-          <td><span class="signal-tag">${item.technical_signal || 'Theo dõi'}</span></td>
+          <td>
+            <span class="signal-tag">${item.technical_signal || 'Theo dõi'}</span>
+            ${item.news_status ? `<div style="margin-top: 4px;"><span class="news-badge ${item.news_badge || 'neutral'}">${item.news_status}</span></div>` : ''}
+          </td>
         </tr>
       `;
     });
@@ -210,6 +222,145 @@ function renderDailySummary(data) {
       </div>
     `;
     container.appendChild(card);
+  });
+}
+
+// ==========================================
+// 3.5. NEWS INTELLIGENCE & RE-EVALUATION RADAR
+// ==========================================
+function setupNewsFilters() {
+  const filterBtns = document.querySelectorAll(".news-filter-btn");
+  filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      filterBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      const filter = btn.getAttribute("data-filter");
+      filterNewsArticles(filter);
+    });
+  });
+}
+
+function filterNewsArticles(filter) {
+  const container = document.getElementById("news-articles-container");
+  if (!container) return;
+
+  let filtered = allNewsArticles;
+  if (filter === "catalyst") {
+    filtered = allNewsArticles.filter(a => a.is_catalyst || a.sentiment_score >= 0.5);
+  } else if (filter === "redflag") {
+    filtered = allNewsArticles.filter(a => a.is_red_flag || a.sentiment_score <= -0.5);
+  } else if (filter === "cbtt") {
+    filtered = allNewsArticles.filter(a => (a.category && a.category.includes("DOANH NGHIỆP")) || (a.source && a.source.includes("CBTT")));
+  }
+
+  renderArticlesList(filtered);
+}
+
+function renderNewsIntelligence(newsData) {
+  if (!newsData) return;
+
+  // 1. KPI Cards
+  const totalElem = document.getElementById("kpi-news-total");
+  if (totalElem) totalElem.innerText = `${newsData.total_news_scanned || 0} tin`;
+
+  const catElem = document.getElementById("kpi-news-catalysts");
+  if (catElem) catElem.innerText = `${newsData.catalysts_detected || 0} mã`;
+
+  const redElem = document.getElementById("kpi-news-redflags");
+  if (redElem) redElem.innerText = `${newsData.red_flags_detected || 0} mã`;
+
+  const verdElem = document.getElementById("kpi-news-verdict");
+  if (verdElem) {
+    verdElem.innerText = newsData.system_verdict || "AN TOÀN";
+    verdElem.className = (newsData.red_flags_detected > 0) ? "kpi-value text-red" : "kpi-value text-gold";
+  }
+
+  const syncElem = document.getElementById("news-sync-time");
+  if (syncElem && newsData.last_updated) {
+    syncElem.innerText = `Rà soát: ${newsData.last_updated}`;
+  }
+
+  // 2. Symbol Re-evaluation Matrix Table
+  const matrixTbody = document.getElementById("news-matrix-tbody");
+  if (matrixTbody && newsData.symbols_sentiment) {
+    matrixTbody.innerHTML = "";
+    const symbols = Object.keys(newsData.symbols_sentiment);
+    
+    // Sort symbols: Red flags first, then catalysts, then highest news count
+    symbols.sort((a, b) => {
+      const sa = newsData.symbols_sentiment[a];
+      const sb = newsData.symbols_sentiment[b];
+      if (sa.has_red_flag && !sb.has_red_flag) return -1;
+      if (!sa.has_red_flag && sb.has_red_flag) return 1;
+      if (sa.has_catalyst && !sb.has_catalyst) return -1;
+      if (!sa.has_catalyst && sb.has_catalyst) return 1;
+      return sb.news_count - sa.news_count;
+    });
+
+    symbols.forEach(sym => {
+      const item = newsData.symbols_sentiment[sym];
+      const tr = document.createElement("tr");
+
+      const scoreSign = item.net_sentiment > 0 ? "+" : "";
+      const scoreColor = item.net_sentiment > 0 ? "text-green" : (item.net_sentiment < 0 ? "text-red" : "text-muted");
+      const multiplierText = item.sentiment_multiplier === 0.0 ? 
+        `<span class="badge tag-red">0.0x [VETO PHỦ QUYẾT]</span>` : 
+        (item.sentiment_multiplier > 1.0 ? `<span class="badge tag-green">${item.sentiment_multiplier.toFixed(2)}x [THƯỞNG]</span>` : `<span class="badge badge-info">1.00x [CHUẨN]</span>`);
+
+      tr.innerHTML = `
+        <td><span class="ticker-pill">${item.symbol}</span></td>
+        <td class="text-center"><strong>${item.news_count}</strong></td>
+        <td class="text-center font-mono ${scoreColor}"><strong>${scoreSign}${item.net_sentiment.toFixed(2)}</strong></td>
+        <td class="text-center"><span class="news-badge ${item.status_badge || 'neutral'}">${item.status}</span></td>
+        <td style="max-width: 360px; font-size: 0.85rem;">
+          <div style="font-weight: 600; color: var(--text-main); line-height: 1.3;">${item.latest_headline}</div>
+        </td>
+        <td><span style="font-size: 0.82rem; color: var(--text-muted);">${item.action_desc}</span></td>
+        <td class="text-right">${multiplierText}</td>
+      `;
+      matrixTbody.appendChild(tr);
+    });
+  }
+
+  // 3. Articles Feed
+  allNewsArticles = newsData.recent_articles || [];
+  renderArticlesList(allNewsArticles);
+}
+
+function renderArticlesList(articles) {
+  const container = document.getElementById("news-articles-container");
+  if (!container) return;
+  container.innerHTML = "";
+
+  if (!articles || articles.length === 0) {
+    container.innerHTML = `<div class="text-center text-muted" style="padding: 30px;">Không tìm thấy bài viết phù hợp với bộ lọc.</div>`;
+    return;
+  }
+
+  articles.slice(0, 30).forEach(art => {
+    const item = document.createElement("div");
+    item.className = "news-article-item";
+
+    const symbolsHtml = (art.symbols || []).map(s => `<span class="news-symbol-tag">${s}</span>`).join(" ");
+    const triggersHtml = (art.triggers_found || []).map(t => `<span class="news-trigger-tag">${t}</span>`).join(" ");
+
+    item.innerHTML = `
+      <div class="news-article-header">
+        <a href="${art.link || '#'}" target="_blank" rel="noopener noreferrer" class="news-article-title">
+          ${art.title}
+        </a>
+        <span class="news-badge ${art.sentiment_badge || 'neutral'}">${art.sentiment_label || 'TRUNG TÍNH'}</span>
+      </div>
+      ${art.description ? `<p class="news-article-desc">${art.description}</p>` : ''}
+      <div class="news-article-meta">
+        <span><strong>Nguồn:</strong> ${art.source || 'Tin tức'}</span>
+        <span><strong>Thời gian:</strong> ${art.published_date || ''}</span>
+        <span><strong>Chuyên mục:</strong> ${art.category || 'Tài chính'}</span>
+        ${symbolsHtml ? `<span><strong>Mã liên quan:</strong> ${symbolsHtml}</span>` : ''}
+        ${triggersHtml ? `<span><strong>Từ khóa:</strong> ${triggersHtml}</span>` : ''}
+      </div>
+    `;
+    container.appendChild(item);
   });
 }
 

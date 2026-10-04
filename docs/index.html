@@ -65,6 +65,9 @@
       <button class="tab-btn active" data-tab="tab-recommendations">
         <span class="tab-icon">🎯</span> Khuyến Nghị Hôm Nay (Top 5)
       </button>
+      <button class="tab-btn" data-tab="tab-news">
+        <span class="tab-icon">📰</span> Tin Tức & Cảnh Báo Bất Thường
+      </button>
       <button class="tab-btn" data-tab="tab-trades">
         <span class="tab-icon">📜</span> Lịch Sử Lệnh & Hiệu Suất Quá Khứ
       </button>
@@ -93,7 +96,92 @@
       </section>
     </div>
 
-    <!-- TAB 2: TRADE HISTORY & ORDER PERFORMANCE -->
+    <!-- TAB: FINANCIAL NEWS & ABNORMAL RISK RADAR -->
+    <div class="tab-pane" id="tab-news">
+      <section class="dashboard-section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Rà Soát Tin Tức, Công Bố Thông Tin & Cảnh Báo Bất Thường</h2>
+            <p class="section-subtitle">Hệ thống NLP phân tích thời gian thực tin tức tài chính, công bố thông tin (CBTT) và sự kiện bất thường để tự động tái đánh giá danh mục</p>
+          </div>
+          <div class="rebalance-tag" id="news-sync-time">Cập nhật tự động đa nguồn</div>
+        </div>
+
+        <!-- News Radar KPI Grid -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-label">TỔNG SỐ TIN ĐÃ QUÉT (24H)</div>
+            <div class="kpi-value text-blue" id="kpi-news-total">0 tin</div>
+            <div class="kpi-sub">CafeF, VnExpress, Doanh nghiệp</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">ĐỘNG LỰC TÍCH CỰC (CATALYSTS)</div>
+            <div class="kpi-value text-green" id="kpi-news-catalysts">0 mã</div>
+            <div class="kpi-sub">Kích hoạt thưởng điểm (+15-20%)</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">CẢNH BÁO BẤT THƯỜNG (RED FLAGS)</div>
+            <div class="kpi-value text-red" id="kpi-news-redflags">0 mã</div>
+            <div class="kpi-sub">Kích hoạt Phủ Quyết / Loại bỏ khẩn cấp</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">KẾT LUẬN KIỂM DUYỆT CỦA AI</div>
+            <div class="kpi-value text-gold" id="kpi-news-verdict">AN TOÀN</div>
+            <div class="kpi-sub">Bộ lọc bảo vệ thiên nga đen</div>
+          </div>
+        </div>
+
+        <!-- AI Symbol News Re-evaluation Matrix -->
+        <div class="news-matrix-card">
+          <div class="matrix-header">
+            <div>
+              <h3 class="matrix-title">📊 Ma Trận Đánh Giá Lại Danh Mục Theo Tin Tức (Symbol Re-evaluation Matrix)</h3>
+              <span class="matrix-hint">Tự động liên kết tin tức thời gian thực với từng mã cổ phiếu để điều chỉnh tỷ trọng hoặc loại bỏ</span>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="portfolio-table">
+              <thead>
+                <tr>
+                  <th>Mã CP</th>
+                  <th class="text-center">Số Tin</th>
+                  <th class="text-center">Điểm Tin Tức</th>
+                  <th class="text-center">Trạng Thái Phân Loại</th>
+                  <th>Tiêu Đề Nổi Bật Gần Nhất</th>
+                  <th>Đánh Giá Của AI Advisor</th>
+                  <th class="text-right">Hệ Số Điểm</th>
+                </tr>
+              </thead>
+              <tbody id="news-matrix-tbody">
+                <tr><td colspan="7" class="text-center text-muted">Đang tải ma trận đánh giá tin tức...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Live Financial News Stream -->
+        <div class="news-feed-card">
+          <div class="feed-header">
+            <div>
+              <h3 class="matrix-title">📰 Dòng Tin Tức & Công Bố Thông Tin Trực Tuyến</h3>
+              <p class="feed-subtitle">Cập nhật tự động từ các kênh truyền thông tài chính chính thống và cổng thông tin doanh nghiệp</p>
+            </div>
+            <div class="feed-filters">
+              <button class="news-filter-btn active" data-filter="all">Tất Cả</button>
+              <button class="news-filter-btn" data-filter="catalyst">🔥 Catalyst Tích Cực</button>
+              <button class="news-filter-btn" data-filter="redflag">⚠️ Cảnh Báo Bất Thường</button>
+              <button class="news-filter-btn" data-filter="cbtt">📋 Doanh Nghiệp (CBTT)</button>
+            </div>
+          </div>
+          <div class="news-articles-list" id="news-articles-container">
+            <div class="loading-spinner">Đang nạp dòng tin tức...</div>
+          </div>
+        </div>
+
+      </section>
+    </div>
+
+    <!-- TAB 3: TRADE HISTORY & ORDER PERFORMANCE -->
     <div class="tab-pane" id="tab-trades">
       <section class="dashboard-section">
         <div class="section-header">

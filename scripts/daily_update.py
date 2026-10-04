@@ -119,7 +119,20 @@ def run_daily_update():
             else:
                 unchanged += 1
 
-    # 2. Evaluate Core Strategies
+    # 2. Ingest Financial News & Corporate Disclosures
+    print("Scanning financial news, disclosures, and red flags via NewsScanner...")
+    from news.scanner import NewsScanner
+    news_scanner = NewsScanner()
+    news_report = news_scanner.build_full_intelligence_report(tracked_symbols=symbols)
+    news_sentiment_map = news_report.get("symbols_sentiment", {})
+
+    # Export news intelligence to docs/data/news_intelligence.json
+    news_intel_file = docs_data_dir / "news_intelligence.json"
+    with open(news_intel_file, "w", encoding="utf-8") as f:
+        json.dump(news_report, f, ensure_ascii=False, indent=2)
+    print(f"Exported news intelligence feed to: {news_intel_file}")
+
+    # 3. Evaluate Core Strategies with News Sentiment Re-evaluation
     advisors = [
         ActiveAdvisor(),
         HarmonyAdvisor(),
@@ -131,9 +144,15 @@ def run_daily_update():
     strategy_recommendations = {}
 
     for adv in advisors:
-        rec = adv.recommend_portfolio(latest_timestamp, market_data, bm_df)
+        rec = adv.recommend_portfolio(
+            as_of_date=latest_timestamp,
+            market_data_dict=market_data,
+            benchmark_df=bm_df,
+            news_sentiment_dict=news_sentiment_map
+        )
         weights = rec.get("target_weights", {})
         scores = rec.get("scores", {})
+        news_notes = rec.get("news_re_eval_notes", {})
         cycle_days = adv.rebalance_days
         
         top5_list = []
@@ -149,9 +168,10 @@ def run_daily_update():
                 entry_price = price
 
             current_return = round(((price - entry_price) / entry_price) * 100.0, 2) if entry_price > 0 else 0.0
-            stop_loss = round(entry_price * 0.93, 2)  # -7% from entry
-            target_tp = round(entry_price * 1.15, 2)  # +15% from entry
+            stop_loss = round(entry_price * 0.955, 2)  # -4.5% tight stop loss
+            target_tp = round(entry_price * 1.15, 2)   # +15% target profit
             signal = get_technical_signal(df_feat) if df_feat is not None else "Đang theo dõi"
+            sym_news = news_sentiment_map.get(sym, {})
 
             top5_list.append({
                 "symbol": sym,
@@ -165,7 +185,12 @@ def run_daily_update():
                 "stop_loss": stop_loss,
                 "target_price": target_tp,
                 "volume": daily_volumes.get(sym, 0),
-                "technical_signal": signal
+                "technical_signal": signal,
+                "news_status": sym_news.get("status", "THÔNG TIN BÌNH ỔN"),
+                "news_badge": sym_news.get("status_badge", "neutral"),
+                "news_headline": sym_news.get("latest_headline", "Không có tin bất thường"),
+                "news_action": sym_news.get("action_desc", "Duy trì khuyến nghị gốc"),
+                "news_score": sym_news.get("net_sentiment", 0.0)
             })
 
         # Calculate current cycle portfolio return
@@ -183,10 +208,11 @@ def run_daily_update():
             "winning_picks": winning_count,
             "total_picks": len(top5_list),
             "cash_ratio_pct": cash_ratio,
-            "top5": top5_list
+            "top5": top5_list,
+            "news_notes": news_notes
         }
 
-    # 3. Assemble Daily Summary JSON payload
+    # 4. Assemble Daily Summary JSON payload with News Intelligence Radar
     daily_payload = {
         "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S (UTC+7)"),
         "trading_date": latest_date_str,
@@ -197,6 +223,13 @@ def run_daily_update():
             "gainers": gainers,
             "losers": losers,
             "unchanged": unchanged
+        },
+        "news_radar": {
+            "total_news_scanned": news_report.get("total_news_scanned", 0),
+            "red_flags_detected": news_report.get("red_flags_detected", 0),
+            "catalysts_detected": news_report.get("catalysts_detected", 0),
+            "system_verdict": news_report.get("system_verdict", "AN TOÀN"),
+            "last_scanned": news_report.get("last_updated", "")
         },
         "universe_count": len(market_data),
         "strategies": strategy_recommendations
