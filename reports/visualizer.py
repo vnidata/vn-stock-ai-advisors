@@ -41,7 +41,7 @@ class TerminalVisualizer:
         # Add columns
         cols = [
             "Hạng", "Chuyên Gia AI", "Lợi Nhuận (%)", "CAGR (%)", "Alpha (%/năm)",
-            "Beta", "MDD (%)", "Sharpe", "Win Rate (%)", "Vòng Quay (x/năm)", "Điểm Chất Lượng"
+            "MDD (%)", "Sharpe", "Win Rate (%)", "Tỷ Lệ RR", "Vòng Quay (x/năm)", "Điểm CL"
         ]
         for c in cols:
             table.add_column(c, justify="center" if c not in ["Chuyên Gia AI"] else "left")
@@ -55,16 +55,17 @@ class TerminalVisualizer:
             elif idx == 2:
                 rank_str = "[bold orange3]🥉 #3[/bold orange3]"
 
+            rr_val = row.get("RR Ratio", 1.0)
             table.add_row(
                 rank_str,
                 f"[bold]{row['Advisor Name']}[/bold]",
                 f"[green]+{row['Total Return (%)']}%[/green]" if row['Total Return (%)'] >= 0 else f"[red]{row['Total Return (%)']}%[/red]",
                 f"{row['CAGR (%)']}%",
                 f"[bold green]+{row['Alpha vs VN-Index (%/y)']}%[/bold green]" if row['Alpha vs VN-Index (%/y)'] >= 0 else f"[red]{row['Alpha vs VN-Index (%/y)']}%[/red]",
-                f"{row['Beta']}",
                 f"[red]{row['Max Drawdown (%)']}%[/red]",
                 f"[cyan]{row['Sharpe']}[/cyan]",
                 f"{row['Win Rate (%)']}%",
+                f"[bold yellow]{rr_val:.2f}x[/bold yellow]",
                 f"{row['Turnover (x/y)']}",
                 f"[bold magenta]{row['Score']}[/bold magenta]"
             )

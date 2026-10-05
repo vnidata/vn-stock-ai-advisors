@@ -40,11 +40,15 @@ VIETNAMESE_REASONS = {
 def map_reason(raw_reason: str) -> str:
     r = str(raw_reason).upper()
     if "BREAKEVEN" in r:
-        return "Chốt Hòa Vốn Bảo Toàn (+0.5%)"
+        return "Chốt Hòa Vốn Bảo Toàn (+0.7%)"
     elif "STOP_LOSS" in r:
         return "Cắt Lỗ Vi Phạm (-6.0%)"
-    elif "TRAILING" in r:
-        return "Chốt Lời Trailing Stop"
+    elif "T3_SUPER_RUNNER" in r:
+        return "Chốt Lời Siêu Sóng Super-Runner (Tầng 3)"
+    elif "T2_RUNNER" in r:
+        return "Chốt Lời Tăng Trưởng Runner (Tầng 2)"
+    elif "T1_MOMENTUM" in r or "TRAILING" in r:
+        return "Chốt Lời Đà Tăng Sớm Momentum (Tầng 1)"
     elif "TAKE_PROFIT" in r:
         return "Chốt Lời Mục Tiêu"
     elif "EXIT_TARGET" in r:
@@ -172,6 +176,7 @@ def generate_all_trades_history():
             pf = round(gross_win_vnd / gross_loss_vnd, 2) if gross_loss_vnd > 0 else 2.0
             avg_hold = round(sum(t["holding_days"] for t in trades) / len(trades), 1)
 
+            rr = round(avg_win / abs(avg_loss), 2) if abs(avg_loss) > 1e-4 else 1.0
             strategies_stats[adv.name] = {
                 "total_trades": len(trades),
                 "win_trades": len(wins),
@@ -180,6 +185,7 @@ def generate_all_trades_history():
                 "profit_factor": pf,
                 "avg_win_pct": avg_win,
                 "avg_loss_pct": avg_loss,
+                "risk_reward_ratio": rr,
                 "avg_holding_days": avg_hold,
                 "total_pnl_vnd": sum(t["pnl_vnd"] for t in trades)
             }
@@ -208,6 +214,7 @@ def generate_all_trades_history():
     bt_pf = round(bt_gross_win / bt_gross_loss, 2) if bt_gross_loss > 0 else 2.0
     bt_avg_win = round(sum(t["return_pct"] for t in backtest_trades if t["return_pct"] > 0) / bt_wins, 2) if bt_wins else 0.0
     bt_avg_loss = round(sum(t["return_pct"] for t in backtest_trades if t["return_pct"] <= 0) / bt_losses, 2) if bt_losses else 0.0
+    bt_rr = round(bt_avg_win / abs(bt_avg_loss), 2) if abs(bt_avg_loss) > 1e-4 else 1.0
 
     live_wins = sum(1 for t in live_trades if t["return_pct"] > 0)
     live_losses = len(live_trades) - live_wins
@@ -217,6 +224,7 @@ def generate_all_trades_history():
     live_pf = round(live_gross_win / live_gross_loss, 2) if live_gross_loss > 0 else 2.0
     live_avg_win = round(sum(t["return_pct"] for t in live_trades if t["return_pct"] > 0) / live_wins, 2) if live_wins else 0.0
     live_avg_loss = round(sum(t["return_pct"] for t in live_trades if t["return_pct"] <= 0) / live_losses, 2) if live_losses else 0.0
+    live_rr = round(live_avg_win / abs(live_avg_loss), 2) if abs(live_avg_loss) > 1e-4 else 1.0
 
     # Overall stats
     total_t = len(all_trades)
@@ -232,6 +240,11 @@ def generate_all_trades_history():
         s_losses = [t for t in s_trades if t["return_pct"] <= 0]
         s_win_rate = round(len(s_wins) / len(s_trades) * 100.0, 1) if s_trades else 0.0
         s_avg_ret = round(sum(t["return_pct"] for t in s_trades) / len(s_trades), 2) if s_trades else 0.0
+        s_w = [t["return_pct"] for t in s_wins]
+        s_l = [t["return_pct"] for t in s_losses]
+        s_avg_win = round(sum(s_w) / len(s_w), 2) if s_w else 0.0
+        s_avg_loss = round(sum(s_l) / len(s_l), 2) if s_l else 0.0
+        s_rr = round(s_avg_win / abs(s_avg_loss), 2) if abs(s_avg_loss) > 1e-4 else 1.0
         s_best = round(max(t["return_pct"] for t in s_trades), 2) if s_trades else 0.0
         s_worst = round(min(t["return_pct"] for t in s_trades), 2) if s_trades else 0.0
         s_pnl = sum(t["pnl_vnd"] for t in s_trades)
@@ -245,6 +258,9 @@ def generate_all_trades_history():
             "loss_trades": len(s_losses),
             "win_rate": s_win_rate,
             "avg_return_pct": s_avg_ret,
+            "avg_win_pct": s_avg_win,
+            "avg_loss_pct": s_avg_loss,
+            "risk_reward_ratio": s_rr,
             "best_trade_pct": s_best,
             "worst_trade_pct": s_worst,
             "total_pnl_vnd": s_pnl,
@@ -268,6 +284,7 @@ def generate_all_trades_history():
             "profit_factor": bt_pf,
             "avg_win_pct": bt_avg_win,
             "avg_loss_pct": bt_avg_loss,
+            "risk_reward_ratio": bt_rr,
             "total_pnl_vnd": sum(t["pnl_vnd"] for t in backtest_trades)
         },
         "live_execution_summary": {
@@ -280,10 +297,14 @@ def generate_all_trades_history():
             "profit_factor": live_pf,
             "avg_win_pct": live_avg_win,
             "avg_loss_pct": live_avg_loss,
+            "risk_reward_ratio": live_rr,
             "total_pnl_vnd": sum(t["pnl_vnd"] for t in live_trades)
         },
         "total_trades": total_t,
         "overall_win_rate": overall_win_rate,
+        "overall_avg_win_pct": bt_avg_win,
+        "overall_avg_loss_pct": bt_avg_loss,
+        "overall_risk_reward_ratio": bt_rr,
         "strategies_stats": strategies_stats,
         "symbol_stats": symbol_stats,
         "trades": all_trades

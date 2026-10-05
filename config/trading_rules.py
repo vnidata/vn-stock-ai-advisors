@@ -70,3 +70,19 @@ class VietnamTradingRules:
         (Prices in vnstock are usually in thousands VND: e.g. 25.5 = 25,500 VND)
         """
         return round(price, 2)
+
+
+@dataclass
+class InternationalTradingRules(VietnamTradingRules):
+    """Trading mechanics and microstructure constraints for International Equities (US Markets)."""
+    settlement_days: int = 1               # T+1 trading settlement (US standard since May 2024)
+    lot_size: int = 1                      # 1-share board lot / fractional shares allowed
+    hose_price_limit: float = 1.0          # No daily price ceiling/floor in US equities
+    hnx_price_limit: float = 1.0
+    upcom_price_limit: float = 1.0
+    brokerage_fee_rate: float = 0.0005     # 0.05% institutional / low-cost brokerage
+    personal_income_tax_rate: float = 0.0  # Gross sale does not withhold PIT at broker level
+    slippage_rate: float = 0.0005          # 0.05% tight bid-ask spread for US Mega-Caps
+    min_cash_reserve_ratio: float = 0.01   # Keep 1% cash buffer
+    max_single_stock_weight: float = 0.30  # Max 30% NAV in any single stock
+

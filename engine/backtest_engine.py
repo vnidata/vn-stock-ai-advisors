@@ -8,7 +8,7 @@ from typing import Dict, List, Optional, Any
 import pandas as pd
 import numpy as np
 from portfolio.position_tracker import PositionTracker, TradeRecord
-from portfolio.risk_manager import RiskManager
+from portfolio.risk_manager import RiskManager, RiskParameters
 from portfolio.allocation import PortfolioAllocator, AllocationMethod
 from config.trading_rules import VietnamTradingRules
 from .performance_metrics import PerformanceCalculator, AdvisorMetrics
@@ -33,11 +33,13 @@ class BacktestEngine:
         self,
         initial_capital: float = 1_000_000_000.0,
         rules: Optional[VietnamTradingRules] = None,
-        enable_risk_manager: bool = True
+        enable_risk_manager: bool = True,
+        risk_params: Optional[RiskParameters] = None
     ):
         self.initial_capital = initial_capital
         self.rules = rules or VietnamTradingRules()
         self.enable_risk_manager = enable_risk_manager
+        self.risk_params = risk_params
 
     def run(
         self,
@@ -51,7 +53,7 @@ class BacktestEngine:
         Execute full backtest loop for the specified advisor.
         """
         tracker = PositionTracker(self.initial_capital, self.rules)
-        risk_manager = RiskManager() if self.enable_risk_manager else None
+        risk_manager = RiskManager(self.risk_params) if self.enable_risk_manager else None
 
         # 1. Determine common timeline of trading days
         all_dates = set()
@@ -105,10 +107,30 @@ class BacktestEngine:
                 target_symbols = list(target_weights.keys())
                 eligible_pool = recommendation.get("eligible_pool", target_symbols)
 
-                # A. Hysteresis Buffer Zone:
-                # Keep currently held stocks as long as they stay inside eligible_pool (Top 8 with conviction)
-                retained_held = [s for s in tracker.positions.keys() if s in eligible_pool]
-                to_liquidate = [s for s in tracker.positions.keys() if s not in eligible_pool]
+                # A. Hysteresis Buffer Zone & Super-Runner Immunity:
+                # 1. Stocks in eligible_pool (Top conviction) are retained
+                # 2. Super-Runners (unrealized gain >= +20% and price >= SMA20) are protected from rebalance liquidation
+                retained_held = []
+                to_liquidate = []
+
+                for s, pos in tracker.positions.items():
+                    price = current_prices.get(s, pos.current_price)
+                    gain = (price - pos.entry_price) / (pos.entry_price + 1e-9)
+
+                    is_super_runner = False
+                    if gain >= 0.20 and s in market_data_dict:
+                        df_s = market_data_dict[s]
+                        if "sma_20" in df_s.columns:
+                            times = df_s["time"].values
+                            t_target = np.datetime64(pd.to_datetime(current_date))
+                            idx = int(np.searchsorted(times, t_target))
+                            if idx > 0 and price >= float(df_s["sma_20"].iloc[idx - 1]):
+                                is_super_runner = True
+
+                    if s in eligible_pool or is_super_runner:
+                        retained_held.append(s)
+                    else:
+                        to_liquidate.append(s)
 
                 for held_sym in to_liquidate:
                     price = current_prices.get(held_sym, tracker.positions[held_sym].current_price)
@@ -122,8 +144,8 @@ class BacktestEngine:
 
                 # Fill available portfolio slots with highest ranked new candidates
                 max_pos = advisor.portfolio_size
-                slots_needed = max_pos - len(retained_held)
-                new_additions = [s for s in target_symbols if s not in retained_held][:max(0, slots_needed)]
+                slots_needed = max(0, max_pos - len(retained_held))
+                new_additions = [s for s in target_symbols if s not in retained_held][:slots_needed]
                 active_symbols = retained_held + new_additions
 
                 # Re-calculate weights for active_symbols

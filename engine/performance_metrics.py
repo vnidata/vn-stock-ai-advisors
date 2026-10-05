@@ -32,15 +32,20 @@ class AdvisorMetrics:
     calmar_ratio: float
     win_rate_pct: float
     profit_factor: float
-    turnover_per_year: float
-    annual_cost_drag_pct: float
-    total_trades: int
-    winning_trades: int
-    losing_trades: int
-    start_date: str
-    end_date: str
-    final_nav: float
+    avg_win_pct: float = 0.0
+    avg_loss_pct: float = 0.0
+    risk_reward_ratio: float = 0.0
+    expectancy_pct: float = 0.0
+    turnover_per_year: float = 0.0
+    annual_cost_drag_pct: float = 0.0
+    total_trades: int = 0
+    winning_trades: int = 0
+    losing_trades: int = 0
+    start_date: str = ""
+    end_date: str = ""
+    final_nav: float = 0.0
     annual_returns: Dict[int, float] = field(default_factory=dict)
+
 
 
 class PerformanceCalculator:
@@ -129,7 +134,7 @@ class PerformanceCalculator:
                 # Alpha (Excess annual return over benchmark)
                 alpha_annual = cagr - bm_cagr
 
-        # 5. Trade Statistics (Win Rate, Profit Factor)
+        # 5. Trade Statistics (Win Rate, Profit Factor, Avg Win, Avg Loss, RR Ratio, Expectancy)
         sell_trades = [t for t in trade_history if t.action == "SELL"]
         total_trades = len(sell_trades)
         winning_trades = len([t for t in sell_trades if t.realized_pnl > 0])
@@ -139,6 +144,22 @@ class PerformanceCalculator:
         gross_profits = sum(t.realized_pnl for t in sell_trades if t.realized_pnl > 0)
         gross_losses = abs(sum(t.realized_pnl for t in sell_trades if t.realized_pnl < 0))
         profit_factor = (gross_profits / gross_losses) if gross_losses > 0 else (gross_profits if gross_profits > 0 else 1.0)
+
+        # Calculate average win % and average loss % from trade returns
+        win_returns = []
+        loss_returns = []
+        for t in sell_trades:
+            cost_basis = t.gross_value - t.realized_pnl
+            ret = (t.realized_pnl / cost_basis * 100.0) if cost_basis > 0 else 0.0
+            if t.realized_pnl > 0:
+                win_returns.append(ret)
+            else:
+                loss_returns.append(ret)
+
+        avg_win_pct = float(np.mean(win_returns)) if win_returns else 0.0
+        avg_loss_pct = float(np.mean(loss_returns)) if loss_returns else 0.0
+        risk_reward_ratio = float(avg_win_pct / abs(avg_loss_pct)) if abs(avg_loss_pct) > 1e-4 else (avg_win_pct if avg_win_pct > 0 else 1.0)
+        expectancy_pct = float((win_rate * avg_win_pct) + ((1.0 - win_rate) * avg_loss_pct))
 
         # 6. Turnover & Cost Drag
         total_trade_volume = sum(t.gross_value for t in trade_history)
@@ -170,6 +191,10 @@ class PerformanceCalculator:
             calmar_ratio=float(calmar),
             win_rate_pct=float(win_rate * 100.0),
             profit_factor=float(profit_factor),
+            avg_win_pct=float(avg_win_pct),
+            avg_loss_pct=float(avg_loss_pct),
+            risk_reward_ratio=float(risk_reward_ratio),
+            expectancy_pct=float(expectancy_pct),
             turnover_per_year=float(turnover_per_year),
             annual_cost_drag_pct=float(annual_cost_drag * 100.0),
             total_trades=total_trades,

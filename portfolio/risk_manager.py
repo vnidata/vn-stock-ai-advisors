@@ -11,21 +11,34 @@ from .position_tracker import PositionTracker
 
 @dataclass
 class RiskParameters:
-    stop_loss_pct: float = -0.060               # -6.0% chuẩn hóa theo biên độ HOSE (+/-7%)
+    market: str = "VN"                          # "VN" or "US"
+    stop_loss_pct: float = -0.060               # -6.0% chuẩn hóa theo biên độ HOSE (+/-7%), US dùng -4.5%
     breakeven_trigger_pct: float = 0.055        # Kích hoạt chốt hòa vốn khi lãi đạt +5.5%
-    breakeven_floor_pct: float = 0.005          # Đưa stop-loss lên +0.5% (bù trừ phí giao dịch & thuế)
-    trailing_tier1_activation_pct: float = 0.10 # Tầng 1: Kích hoạt trailing stop khi lãi đạt +10%
-    trailing_tier1_callback_pct: float = 0.035  # Chốt lời nếu điều chỉnh 3.5% từ đỉnh
-    trailing_tier2_activation_pct: float = 0.18 # Tầng 2: Kích hoạt trailing stop khi lãi đạt +18%
-    trailing_tier2_callback_pct: float = 0.045  # Chốt lời nếu điều chỉnh 4.5% từ đỉnh
+    breakeven_floor_pct: float = 0.007          # Đưa stop-loss lên +0.7% (bảo toàn lãi tối thiểu sau phí thuế)
+    # Tầng 1: Thu hoạch đà tăng sớm (+12% -> +25%)
+    trailing_tier1_activation_pct: float = 0.12 # Kích hoạt trailing stop khi lãi đạt +12%
+    trailing_tier1_callback_pct: float = 0.045  # Chốt lời nếu điều chỉnh 4.5% từ đỉnh
+    trailing_tier1_floor_pct: float = 0.060     # Khóa sàn lãi tối thiểu +6.0%
+    # Tầng 2: Nuôi xu hướng tăng trưởng (+25% -> +50%)
+    trailing_tier2_activation_pct: float = 0.25 # Kích hoạt trailing stop khi lãi đạt +25%
+    trailing_tier2_callback_pct: float = 0.075  # Nới biên độ điều chỉnh 7.5% cho siêu cổ phiếu bứt phá
+    trailing_tier2_floor_pct: float = 0.150     # Khóa sàn lãi tối thiểu +15.0%
+    # Tầng 3: Siêu sóng Super-Runner (>= +50%)
+    trailing_tier3_activation_pct: float = 0.50 # Kích hoạt cho các siêu cổ phiếu tăng > 50%
+    trailing_tier3_callback_pct: float = 0.120  # Biên độ rung lắc 12% để gồng hết chu kỳ lớn
+    trailing_tier3_floor_pct: float = 0.350     # Khóa sàn lãi tối thiểu +35.0%
     max_portfolio_drawdown_limit: float = -0.15 # -15% portfolio emergency cashout
-    bear_regime_cash_target: float = 0.50      # Keep 50% cash when VN-Index is in bear downtrend
+    bear_regime_cash_target: float = 0.50      # Keep 50% cash when benchmark is in bear downtrend
+
+    def __post_init__(self):
+        if self.market.upper() in ["US", "INTERNATIONAL"] and self.stop_loss_pct == -0.060:
+            self.stop_loss_pct = -0.045  # Tighter stop-loss for US stocks (no +/-7% daily floor)
 
 
 class RiskManager:
     """
     Evaluates individual positions and overarching portfolio health on every tick.
-    Enforces Hard Stop-Loss, Breakeven Protection, and Multi-Tier Trailing Profit.
+    Enforces Hard Stop-Loss, Breakeven Protection, and 3-Tier Asymmetric Payoff Trailing Profit.
     """
 
     def __init__(self, params: Optional[RiskParameters] = None):
@@ -64,19 +77,24 @@ class RiskManager:
             peak_gain = (peak - pos.entry_price) / (pos.entry_price + 1e-9)
             pnl_pct = (price - pos.entry_price) / (pos.entry_price + 1e-9)
 
-            # 1. Multi-Tier Trailing Take-Profit
-            if peak_gain >= self.params.trailing_tier2_activation_pct:
+            # 1. 3-Tier Asymmetric Payoff Trailing Take-Profit
+            if peak_gain >= self.params.trailing_tier3_activation_pct:
                 drop_from_peak = (price - peak) / (peak + 1e-9)
-                if drop_from_peak <= -self.params.trailing_tier2_callback_pct and price > pos.entry_price * 1.10:
-                    triggers.append((symbol, f"TRAILING_PROFIT_T2 (Peak +{peak_gain*100:.1f}%, Pullback {drop_from_peak*100:.1f}%)"))
+                if drop_from_peak <= -self.params.trailing_tier3_callback_pct and price > pos.entry_price * (1.0 + self.params.trailing_tier3_floor_pct):
+                    triggers.append((symbol, f"TRAILING_PROFIT_T3_SUPER_RUNNER (Peak +{peak_gain*100:.1f}%, Pullback {drop_from_peak*100:.1f}%)"))
+                    continue
+            elif peak_gain >= self.params.trailing_tier2_activation_pct:
+                drop_from_peak = (price - peak) / (peak + 1e-9)
+                if drop_from_peak <= -self.params.trailing_tier2_callback_pct and price > pos.entry_price * (1.0 + self.params.trailing_tier2_floor_pct):
+                    triggers.append((symbol, f"TRAILING_PROFIT_T2_RUNNER (Peak +{peak_gain*100:.1f}%, Pullback {drop_from_peak*100:.1f}%)"))
                     continue
             elif peak_gain >= self.params.trailing_tier1_activation_pct:
                 drop_from_peak = (price - peak) / (peak + 1e-9)
-                if drop_from_peak <= -self.params.trailing_tier1_callback_pct and price > pos.entry_price * 1.04:
-                    triggers.append((symbol, f"TRAILING_PROFIT_T1 (Peak +{peak_gain*100:.1f}%, Pullback {drop_from_peak*100:.1f}%)"))
+                if drop_from_peak <= -self.params.trailing_tier1_callback_pct and price > pos.entry_price * (1.0 + self.params.trailing_tier1_floor_pct):
+                    triggers.append((symbol, f"TRAILING_PROFIT_T1_MOMENTUM (Peak +{peak_gain*100:.1f}%, Pullback {drop_from_peak*100:.1f}%)"))
                     continue
 
-            # 2. Breakeven Stop Protection (Once gain >= +5.5%, stop-loss is raised to +0.5% to guarantee win)
+            # 2. Breakeven Stop Protection (Once gain >= +5.5%, stop-loss is raised to +0.7% to guarantee win)
             effective_stop = self.params.stop_loss_pct
             if peak_gain >= self.params.breakeven_trigger_pct:
                 effective_stop = self.params.breakeven_floor_pct

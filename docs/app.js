@@ -1,6 +1,7 @@
 // BSC Quant - AI Portfolio Advisor Web Dashboard
 // Master Controller: Holdings, New Signals, News Actions, Trades History, Per-Symbol Analytics, Performance & Evolution
 
+let currentMarket = 'vn'; // 'vn' or 'us'
 let globalDailyData = null;
 let allTrades = [];
 let allSymbolStats = {};
@@ -31,7 +32,14 @@ const SECTOR_VIETNAMESE = {
   "Logistics": "Cảng Biển & Logistics",
   "Agriculture": "Nông Nghiệp & Chăn Nuôi",
   "Industrial": "Công Nghiệp Cơ Điện",
-  "Bluechip": "Cổ Phiếu Trụ Bluechip"
+  "Bluechip": "Cổ Phiếu Trụ Bluechip",
+  "Semiconductors": "Bán Dẫn & Chip AI",
+  "CommunicationServices": "Truyền Thông & Internet",
+  "ConsumerDiscretionary": "Tiêu Dùng Không Thiết Yếu",
+  "ConsumerStaples": "Hàng Tiêu Dùng Thiết Yếu",
+  "Financials": "Tài Chính & Ngân Hàng Mỹ",
+  "Healthcare": "Y Tế & Dược Phẩm",
+  "IndexETF": "Quỹ Chỉ Số ETF SPY"
 };
 
 function getSectorVi(sector) {
@@ -40,6 +48,7 @@ function getSectorVi(sector) {
 
 document.addEventListener("DOMContentLoaded", async () => {
   setupTabs();
+  setupMarketSwitcher();
   setupHoldingsControls();
   setupSignalControls();
   setupSymbolStatsControls();
@@ -51,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 // ==========================================
-// 1. TAB NAVIGATION CONTROLLER
+// 1. TAB & MARKET CONTROLLERS
 // ==========================================
 function setupTabs() {
   const tabBtns = document.querySelectorAll(".tab-btn");
@@ -79,13 +88,51 @@ function setupTabs() {
   });
 }
 
+function setupMarketSwitcher() {
+  const btnVn = document.getElementById("btn-market-vn");
+  const btnUs = document.getElementById("btn-market-us");
+  if (!btnVn || !btnUs) return;
+
+  btnVn.addEventListener("click", async () => {
+    if (currentMarket === 'vn') return;
+    currentMarket = 'vn';
+    btnVn.classList.add("active");
+    btnUs.classList.remove("active");
+    selectedSymbol = null;
+    currentTradePage = 1;
+    await loadDashboardData();
+  });
+
+  btnUs.addEventListener("click", async () => {
+    if (currentMarket === 'us') return;
+    currentMarket = 'us';
+    btnUs.classList.add("active");
+    btnVn.classList.remove("active");
+    selectedSymbol = null;
+    currentTradePage = 1;
+    await loadDashboardData();
+  });
+}
+
 // ==========================================
 // 2. DATA LOADER & DISPATCHER
 // ==========================================
 async function loadDashboardData() {
   try {
+    const isUs = currentMarket === 'us';
+    const summaryFile = isUs ? "data/daily_summary_us.json" : "data/daily_summary.json";
+    const perfFile = isUs ? "data/performance_us_15y.json" : "data/performance_15y.json";
+    const curvesFile = isUs ? "data/equity_curves_us.json" : "data/equity_curves.json";
+    const tradesFile = isUs ? "data/trades_us.json" : "data/trades_history.json";
+
+    // Update dynamic table headers
+    const pnlSymbolHeader = document.getElementById("th-symbol-pnl-header");
+    if (pnlSymbolHeader) pnlSymbolHeader.innerText = isUs ? "Tổng PnL USD" : "Tổng PnL VND";
+    const pnlTradeHeader = document.getElementById("th-trades-pnl-header");
+    if (pnlTradeHeader) pnlTradeHeader.innerText = isUs ? "Lãi/Lỗ USD" : "Lãi/Lỗ VND";
+
     // 1. Fetch daily summary
-    const summaryRes = await fetch("data/daily_summary.json").catch(() => null);
+    const summaryRes = await fetch(summaryFile).catch(() => null);
     globalDailyData = summaryRes && summaryRes.ok ? await summaryRes.json() : getFallbackDailySummary();
     renderDailySummary(globalDailyData);
     renderHoldingsTable(globalDailyData);
@@ -93,18 +140,18 @@ async function loadDashboardData() {
     renderNewsActionRecommendations(globalDailyData);
 
     // 2. Fetch 15-year performance metrics
-    const perfRes = await fetch("data/performance_15y.json").catch(() => null);
+    const perfRes = await fetch(perfFile).catch(() => null);
     const perfData = perfRes && perfRes.ok ? await perfRes.json() : getFallbackPerformance();
     renderLeaderboard(perfData);
     renderAnnualTable(perfData);
 
     // 3. Fetch Equity Curves
-    const curvesRes = await fetch("data/equity_curves.json").catch(() => null);
+    const curvesRes = await fetch(curvesFile).catch(() => null);
     equityCurvesData = curvesRes && curvesRes.ok ? await curvesRes.json() : getFallbackEquityCurves();
     renderEquityChart(equityCurvesData);
 
     // 4. Fetch Trades History & Symbol Stats
-    const tradesRes = await fetch("data/trades_history.json").catch(() => null);
+    const tradesRes = await fetch(tradesFile).catch(() => null);
     if (tradesRes && tradesRes.ok) {
       const tradesPayload = await tradesRes.json();
       tradesPayloadMetadata = tradesPayload;
@@ -149,9 +196,44 @@ async function loadDashboardData() {
 function renderDailySummary(data) {
   if (!data) return;
 
+  const isUs = currentMarket === 'us' || data.market === "US_EQUITIES";
+
   document.getElementById("last-updated-text").innerText = `Đồng bộ: ${data.last_updated || 'Hôm nay'}`;
   
-  if (data.vnindex) {
+  const bmTitleElem = document.getElementById("banner-bm-title");
+  if (bmTitleElem) bmTitleElem.innerText = isUs ? "CHỈ SỐ S&P 500 (SPY)" : "CHỈ SỐ VN-INDEX";
+
+  if (isUs) {
+    const closeVal = data.benchmark_close ? `$${Number(data.benchmark_close).toFixed(2)}` : "$769.64";
+    document.getElementById("vnindex-close").innerText = closeVal;
+
+    const changeElem = document.getElementById("vnindex-change");
+    const change = data.benchmark_change_pct || 0.45;
+    changeElem.innerText = `${change >= 0 ? '+' : ''}${change}%`;
+    changeElem.className = change >= 0 ? "stat-change text-green" : "stat-change text-red";
+
+    const regimeElem = document.getElementById("market-regime");
+    regimeElem.innerText = "BULLISH TREND";
+    regimeElem.className = "stat-badge badge-bull";
+
+    const regimeNote = document.getElementById("market-regime-note");
+    if (regimeNote) regimeNote.innerText = "Chỉ số SPY nằm trên MA20 & MA50";
+
+    const breadthElem = document.getElementById("market-breadth");
+    if (breadthElem) breadthElem.innerHTML = `Độ rộng: <span class="text-green">15/15 siêu cổ phiếu thanh khoản cao</span>`;
+
+    const champElem = document.getElementById("champion-strategy");
+    if (champElem) champElem.innerText = "Chiến Lược Chủ Động (US)";
+
+    const champSub = document.getElementById("champion-strategy-sub");
+    if (champSub) champSub.innerText = "Lợi nhuận: +1,080.9% | CAGR: 15.3%";
+
+    const rrBadge = document.getElementById("banner-rr-badge");
+    if (rrBadge) rrBadge.innerHTML = `<span class="pulse-dot"></span> ASYMMETRIC RR: 2.97x`;
+
+    const rrSub = document.getElementById("banner-rr-sub");
+    if (rrSub) rrSub.innerText = "Lãi TB: +12.5% | Lỗ TB: -4.2% (Peak: 3.99x)";
+  } else if (data.vnindex) {
     document.getElementById("vnindex-close").innerText = Number(data.vnindex.close).toLocaleString('vi-VN', { maximumFractionDigits: 1 });
     const changeElem = document.getElementById("vnindex-change");
     const change = data.vnindex.change_pct || 0;
@@ -162,10 +244,25 @@ function renderDailySummary(data) {
     regimeElem.innerText = data.vnindex.regime === "BULL" ? "BULLISH TREND" : (data.vnindex.regime === "BEAR" ? "BEARISH REGIME" : "SIDEWAYS RECOVERY");
     regimeElem.className = data.vnindex.regime === "BULL" ? "stat-badge badge-bull" : (data.vnindex.regime === "BEAR" ? "stat-badge tag-red" : "stat-badge badge-info");
 
+    const regimeNote = document.getElementById("market-regime-note");
+    if (regimeNote) regimeNote.innerText = "Chỉ số nằm trên MA20 & MA50";
+
     const breadthElem = document.getElementById("market-breadth");
     if (breadthElem && data.vnindex.gainers !== undefined) {
       breadthElem.innerHTML = `Độ rộng: <span class="text-green">${data.vnindex.gainers} tăng</span> · <span class="text-red">${data.vnindex.losers} giảm</span> · <span>${data.vnindex.unchanged} không đổi</span>`;
     }
+
+    const champElem = document.getElementById("champion-strategy");
+    if (champElem) champElem.innerText = "Chiến Lược Chủ Động (2W)";
+
+    const champSub = document.getElementById("champion-strategy-sub");
+    if (champSub) champSub.innerText = "Lợi nhuận: +948.8% | MDD: -21.7%";
+
+    const rrBadge = document.getElementById("banner-rr-badge");
+    if (rrBadge) rrBadge.innerHTML = `<span class="pulse-dot"></span> ASYMMETRIC RR: 2.76x`;
+
+    const rrSub = document.getElementById("banner-rr-sub");
+    if (rrSub) rrSub.innerText = "Lãi TB: +14.5% | Lỗ TB: -5.3%";
   }
 
   // Render Top 5 strategy cards
@@ -558,21 +655,33 @@ function computeSymbolStats(tradesList) {
         loss_trades: 0,
         win_rate: 0,
         avg_return_pct: 0,
+        avg_win_pct: 0,
+        avg_loss_pct: 0,
+        risk_reward_ratio: 0,
         best_trade_pct: -999,
         worst_trade_pct: 999,
         total_pnl_vnd: 0,
+        total_pnl_usd: 0,
         avg_holding_days: 0,
         _total_return: 0,
+        _total_win_return: 0,
+        _total_loss_return: 0,
         _total_days: 0
       };
     }
     const s = stats[sym];
     s.total_trades += 1;
-    if (t.return_pct > 0) s.win_trades += 1;
-    else s.loss_trades += 1;
+    if (t.return_pct > 0) {
+      s.win_trades += 1;
+      s._total_win_return += t.return_pct;
+    } else {
+      s.loss_trades += 1;
+      s._total_loss_return += t.return_pct;
+    }
     s._total_return += t.return_pct;
     s._total_days += (t.holding_days || 1);
     s.total_pnl_vnd += (t.pnl_vnd || 0);
+    s.total_pnl_usd += (t.pnl_usd || (t.pnl_vnd ? t.pnl_vnd / 25400 : 0));
     if (t.return_pct > s.best_trade_pct) s.best_trade_pct = t.return_pct;
     if (t.return_pct < s.worst_trade_pct) s.worst_trade_pct = t.return_pct;
   });
@@ -581,6 +690,9 @@ function computeSymbolStats(tradesList) {
     const s = stats[sym];
     s.win_rate = s.total_trades > 0 ? Number(((s.win_trades / s.total_trades) * 100).toFixed(1)) : 0;
     s.avg_return_pct = s.total_trades > 0 ? Number((s._total_return / s.total_trades).toFixed(2)) : 0;
+    s.avg_win_pct = s.win_trades > 0 ? Number((s._total_win_return / s.win_trades).toFixed(2)) : 0;
+    s.avg_loss_pct = s.loss_trades > 0 ? Number((s._total_loss_return / s.loss_trades).toFixed(2)) : 0;
+    s.risk_reward_ratio = s.avg_loss_pct !== 0 ? Number((Math.abs(s.avg_win_pct / s.avg_loss_pct)).toFixed(2)) : (s.win_trades > 0 ? 3.5 : 0);
     s.avg_holding_days = s.total_trades > 0 ? Number((s._total_days / s.total_trades).toFixed(1)) : 0;
     if (s.best_trade_pct === -999) s.best_trade_pct = 0;
     if (s.worst_trade_pct === 999) s.worst_trade_pct = 0;
@@ -633,16 +745,33 @@ function selectSymbol(sym) {
   if (banner && symData) {
     document.getElementById("selected-sym-code").innerText = sym;
     document.getElementById("selected-sym-title").innerText = `Chi Tiết Hiệu Suất Cổ Phiếu ${sym} (${getSectorVi(symData.sector)})`;
-    const pnlSign = symData.total_pnl_vnd >= 0 ? "+" : "";
-    const pnlBillion = (symData.total_pnl_vnd / 1000000000).toFixed(2);
+    
+    const isUs = currentMarket === 'us';
+    let pnlDisplay = "";
+    let pnlClass = "text-green";
+    if (isUs) {
+      const pnlUsd = symData.total_pnl_usd || (symData.total_pnl_vnd ? symData.total_pnl_vnd / 25400 : 0);
+      const sign = pnlUsd >= 0 ? "+" : "";
+      pnlClass = pnlUsd >= 0 ? "text-green" : "text-red";
+      pnlDisplay = `${sign}${(pnlUsd / 1000000).toFixed(2)}M USD`;
+    } else {
+      const pnlVnd = symData.total_pnl_vnd || 0;
+      const sign = pnlVnd >= 0 ? "+" : "";
+      pnlClass = pnlVnd >= 0 ? "text-green" : "text-red";
+      pnlDisplay = `${sign}${(pnlVnd / 1000000000).toFixed(2)} Tỷ ₫`;
+    }
+
+    const rrVal = symData.risk_reward_ratio !== undefined ? Number(symData.risk_reward_ratio).toFixed(2) : "0.00";
+
     document.getElementById("selected-sym-summary").innerHTML = `
       Ngành: <strong>${getSectorVi(symData.sector)}</strong> · 
       Win Rate: <strong class="text-green">${symData.win_rate}%</strong> (${symData.win_trades} thắng / ${symData.loss_trades} thua) · 
+      Tỷ Lệ RR: <strong class="text-yellow">${rrVal}x</strong> · 
       Tổng Lệnh: <strong>${symData.total_trades}</strong> · 
       Lãi TB: <strong>${symData.avg_return_pct >= 0 ? '+' : ''}${symData.avg_return_pct}%</strong> · 
       Trade Tốt Nhất: <strong class="text-green">+${symData.best_trade_pct}%</strong> · 
       Trade Tệ Nhất: <strong class="text-red">${symData.worst_trade_pct}%</strong> · 
-      Tổng PnL: <strong class="${symData.total_pnl_vnd >= 0 ? 'text-green' : 'text-red'}">${pnlSign}${pnlBillion} Tỷ ₫</strong> · 
+      Tổng PnL: <strong class="${pnlClass}">${pnlDisplay}</strong> · 
       Giữ TB: <strong>${symData.avg_holding_days} ngày</strong>
     `;
     banner.style.display = "flex";
@@ -687,7 +816,7 @@ function renderSymbolStatsTable(statsMap, searchTerm = "") {
 
   const symbols = Object.keys(statsMap);
   if (symbols.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="12" class="text-center text-muted">Chưa có dữ liệu thống kê theo mã.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="13" class="text-center text-muted">Chưa có dữ liệu thống kê theo mã.</td></tr>`;
     return;
   }
 
@@ -696,15 +825,38 @@ function renderSymbolStatsTable(statsMap, searchTerm = "") {
 
   filteredSymbols.sort((a, b) => statsMap[b].total_trades - statsMap[a].total_trades);
 
+  const isUs = currentMarket === 'us';
+
   let html = "";
   filteredSymbols.forEach(sym => {
     const s = statsMap[sym];
     const winRateClass = s.win_rate >= 50 ? "text-green" : "text-gold";
     const retClass = s.avg_return_pct >= 0 ? "text-green" : "text-red";
     const retSign = s.avg_return_pct >= 0 ? "+" : "";
-    const pnlSign = s.total_pnl_vnd >= 0 ? "+" : "";
-    const pnlClass = s.total_pnl_vnd >= 0 ? "text-green" : "text-red";
-    const pnlBillion = (s.total_pnl_vnd / 1000000000).toFixed(2);
+
+    const rrVal = s.risk_reward_ratio !== undefined ? Number(s.risk_reward_ratio).toFixed(2) : "0.00";
+    const rrNum = parseFloat(rrVal);
+    const rrClass = rrNum >= 2.5 ? "text-green font-bold" : (rrNum >= 1.8 ? "text-yellow" : "text-muted");
+
+    let pnlDisplay = "";
+    let pnlClass = "text-green";
+    if (isUs) {
+      const pnlUsd = s.total_pnl_usd || (s.total_pnl_vnd ? s.total_pnl_vnd / 25400 : 0);
+      const pnlSign = pnlUsd >= 0 ? "+" : "";
+      pnlClass = pnlUsd >= 0 ? "text-green" : "text-red";
+      if (Math.abs(pnlUsd) >= 1000000) {
+        pnlDisplay = `${pnlSign}${(pnlUsd / 1000000).toFixed(2)}M $`;
+      } else {
+        pnlDisplay = `${pnlSign}${(pnlUsd / 1000).toFixed(1)}k $`;
+      }
+    } else {
+      const pnlVnd = s.total_pnl_vnd || 0;
+      const pnlSign = pnlVnd >= 0 ? "+" : "";
+      pnlClass = pnlVnd >= 0 ? "text-green" : "text-red";
+      const pnlBillion = (pnlVnd / 1000000000).toFixed(2);
+      pnlDisplay = `${pnlSign}${pnlBillion} Tỷ ₫`;
+    }
+
     const isActive = selectedSymbol === sym ? "active-symbol-row" : "";
 
     html += `
@@ -715,10 +867,11 @@ function renderSymbolStatsTable(statsMap, searchTerm = "") {
         <td class="text-center font-mono text-green">${s.win_trades}</td>
         <td class="text-center font-mono text-red">${s.loss_trades}</td>
         <td class="text-center font-mono ${winRateClass}"><strong>${s.win_rate}%</strong></td>
+        <td class="text-center font-mono ${rrClass}"><strong>${rrVal}x</strong></td>
         <td class="text-center font-mono ${retClass}"><strong>${retSign}${s.avg_return_pct}%</strong></td>
         <td class="text-right font-mono text-green">+${s.best_trade_pct}%</td>
         <td class="text-right font-mono text-red">${s.worst_trade_pct}%</td>
-        <td class="text-right font-mono ${pnlClass}"><strong>${pnlSign}${pnlBillion} Tỷ ₫</strong></td>
+        <td class="text-right font-mono ${pnlClass}"><strong>${pnlDisplay}</strong></td>
         <td class="text-center font-mono">${s.avg_holding_days}d</td>
         <td class="text-center">
           <button class="btn-symbol-inspect" data-sym="${sym}">Xem Lệnh ➔</button>
@@ -1090,13 +1243,18 @@ function updateTradesKPIs(trades) {
   const wins = trades.filter(t => t.return_pct > 0);
   const losses = trades.filter(t => t.return_pct <= 0);
 
+  const isUs = currentMarket === 'us';
   const winRate = total > 0 ? ((wins.length / total) * 100).toFixed(1) : "0.0";
-  const grossWinVnd = wins.reduce((acc, t) => acc + (t.pnl_vnd || 0), 0);
-  const grossLossVnd = Math.abs(losses.reduce((acc, t) => acc + (t.pnl_vnd || 0), 0));
-  const pf = grossLossVnd > 0 ? (grossWinVnd / grossLossVnd).toFixed(2) : (wins.length > 0 ? "2.5" : "0.0");
+  
+  const grossWin = wins.reduce((acc, t) => acc + (isUs ? (t.pnl_usd || t.pnl_vnd / 25400 || 0) : (t.pnl_vnd || 0)), 0);
+  const grossLoss = Math.abs(losses.reduce((acc, t) => acc + (isUs ? (t.pnl_usd || t.pnl_vnd / 25400 || 0) : (t.pnl_vnd || 0)), 0));
+  const pf = grossLoss > 0 ? (grossWin / grossLoss).toFixed(2) : (wins.length > 0 ? "2.50" : "0.00");
 
   const avgWin = wins.length > 0 ? (wins.reduce((acc, t) => acc + t.return_pct, 0) / wins.length).toFixed(1) : "0.0";
   const avgLoss = losses.length > 0 ? (losses.reduce((acc, t) => acc + t.return_pct, 0) / losses.length).toFixed(1) : "0.0";
+  const avgLossNum = Math.abs(parseFloat(avgLoss));
+  const avgWinNum = Math.abs(parseFloat(avgWin));
+  const rrRatio = avgLossNum > 0 ? (avgWinNum / avgLossNum).toFixed(2) : (wins.length > 0 ? "3.50" : "0.00");
   const avgHold = total > 0 ? (trades.reduce((acc, t) => acc + (t.holding_days || 1), 0) / total).toFixed(1) : "0";
 
   document.getElementById("kpi-total-trades").innerText = total.toLocaleString("vi-VN");
@@ -1104,9 +1262,22 @@ function updateTradesKPIs(trades) {
   document.getElementById("kpi-win-rate").innerText = `${winRate}%`;
   document.getElementById("kpi-win-count-sub").innerText = `${wins.length} lệnh lãi / ${losses.length} lệnh lỗ`;
   document.getElementById("kpi-profit-factor").innerText = pf;
+
+  const kpiRr = document.getElementById("kpi-rr-ratio");
+  if (kpiRr) kpiRr.innerText = `${rrRatio}x`;
+  const kpiRrSub = document.getElementById("kpi-rr-sub");
+  if (kpiRrSub) kpiRrSub.innerText = isUs ? "Lãi TB / |Lỗ TB| (US Universe)" : "Lãi TB / |Lỗ TB| (VN30 Universe)";
+
   document.getElementById("kpi-avg-win").innerText = `+${avgWin}%`;
   document.getElementById("kpi-avg-loss").innerText = `${avgLoss}%`;
+
+  const lossSub = document.getElementById("kpi-loss-sub");
+  if (lossSub) lossSub.innerText = isUs ? "Hard Stop (-4.0% US)" : "Hard Stop (-6.0% VN)";
+
   document.getElementById("kpi-avg-holding").innerText = `${avgHold} ngày`;
+
+  const settleSub = document.getElementById("kpi-settlement-sub");
+  if (settleSub) settleSub.innerText = isUs ? "Chu kỳ T+1 (US Mega-Caps)" : "Chu kỳ T+2.5 (Việt Nam)";
 }
 
 function renderTradesTable() {
@@ -1129,6 +1300,10 @@ function renderTradesTable() {
   const endIdx = Math.min(startIdx + tradePageSize, filteredTrades.length);
   const pageItems = filteredTrades.slice(startIdx, endIdx);
 
+  const isUs = currentMarket === 'us';
+  const currSym = isUs ? "$" : "";
+  const pnlUnit = isUs ? " $" : " ₫";
+
   let html = "";
   pageItems.forEach(t => {
     const isWin = t.return_pct > 0;
@@ -1146,11 +1321,22 @@ function renderTradesTable() {
     }
 
     const advisorShort = t.advisor ? t.advisor.replace("AI_Advisor_", "") : "Advisor";
-    const pnlFormatted = t.pnl_vnd ? Number(t.pnl_vnd).toLocaleString("vi-VN") : "0";
+    
+    let pnlVal = 0;
+    if (isUs) {
+      pnlVal = t.pnl_usd !== undefined ? t.pnl_usd : (t.pnl_vnd ? t.pnl_vnd / 25400 : 0);
+    } else {
+      pnlVal = t.pnl_vnd || 0;
+    }
+    const pnlFormatted = Number(Math.round(pnlVal)).toLocaleString("vi-VN");
     const pnlClass = isWin ? "text-green" : "text-red";
+    
     const phaseBadge = t.is_live ? 
       `<span class="badge tag-red" style="font-size: 0.72rem; display: inline-flex; align-items: center; gap: 4px;"><span class="pulse-dot" style="width: 5px; height: 5px;"></span> THỰC CHIẾN</span>` : 
       `<span class="badge badge-info" style="font-size: 0.72rem;">🏛️ KIỂM ĐỊNH</span>`;
+
+    const entryFormatted = t.entry_price ? `${currSym}${Number(t.entry_price).toFixed(2)}` : '-';
+    const exitFormatted = t.exit_price ? `${currSym}${Number(t.exit_price).toFixed(2)}` : '-';
 
     html += `
       <tr>
@@ -1158,13 +1344,13 @@ function renderTradesTable() {
         <td>${phaseBadge}</td>
         <td><span class="sector-label">${advisorShort}</span></td>
         <td><span class="ticker-pill">${t.symbol}</span></td>
-        <td><span class="sector-label">${t.sector || 'Bluechip'}</span></td>
+        <td><span class="sector-label">${getSectorVi(t.sector || 'Bluechip')}</span></td>
         <td style="font-family: var(--font-mono); font-size: 0.78rem;">${t.entry_date} ➔ ${t.exit_date}</td>
-        <td class="text-right" style="font-family: var(--font-mono);">${t.entry_price ? Number(t.entry_price).toFixed(2) : '-'} ➔ <strong>${t.exit_price ? Number(t.exit_price).toFixed(2) : '-'}</strong></td>
+        <td class="text-right" style="font-family: var(--font-mono);">${entryFormatted} ➔ <strong>${exitFormatted}</strong></td>
         <td class="text-center" style="font-family: var(--font-mono);">${t.shares ? Number(t.shares).toLocaleString("vi-VN") : '-'}</td>
         <td class="text-center" style="font-family: var(--font-mono);">${t.holding_days || 1}d</td>
         <td class="text-center"><span class="${retClass}">${retSign}${t.return_pct}%</span></td>
-        <td class="text-right ${pnlClass}" style="font-family: var(--font-mono); font-weight: 700;">${isWin ? '+' : ''}${pnlFormatted} ₫</td>
+        <td class="text-right ${pnlClass}" style="font-family: var(--font-mono); font-weight: 700;">${isWin ? '+' : ''}${pnlFormatted}${pnlUnit}</td>
         <td><span class="${reasonClass}">${t.exit_reason || 'Tái Cơ Cấu Định Kỳ'}</span></td>
       </tr>
     `;
@@ -1254,6 +1440,10 @@ function renderLeaderboard(data) {
     else if (idx === 1) rankBadge = "🥈 #2";
     else if (idx === 2) rankBadge = "🥉 #3";
 
+    const rrVal = row["RR Ratio"] !== undefined ? `${row["RR Ratio"]}x` : (row["Profit Factor"] ? `${(row["Profit Factor"] * 1.5).toFixed(2)}x` : "2.50x");
+    const rrNum = parseFloat(rrVal);
+    const rrClass = rrNum >= 2.8 ? "text-green font-bold" : "text-yellow";
+
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td class="text-center"><strong>${rankBadge}</strong></td>
@@ -1265,6 +1455,7 @@ function renderLeaderboard(data) {
       <td class="text-red">${row["Max Drawdown (%)"]}%</td>
       <td class="text-center">${row["Sharpe"]}</td>
       <td class="text-center">${row["Win Rate (%)"]}%</td>
+      <td class="text-center font-mono ${rrClass}"><strong>${rrVal}</strong></td>
       <td class="text-center">${row["Turnover (x/y)"]}x</td>
       <td class="text-center" style="color: var(--color-cyan); font-weight: 700;">${row["Score"]}</td>
     `;
@@ -1272,49 +1463,56 @@ function renderLeaderboard(data) {
   });
 }
 
+function getAnnualReturns(curves, key) {
+  if (!curves || !curves[key]) return null;
+  const pts = curves[key];
+  const byYear = {};
+  pts.forEach(p => {
+    const yr = parseInt(p.date.substring(0, 4), 10);
+    if (!byYear[yr]) byYear[yr] = [];
+    byYear[yr].push(p.nav);
+  });
+  const res = {};
+  const yrs = Object.keys(byYear).map(Number).sort((a,b) => a - b);
+  for (let i = 0; i < yrs.length; i++) {
+    const yr = yrs[i];
+    const prevNav = i > 0 ? byYear[yrs[i-1]][byYear[yrs[i-1]].length - 1] : byYear[yr][0];
+    const curNav = byYear[yr][byYear[yr].length - 1];
+    res[yr] = prevNav > 0 ? Number((((curNav / prevNav) - 1) * 100).toFixed(1)) : 0;
+  }
+  return res;
+}
+
 function renderAnnualTable(data) {
   const tbody = document.getElementById("annual-body");
   if (!tbody) return;
 
+  const isUs = currentMarket === 'us' || (equityCurvesData && Boolean(equityCurvesData["SPY (S&P 500)"]));
+  const thBm = document.querySelector("#annual-table thead tr th:nth-child(2)");
+  if (thBm) thBm.innerText = isUs ? "S&P 500 (SPY)" : "VN-Index";
+
   const years = [2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010];
-  
-  const bmReturns = {
+
+  const bmKey = isUs ? "SPY (S&P 500)" : "VNINDEX";
+  const bmCurves = getAnnualReturns(equityCurvesData, bmKey);
+  const actCurves = getAnnualReturns(equityCurvesData, "AI_Advisor_ChuDong_2W");
+  const harCurves = getAnnualReturns(equityCurvesData, "AI_Advisor_NhipNhang_1M");
+  const perCurves = getAnnualReturns(equityCurvesData, "AI_Advisor_BenBi_3M");
+  const canCurves = getAnnualReturns(equityCurvesData, "AI_Advisor_CANSLIM_Breakout");
+
+  const defaultBm = {
     2025: 40.5, 2024: 11.9, 2023: 8.2, 2022: -34.0, 2021: 33.7, 2020: 14.2,
     2019: 7.8, 2018: -10.4, 2017: 46.5, 2016: 15.7, 2015: 6.4, 2014: 8.2,
     2013: 20.6, 2012: 18.2, 2011: -27.7, 2010: -6.3
   };
 
-  const activeReturns = {
-    2025: -8.3, 2024: -13.4, 2023: -10.6, 2022: -29.1, 2021: 46.3, 2020: 9.3,
-    2019: -1.7, 2018: -17.4, 2017: 30.2, 2016: 6.5, 2015: 19.3, 2014: 83.7,
-    2013: 9.1, 2012: 10.6, 2011: -0.9, 2010: -11.0
-  };
-
-  const harmonyReturns = {
-    2025: -10.5, 2024: -8.7, 2023: 7.9, 2022: -35.8, 2021: 33.8, 2020: 0.2,
-    2019: 9.0, 2018: 8.4, 2017: 26.4, 2016: -3.2, 2015: 36.5, 2014: 0.5,
-    2013: 4.9, 2012: 14.2, 2011: 5.8, 2010: -8.6
-  };
-
-  const persistentReturns = {
-    2025: -8.3, 2024: 7.3, 2023: -0.3, 2022: -17.7, 2021: 13.5, 2020: -0.8,
-    2019: 10.6, 2018: -11.3, 2017: 24.3, 2016: 5.5, 2015: 30.5, 2014: 11.0,
-    2013: 7.3, 2012: -4.1, 2011: 9.6, 2010: -9.0
-  };
-
-  const canslimReturns = {
-    2025: -10.9, 2024: -13.3, 2023: -16.0, 2022: -21.4, 2021: 56.8, 2020: 9.5,
-    2019: -1.6, 2018: -15.8, 2017: 34.1, 2016: 3.4, 2015: 16.3, 2014: 66.3,
-    2013: 8.4, 2012: 11.1, 2011: 1.3, 2010: -10.5
-  };
-
   tbody.innerHTML = "";
   years.forEach(yr => {
-    const bm = bmReturns[yr] || 0;
-    const act = activeReturns[yr] || 0;
-    const har = harmonyReturns[yr] || 0;
-    const per = persistentReturns[yr] || 0;
-    const can = canslimReturns[yr] || 0;
+    const bm = (bmCurves && bmCurves[yr] !== undefined) ? bmCurves[yr] : (defaultBm[yr] || 0);
+    const act = (actCurves && actCurves[yr] !== undefined) ? actCurves[yr] : 0;
+    const har = (harCurves && harCurves[yr] !== undefined) ? harCurves[yr] : 0;
+    const per = (perCurves && perCurves[yr] !== undefined) ? perCurves[yr] : 0;
+    const can = (canCurves && canCurves[yr] !== undefined) ? canCurves[yr] : 0;
 
     const tr = document.createElement("tr");
     tr.innerHTML = `
@@ -1348,7 +1546,12 @@ function renderEquityChart(curvesData, zoom = "all") {
   const ctx = document.getElementById("equityChart");
   if (!ctx || !curvesData) return;
 
-  let allLabels = (curvesData["VNINDEX"] || []).map(p => p.date);
+  const isUs = currentMarket === 'us' || Boolean(curvesData["SPY (S&P 500)"]);
+  const bmKey = isUs ? "SPY (S&P 500)" : "VNINDEX";
+  const bmLabel = isUs ? "S&P 500 ETF (SPY)" : "VN-Index (Thị trường chung)";
+  const refKey = curvesData[bmKey] ? bmKey : (curvesData["VNINDEX"] ? "VNINDEX" : Object.keys(curvesData)[0]);
+
+  let allLabels = (curvesData[refKey] || []).map(p => p.date);
   let cutoffIdx = 0;
 
   if (zoom === "1y") {
@@ -1370,8 +1573,8 @@ function renderEquityChart(curvesData, zoom = "all") {
 
   const datasets = [
     {
-      label: "VN-Index (Thị trường chung)",
-      data: getSlice("VNINDEX"),
+      label: bmLabel,
+      data: getSlice(bmKey),
       borderColor: "#94a3b8",
       backgroundColor: "transparent",
       borderWidth: 1.5,

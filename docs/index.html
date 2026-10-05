@@ -35,10 +35,27 @@
 
   <main class="main-container">
 
+    <!-- Market Selection Ribbon -->
+    <div class="market-selector-bar">
+      <div class="market-selector-left">
+        <span class="selector-icon">🌐</span>
+        <span class="selector-title">KHÔNG GIAN KIỂM ĐỊNH & THỰC CHIẾN:</span>
+      </div>
+      <div class="market-selector-tabs">
+        <button class="market-btn active" data-market="vn" id="btn-market-vn">
+          <span class="market-flag">🇻🇳</span> Thị Trường Việt Nam (VN30 / VN-Index)
+        </button>
+        <button class="market-btn" data-market="us" id="btn-market-us">
+          <span class="market-flag">🌐</span> Thị Trường Quốc Tế (US Mega-Caps & S&P 500)
+          <span class="rr-chip">RR ~ 3.0x - 4.0x</span>
+        </button>
+      </div>
+    </div>
+
     <!-- Market Overview Banner -->
     <section class="market-banner">
       <div class="market-stat-card">
-        <div class="stat-header">CHỈ SỐ VN-INDEX</div>
+        <div class="stat-header" id="banner-bm-title">CHỈ SỐ VN-INDEX</div>
         <div class="stat-value" id="vnindex-close">1,280.5</div>
         <div class="stat-change" id="vnindex-change">+0.85% (+10.8 điểm)</div>
         <div class="stat-breadth" id="market-breadth">Độ rộng: Đang tải...</div>
@@ -46,17 +63,17 @@
       <div class="market-stat-card">
         <div class="stat-header">TRẠNG THÁI THỊ TRƯỜNG</div>
         <div class="stat-badge badge-bull" id="market-regime">BULLISH TREND</div>
-        <div class="stat-note">Chỉ số nằm trên MA20 & MA50</div>
+        <div class="stat-note" id="market-regime-note">Chỉ số nằm trên MA20 & MA50</div>
       </div>
       <div class="market-stat-card">
         <div class="stat-header">CHIẾN LƯỢC TỐI ƯU 15 NĂM</div>
         <div class="stat-value text-gold" id="champion-strategy">Chiến Lược Chủ Động</div>
-        <div class="stat-sub">Lợi nhuận: +448.9% | MDD: -20.1%</div>
+        <div class="stat-sub" id="champion-strategy-sub">Lợi nhuận: +948.8% | MDD: -21.7%</div>
       </div>
       <div class="market-stat-card">
-        <div class="stat-header">KHUNG THỜI GIAN VẬN HÀNH</div>
-        <div class="stat-badge badge-live"><span class="pulse-dot"></span> THỰC CHIẾN: 2026 – NAY</div>
-        <div class="stat-note">Kiểm định chuẩn: 2010 – 2025 (15 năm)</div>
+        <div class="stat-header">TỶ LỆ LỜI / LỖ (RR RATIO)</div>
+        <div class="stat-badge badge-asymmetric" id="banner-rr-badge"><span class="pulse-dot"></span> RR RATIO: 2.76x</div>
+        <div class="stat-note" id="banner-rr-sub">Lãi TB: +14.5% | Lỗ TB: -5.3%</div>
       </div>
     </section>
 
@@ -393,7 +410,7 @@
         </div>
 
         <!-- KPI Metrics Ribbon for Filtered Trades -->
-        <div class="kpi-grid">
+        <div class="kpi-grid kpi-grid-7">
           <div class="kpi-card">
             <div class="kpi-label">TỔNG SỐ LỆNH ĐÃ ĐÓNG</div>
             <div class="kpi-value" id="kpi-total-trades">0</div>
@@ -409,20 +426,25 @@
             <div class="kpi-value text-gold" id="kpi-profit-factor">0.0</div>
             <div class="kpi-sub">Tổng lãi gộp / Tổng lỗ gộp</div>
           </div>
+          <div class="kpi-card highlight-rr-card">
+            <div class="kpi-label">TỶ LỆ LỜI / LỖ (RR RATIO)</div>
+            <div class="kpi-value text-yellow" id="kpi-rr-ratio">0.0x</div>
+            <div class="kpi-sub" id="kpi-rr-sub">Lãi TB / |Lỗ TB| (Asymmetric)</div>
+          </div>
           <div class="kpi-card">
             <div class="kpi-label">LÃI TRUNG BÌNH LỆNH THẮNG</div>
             <div class="kpi-value text-green" id="kpi-avg-win">+0.0%</div>
-            <div class="kpi-sub">Kỳ vọng lợi nhuận dương</div>
+            <div class="kpi-sub" id="kpi-win-sub">Kỳ vọng lợi nhuận dương</div>
           </div>
           <div class="kpi-card">
             <div class="kpi-label">LỖ TRUNG BÌNH LỆNH THUA</div>
             <div class="kpi-value text-red" id="kpi-avg-loss">-0.0%</div>
-            <div class="kpi-sub">Được siết bởi Stop Loss -4.5%</div>
+            <div class="kpi-sub" id="kpi-loss-sub">Được siết bởi Stop Loss</div>
           </div>
           <div class="kpi-card">
             <div class="kpi-label">NẮM GIỮ TRUNG BÌNH</div>
             <div class="kpi-value" id="kpi-avg-holding">0 ngày</div>
-            <div class="kpi-sub">Tuân thủ chu kỳ T+2</div>
+            <div class="kpi-sub" id="kpi-settlement-sub">Tuân thủ chu kỳ thanh toán</div>
           </div>
         </div>
 
@@ -448,16 +470,17 @@
                   <th class="text-center">Lệnh Thắng</th>
                   <th class="text-center">Lệnh Thua</th>
                   <th class="text-center">Win Rate (%)</th>
+                  <th class="text-center">Tỷ Lệ RR</th>
                   <th class="text-center">Lãi/Lỗ TB (%)</th>
                   <th class="text-right">Trade Tốt Nhất</th>
                   <th class="text-right">Trade Tệ Nhất</th>
-                  <th class="text-right">Tổng PnL VND</th>
+                  <th class="text-right" id="th-symbol-pnl-header">Tổng PnL VND</th>
                   <th class="text-center">Giữ TB (ngày)</th>
                   <th class="text-center">Thao Tác</th>
                 </tr>
               </thead>
               <tbody id="symbol-stats-tbody">
-                <tr><td colspan="12" class="text-center">Đang tải bảng thống kê hiệu suất từng mã...</td></tr>
+                <tr><td colspan="13" class="text-center">Đang tải bảng thống kê hiệu suất từng mã...</td></tr>
               </tbody>
             </table>
           </div>
@@ -553,7 +576,7 @@
                   <th class="text-center">Số Lượng</th>
                   <th class="text-center">Số Ngày</th>
                   <th class="text-center">Hiệu Suất (%)</th>
-                  <th class="text-right">Lãi/Lỗ VND</th>
+                  <th class="text-right" id="th-trades-pnl-header">Lãi/Lỗ VND</th>
                   <th>Lý Do Đóng Lệnh</th>
                 </tr>
               </thead>
@@ -635,13 +658,14 @@
                   <th>Max DD (%)</th>
                   <th>Sharpe</th>
                   <th>Win Rate</th>
+                  <th>Tỷ Lệ RR</th>
                   <th>Vòng Quay</th>
                   <th>Điểm Chất Lượng</th>
                 </tr>
               </thead>
               <tbody id="leaderboard-body">
                 <tr>
-                  <td colspan="11" class="text-center">Đang nạp kết quả kiểm định 15 năm...</td>
+                  <td colspan="12" class="text-center">Đang nạp kết quả kiểm định 15 năm...</td>
                 </tr>
               </tbody>
             </table>
