@@ -12,11 +12,11 @@ TICKER_ENTITY_MAP: Dict[str, List[str]] = {
     "FPT": ["fpt", "tập đoàn fpt", "trương gia bình", "fpt software", "fpt telecom", "fpt retail", "frt"],
     "HPG": ["hpg", "hòa phát", "thép hòa phát", "trần đình long", "thép dung quất", "hòa phát dung quất"],
     "VCB": ["vcb", "vietcombank", "ngân hàng ngoại thương"],
-    "MBB": ["mbb", "mbbank", "ngân hàng quân đội", "mb bank"],
+    "MBB": ["mbb", "mbbank", "ngân hàng quân đội", "mb bank", "ngân hàng mb"],
     "TCB": ["tcb", "techcombank", "ngân hàng kỹ thương", "hồ hùng anh"],
     "ACB": ["acb", "ngân hàng á châu", "trần hùng huy"],
     "SSI": ["ssi", "chứng khoán ssi", "nguyễn duy hưng"],
-    "VND": ["vnd", "vndirect", "chứng khoán vndirect", "phạm minh hương"],
+    "VND": ["vndirect", "chứng khoán vndirect", "phạm minh hương"],
     "VHM": ["vhm", "vinhomes"],
     "VIC": ["vic", "vingroup", "phạm nhật vượng", "vinfast"],
     "MWG": ["mwg", "thế giới di động", "bách hóa xanh", "điện máy xanh", "nguyễn đức tài", "era blue"],
@@ -33,7 +33,7 @@ TICKER_ENTITY_MAP: Dict[str, List[str]] = {
     "PVD": ["pvd", "khoan dầu khí", "pv drilling"],
     "PVS": ["pvs", "dịch vụ kỹ thuật dầu khí", "ptsc"],
     "VCI": ["vci", "vietcap", "chứng khoán bản việt"],
-    "HCM": ["hcm", "hsc", "chứng khoán tp.hcm"],
+    "HCM": ["hsc", "chứng khoán hsc", "chứng khoán tp.hcm", "chứng khoán tp hcm"],
     "KDH": ["kdh", "nhà khang điền", "khang điền"],
     "NLG": ["nlg", "nam long", "tập đoàn nam long"]
 }
@@ -85,11 +85,15 @@ CATALYST_KEYWORDS: List[Tuple[str, float]] = [
     ("đơn hàng lớn", 0.7),
     ("ký kết hợp tác", 0.5),
     ("trả cổ tức tiền mặt", 0.7),
+    ("cổ tức tiền mặt", 0.7),
+    ("chốt quyền cổ tức", 0.7),
+    ("lăn chốt", 0.6),
     ("cổ tức cao", 0.6),
     ("chia thưởng cổ phiếu", 0.5),
     ("tạm ứng cổ tức", 0.6),
     ("mua lại cổ phiếu", 0.7),
     ("cổ đông lớn mua vào", 0.7),
+    ("đăng ký mua vào", 0.7),
     ("đăng ký mua", 0.7),
     ("mua tiếp", 0.6),
     ("lãnh đạo đăng ký mua", 0.7),
@@ -128,12 +132,13 @@ class FinancialNewsClassifier:
         clean_text = text.lower()
 
         # Direct token word boundary matching for ticker
+        # Skip generic ambiguous words VND and HCM from standalone matching
         for ticker, aliases in TICKER_ENTITY_MAP.items():
-            # Check standalone ticker (e.g. "FPT", "(FPT)", "FPT:")
-            pattern = rf"(?:\b|\(){ticker.lower()}(?:\b|\)|\:|\,)"
-            if re.search(pattern, clean_text):
-                matched.add(ticker)
-                continue
+            if ticker not in {"VND", "HCM"}:
+                pattern = rf"(?:\b|\(){ticker.lower()}(?:\b|\)|\:|\,)"
+                if re.search(pattern, clean_text):
+                    matched.add(ticker)
+                    continue
 
             # Check corporate name aliases
             for alias in aliases:
@@ -141,15 +146,35 @@ class FinancialNewsClassifier:
                     matched.add(ticker)
                     break
 
-        # Match explicit ticker phrases: "Cổ phiếu VPG", "mã SHS", "cổ phiếu HDB", "(MWG)"
-        excluded_words = {"USD", "VND", "EUR", "GDP", "CPI", "FED", "ETF", "NAV", "IPO", "EOD", "EPS", "ROE", "ROA", "BCTC", "HOSE", "HNX", "UPCOM"}
-        explicit_matches = re.findall(r"(?:cổ phiếu|mã|cp|chứng khoán)\s+([A-Za-z]{3})\b", text, flags=re.IGNORECASE)
+        # Context-aware detection for MB (MBBank)
+        if re.search(r"\bmb\s+(?:bơm|tăng vốn|lãi|bctc|cho vay|hút ròng|ngân hàng)\b", clean_text) or "ngân hàng mb" in clean_text:
+            matched.add("MBB")
+
+        # Excluded words for ticker matching (currencies, macro indices, banking ratios, common prepositions)
+        excluded_words = {
+            "USD", "VND", "EUR", "GDP", "CPI", "FED", "ETF", "NAV", "IPO", "EOD",
+            "EPS", "ROE", "ROA", "BCTC", "HOSE", "HNX", "UPCOM",
+            "LDR", "NIM", "NPL", "CAR", "CIR", "FDI", "ODA", "PMI", "ESG",
+            "CEO", "CFO", "COO", "CTO", "AGM", "EGM", "BOD", "SBV", "MOF", "SSC", "VSD", "KRX",
+            "SAU", "HOM", "NAY", "QUA", "DAU", "CUOI"
+        }
+
+        # Match explicit stock code phrases: "Cổ phiếu VPG", "mã SHS", "cổ phiếu HDB", "cp FPT"
+        explicit_matches = re.findall(r"(?:cổ phiếu|mã|cp)\s+([A-Za-z]{3})\b", text, flags=re.IGNORECASE)
         for m in explicit_matches:
             cand = m.upper()
             if cand not in excluded_words:
                 matched.add(cand)
 
-        parentheses_matches = re.findall(r"\(([A-Za-z]{3})\)", text)
+        # Match "chứng khoán" strictly followed by uppercase ticker (avoids "chứng khoán sau", "chứng khoán hôm nay")
+        ck_matches = re.findall(r"chứng khoán\s+([A-Z]{3})\b", text)
+        for m in ck_matches:
+            cand = m.upper()
+            if cand not in excluded_words:
+                matched.add(cand)
+
+        # Match standalone uppercase ticker in parentheses: "(MWG)", "(HPG)"
+        parentheses_matches = re.findall(r"\(([A-Z]{3})\)", text)
         for m in parentheses_matches:
             cand = m.upper()
             if cand not in excluded_words:
@@ -183,9 +208,23 @@ class FinancialNewsClassifier:
                 if score > catalyst_score:
                     catalyst_score = score
 
+        # Filter out false catalyst on government bond bidding: "trúng thầu trái phiếu chính phủ"
+        if "trúng thầu" in catalyst_hits and ("trái phiếu chính phủ" in full_text or "kho bạc" in full_text):
+            catalyst_hits.remove("trúng thầu")
+            catalyst_score = 0.0
+            for kw in catalyst_hits:
+                for ck_kw, ck_score in CATALYST_KEYWORDS:
+                    if kw == ck_kw and ck_score > catalyst_score:
+                        catalyst_score = ck_score
+
         # 3. Determine primary category
         is_red_flag = len(red_flag_hits) > 0 and red_flag_score <= -0.5
         is_catalyst = len(catalyst_hits) > 0 and catalyst_score >= 0.5
+
+        macro_words = ["lãi suất", "tỷ giá", "lạm phát", "fed", "ngân hàng nhà nước", "gdp", "vĩ mô"]
+        is_macro = any(m in full_text for m in macro_words)
+        if "không lãi suất" in full_text and len(symbols) > 0:
+            is_macro = False
 
         if is_red_flag:
             category = "CẢNH BÁO RỦI RO / BẤT THƯỜNG"
@@ -196,7 +235,7 @@ class FinancialNewsClassifier:
         elif any(d in full_text for d in DISCLOSURE_KEYWORDS):
             category = "CÔNG BỐ THÔNG TIN ĐỊNH KỲ"
             sentiment_score = 0.1 if catalyst_score > 0 else (-0.1 if red_flag_score < 0 else 0.0)
-        elif any(m in full_text for m in ["lãi suất", "tỷ giá", "lạm phát", "fed", "ngân hàng nhà nước", "gdp", "vĩ mô"]):
+        elif is_macro:
             category = "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ"
             sentiment_score = 0.1 if "giảm lãi suất" in full_text or "tăng trưởng" in full_text else 0.0
         else:

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-04 20:17:32 (UTC+7)",
+  "last_updated": "2026-10-05 08:58:08 (UTC+7)",
   "trading_date": "2026-10-02",
   "vnindex": {
     "close": 1737.71,
@@ -11,10 +11,10 @@
   },
   "news_radar": {
     "total_news_scanned": 160,
-    "red_flags_detected": 0,
+    "red_flags_detected": 1,
     "catalysts_detected": 2,
-    "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-04 20:17:32"
+    "system_verdict": "CẢNH BÁO (1 MÃ RỦI RO BẤT THƯỜNG)",
+    "last_scanned": "2026-10-05 08:58:08"
   },
   "current_holdings": [
     {
@@ -59,7 +59,7 @@
       "technical_signal": "Tích lũy chờ dòng tiền",
       "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
-      "volume": 1643400
+      "volume": 1647548
     },
     {
       "symbol": "MSN",
@@ -103,7 +103,7 @@
       "technical_signal": "Tích lũy chờ dòng tiền",
       "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
-      "volume": 1643400
+      "volume": 1647548
     },
     {
       "symbol": "MSN",
@@ -147,7 +147,7 @@
       "technical_signal": "Tích lũy chờ dòng tiền",
       "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
-      "volume": 1643400
+      "volume": 1647548
     },
     {
       "symbol": "MSN",
@@ -191,7 +191,7 @@
       "technical_signal": "Tích lũy chờ dòng tiền",
       "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
-      "volume": 1643400
+      "volume": 1647548
     }
   ],
   "new_signals": [
@@ -251,7 +251,7 @@
       {
         "symbol": "MWG",
         "sector": "Retail",
-        "net_sentiment": 0.3,
+        "net_sentiment": 0.65,
         "sentiment_multiplier": 1.2,
         "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
         "status_badge": "pos",
@@ -261,7 +261,20 @@
         "re_eval_note": ""
       }
     ],
-    "red_flags": [],
+    "red_flags": [
+      {
+        "symbol": "MBB",
+        "sector": "Banking",
+        "net_sentiment": -0.8,
+        "sentiment_multiplier": 0.0,
+        "status": "CẢNH BÁO BẤT THƯỜNG (RED FLAG)",
+        "status_badge": "neg-danger",
+        "latest_headline": "MB bơm 3.500 tỷ tăng vốn cho một ngân hàng bị kiểm soát đặc biệt",
+        "action_desc": "Phủ quyết / Loại bỏ khẩn cấp khỏi danh mục",
+        "news_count": 1,
+        "re_eval_note": ""
+      }
+    ],
     "cautions": [
       {
         "symbol": "FPT",
@@ -282,21 +295,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Phó Tổng Giám đốc Vietcombank bất ngờ xin nghỉ hưu trước tuổi",
+        "latest_headline": "Lãi suất ngân hàng 4/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 6,
-        "re_eval_note": ""
-      },
-      {
-        "symbol": "MBB",
-        "sector": "Banking",
-        "net_sentiment": 0.0,
-        "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN BÌNH ỔN",
-        "status_badge": "neutral",
-        "latest_headline": "Không có thông tin bất thường gần đây",
-        "action_desc": "Duy trì khuyến nghị định lượng gốc",
-        "news_count": 0,
+        "news_count": 4,
         "re_eval_note": ""
       },
       {
@@ -308,7 +309,7 @@
         "status_badge": "neutral",
         "latest_headline": "Lãi suất ngân hàng 4/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 5,
+        "news_count": 4,
         "re_eval_note": ""
       },
       {
@@ -328,11 +329,11 @@
         "sector": "Securities",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN ỔN ĐỊNH",
+        "status": "THÔNG TIN BÌNH ỔN",
         "status_badge": "neutral",
-        "latest_headline": "Ông Nguyễn Duy Hưng vừa mua thêm cổ phần 1 doanh nghiệp bia",
-        "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
+        "latest_headline": "Không có thông tin bất thường gần đây",
+        "action_desc": "Duy trì khuyến nghị định lượng gốc",
+        "news_count": 0,
         "re_eval_note": ""
       },
       {
@@ -340,11 +341,11 @@
         "sector": "Securities",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN ỔN ĐỊNH",
+        "status": "THÔNG TIN BÌNH ỔN",
         "status_badge": "neutral",
-        "latest_headline": "Gửi tiết kiệm PGBank, cơ hội trúng ô tô Skoda Kushaq trị giá 649 triệu đồng",
-        "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
+        "latest_headline": "Không có thông tin bất thường gần đây",
+        "action_desc": "Duy trì khuyến nghị định lượng gốc",
+        "news_count": 0,
         "re_eval_note": ""
       },
       {
@@ -376,11 +377,11 @@
         "sector": "Consumer",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN ỔN ĐỊNH",
+        "status": "THÔNG TIN BÌNH ỔN",
         "status_badge": "neutral",
-        "latest_headline": "VinFast, THACO, Vinamilk và loạt ông lớn Việt mang hàng tỷ USD ra nước ngoài xây nhà máy, phát triển vùng nguyên liệu",
-        "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
+        "latest_headline": "Không có thông tin bất thường gần đây",
+        "action_desc": "Duy trì khuyến nghị định lượng gốc",
+        "news_count": 0,
         "re_eval_note": ""
       },
       {
@@ -422,8 +423,8 @@
     ],
     "summary": {
       "total_catalysts": 2,
-      "total_red_flags": 0,
-      "total_cautions": 13
+      "total_red_flags": 1,
+      "total_cautions": 12
     }
   },
   "universe_count": 15,
@@ -468,7 +469,7 @@
           "current_return_pct": -5.38,
           "stop_loss": 79.53,
           "target_price": 95.77,
-          "volume": 1643400,
+          "volume": 1647548,
           "technical_signal": "Tích lũy chờ dòng tiền",
           "news_status": "THÔNG TIN BÌNH ỔN",
           "news_badge": "neutral",
@@ -519,7 +520,7 @@
           "current_return_pct": -3.58,
           "stop_loss": 78.05,
           "target_price": 93.99,
-          "volume": 1643400,
+          "volume": 1647548,
           "technical_signal": "Tích lũy chờ dòng tiền",
           "news_status": "THÔNG TIN BÌNH ỔN",
           "news_badge": "neutral",
@@ -570,7 +571,7 @@
           "current_return_pct": 7.68,
           "stop_loss": 69.89,
           "target_price": 84.16,
-          "volume": 1643400,
+          "volume": 1647548,
           "technical_signal": "Tích lũy chờ dòng tiền",
           "news_status": "THÔNG TIN BÌNH ỔN",
           "news_badge": "neutral",
@@ -621,7 +622,7 @@
           "current_return_pct": -5.38,
           "stop_loss": 79.53,
           "target_price": 95.77,
-          "volume": 1643400,
+          "volume": 1647548,
           "technical_signal": "Tích lũy chờ dòng tiền",
           "news_status": "THÔNG TIN BÌNH ỔN",
           "news_badge": "neutral",

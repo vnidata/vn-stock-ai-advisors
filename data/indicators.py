@@ -3,9 +3,18 @@ Quantitative feature engineering and technical indicator extraction.
 Addresses Challenge 2: "Nén" raw market data into high-signal quantitative features
 combining Trend, Momentum, Volatility, Volume Flow, and Relative Strength (RS).
 """
+import sys
 import pandas as pd
 import numpy as np
 from typing import Dict, Optional
+
+# Force UTF-8 encoding for standard output
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
 
 
 class TechnicalFeatureEngineer:

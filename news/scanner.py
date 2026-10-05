@@ -60,6 +60,13 @@ class NewsScanner:
         self.cache_file = cache_file or (Path(__file__).resolve().parent / "news_cache.json")
         self.classifier = FinancialNewsClassifier()
 
+    def scan_all_feeds(self, limit_per_feed: int = 40) -> List[Dict[str, Any]]:
+        """
+        Polls all active RSS feeds and parses articles with NLP sentiment enrichment.
+        Alias for fetch_live_news.
+        """
+        return self.fetch_live_news(limit_per_feed=limit_per_feed)
+
     def fetch_live_news(self, limit_per_feed: int = 40) -> List[Dict[str, Any]]:
         """
         Polls all active RSS feeds and parses articles with NLP sentiment enrichment.

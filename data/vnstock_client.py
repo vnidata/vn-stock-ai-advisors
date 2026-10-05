@@ -11,6 +11,14 @@ from typing import Optional, List, Dict, Any
 import pandas as pd
 import numpy as np
 
+# Force UTF-8 encoding for standard output
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 # Configure logger
 logger = logging.getLogger("VNStockClient")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
@@ -112,15 +120,43 @@ class VnStockClient:
                 return pd.read_csv(csv_fallback)
             df_fetched = self._generate_synthetic_market_data(clean_sym, start_date, end_date)
 
-        # 4. Standardize and cache
+        # 4. Standardize and cache (merge with existing cache to preserve full history)
         df_standard = self._standardize_df(df_fetched, clean_sym)
-        try:
-            df_standard.to_parquet(cache_file, index=False)
-        except Exception:
-            df_standard.to_csv(csv_fallback, index=False)
 
-        mask = (df_standard["time"] >= pd.to_datetime(start_date)) & (df_standard["time"] <= pd.to_datetime(end_date))
-        return df_standard[mask].reset_index(drop=True)
+        existing_df = None
+        if csv_fallback.exists():
+            try:
+                existing_df = pd.read_csv(csv_fallback)
+            except Exception as e:
+                logger.debug("Failed to read existing CSV cache for %s: %s", clean_sym, e)
+        elif cache_file.exists():
+            try:
+                existing_df = pd.read_parquet(cache_file)
+            except Exception as e:
+                logger.debug("Failed to read existing Parquet cache for %s: %s", clean_sym, e)
+
+        if existing_df is not None and not existing_df.empty:
+            existing_df = self._standardize_df(existing_df, clean_sym)
+            merged = pd.concat([existing_df, df_standard], ignore_index=True)
+            merged = merged.drop_duplicates(subset=["time"], keep="last").sort_values("time").reset_index(drop=True)
+            df_to_save = merged
+        else:
+            df_to_save = df_standard
+
+        # Save to Parquet if possible
+        try:
+            df_to_save.to_parquet(cache_file, index=False)
+        except Exception:
+            pass
+
+        # Always maintain CSV cache
+        try:
+            df_to_save.to_csv(csv_fallback, index=False)
+        except Exception as e:
+            logger.warning("Could not save to CSV cache for %s: %s", clean_sym, e)
+
+        mask = (df_to_save["time"] >= pd.to_datetime(start_date)) & (df_to_save["time"] <= pd.to_datetime(end_date))
+        return df_to_save[mask].reset_index(drop=True)
 
     def _fetch_from_api(self, symbol: str, start_date: str, end_date: str) -> Optional[pd.DataFrame]:
         """Fetch quotes from VnStock VCI endpoint with retry mechanism."""
