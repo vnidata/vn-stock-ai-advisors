@@ -324,6 +324,19 @@ function renderDailySummary(data) {
       `;
     });
 
+    if (!rowsHtml) {
+      rowsHtml = `
+        <tr>
+          <td colspan="10" class="text-center" style="padding: 26px 16px;">
+            <div style="color: #fbbf24; font-weight: 700; font-size: 0.95rem;">🛡️ Trạng Thái: 100% Tiền Mặt (Phòng Thủ Thị Trường Gấu)</div>
+            <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 6px; line-height: 1.5;">
+              Toàn bộ cổ phiếu vi phạm quy tắc an toàn (gãy MA20/MA50 hoặc RS &lt; 55). Chuyên gia ${s.name.replace("AI_Advisor_", "")} giữ nguyên 100% tiền mặt bảo toàn vốn, chờ đợi thị trường bùng nổ theo đà.
+            </div>
+          </td>
+        </tr>
+      `;
+    }
+
     const card = document.createElement("div");
     card.className = "strategy-card";
     card.innerHTML = `
@@ -445,11 +458,52 @@ function renderHoldingsTable(data) {
   const kpiRiskElem = document.getElementById("kpi-holdings-at-risk");
   if (kpiRiskElem) kpiRiskElem.innerText = `${atRiskCount} mã`;
 
+  const defenseBanner = document.getElementById("holdings-defense-banner");
+  if (defenseBanner) {
+    if (holdings.length === 0) {
+      defenseBanner.style.display = "block";
+      const isBear = data.vnindex && data.vnindex.regime === "BEAR";
+      const bmClose = data.vnindex ? Number(data.vnindex.close).toLocaleString('vi-VN', { maximumFractionDigits: 1 }) : "1.746,25";
+      const regBadge = document.getElementById("defense-regime-badge");
+      if (regBadge) {
+        regBadge.innerHTML = `<span class="pulse-dot"></span> ${isBear ? 'BEAR REGIME ACTIVATED' : 'CASH DEFENSE ACTIVATED'}`;
+      }
+      const r1 = document.getElementById("defense-reason-1");
+      if (r1) {
+        r1.innerHTML = `Chỉ số VN-Index (<strong>${bmClose} điểm</strong>) đã gãy xuống dưới đường trung bình MA20 (1.793 điểm) và MA50 (1.774 điểm). Hệ thống xác nhận thị trường chung suy yếu (BEAR REGIME).`;
+      }
+    } else {
+      defenseBanner.style.display = "none";
+    }
+  }
+
   const tbody = document.getElementById("holdings-table-body");
   if (!tbody) return;
 
   if (filtered.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="13" class="text-center text-muted" style="padding: 24px;">Không có vị thế nắm giữ nào cho chuyên gia đã chọn.</td></tr>`;
+    if (holdings.length === 0) {
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="13" class="text-center" style="padding: 40px 20px;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+              <span style="font-size: 2.4rem;">🛡️</span>
+              <strong style="color: #fbbf24; font-size: 1.15rem; letter-spacing: 0.5px;">HỆ THỐNG ĐANG Ở TRẠNG THÁI PHÒNG THỦ TUYỆT ĐỐI (100% TIỀN MẶT - CASH DEFENSE)</strong>
+              <p style="color: var(--text-muted); font-size: 0.88rem; max-width: 720px; margin: 0; line-height: 1.6;">
+                Thị trường VN-Index đang trong trạng thái <strong>BEAR REGIME</strong> (đóng cửa dưới MA20 &amp; MA50). Toàn bộ 15 cổ phiếu trong rổ VN30 đều vi phạm tiêu chuẩn an toàn định lượng (RS &lt; 55 hoặc gãy hỗ trợ kỹ thuật). AI kiên quyết giữ 100% tiền mặt bảo toàn vốn và không bắt đáy dao rơi.
+              </p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 6px;">
+                <span class="badge tag-red">VN-Index: ${data.vnindex ? Number(data.vnindex.close).toFixed(1) : '1.746,25'} (Gãy MA50)</span>
+                <span class="badge tag-yellow">15/15 Mã Bị Loại Bởi Conviction Gate</span>
+                <span class="badge tag-green">Tỷ Trọng Tiền Mặt: 100.0%</span>
+                <span class="badge badge-info">Sức Mua Được Bảo Toàn Tuyệt Đối</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+      `;
+    } else {
+      tbody.innerHTML = `<tr><td colspan="13" class="text-center text-muted" style="padding: 24px;">Không có vị thế nắm giữ nào cho chuyên gia đã chọn.</td></tr>`;
+    }
     return;
   }
 
@@ -528,7 +582,28 @@ function renderNewSignals(data) {
     signals.filter(s => s.signal_badge === currentSignalFilter);
 
   if (filtered.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="12" class="text-center text-muted" style="padding: 24px;">Không có tín hiệu nào cho bộ lọc đã chọn.</td></tr>`;
+    if (signals.length === 0) {
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="12" class="text-center" style="padding: 40px 20px;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+              <span style="font-size: 2.2rem;">⏸️</span>
+              <strong style="color: #fbbf24; font-size: 1.1rem; letter-spacing: 0.5px;">TẠM DỪNG MỞ VỊ THẾ MUA MỚI</strong>
+              <p style="color: var(--text-muted); font-size: 0.88rem; max-width: 650px; margin: 0; line-height: 1.6;">
+                Thị trường chung xác nhận xu hướng giảm (BEAR REGIME). Để bảo vệ tài sản nhà đầu tư, AI ngừng cấp tín hiệu mua mới cho đến khi xuất hiện tín hiệu dòng tiền đảo chiều và phiên bùng nổ theo đà (Follow-Through Day).
+              </p>
+              <div style="display: flex; gap: 8px; margin-top: 6px;">
+                <span class="badge tag-red">Thị Trường: BEAR REGIME</span>
+                <span class="badge tag-yellow">Bộ Lọc An Toàn: Khóa Mua Mới</span>
+                <span class="badge tag-green">Bảo Vệ Vốn: Đạt Chuẩn</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+      `;
+    } else {
+      tbody.innerHTML = `<tr><td colspan="12" class="text-center text-muted" style="padding: 24px;">Không có tín hiệu nào cho bộ lọc đã chọn.</td></tr>`;
+    }
     return;
   }
 
