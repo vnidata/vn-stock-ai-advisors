@@ -1,4 +1,4 @@
-// BSC Quant - AI Portfolio Advisor Web Dashboard
+// AlphaQuant AI - Autonomous Stock Portfolio Advisory Dashboard
 // Master Controller: Holdings, New Signals, News Actions, Trades History, Per-Symbol Analytics, Performance & Evolution
 
 let currentMarket = 'vn'; // 'vn' or 'us'

@@ -143,7 +143,7 @@ def pair_round_trip_trades_usd(trade_records: List[Any], advisor_name: str) -> L
 
 def run_international_backtest():
     print("=" * 80)
-    print("🌐 BSC QUANT - MÔ PHỎNG ĐỊNH LƯỢNG 15 NĂM CỔ PHIẾU QUỐC TẾ (US MEGA-CAPS)")
+    print("🌐 ALPHAQUANT AI - MÔ PHỎNG ĐỊNH LƯỢNG 15 NĂM CỔ PHIẾU QUỐC TẾ (US MEGA-CAPS)")
     print("   Áp dụng Động Cơ Bất Đối Xứng Lợi Nhuận / Rủi Ro (Asymmetric Payoff Engine)")
     print("=" * 80)
 

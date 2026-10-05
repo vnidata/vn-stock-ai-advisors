@@ -93,7 +93,7 @@ def initialize_advisor_pool() -> List:
 def run_pipeline(fast_mode: bool = True):
     """Execute complete end-to-end multi-advisor simulation, evaluation, and evolution."""
     config = get_default_config()
-    console.print(f"[bold magenta]=== KHỞI ĐỘNG HỆ THỐNG AI PORTFOLIO ADVISORS - BSC QUANT ===[/bold magenta]")
+    console.print(f"[bold magenta]=== KHỞI ĐỘNG HỆ THỐNG AI PORTFOLIO ADVISORS - ALPHAQUANT AI ===[/bold magenta]")
     
     # 1. Universe & Data Ingestion
     universe = StockUniverse()

@@ -35,7 +35,7 @@ class ReportGenerator:
 
         md = []
         md.append("# BÁO CÁO HIỆU SUẤT & TIẾN HÓA HỆ THỐNG AI ADVISORS THỰC CHIẾN")
-        md.append("## Bộ phận Phân tích Định lượng (BSC Quant) - Hệ thống AI Portfolio Advisor")
+        md.append("## Trung Tâm Phân Tích Định Lượng (AlphaQuant Intelligence) - Hệ Thống AI Portfolio Advisor")
         md.append("")
         md.append("---")
         md.append("### 1. Bảng Xếp Hạng & So Sánh Hiệu Suất Tổng Thể")
@@ -115,8 +115,8 @@ class ReportGenerator:
 
         md = []
         md.append("# BÁO CÁO KẾT QUẢ KIỂM THỬ ĐỊNH LƯỢNG 15 NĂM (2010 - 2025)")
-        md.append("## Hệ thống Đa Chuyên Gia AI Quản Lý Danh Mục Chứng Khoán Việt Nam")
-        md.append("### Bộ phận Phân tích Định lượng (BSC Quant) - BSC Research")
+        md.append("## Hệ thống Đa Chuyên Gia AI Quản Lý Danh Mục Chứng Khoán")
+        md.append("### Trung Tâm Phân Tích Định Lượng & Quản Trị Danh Mục AlphaQuant AI")
         md.append("")
         md.append("---")
         md.append("### 1. Bảng Xếp Hạng Hiệu Suất Tổng Thể 15 Năm (2010 - 2025)")
@@ -171,7 +171,7 @@ class ReportGenerator:
 
         md.append("")
         md.append("---")
-        md.append("*Báo cáo tổng hợp số liệu 15 năm được khởi tạo tự động bởi Hệ thống BSC Quant AI Advisors.*")
+        md.append("*Báo cáo tổng hợp số liệu 15 năm được khởi tạo tự động bởi Hệ thống AlphaQuant AI Advisors.*")
 
         with open(out_file, "w", encoding="utf-8") as f:
             f.write("\n".join(md))

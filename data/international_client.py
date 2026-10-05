@@ -22,7 +22,7 @@ if hasattr(sys.stdout, "reconfigure"):
     except Exception:
         pass
 
-# Ensure corporate SSL certificates work seamlessly on Windows / BIDV Securities networks
+# Ensure corporate SSL certificates work seamlessly on Windows / enterprise proxy networks
 try:
     import truststore
     truststore.inject_into_ssl()

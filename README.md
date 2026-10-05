@@ -1,5 +1,5 @@
 # VN-Stock AI Advisors - Hệ Thống Chuyên Gia AI Thực Chiến & Tiến Hóa Tự Động
-## Dự án Độc lập Phân tích Định lượng & Quản lý Danh mục Chứng khoán Việt Nam (BSC Quant Framework)
+## Dự án Độc lập Phân tích Định lượng & Quản lý Danh mục Chứng khoán Thực Chiến (AlphaQuant AI Framework)
 
 Dự án này là hệ thống phân tích định lượng và cố vấn danh mục chứng khoán thực chiến độc lập, phát triển trên nền tảng dữ liệu chứng khoán mã nguồn mở **Vnstock** kết hợp cơ chế kiểm soát rủi ro thị trường Việt Nam (chu kỳ thanh toán T+2, biên độ giá trần/sàn HOSE $\pm 7\%$, lô chẵn 100 cổ phiếu, chi phí thuế phí giao dịch).
 
@@ -123,7 +123,7 @@ vn-stock-ai-advisors/
 ### 5.1. Cài đặt môi trường
 
 ```bash
-cd "e:\OneDrive - BIDV Securities JSC\AI_data_skill\vn-stock-ai-advisors"
+cd vn-stock-ai-advisors
 pip install -r requirements.txt
 ```
 

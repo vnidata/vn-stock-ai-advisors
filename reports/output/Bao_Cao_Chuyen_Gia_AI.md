@@ -1,5 +1,5 @@
 # BÁO CÁO HIỆU SUẤT & TIẾN HÓA HỆ THỐNG AI ADVISORS THỰC CHIẾN
-## Bộ phận Phân tích Định lượng (BSC Quant) - Hệ thống AI Portfolio Advisor
+## Trung Tâm Phân Tích Định Lượng (AlphaQuant Intelligence) - Hệ Thống AI Portfolio Advisor
 
 ---
 ### 1. Bảng Xếp Hạng & So Sánh Hiệu Suất Tổng Thể
