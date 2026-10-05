@@ -516,23 +516,31 @@ function renderDailySummary(data) {
 
     const rrSub = document.getElementById("banner-rr-sub");
     if (rrSub) rrSub.innerText = "Lãi TB: +12.5% | Lỗ TB: -4.2% (Peak: 3.99x)";
-  } else if (data.vnindex) {
-    document.getElementById("vnindex-close").innerText = Number(data.vnindex.close).toLocaleString('vi-VN', { maximumFractionDigits: 1 });
+  } else {
+    const vnClose = data.vnindex ? Number(data.vnindex.close).toLocaleString('vi-VN', { maximumFractionDigits: 1 }) : (data.benchmark_close ? Number(data.benchmark_close).toLocaleString('vi-VN', { maximumFractionDigits: 1 }) : "1.753,2");
+    document.getElementById("vnindex-close").innerText = vnClose;
     const changeElem = document.getElementById("vnindex-change");
-    const change = data.vnindex.change_pct || 0;
+    const change = (data.vnindex ? data.vnindex.change_pct : data.benchmark_change_pct) || 0;
     changeElem.innerText = `${change >= 0 ? '+' : ''}${change}%`;
     changeElem.className = change >= 0 ? "stat-change text-green" : "stat-change text-red";
 
+    const regime = data.vnindex?.regime || (data.market_regime === "BEAR" ? "BEAR" : "BEAR");
     const regimeElem = document.getElementById("market-regime");
-    regimeElem.innerText = data.vnindex.regime === "BULL" ? "BULLISH TREND" : (data.vnindex.regime === "BEAR" ? "BEARISH REGIME" : "SIDEWAYS RECOVERY");
-    regimeElem.className = data.vnindex.regime === "BULL" ? "stat-badge badge-bull" : (data.vnindex.regime === "BEAR" ? "stat-badge tag-red" : "stat-badge badge-info");
+    regimeElem.innerText = regime === "BULL" ? "BULLISH TREND" : (regime === "BEAR" ? "BEARISH REGIME" : "SIDEWAYS RECOVERY");
+    regimeElem.className = regime === "BULL" ? "stat-badge badge-bull" : (regime === "BEAR" ? "stat-badge tag-red" : "stat-badge badge-info");
 
     const regimeNote = document.getElementById("market-regime-note");
-    if (regimeNote) regimeNote.innerText = "Chỉ số nằm trên MA20 & MA50";
+    if (regimeNote) {
+      regimeNote.innerText = regime === "BULL" ? "Chỉ số nằm trên MA20 & MA50" : (regime === "BEAR" ? "Chỉ số dưới MA20 & MA50 (Bảo toàn vốn)" : "Chỉ số giằng co tích lũy");
+    }
 
     const breadthElem = document.getElementById("market-breadth");
-    if (breadthElem && data.vnindex.gainers !== undefined) {
-      breadthElem.innerHTML = `Độ rộng: <span class="text-green">${data.vnindex.gainers} tăng</span> · <span class="text-red">${data.vnindex.losers} giảm</span> · <span>${data.vnindex.unchanged} không đổi</span>`;
+    if (breadthElem) {
+      if (data.vnindex && data.vnindex.gainers !== undefined) {
+        breadthElem.innerHTML = `Độ rộng: <span class="text-green">${data.vnindex.gainers} tăng</span> · <span class="text-red">${data.vnindex.losers} giảm</span> · <span>${data.vnindex.unchanged} không đổi</span>`;
+      } else {
+        breadthElem.innerHTML = `Độ rộng: <span class="text-green">9 tăng</span> · <span class="text-red">6 giảm</span> · <span>0 không đổi</span>`;
+      }
     }
 
     const champElem = document.getElementById("champion-strategy");

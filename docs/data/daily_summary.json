@@ -1,20 +1,20 @@
 {
-  "last_updated": "2026-10-05 10:05:11 (UTC+7)",
+  "last_updated": "2026-10-05 14:52:05 (UTC+7)",
   "trading_date": "2026-10-05",
   "vnindex": {
-    "close": 1746.25,
-    "change_pct": 0.49,
+    "close": 1753.2,
+    "change_pct": 0.89,
     "regime": "BEAR",
-    "gainers": 7,
-    "losers": 5,
-    "unchanged": 3
+    "gainers": 9,
+    "losers": 6,
+    "unchanged": 0
   },
   "news_radar": {
     "total_news_scanned": 160,
-    "red_flags_detected": 1,
+    "red_flags_detected": 2,
     "catalysts_detected": 2,
-    "system_verdict": "CẢNH BÁO (1 MÃ RỦI RO BẤT THƯỜNG)",
-    "last_scanned": "2026-10-05 10:05:11"
+    "system_verdict": "CẢNH BÁO (2 MÃ RỦI RO BẤT THƯỜNG)",
+    "last_scanned": "2026-10-05 14:52:05"
   },
   "current_holdings": [],
   "new_signals": [],
@@ -57,6 +57,18 @@
         "action_desc": "Phủ quyết / Loại bỏ khẩn cấp khỏi danh mục",
         "news_count": 1,
         "re_eval_note": ""
+      },
+      {
+        "symbol": "DGC",
+        "sector": "Chemicals",
+        "net_sentiment": -0.6,
+        "sentiment_multiplier": 0.0,
+        "status": "CẢNH BÁO BẤT THƯỜNG (RED FLAG)",
+        "status_badge": "neg-danger",
+        "latest_headline": "Nóng: 65 mã chứng khoán bị HoSE cắt margin quý 4/2026: HVN, DGC cùng hàng loạt cổ phiếu \"hot\" nằm trong danh sách",
+        "action_desc": "Phủ quyết / Loại bỏ khẩn cấp khỏi danh mục",
+        "news_count": 1,
+        "re_eval_note": ""
       }
     ],
     "cautions": [
@@ -65,11 +77,11 @@
         "sector": "Technology",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN BÌNH ỔN",
+        "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Không có thông tin bất thường gần đây",
-        "action_desc": "Duy trì khuyến nghị định lượng gốc",
-        "news_count": 0,
+        "latest_headline": "Báo cáo phân tích: PNJ, FPT và MSB có nguy cơ bị loại khỏi rổ Diamond",
+        "action_desc": "Duy trì tỷ trọng khuyến nghị",
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -81,7 +93,7 @@
         "status_badge": "neutral",
         "latest_headline": "Lãi suất ngân hàng 4/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 4,
+        "news_count": 3,
         "re_eval_note": ""
       },
       {
@@ -93,7 +105,7 @@
         "status_badge": "neutral",
         "latest_headline": "Lãi suất ngân hàng 4/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 4,
+        "news_count": 3,
         "re_eval_note": ""
       },
       {
@@ -105,7 +117,7 @@
         "status_badge": "neutral",
         "latest_headline": "Lãi suất ngân hàng 4/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 4,
+        "news_count": 3,
         "re_eval_note": ""
       },
       {
@@ -169,18 +181,6 @@
         "re_eval_note": ""
       },
       {
-        "symbol": "DGC",
-        "sector": "Chemicals",
-        "net_sentiment": 0.0,
-        "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN BÌNH ỔN",
-        "status_badge": "neutral",
-        "latest_headline": "Không có thông tin bất thường gần đây",
-        "action_desc": "Duy trì khuyến nghị định lượng gốc",
-        "news_count": 0,
-        "re_eval_note": ""
-      },
-      {
         "symbol": "GAS",
         "sector": "Energy",
         "net_sentiment": 0.0,
@@ -207,8 +207,8 @@
     ],
     "summary": {
       "total_catalysts": 2,
-      "total_red_flags": 1,
-      "total_cautions": 12
+      "total_red_flags": 2,
+      "total_cautions": 11
     }
   },
   "universe_count": 15,
