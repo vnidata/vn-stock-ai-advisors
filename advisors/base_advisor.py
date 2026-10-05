@@ -91,12 +91,13 @@ class BaseAdvisor(ABC):
                         return -999.0
 
         # Strict Conviction Gate 2: Quality & Trend Direction
-        # Avoid crashing stocks or severe breakdowns below SMA50
+        # Avoid crashing stocks, severe breakdowns below SMA50/SMA20, or weak RS
         dist_sma50 = latest.get("dist_sma50", 0.0)
+        dist_sma20 = latest.get("dist_sma20", 0.0)
         rsi_14 = latest.get("rsi_14", 50.0)
         rs_rating_raw = latest.get("rs_rating", 50.0)
 
-        if dist_sma50 < -0.04 or rsi_14 < 42.0 or rs_rating_raw < 52.0:
+        if dist_sma50 < -0.04 or dist_sma20 < -0.025 or rsi_14 < 45.0 or rs_rating_raw < 55.0:
             return -999.0
 
         # 1. Momentum factors

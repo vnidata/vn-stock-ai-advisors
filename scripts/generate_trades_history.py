@@ -25,9 +25,10 @@ from advisors.mean_reversion_advisor import MeanReversionAdvisor
 
 
 VIETNAMESE_REASONS = {
-    "STOP_LOSS": "Cắt Lỗ Vi Phạm (-4.5%)",
+    "STOP_LOSS": "Cắt Lỗ Vi Phạm (-6.0%)",
+    "BREAKEVEN": "Chốt Hòa Vốn Bảo Toàn (+0.5%)",
     "TRAILING_STOP": "Chốt Lời Trailing Stop",
-    "TAKE_PROFIT": "Chốt Lời Mục Tiêu (+15%)",
+    "TAKE_PROFIT": "Chốt Lời Mục Tiêu",
     "REBALANCE_TARGET_TOP5": "Tái Cơ Cấu Danh Mục Top 5",
     "EXIT_TARGET_BASKET": "Đảo Danh Mục Chu Kỳ Mới",
     "TRIM_OVERWEIGHT": "Hạ Tỷ Trọng Vượt Mức",
@@ -38,12 +39,14 @@ VIETNAMESE_REASONS = {
 
 def map_reason(raw_reason: str) -> str:
     r = str(raw_reason).upper()
-    if "STOP_LOSS" in r:
-        return "Cắt Lỗ Vi Phạm (-4.5%)"
+    if "BREAKEVEN" in r:
+        return "Chốt Hòa Vốn Bảo Toàn (+0.5%)"
+    elif "STOP_LOSS" in r:
+        return "Cắt Lỗ Vi Phạm (-6.0%)"
     elif "TRAILING" in r:
         return "Chốt Lời Trailing Stop"
     elif "TAKE_PROFIT" in r:
-        return "Chốt Lời Mục Tiêu (+15%)"
+        return "Chốt Lời Mục Tiêu"
     elif "EXIT_TARGET" in r:
         return "Đảo Danh Mục Chu Kỳ Mới"
     elif "REBALANCE" in r:
