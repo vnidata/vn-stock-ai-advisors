@@ -21,6 +21,7 @@ from advisors.active_advisor import ActiveAdvisor
 from advisors.harmony_advisor import HarmonyAdvisor
 from advisors.persistent_advisor import PersistentAdvisor
 from advisors.canslim_advisor import CanslimAdvisor
+from advisors.mean_reversion_advisor import MeanReversionAdvisor
 
 
 VIETNAMESE_REASONS = {
@@ -142,7 +143,8 @@ def generate_all_trades_history():
         PersistentAdvisor(),
         HarmonyAdvisor(),
         ActiveAdvisor(),
-        CanslimAdvisor()
+        CanslimAdvisor(),
+        MeanReversionAdvisor()
     ]
 
     engine = BacktestEngine(initial_capital=config.initial_capital)

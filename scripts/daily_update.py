@@ -32,6 +32,7 @@ from advisors.active_advisor import ActiveAdvisor
 from advisors.harmony_advisor import HarmonyAdvisor
 from advisors.persistent_advisor import PersistentAdvisor
 from advisors.canslim_advisor import CanslimAdvisor
+from advisors.mean_reversion_advisor import MeanReversionAdvisor
 
 
 def get_technical_signal(df_feat: pd.DataFrame) -> str:
@@ -137,7 +138,8 @@ def run_daily_update():
         ActiveAdvisor(),
         HarmonyAdvisor(),
         PersistentAdvisor(),
-        CanslimAdvisor()
+        CanslimAdvisor(),
+        MeanReversionAdvisor()
     ]
 
     latest_timestamp = bm_df["time"].iloc[-1]

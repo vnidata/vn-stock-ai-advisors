@@ -1410,6 +1410,14 @@ function renderEquityChart(curvesData, zoom = "all") {
       backgroundColor: "transparent",
       borderWidth: 1.8,
       pointRadius: 0
+    },
+    {
+      label: "Đảo Chiều Thống Kê (20D)",
+      data: getSlice("AI_Advisor_Mean_Reversion"),
+      borderColor: "#ec4899",
+      backgroundColor: "transparent",
+      borderWidth: 2,
+      pointRadius: 0
     }
   ];
 

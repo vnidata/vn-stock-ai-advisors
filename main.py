@@ -202,7 +202,8 @@ def run_15y_backtest(fast_mode: bool = True):
         ActiveAdvisor(),        # 2W rebalance, Rank Ladder, aggressive momentum
         HarmonyAdvisor(),       # 1M rebalance, EQW, balanced trend
         PersistentAdvisor(),    # 3M rebalance, Risk Parity, defensive
-        CanslimAdvisor()        # 2W rebalance, CANSLIM breakout volume
+        CanslimAdvisor(),       # 2W rebalance, CANSLIM breakout volume
+        MeanReversionAdvisor()  # 20D rebalance, RSI/BB oversold + trend alignment (Gen 2)
     ]
 
     engine = BacktestEngine(initial_capital=config.initial_capital)

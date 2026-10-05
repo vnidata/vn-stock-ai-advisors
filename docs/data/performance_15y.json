@@ -1,21 +1,21 @@
 [
   {
     "Advisor Name": "AI_Advisor_ChuDong_2W",
-    "Total Return (%)": 448.9,
-    "CAGR (%)": 11.2,
-    "Alpha vs VN-Index (%/y)": 3.2,
+    "Total Return (%)": 434.0,
+    "CAGR (%)": 11.0,
+    "Alpha vs VN-Index (%/y)": 3.0,
     "Beta": 0.31,
     "Max Drawdown (%)": -20.1,
-    "Sharpe": 0.51,
-    "Sortino": 0.52,
-    "Calmar": 0.56,
+    "Sharpe": 0.5,
+    "Sortino": 0.51,
+    "Calmar": 0.55,
     "Win Rate (%)": 46.0,
     "Profit Factor": 1.68,
     "Turnover (x/y)": 15.0,
-    "Cost Drag (%/y)": 3.01,
+    "Cost Drag (%/y)": 3.0,
     "Trades": 550,
-    "Final NAV (M VND)": 5488.9,
-    "Score": 0.47
+    "Final NAV (M VND)": 5340.5,
+    "Score": 0.45
   },
   {
     "Advisor Name": "AI_Advisor_CANSLIM_Breakout",
@@ -36,6 +36,42 @@
     "Score": 0.37
   },
   {
+    "Advisor Name": "AI_Advisor_NhipNhang_1M",
+    "Total Return (%)": 328.1,
+    "CAGR (%)": 9.5,
+    "Alpha vs VN-Index (%/y)": 1.5,
+    "Beta": 0.31,
+    "Max Drawdown (%)": -24.3,
+    "Sharpe": 0.4,
+    "Sortino": 0.4,
+    "Calmar": 0.39,
+    "Win Rate (%)": 48.3,
+    "Profit Factor": 1.55,
+    "Turnover (x/y)": 15.9,
+    "Cost Drag (%/y)": 3.18,
+    "Trades": 575,
+    "Final NAV (M VND)": 4280.9,
+    "Score": 0.32
+  },
+  {
+    "Advisor Name": "AI_Advisor_Mean_Reversion",
+    "Total Return (%)": 350.7,
+    "CAGR (%)": 9.9,
+    "Alpha vs VN-Index (%/y)": 1.8,
+    "Beta": 0.29,
+    "Max Drawdown (%)": -31.3,
+    "Sharpe": 0.42,
+    "Sortino": 0.43,
+    "Calmar": 0.32,
+    "Win Rate (%)": 47.5,
+    "Profit Factor": 1.54,
+    "Turnover (x/y)": 12.3,
+    "Cost Drag (%/y)": 2.46,
+    "Trades": 448,
+    "Final NAV (M VND)": 4507.4,
+    "Score": 0.32
+  },
+  {
     "Advisor Name": "AI_Advisor_BenBi_3M",
     "Total Return (%)": 80.5,
     "CAGR (%)": 3.8,
@@ -52,23 +88,5 @@
     "Trades": 178,
     "Final NAV (M VND)": 1805.1,
     "Score": -0.11
-  },
-  {
-    "Advisor Name": "AI_Advisor_NhipNhang_1M",
-    "Total Return (%)": 24.2,
-    "CAGR (%)": 1.4,
-    "Alpha vs VN-Index (%/y)": -6.7,
-    "Beta": 0.28,
-    "Max Drawdown (%)": -42.0,
-    "Sharpe": -0.25,
-    "Sortino": -0.22,
-    "Calmar": 0.03,
-    "Win Rate (%)": 41.0,
-    "Profit Factor": 1.13,
-    "Turnover (x/y)": 10.1,
-    "Cost Drag (%/y)": 2.02,
-    "Trades": 378,
-    "Final NAV (M VND)": 1241.6,
-    "Score": -0.29
   }
 ]

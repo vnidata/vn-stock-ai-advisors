@@ -1,0 +1,74 @@
+{
+  "evolution_cycles": [
+    {
+      "cycle": 1,
+      "date": "2026-10-05",
+      "action": "genome_optimization",
+      "advisor": "AI_Advisor_NhipNhang_1M",
+      "reason": "Sharpe -0.25, CAGR 1.4%, MDD -42% (worst performer)",
+      "changes": {
+        "genome_before": {
+          "w_momentum_20d": 0.15,
+          "w_momentum_60d": 0.20,
+          "w_trend_alignment": 0.25,
+          "w_vol_breakout": 0.10,
+          "w_relative_strength": 0.15,
+          "w_low_volatility": 0.05,
+          "w_mean_reversion": 0.05,
+          "w_drawdown_recovery": 0.05
+        },
+        "genome_after": {
+          "w_momentum_20d": 0.25,
+          "w_momentum_60d": 0.10,
+          "w_trend_alignment": 0.15,
+          "w_vol_breakout": 0.20,
+          "w_relative_strength": 0.20,
+          "w_low_volatility": 0.10,
+          "w_mean_reversion": 0.0,
+          "w_drawdown_recovery": 0.0
+        },
+        "rebalance_before": 25,
+        "rebalance_after": 15,
+        "allocation_method_before": "EQW",
+        "allocation_method_after": "EQW",
+        "allocation_note": "AllocationMethod enum không có INVERSE_VOLATILITY, giữ nguyên EQUAL_WEIGHT theo hướng dẫn"
+      },
+      "status": "applied"
+    },
+    {
+      "cycle": 1,
+      "date": "2026-10-05",
+      "action": "genome_optimization",
+      "advisor": "AI_Advisor_Mean_Reversion",
+      "reason": "Score 0.14 nhưng MDD -43%, turnover 20.5x/năm (753 lệnh), bắt đáy ngược xu hướng và gồng lỗ kéo dài",
+      "changes": {
+        "genome_before": {
+          "w_momentum_20d": -0.15,
+          "w_momentum_60d": 0.05,
+          "w_trend_alignment": 0.05,
+          "w_vol_breakout": 0.10,
+          "w_relative_strength": 0.05,
+          "w_low_volatility": 0.10,
+          "w_mean_reversion": 0.45,
+          "w_drawdown_recovery": 0.35
+        },
+        "genome_after": {
+          "w_momentum_20d": 0.10,
+          "w_momentum_60d": 0.0,
+          "w_trend_alignment": 0.25,
+          "w_vol_breakout": 0.0,
+          "w_relative_strength": 0.25,
+          "w_low_volatility": 0.15,
+          "w_mean_reversion": 0.15,
+          "w_drawdown_recovery": 0.10
+        },
+        "rebalance_before": 10,
+        "rebalance_after": 20,
+        "allocation_method_before": "EQW",
+        "allocation_method_after": "EQW",
+        "allocation_note": "Giữ nguyên EQUAL_WEIGHT, tăng chu kỳ tái cân bằng lên 20 ngày để giảm chi phí giao dịch"
+      },
+      "status": "applied"
+    }
+  ]
+}
