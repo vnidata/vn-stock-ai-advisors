@@ -2,8 +2,13 @@ name: Daily Stock AI Advisors Update
 
 on:
   schedule:
-    # Runs Monday to Friday at 09:30 UTC (16:30 Vietnam Time, 1.5 hours after HOSE close)
-    - cron: '30 9 * * 1-5'
+    # 6 phiên quét tự động mỗi ngày giao dịch từ Thứ Hai đến Thứ Sáu (Giờ Việt Nam UTC+7):
+    - cron: '0 2 * * 1-5'    # 09:00 VN Time - Mở phiên ATO & Khởi động sáng
+    - cron: '0 3 * * 1-5'    # 10:00 VN Time - Giữa phiên sáng, dòng tiền ổn định
+    - cron: '30 4 * * 1-5'   # 11:30 VN Time - Chốt phiên sáng, đánh giá xu hướng trưa
+    - cron: '30 6 * * 1-5'   # 13:30 VN Time - Đầu phiên chiều, hấp thụ lượng hàng về
+    - cron: '0 7 * * 1-5'    # 14:00 VN Time - Giờ cao điểm phiên chiều, rung lắc mạnh
+    - cron: '0 8 * * 1-5'    # 15:00 VN Time - Đóng phiên ATC & Tổng kết ngày
   workflow_dispatch: # Allows manual trigger from GitHub UI
 
 permissions:

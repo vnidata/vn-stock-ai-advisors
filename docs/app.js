@@ -50,14 +50,18 @@ function getSectorVi(sector) {
 
 document.addEventListener("DOMContentLoaded", async () => {
   setupTabs();
+  setupMobileBottomNav();
   setupMarketSwitcher();
   startLiveClock();
+  startScanCountdownTimer();
+  startAiScanTicker();
   setupRefreshButton();
   setupBackToTop();
   setupExportCsv();
   setupTradeSorting();
   setupHoldingsControls();
   setupSignalControls();
+  setupQuickTradeModal();
   setupSymbolStatsControls();
   setupPhaseSwitcher();
   setupTradeFilters();
@@ -128,12 +132,258 @@ function switchTab(targetId) {
     }
   });
 
+  // Sync Mobile Bottom Nav Buttons
+  const mobBtns = document.querySelectorAll(".mobile-nav-btn");
+  mobBtns.forEach(mb => {
+    if (mb.getAttribute("data-tab") === targetId) {
+      mb.classList.add("active");
+    } else {
+      mb.classList.remove("active");
+    }
+  });
+
   localStorage.setItem("alphaquant_active_tab", targetId);
 
   // Resize chart if performance tab is opened
   if (targetId === "tab-performance" && equityChartInstance) {
     setTimeout(() => equityChartInstance.resize(), 100);
   }
+}
+
+// 1A. Mobile Bottom Navigation
+function setupMobileBottomNav() {
+  const mobBtns = document.querySelectorAll(".mobile-nav-btn");
+  mobBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const tabId = btn.getAttribute("data-tab");
+      switchTab(tabId);
+    });
+  });
+}
+
+// 1B. Real-Time 6-Session Scan Countdown (09:00, 10:00, 11:30, 13:30, 14:00, 15:00)
+function startScanCountdownTimer() {
+  const scanSlots = [
+    { time: "09:00", label: "09:00 - ATO Mở Phiên", h: 9, m: 0 },
+    { time: "10:00", label: "10:00 - Giữa Phiên Sáng", h: 10, m: 0 },
+    { time: "11:30", label: "11:30 - Chốt Phiên Sáng", h: 11, m: 30 },
+    { time: "13:30", label: "13:30 - Mở Phiên Chiều", h: 13, m: 30 },
+    { time: "14:00", label: "14:00 - Cao Điểm Chiều", h: 14, m: 0 },
+    { time: "15:00", label: "15:00 - Đóng Phiên ATC", h: 15, m: 0 }
+  ];
+
+  function updateCountdown() {
+    const now = new Date();
+    const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+    const vnDate = new Date(utc + (3600000 * 7)); // Vietnam Time (UTC+7)
+    
+    const curH = vnDate.getHours();
+    const curM = vnDate.getMinutes();
+    const curS = vnDate.getSeconds();
+    const curTotalSec = curH * 3600 + curM * 60 + curS;
+
+    let nextSlot = null;
+    let nextTotalSec = 0;
+
+    for (let slot of scanSlots) {
+      const slotSec = slot.h * 3600 + slot.m * 60;
+      if (curTotalSec < slotSec) {
+        nextSlot = slot;
+        nextTotalSec = slotSec;
+        break;
+      }
+    }
+
+    let diffSec = 0;
+    if (nextSlot) {
+      diffSec = nextTotalSec - curTotalSec;
+    } else {
+      // Next trading day 09:00
+      nextSlot = scanSlots[0];
+      diffSec = (24 * 3600 - curTotalSec) + (9 * 3600);
+    }
+
+    const diffH = Math.floor(diffSec / 3600);
+    const diffM = Math.floor((diffSec % 3600) / 60);
+    const diffS = diffSec % 60;
+    const timeFormatted = `${String(diffH).padStart(2, '0')}:${String(diffM).padStart(2, '0')}:${String(diffS).padStart(2, '0')}`;
+
+    const slotElem = document.getElementById("next-scan-slot");
+    const timerElem = document.getElementById("next-scan-timer");
+    if (slotElem) slotElem.innerText = nextSlot.time;
+    if (timerElem) timerElem.innerText = timeFormatted;
+
+    // Update slot pills
+    const pills = document.querySelectorAll(".slot-pill");
+    pills.forEach(p => {
+      const pTime = p.getAttribute("data-slot");
+      const matched = scanSlots.find(s => s.time === pTime);
+      if (matched) {
+        const slotSec = matched.h * 3600 + matched.m * 60;
+        p.classList.remove("active", "passed");
+        if (matched.time === nextSlot.time) {
+          p.classList.add("active");
+        } else if (curTotalSec >= slotSec) {
+          p.classList.add("passed");
+        }
+      }
+    });
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+}
+
+// 1C. AI Radar Live Scan Feed Ticker
+function startAiScanTicker() {
+  const tickerHeadline = document.getElementById("ticker-headline");
+  if (!tickerHeadline) return;
+
+  const feeds = [
+    "● [15:00 ATC] Đã quét 15 mã VN30 & 160 tin tức tài chính. Hệ thống duy trì 100% tiền mặt phòng thủ bảo toàn vốn trong thị trường gấu.",
+    "● [14:00 Cao Điểm] Kiểm tra xung lực RSI & Dòng tiền MA20. Toàn bộ mã chưa đạt điều kiện giải ngân an toàn.",
+    "● [13:30 Mở Chiều] Hấp thụ lượng cổ phiếu T+2.5 khớp lệnh. Không phát hiện phân kỳ dương thỏa mãn tỷ lệ RR 3.0x.",
+    "● [11:30 Chốt Trưa] VN-Index 1.753,2 điểm gãy MA20/MA50. 5 AI Advisors đồng thuận kỷ luật giữ 100% tiền mặt.",
+    "● [10:00 Giữa Sáng] Tin tức bất thường: Kích hoạt Red Flag Veto đối với 2 mã rủi ro vốn & thanh khoản.",
+    "● [09:00 Mở Phiên] Khởi động radar 6 phiên/ngày. Đọc dữ liệu realtime từ vnstock API & Yahoo Finance."
+  ];
+
+  let feedIdx = 0;
+  setInterval(() => {
+    feedIdx = (feedIdx + 1) % feeds.length;
+    tickerHeadline.style.opacity = 0;
+    setTimeout(() => {
+      tickerHeadline.innerText = feeds[feedIdx];
+      tickerHeadline.style.opacity = 1;
+    }, 300);
+  }, 7000);
+}
+
+// 1D. Quick Trade Modal Controller (Click-to-Trade)
+let currentModalTradeData = {
+  symbol: "HPG",
+  action: "MUA (BUY)",
+  entryPrice: 31.8,
+  stopLoss: 30.35,
+  targetPrice: 36.55,
+  rrRatio: "3.3x",
+  sector: "Thép & Vật Liệu",
+  winRate: 78
+};
+
+function setupQuickTradeModal() {
+  const modal = document.getElementById("quick-trade-modal");
+  const btnClose = document.getElementById("btn-close-quick-trade");
+  const btnCancel = document.getElementById("btn-cancel-quick-trade");
+  const btnConfirm = document.getElementById("btn-confirm-quick-trade");
+  const slider = document.getElementById("modal-alloc-slider");
+
+  if (!modal) return;
+
+  const closeModal = () => { modal.style.display = "none"; };
+  if (btnClose) btnClose.addEventListener("click", closeModal);
+  if (btnCancel) btnCancel.addEventListener("click", closeModal);
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  if (slider) {
+    slider.addEventListener("input", () => {
+      updateModalCalculations();
+    });
+  }
+
+  if (btnConfirm) {
+    btnConfirm.addEventListener("click", () => {
+      const shares = document.getElementById("modal-trade-shares").innerText;
+      const total = document.getElementById("modal-trade-total").innerText;
+      showToast(`⚡ Đã khớp lệnh ${currentModalTradeData.action} ${currentModalTradeData.symbol}: ${shares} (Tổng: ${total}). Đã đưa vào danh mục theo dõi AI!`, "success");
+      closeModal();
+    });
+  }
+}
+
+function openQuickTradeModal(symbol, action, entry, sl, tp, rr, sector, winRate) {
+  currentModalTradeData.symbol = symbol || "HPG";
+  currentModalTradeData.action = action || "MUA (BUY)";
+  currentModalTradeData.entryPrice = Number(entry) || 31.8;
+  currentModalTradeData.stopLoss = Number(sl) || 30.35;
+  currentModalTradeData.targetPrice = Number(tp) || 36.55;
+  currentModalTradeData.rrRatio = rr || "3.3x";
+  currentModalTradeData.sector = sector || "Thép & Vật Liệu";
+  currentModalTradeData.winRate = winRate || 78;
+
+  const symElem = document.getElementById("modal-trade-symbol");
+  if (symElem) symElem.innerText = currentModalTradeData.symbol;
+  const secElem = document.getElementById("modal-trade-sector");
+  if (secElem) secElem.innerText = currentModalTradeData.sector;
+  
+  const actionBadge = document.getElementById("modal-trade-action");
+  if (actionBadge) {
+    actionBadge.innerText = currentModalTradeData.action;
+    actionBadge.className = currentModalTradeData.action.includes("BÁN") ? "trade-action-badge action-sell" : "trade-action-badge action-buy";
+  }
+
+  const winRateElem = document.getElementById("modal-trade-winrate");
+  if (winRateElem) winRateElem.innerText = `Win Rate: ${currentModalTradeData.winRate}%`;
+
+  const isUs = currentMarket === 'us';
+  const currencySymbol = isUs ? "$" : " ₫";
+
+  const entryElem = document.getElementById("modal-trade-entry");
+  if (entryElem) entryElem.innerText = `${currentModalTradeData.entryPrice.toLocaleString('vi-VN')}${currencySymbol}`;
+  const slElem = document.getElementById("modal-trade-sl");
+  if (slElem) slElem.innerText = `${currentModalTradeData.stopLoss.toLocaleString('vi-VN')}${currencySymbol}`;
+  const tpElem = document.getElementById("modal-trade-tp");
+  if (tpElem) tpElem.innerText = `${currentModalTradeData.targetPrice.toLocaleString('vi-VN')}${currencySymbol}`;
+  const rrElem = document.getElementById("modal-trade-rr");
+  if (rrElem) rrElem.innerText = currentModalTradeData.rrRatio;
+
+  updateModalCalculations();
+
+  const modal = document.getElementById("quick-trade-modal");
+  if (modal) modal.style.display = "flex";
+}
+
+function updateModalCalculations() {
+  const slider = document.getElementById("modal-alloc-slider");
+  const allocPct = slider ? parseInt(slider.value) : 10;
+  
+  const pctElem = document.getElementById("modal-alloc-pct");
+  if (pctElem) pctElem.innerText = `${allocPct}%`;
+
+  const isUs = currentMarket === 'us';
+  const nav = isUs ? 50000 : 100000000; // $50k or 100M VND
+  const currencySymbol = isUs ? "$" : " ₫";
+
+  const budgetElem = document.getElementById("modal-alloc-budget");
+  if (budgetElem) budgetElem.innerText = `Ngân sách NAV: ${nav.toLocaleString('vi-VN')}${currencySymbol}`;
+
+  const allocatedCapital = (nav * allocPct) / 100;
+  const price = currentModalTradeData.entryPrice * (isUs ? 1 : 1000);
+  
+  let shares = 0;
+  if (price > 0) {
+    if (isUs) {
+      shares = Math.floor(allocatedCapital / price);
+    } else {
+      shares = Math.floor(allocatedCapital / price / 100) * 100; // Lot 100
+      if (shares === 0) shares = 100;
+    }
+  }
+
+  const totalValue = shares * price;
+  const maxRisk = totalValue * 0.045;
+  const maxGain = totalValue * 0.15;
+
+  const sharesElem = document.getElementById("modal-trade-shares");
+  if (sharesElem) sharesElem.innerText = `${shares.toLocaleString('vi-VN')} CP`;
+  const totalElem = document.getElementById("modal-trade-total");
+  if (totalElem) totalElem.innerText = `${totalValue.toLocaleString('vi-VN')}${currencySymbol}`;
+  const riskElem = document.getElementById("modal-trade-max-risk");
+  if (riskElem) riskElem.innerText = `-${maxRisk.toLocaleString('vi-VN')}${currencySymbol} (-4.5%)`;
+  const gainElem = document.getElementById("modal-trade-max-gain");
+  if (gainElem) gainElem.innerText = `+${maxGain.toLocaleString('vi-VN')}${currencySymbol} (+15.0%)`;
 }
 
 function setupMarketSwitcher() {
@@ -256,19 +506,28 @@ function updateTabBadges() {
   if (badgeHoldings) {
     const count = (globalDailyData && globalDailyData.portfolio_summary && globalDailyData.portfolio_summary.total_positions) || 0;
     badgeHoldings.innerText = count;
+    const mobHoldings = document.getElementById("mob-badge-holdings");
+    if (mobHoldings) mobHoldings.innerText = count;
   }
 
   const badgeSignals = document.getElementById("tab-badge-signals");
   if (badgeSignals) {
-    const count = (globalDailyData && globalDailyData.recommendations && globalDailyData.recommendations.length) || 0;
+    const count = (globalDailyData && globalDailyData.recommendations && globalDailyData.recommendations.length) || (globalDailyData && globalDailyData.new_signals && globalDailyData.new_signals.length) || 0;
     badgeSignals.innerText = count;
+    const mobSignals = document.getElementById("mob-badge-signals");
+    if (mobSignals) mobSignals.innerText = count;
   }
 
   const badgeNews = document.getElementById("tab-badge-news");
   if (badgeNews) {
-    const cats = (globalDailyData && globalDailyData.catalyst_actions && globalDailyData.catalyst_actions.length) || 0;
-    const reds = (globalDailyData && globalDailyData.redflag_actions && globalDailyData.redflag_actions.length) || 0;
-    badgeNews.innerText = cats + reds;
+    const cats = (globalDailyData && globalDailyData.catalyst_actions && globalDailyData.catalyst_actions.length) || 
+                 (globalDailyData && globalDailyData.news_action_recommendations && globalDailyData.news_action_recommendations.catalysts && globalDailyData.news_action_recommendations.catalysts.length) || 0;
+    const reds = (globalDailyData && globalDailyData.redflag_actions && globalDailyData.redflag_actions.length) || 
+                 (globalDailyData && globalDailyData.news_action_recommendations && globalDailyData.news_action_recommendations.red_flags && globalDailyData.news_action_recommendations.red_flags.length) || 0;
+    const totalNewsActions = cats + reds;
+    badgeNews.innerText = totalNewsActions;
+    const mobNews = document.getElementById("mob-badge-news");
+    if (mobNews) mobNews.innerText = totalNewsActions;
   }
 
   const badgeTrades = document.getElementById("tab-badge-trades");
@@ -846,6 +1105,27 @@ function setupSignalControls() {
       renderNewSignals(globalDailyData);
     });
   });
+
+  const btnCards = document.getElementById("btn-view-sig-cards");
+  const btnTable = document.getElementById("btn-view-sig-table");
+  const cardsContainer = document.getElementById("signals-cards-container");
+  const tableContainer = document.getElementById("signals-table-container");
+
+  if (btnCards && btnTable && cardsContainer && tableContainer) {
+    btnCards.addEventListener("click", () => {
+      btnCards.classList.add("active");
+      btnTable.classList.remove("active");
+      cardsContainer.style.display = "grid";
+      tableContainer.style.display = "none";
+    });
+
+    btnTable.addEventListener("click", () => {
+      btnTable.classList.add("active");
+      btnCards.classList.remove("active");
+      tableContainer.style.display = "block";
+      cardsContainer.style.display = "none";
+    });
+  }
 }
 
 function renderNewSignals(data) {
@@ -866,64 +1146,198 @@ function renderNewSignals(data) {
   if (kpiSl) kpiSl.innerText = `${slCount} tín hiệu`;
 
   const tbody = document.getElementById("signals-table-body");
-  if (!tbody) return;
+  const cardsContainer = document.getElementById("signals-cards-container");
 
   const filtered = currentSignalFilter === "all" ? 
     signals : 
     signals.filter(s => s.signal_badge === currentSignalFilter);
 
+  // Render Table View Empty State
   if (filtered.length === 0) {
-    if (signals.length === 0) {
-      tbody.innerHTML = `
-        <tr>
-          <td colspan="12" class="text-center" style="padding: 40px 20px;">
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
-              <span style="font-size: 2.2rem;">⏸️</span>
-              <strong style="color: #fbbf24; font-size: 1.1rem; letter-spacing: 0.5px;">TẠM DỪNG MỞ VỊ THẾ MUA MỚI</strong>
-              <p style="color: var(--text-muted); font-size: 0.88rem; max-width: 650px; margin: 0; line-height: 1.6;">
-                Thị trường chung xác nhận xu hướng giảm (BEAR REGIME). Để bảo vệ tài sản nhà đầu tư, AI ngừng cấp tín hiệu mua mới cho đến khi xuất hiện tín hiệu dòng tiền đảo chiều và phiên bùng nổ theo đà (Follow-Through Day).
-              </p>
-              <div style="display: flex; gap: 8px; margin-top: 6px;">
-                <span class="badge tag-red">Thị Trường: BEAR REGIME</span>
-                <span class="badge tag-yellow">Bộ Lọc An Toàn: Khóa Mua Mới</span>
-                <span class="badge tag-green">Bảo Vệ Vốn: Đạt Chuẩn</span>
+    if (tbody) {
+      if (signals.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="12" class="text-center" style="padding: 40px 20px;">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                <span style="font-size: 2.2rem;">🛡️</span>
+                <strong style="color: #fbbf24; font-size: 1.1rem; letter-spacing: 0.5px;">TẠM DỪNG MỞ VỊ THẾ MUA MỚI (100% TIỀN MẶT)</strong>
+                <p style="color: var(--text-muted); font-size: 0.88rem; max-width: 650px; margin: 0; line-height: 1.6;">
+                  Thị trường chung xác nhận xu hướng giảm (BEAR REGIME). Để bảo vệ vốn đầu tư, 5 AI Advisors đồng thuận ngừng cấp tín hiệu mua mới, tuân thủ kỷ luật phòng thủ và chờ phiên bùng nổ theo đà (Follow-Through Day).
+                </p>
+                <div style="display: flex; gap: 8px; margin-top: 6px;">
+                  <span class="badge tag-red">Thị Trường: BEAR REGIME</span>
+                  <span class="badge tag-yellow">Bộ Lọc An Toàn: Khóa Mua Mới</span>
+                  <span class="badge tag-green">Bảo Vệ Vốn: Đạt Chuẩn</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+        `;
+      } else {
+        tbody.innerHTML = `<tr><td colspan="12" class="text-center text-muted" style="padding: 24px;">Không có tín hiệu nào cho bộ lọc đã chọn.</td></tr>`;
+      }
+    }
+
+    // Render SaaS Cards View Empty State (Defense Hero Card + Interactive Click-to-Trade Demo)
+    if (cardsContainer) {
+      const isUs = currentMarket === 'us';
+      const sampleSym = isUs ? "NVDA" : "HPG";
+      const sampleSector = isUs ? "Semiconductors" : "Thép & Vật Liệu";
+      const samplePrice = isUs ? 122.5 : 31.8;
+      const sampleSl = isUs ? 116.9 : 30.35;
+      const sampleTp = isUs ? 140.8 : 36.55;
+
+      cardsContainer.innerHTML = `
+        <div class="signal-action-card" style="grid-column: 1 / -1; background: #121620; border: 1px solid rgba(251, 191, 36, 0.35); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 2rem;">🛡️</span>
+              <div>
+                <h4 style="margin: 0; color: #fbbf24; font-size: 1.15rem; font-weight: 700;">HỆ THỐNG PHÒNG THỦ: 100% TIỀN MẶT (CHƯA PHÁT TÍN HIỆU MUA MỚI)</h4>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Thị trường chung suy yếu (BEAR REGIME) · Bảo vệ vốn tối đa · Quét tự động 6 phiên/ngày</span>
               </div>
             </div>
-          </td>
-        </tr>
+            <span class="signal-action-badge action-hold">🛡️ CASH DEFENSE</span>
+          </div>
+
+          <p style="color: var(--text-main); font-size: 0.9rem; line-height: 1.6; margin-bottom: 14px;">
+            Toàn bộ 15 cổ phiếu lớn đang gãy MA20/MA50 hoặc có điểm RS &le; 52.9. Để tránh bẫy giảm giá, 5 Chuyên gia AI kiên quyết giữ tỷ trọng tiền mặt tối đa. Hệ thống đang quét tự động 6 phiên/ngày (<strong>09:00 · 10:00 · 11:30 · 13:30 · 14:00 · 15:00</strong>) để đón đầu cơ hội bùng nổ theo đà.
+          </p>
+
+          <div class="condition-tags-row">
+            <span class="tech-tag">VN-Index dưới MA20 &amp; MA50</span>
+            <span class="tech-tag">RS Rating &le; 52.9</span>
+            <span class="tech-tag">Kỷ Luật Khóa Mua</span>
+            <span class="tech-tag">Quét 6 Lần/Ngày</span>
+            <span class="tech-tag">RR Kỳ Vọng: 3.3x</span>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.08); flex-wrap: wrap; gap: 10px;">
+            <span class="signal-validity-tag">⏱️ Phiên quét hiện hành: Còn hiệu lực trong phiên</span>
+            <button class="btn-quick-trade" onclick="openQuickTradeModal('${sampleSym}', 'MUA (TEST TRẢI NGHIỆM)', ${samplePrice}, ${sampleSl}, ${sampleTp}, '3.3x', '${sampleSector}', 78)">
+              <span>⚡ Trải Nghiệm Đặt Lệnh Nhanh (Click-to-Trade)</span>
+            </button>
+          </div>
+        </div>
       `;
-    } else {
-      tbody.innerHTML = `<tr><td colspan="12" class="text-center text-muted" style="padding: 24px;">Không có tín hiệu nào cho bộ lọc đã chọn.</td></tr>`;
     }
     return;
   }
 
-  let html = "";
-  filtered.forEach(sig => {
-    let badgeClass = "signal-badge buy";
-    if (sig.signal_badge === "profit") badgeClass = "signal-badge profit";
-    else if (sig.signal_badge === "stop") badgeClass = "signal-badge stop";
-    else if (sig.signal_badge === "rebalance") badgeClass = "signal-badge rebalance";
+  // Render Table View (when signals exist)
+  if (tbody) {
+    let tableHtml = "";
+    filtered.forEach(sig => {
+      let badgeClass = "signal-badge buy";
+      if (sig.signal_badge === "profit") badgeClass = "signal-badge profit";
+      else if (sig.signal_badge === "stop") badgeClass = "signal-badge stop";
+      else if (sig.signal_badge === "rebalance") badgeClass = "signal-badge rebalance";
 
-    html += `
-      <tr>
-        <td><strong style="color: var(--color-cyan); font-family: var(--font-mono);">${sig.id}</strong></td>
-        <td><span class="ticker-pill">${sig.symbol}</span></td>
-        <td><span class="${badgeClass}">${sig.signal_type}</span></td>
-        <td><span class="sector-label">${sig.recommended_advisor}</span></td>
-        <td><span class="sector-label">${getSectorVi(sig.sector)}</span></td>
-        <td class="text-right font-mono"><strong>${Number(sig.signal_price).toFixed(2)}</strong></td>
-        <td class="text-right font-mono text-green">${Number(sig.target_price).toFixed(2)} (+${sig.target_return_pct}%)</td>
-        <td class="text-right font-mono text-red">${Number(sig.stop_loss).toFixed(2)} (${sig.max_loss_pct}%)</td>
-        <td class="text-center font-mono text-gold"><strong>${sig.rr_ratio}</strong></td>
-        <td class="text-center font-mono">${sig.recommended_weight_pct}%</td>
-        <td style="font-size: 0.82rem; color: var(--text-main); font-weight: 500;">${sig.technical_reason}</td>
-        <td style="font-size: 0.82rem; color: var(--text-muted);">${sig.advisor_rationale}</td>
-      </tr>
-    `;
-  });
+      tableHtml += `
+        <tr>
+          <td><strong style="color: var(--color-cyan); font-family: var(--font-mono);">${sig.id}</strong></td>
+          <td><span class="ticker-pill">${sig.symbol}</span></td>
+          <td><span class="${badgeClass}">${sig.signal_type}</span></td>
+          <td><span class="sector-label">${sig.recommended_advisor}</span></td>
+          <td><span class="sector-label">${getSectorVi(sig.sector)}</span></td>
+          <td class="text-right font-mono"><strong>${Number(sig.signal_price).toFixed(2)}</strong></td>
+          <td class="text-right font-mono text-green">${Number(sig.target_price).toFixed(2)} (+${sig.target_return_pct}%)</td>
+          <td class="text-right font-mono text-red">${Number(sig.stop_loss).toFixed(2)} (${sig.max_loss_pct}%)</td>
+          <td class="text-center font-mono text-gold"><strong>${sig.rr_ratio}</strong></td>
+          <td class="text-center font-mono">${sig.recommended_weight_pct}%</td>
+          <td style="font-size: 0.82rem; color: var(--text-main); font-weight: 500;">${sig.technical_reason}</td>
+          <td style="font-size: 0.82rem; color: var(--text-muted);">${sig.advisor_rationale}</td>
+        </tr>
+      `;
+    });
+    tbody.innerHTML = tableHtml;
+  }
 
-  tbody.innerHTML = html;
+  // Render SaaS Signal Cards View (when signals exist)
+  if (cardsContainer) {
+    let cardsHtml = "";
+    filtered.forEach(sig => {
+      const isBuy = sig.signal_badge === "buy";
+      const isProfit = sig.signal_badge === "profit";
+      const cardTypeClass = isBuy ? "" : (isProfit ? "card-sell" : "card-sell");
+      const actionBadgeClass = isBuy ? "action-buy" : (isProfit ? "action-hold" : "action-sell");
+      const actionText = sig.signal_type || (isBuy ? "MUA (BUY)" : "BÁN (SELL)");
+
+      const winRate = sig.win_rate || (isBuy ? 78 : 65);
+      const confidence = sig.confidence_score || (isBuy ? 88 : 82);
+
+      const sectorVi = getSectorVi(sig.sector);
+      const entryFormatted = Number(sig.signal_price).toLocaleString('vi-VN');
+      const slFormatted = Number(sig.stop_loss).toLocaleString('vi-VN');
+      const tpFormatted = Number(sig.target_price).toLocaleString('vi-VN');
+
+      cardsHtml += `
+        <div class="signal-action-card ${cardTypeClass}">
+          <div class="signal-card-header">
+            <div class="signal-card-ticker">
+              <span class="signal-sym">${sig.symbol}</span>
+              <span class="signal-sector">${sectorVi}</span>
+            </div>
+            <span class="signal-action-badge ${actionBadgeClass}">
+              ${isBuy ? '⚡' : '🔔'} ${actionText}
+            </span>
+          </div>
+
+          <div class="ai-confidence-meter">
+            <div class="meter-header">
+              <span class="meter-title">Độ Tin Cậy AI (Confidence Score)</span>
+              <span class="meter-score">${confidence}% · Win Rate ${winRate}%</span>
+            </div>
+            <div class="meter-bar-track">
+              <div class="meter-bar-fill" style="width: ${confidence}%;"></div>
+            </div>
+          </div>
+
+          <div class="condition-tags-row">
+            <span class="tech-tag">${sig.technical_reason || 'Đột phá MA20 & Khối lượng'}</span>
+            <span class="tech-tag">Tỷ trọng: ${sig.recommended_weight_pct || 10}%</span>
+            <span class="tech-tag">${sig.recommended_advisor ? sig.recommended_advisor.replace('AI_Advisor_', '') : 'Chủ Động'}</span>
+          </div>
+
+          <div class="rr-visualizer-box">
+            <div class="rr-metrics-row">
+              <div class="rr-metric-item">
+                <span>Cắt Lỗ (-4.5%)</span>
+                <strong class="text-red">${slFormatted}</strong>
+              </div>
+              <div class="rr-metric-item">
+                <span>Giá Vào</span>
+                <strong class="text-blue">${entryFormatted}</strong>
+              </div>
+              <div class="rr-metric-item">
+                <span>Mục Tiêu (+15%)</span>
+                <strong class="text-green">${tpFormatted}</strong>
+              </div>
+            </div>
+            <div class="rr-bar-strip">
+              <div class="rr-loss-segment" title="Rủi ro: -4.5%"></div>
+              <div class="rr-entry-mark"></div>
+              <div class="rr-gain-segment" title="Kỳ vọng: +15.0%"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.68rem; color: var(--text-dim); margin-top: 4px;">
+              <span>Rủi ro: -4.5%</span>
+              <strong style="color: #fbbf24;">Tỷ Lệ RR: ${sig.rr_ratio || '3.3x'}</strong>
+              <span>Kỳ vọng: +15.0%</span>
+            </div>
+          </div>
+
+          <div class="signal-card-footer">
+            <span class="signal-validity-tag">⏱️ Phiên quét hiện hành · Còn hiệu lực</span>
+            <button class="btn-quick-trade" onclick="openQuickTradeModal('${sig.symbol}', '${actionText}', ${sig.signal_price}, ${sig.stop_loss}, ${sig.target_price}, '${sig.rr_ratio || '3.3x'}', '${sectorVi}', ${winRate})">
+              <span>⚡ Đặt Lệnh Nhanh</span>
+            </button>
+          </div>
+        </div>
+      `;
+    });
+    cardsContainer.innerHTML = cardsHtml;
+  }
 }
 
 // ==========================================

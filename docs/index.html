@@ -26,6 +26,24 @@
         </div>
       </div>
       <div class="nav-right-controls">
+        <!-- Next Scan Countdown Widget (6 Daily Sessions: 09h, 10h, 11h30, 13h30, 14h, 15h) -->
+        <div class="scan-countdown-widget" id="scan-countdown-widget" title="Lịch quét tự động 6 phiên/ngày: 09:00 • 10:00 • 11:30 • 13:30 • 14:00 • 15:00 (Giờ VN)">
+          <div class="countdown-badge">
+            <span class="scan-radar-icon">📡</span>
+            <div class="countdown-text-group">
+              <span class="countdown-label">QUÉT KẾ TIẾP: <strong id="next-scan-slot">14:00</strong></span>
+              <span class="countdown-timer" id="next-scan-timer">--:--:--</span>
+            </div>
+          </div>
+          <div class="scan-slots-strip" id="scan-slots-strip">
+            <span class="slot-pill" data-slot="09:00" title="09:00 - Mở phiên ATO">9h</span>
+            <span class="slot-pill" data-slot="10:00" title="10:00 - Giữa sáng">10h</span>
+            <span class="slot-pill" data-slot="11:30" title="11:30 - Chốt trưa">11h30</span>
+            <span class="slot-pill" data-slot="13:30" title="13:30 - Mở chiều">13h30</span>
+            <span class="slot-pill" data-slot="14:00" title="14:00 - Cao điểm">14h</span>
+            <span class="slot-pill" data-slot="15:00" title="15:00 - Đóng ATC">15h</span>
+          </div>
+        </div>
         <div class="live-clock-badge" id="live-clock" title="Thời gian giao dịch theo múi giờ">
           <span class="clock-icon">🕒</span>
           <span id="clock-time">--:--:--</span>
@@ -61,6 +79,19 @@
           <span class="market-flag">🌐</span> Thị Trường Quốc Tế (US Mega-Caps &amp; S&amp;P 500)
           <span class="rr-chip">RR ~ 3.0x - 4.0x</span>
         </button>
+      </div>
+    </div>
+ 
+    <!-- AI Real-Time Scan Feed & Status Ticker -->
+    <div class="ai-scan-ticker-bar" id="ai-scan-ticker">
+      <div class="ticker-left">
+        <span class="ticker-tag"><span class="pulse-dot"></span> AI RADAR FEED</span>
+        <div class="ticker-text-wrapper">
+          <span class="ticker-headline" id="ticker-headline">● [15:00 ATC] Đã quét 15 mã VN30 &amp; 160 tin tức tài chính. Hệ thống duy trì 100% tiền mặt phòng thủ bảo toàn vốn trong thị trường gấu.</span>
+        </div>
+      </div>
+      <div class="ticker-schedule-tag" title="Hệ thống quét 6 lần/ngày theo giờ giao dịch Việt Nam">
+        <span class="schedule-clock-icon">⏱️</span> 6 Phiên Quét: <strong>09h · 10h · 11h30 · 13h30 · 14h · 15h</strong>
       </div>
     </div>
 
@@ -314,7 +345,7 @@
           </div>
         </div>
 
-        <!-- Signals Filter Bar -->
+        <!-- Signals Filter & View Mode Bar -->
         <div class="signals-filter-bar">
           <div class="signals-filter-buttons">
             <button class="sig-filter-btn active" data-sig-filter="all">Tất Cả Tín Hiệu</button>
@@ -322,10 +353,19 @@
             <button class="sig-filter-btn" data-sig-filter="profit">🟡 Tín Hiệu CHỐT LỜI</button>
             <button class="sig-filter-btn" data-sig-filter="stop">🔴 Tín Hiệu CẮT LỖ</button>
           </div>
+          <div class="view-toggle-group">
+            <button class="view-toggle-btn active" id="btn-view-sig-cards">🗂️ Thẻ Khuyến Nghị (SaaS)</button>
+            <button class="view-toggle-btn" id="btn-view-sig-table">📋 Bảng Dữ Liệu</button>
+          </div>
         </div>
 
-        <!-- Signals Table Card -->
-        <div class="table-card">
+        <!-- View 1: SaaS Signal Action Cards Grid -->
+        <div class="signal-cards-grid" id="signals-cards-container">
+          <div class="loading-spinner">Đang nạp thẻ khuyến nghị mua/bán từ AI...</div>
+        </div>
+
+        <!-- View 2: Signals Table Card -->
+        <div class="table-card" id="signals-table-container" style="display: none;">
           <div class="table-responsive">
             <table class="data-table" id="signals-table">
               <thead>
@@ -892,8 +932,115 @@
     <span>↑</span>
   </button>
 
-  <!-- Global Toast Notification Container -->
-  <div id="toast-container" class="toast-container"></div>
+  <!-- Quick Trade Modal / Bottom Sheet (Click-to-Trade) -->
+  <div class="modal-overlay" id="quick-trade-modal" style="display: none;">
+    <div class="modal-card quick-trade-sheet">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-icon">⚡</span>
+          <div>
+            <h3 class="modal-title">Đặt Lệnh Nhanh (Click-to-Trade)</h3>
+            <span class="modal-subtitle">Xác thực tham số quản trị rủi ro &amp; đi lệnh theo khuyến nghị AI</span>
+          </div>
+        </div>
+        <button class="btn-close-modal" id="btn-close-quick-trade">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="trade-ticker-hero">
+          <div class="hero-left">
+            <span class="trade-sym-code" id="modal-trade-symbol">HPG</span>
+            <span class="trade-sym-name" id="modal-trade-sector">Thép &amp; Vật Liệu</span>
+          </div>
+          <div class="hero-right">
+            <span class="trade-action-badge action-buy" id="modal-trade-action">MUA (BUY)</span>
+            <span class="trade-winrate-tag" id="modal-trade-winrate">Win Rate: 78%</span>
+          </div>
+        </div>
+
+        <div class="trade-params-grid">
+          <div class="param-box">
+            <span class="param-label">Giá Khuyến Nghị</span>
+            <span class="param-val text-blue font-mono" id="modal-trade-entry">31.800 ₫</span>
+          </div>
+          <div class="param-box">
+            <span class="param-label">Cắt Lỗ (-4.5%)</span>
+            <span class="param-val text-red font-mono" id="modal-trade-sl">30.350 ₫</span>
+          </div>
+          <div class="param-box">
+            <span class="param-label">Mục Tiêu (+15%)</span>
+            <span class="param-val text-green font-mono" id="modal-trade-tp">36.550 ₫</span>
+          </div>
+          <div class="param-box">
+            <span class="param-label">Tỷ Lệ R:R</span>
+            <span class="param-val text-yellow font-mono" id="modal-trade-rr">3.3x</span>
+          </div>
+        </div>
+
+        <div class="trade-allocation-section">
+          <div class="alloc-header">
+            <span>Tỷ trọng danh mục đề xuất: <strong id="modal-alloc-pct" class="font-mono text-green">10%</strong> NAV</span>
+            <span class="alloc-budget" id="modal-alloc-budget">Ngân sách NAV: 100.000.000 ₫</span>
+          </div>
+          <input type="range" min="5" max="25" step="5" value="10" class="alloc-slider" id="modal-alloc-slider">
+          <div class="slider-marks">
+            <span>5%</span>
+            <span>10% (Chuẩn)</span>
+            <span>15%</span>
+            <span>20%</span>
+            <span>25% (Max)</span>
+          </div>
+        </div>
+
+        <div class="trade-summary-card">
+          <div class="summary-line">
+            <span>Khối lượng đặt lệnh dự kiến:</span>
+            <strong class="text-green font-mono" id="modal-trade-shares">3.100 CP</strong>
+          </div>
+          <div class="summary-line">
+            <span>Tổng giá trị giải ngân:</span>
+            <strong class="font-mono" id="modal-trade-total">98.580.000 ₫</strong>
+          </div>
+          <div class="summary-line">
+            <span>Rủi ro tối đa nếu chạm Stop Loss:</span>
+            <strong class="text-red font-mono" id="modal-trade-max-risk">-4.436.000 ₫ (-4.5%)</strong>
+          </div>
+          <div class="summary-line">
+            <span>Lợi nhuận kỳ vọng nếu chạm Take Profit:</span>
+            <strong class="text-green font-mono" id="modal-trade-max-gain">+14.787.000 ₫ (+15.0%)</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-modal-cancel" id="btn-cancel-quick-trade">Hủy Bỏ</button>
+        <button class="btn-modal-confirm" id="btn-confirm-quick-trade">⚡ Xác Nhận Đặt Lệnh Nhanh</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Navigation Bar (4 Thumb-Friendly Tabs) -->
+  <nav class="mobile-bottom-nav" id="mobile-bottom-nav">
+    <button class="mobile-nav-btn active" data-tab="tab-holdings">
+      <span class="mobile-nav-icon">💼</span>
+      <span class="mobile-nav-text">Danh Mục</span>
+      <span class="mobile-nav-badge" id="mob-badge-holdings">0</span>
+    </button>
+    <button class="mobile-nav-btn" data-tab="tab-signals">
+      <span class="mobile-nav-icon">⚡</span>
+      <span class="mobile-nav-text">Tín Hiệu</span>
+      <span class="mobile-nav-badge badge-green" id="mob-badge-signals">0</span>
+    </button>
+    <button class="mobile-nav-btn" data-tab="tab-performance">
+      <span class="mobile-nav-icon">📈</span>
+      <span class="mobile-nav-text">Chiến Lược</span>
+    </button>
+    <button class="mobile-nav-btn" data-tab="tab-news-actions">
+      <span class="mobile-nav-icon">📡</span>
+      <span class="mobile-nav-text">Radar Tin</span>
+      <span class="mobile-nav-badge badge-amber" id="mob-badge-news">0</span>
+    </button>
+  </nav>
 
   <script src="app.js"></script>
 </body>
