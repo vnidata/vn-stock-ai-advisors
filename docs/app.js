@@ -17,6 +17,8 @@ let tradePageSize = 15;
 let equityCurvesData = null;
 let equityChartInstance = null;
 let allNewsArticles = [];
+let currentTradeSortCol = 'exit_date';
+let currentTradeSortDir = 'desc';
 
 const SECTOR_VIETNAMESE = {
   "Materials": "Thép & Vật Liệu",
@@ -49,6 +51,11 @@ function getSectorVi(sector) {
 document.addEventListener("DOMContentLoaded", async () => {
   setupTabs();
   setupMarketSwitcher();
+  startLiveClock();
+  setupRefreshButton();
+  setupBackToTop();
+  setupExportCsv();
+  setupTradeSorting();
   setupHoldingsControls();
   setupSignalControls();
   setupSymbolStatsControls();
@@ -60,32 +67,73 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 // ==========================================
-// 1. TAB & MARKET CONTROLLERS
+// 1. ADVANCED UI/UX CONTROLLERS
 // ==========================================
 function setupTabs() {
   const tabBtns = document.querySelectorAll(".tab-btn");
   tabBtns.forEach(btn => {
     btn.addEventListener("click", () => {
       const targetId = btn.getAttribute("data-tab");
-      
-      // Update buttons
-      tabBtns.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      // Update panes
-      const panes = document.querySelectorAll(".tab-pane");
-      panes.forEach(p => p.classList.remove("active"));
-      const targetPane = document.getElementById(targetId);
-      if (targetPane) {
-        targetPane.classList.add("active");
-      }
-
-      // Resize chart if performance tab is opened
-      if (targetId === "tab-performance" && equityChartInstance) {
-        setTimeout(() => equityChartInstance.resize(), 100);
-      }
+      switchTab(targetId);
     });
   });
+
+  // Keyboard shortcut listener [1 - 6] for quick tab switching
+  window.addEventListener("keydown", (e) => {
+    const activeTag = document.activeElement?.tagName;
+    if (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeTag)) return;
+
+    const shortcutMap = {
+      '1': 'tab-holdings',
+      '2': 'tab-signals',
+      '3': 'tab-news-actions',
+      '4': 'tab-trades',
+      '5': 'tab-performance',
+      '6': 'tab-evolution'
+    };
+
+    if (shortcutMap[e.key]) {
+      e.preventDefault();
+      switchTab(shortcutMap[e.key]);
+      const btn = document.querySelector(`.tab-btn[data-tab="${shortcutMap[e.key]}"]`);
+      const tabName = btn ? btn.querySelector(".tab-text")?.innerText || shortcutMap[e.key] : shortcutMap[e.key];
+      showToast(`Chuyển đến tab: ${tabName} (Phím [${e.key}])`, "info");
+    }
+  });
+
+  // Restore saved active tab from localStorage if exists
+  const savedTab = localStorage.getItem("alphaquant_active_tab");
+  if (savedTab && document.getElementById(savedTab)) {
+    switchTab(savedTab);
+  }
+}
+
+function switchTab(targetId) {
+  const tabBtns = document.querySelectorAll(".tab-btn");
+  const panes = document.querySelectorAll(".tab-pane");
+
+  tabBtns.forEach(b => {
+    if (b.getAttribute("data-tab") === targetId) {
+      b.classList.add("active");
+    } else {
+      b.classList.remove("active");
+    }
+  });
+
+  panes.forEach(p => {
+    if (p.id === targetId) {
+      p.classList.add("active");
+    } else {
+      p.classList.remove("active");
+    }
+  });
+
+  localStorage.setItem("alphaquant_active_tab", targetId);
+
+  // Resize chart if performance tab is opened
+  if (targetId === "tab-performance" && equityChartInstance) {
+    setTimeout(() => equityChartInstance.resize(), 100);
+  }
 }
 
 function setupMarketSwitcher() {
@@ -100,6 +148,7 @@ function setupMarketSwitcher() {
     btnUs.classList.remove("active");
     selectedSymbol = null;
     currentTradePage = 1;
+    showToast("Đã kích hoạt không gian: 🇻🇳 Thị Trường Việt Nam (VN30)", "info");
     await loadDashboardData();
   });
 
@@ -110,7 +159,239 @@ function setupMarketSwitcher() {
     btnVn.classList.remove("active");
     selectedSymbol = null;
     currentTradePage = 1;
+    showToast("Đã kích hoạt không gian: 🌐 Quốc Tế (US Mega-Caps & S&P 500)", "info");
     await loadDashboardData();
+  });
+}
+
+function startLiveClock() {
+  function updateClock() {
+    const timeElem = document.getElementById("clock-time");
+    const zoneElem = document.getElementById("clock-zone");
+    if (!timeElem || !zoneElem) return;
+
+    const now = new Date();
+    const isUs = currentMarket === 'us';
+
+    if (isUs) {
+      const options = { timeZone: "America/New_York", hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit" };
+      timeElem.innerText = new Intl.DateTimeFormat("vi-VN", options).format(now);
+      zoneElem.innerText = "NEW YORK (EDT)";
+    } else {
+      const options = { timeZone: "Asia/Ho_Chi_Minh", hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit" };
+      timeElem.innerText = new Intl.DateTimeFormat("vi-VN", options).format(now);
+      zoneElem.innerText = "HÀ NỘI (GMT+7)";
+    }
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+}
+
+function showToast(message, type = "info") {
+  const container = document.getElementById("toast-container");
+  if (!container) return;
+
+  const toast = document.createElement("div");
+  toast.className = `toast-item toast-${type}`;
+
+  let icon = "ℹ️";
+  if (type === "success") icon = "✅";
+  else if (type === "warning") icon = "⚠️";
+  else if (type === "error") icon = "❌";
+
+  toast.innerHTML = `
+    <span class="toast-icon">${icon}</span>
+    <span class="toast-msg">${message}</span>
+  `;
+
+  container.appendChild(toast);
+
+  setTimeout(() => {
+    toast.classList.add("hiding");
+    setTimeout(() => {
+      if (toast.parentNode) toast.parentNode.removeChild(toast);
+    }, 250);
+  }, 3200);
+}
+
+function setupRefreshButton() {
+  const btn = document.getElementById("btn-refresh-data");
+  const icon = document.getElementById("refresh-icon");
+  if (!btn) return;
+
+  btn.addEventListener("click", async () => {
+    if (icon) icon.classList.add("spinning");
+    btn.disabled = true;
+
+    await loadDashboardData();
+
+    setTimeout(() => {
+      if (icon) icon.classList.remove("spinning");
+      btn.disabled = false;
+      showToast("Đồng bộ dữ liệu thị trường mới nhất thành công!", "success");
+    }, 400);
+  });
+}
+
+function setupBackToTop() {
+  const btn = document.getElementById("btn-back-to-top");
+  if (!btn) return;
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 350) {
+      btn.classList.add("visible");
+    } else {
+      btn.classList.remove("visible");
+    }
+  });
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+function updateTabBadges() {
+  const badgeHoldings = document.getElementById("tab-badge-holdings");
+  if (badgeHoldings) {
+    const count = (globalDailyData && globalDailyData.portfolio_summary && globalDailyData.portfolio_summary.total_positions) || 0;
+    badgeHoldings.innerText = count;
+  }
+
+  const badgeSignals = document.getElementById("tab-badge-signals");
+  if (badgeSignals) {
+    const count = (globalDailyData && globalDailyData.recommendations && globalDailyData.recommendations.length) || 0;
+    badgeSignals.innerText = count;
+  }
+
+  const badgeNews = document.getElementById("tab-badge-news");
+  if (badgeNews) {
+    const cats = (globalDailyData && globalDailyData.catalyst_actions && globalDailyData.catalyst_actions.length) || 0;
+    const reds = (globalDailyData && globalDailyData.redflag_actions && globalDailyData.redflag_actions.length) || 0;
+    badgeNews.innerText = cats + reds;
+  }
+
+  const badgeTrades = document.getElementById("tab-badge-trades");
+  if (badgeTrades) {
+    const count = allTrades.length;
+    badgeTrades.innerText = count > 999 ? `${(count / 1000).toFixed(1)}k` : count;
+  }
+
+  const badgePerf = document.getElementById("tab-badge-perf");
+  if (badgePerf) badgePerf.innerText = "5 AI";
+
+  const badgeEvo = document.getElementById("tab-badge-evo");
+  if (badgeEvo) badgeEvo.innerText = "Gen 2";
+}
+
+function setupTradeSorting() {
+  const sortHeaders = document.querySelectorAll("#trades-table th.th-sortable");
+  sortHeaders.forEach(th => {
+    th.addEventListener("click", () => {
+      const col = th.getAttribute("data-sort");
+      if (currentTradeSortCol === col) {
+        currentTradeSortDir = currentTradeSortDir === "asc" ? "desc" : "asc";
+      } else {
+        currentTradeSortCol = col;
+        currentTradeSortDir = (col === "symbol" || col === "advisor") ? "asc" : "desc";
+      }
+
+      sortHeaders.forEach(h => {
+        h.classList.remove("sorted-asc", "sorted-desc");
+        const icon = h.querySelector(".sort-icon");
+        if (icon) icon.innerText = "⇅";
+      });
+
+      th.classList.add(currentTradeSortDir === "asc" ? "sorted-asc" : "sorted-desc");
+      const activeIcon = th.querySelector(".sort-icon");
+      if (activeIcon) activeIcon.innerText = currentTradeSortDir === "asc" ? "▲" : "▼";
+
+      currentTradePage = 1;
+      sortAndRenderTrades();
+    });
+  });
+}
+
+function sortAndRenderTrades() {
+  const isUs = currentMarket === 'us';
+  const dir = currentTradeSortDir === "asc" ? 1 : -1;
+
+  filteredTrades.sort((a, b) => {
+    let valA = a[currentTradeSortCol];
+    let valB = b[currentTradeSortCol];
+
+    if (currentTradeSortCol === "pnl") {
+      valA = isUs ? (a.pnl_usd !== undefined ? a.pnl_usd : (a.pnl_vnd ? a.pnl_vnd / 25400 : 0)) : (a.pnl_vnd || 0);
+      valB = isUs ? (b.pnl_usd !== undefined ? b.pnl_usd : (b.pnl_vnd ? b.pnl_vnd / 25400 : 0)) : (b.pnl_vnd || 0);
+    } else if (currentTradeSortCol === "is_live") {
+      valA = a.is_live ? 1 : 0;
+      valB = b.is_live ? 1 : 0;
+    } else if (currentTradeSortCol === "return_pct" || currentTradeSortCol === "shares" || currentTradeSortCol === "holding_days") {
+      valA = parseFloat(valA) || 0;
+      valB = parseFloat(valB) || 0;
+    }
+
+    if (typeof valA === "string") {
+      return valA.localeCompare(valB) * dir;
+    }
+    return ((valA || 0) - (valB || 0)) * dir;
+  });
+
+  renderTradesTable();
+}
+
+function setupExportCsv() {
+  const btn = document.getElementById("btn-export-trades-csv");
+  if (!btn) return;
+
+  btn.addEventListener("click", () => {
+    if (!filteredTrades || filteredTrades.length === 0) {
+      showToast("Không có lệnh nào trong bộ lọc hiện tại để xuất!", "warning");
+      return;
+    }
+
+    const isUs = currentMarket === 'us';
+    const currency = isUs ? "USD" : "VND";
+
+    // Build CSV with UTF-8 BOM for Microsoft Excel compatibility
+    let csv = "\uFEFFMã Lệnh,Chế Độ,Chuyên Gia AI,Mã CP,Ngành,Ngày Vào,Ngày Ra,Giá Vào,Giá Ra,Số Lượng,Số Ngày Giữ,Hiệu Suất (%),Lãi Lỗ (" + currency + "),Lý Do Đóng Lệnh\n";
+
+    filteredTrades.forEach(t => {
+      const mode = t.is_live ? "Thực Chiến" : "Kiểm Định Backtest";
+      const advisor = (t.advisor || "").replace("AI_Advisor_", "");
+      const sector = getSectorVi(t.sector || "Bluechip");
+      const pnl = isUs ? (t.pnl_usd !== undefined ? t.pnl_usd : (t.pnl_vnd ? t.pnl_vnd / 25400 : 0)) : (t.pnl_vnd || 0);
+
+      const row = [
+        `"${t.id || ''}"`,
+        `"${mode}"`,
+        `"${advisor}"`,
+        `"${t.symbol || ''}"`,
+        `"${sector}"`,
+        `"${t.entry_date || ''}"`,
+        `"${t.exit_date || ''}"`,
+        Number(t.entry_price || 0).toFixed(2),
+        Number(t.exit_price || 0).toFixed(2),
+        t.shares || 0,
+        t.holding_days || 1,
+        t.return_pct || 0,
+        Math.round(pnl),
+        `"${(t.exit_reason || '').replace(/"/g, '""')}"`
+      ];
+      csv += row.join(",") + "\n";
+    });
+
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    const marketPrefix = isUs ? "US_MegaCaps" : "VN30";
+    link.setAttribute("href", url);
+    link.setAttribute("download", `AlphaQuant_${marketPrefix}_Trades_${new Date().toISOString().slice(0, 10)}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    showToast(`Đã xuất ${filteredTrades.length.toLocaleString('vi-VN')} lệnh giao dịch ra file CSV thành công!`, "success");
   });
 }
 
@@ -184,6 +465,8 @@ async function loadDashboardData() {
       const newsData = await newsRes.json();
       renderNewsIntelligence(newsData);
     }
+
+    updateTabBadges();
 
   } catch (error) {
     console.error("Error loading dashboard data:", error);
@@ -1310,7 +1593,7 @@ function applyTradeFilters() {
 
   currentTradePage = 1;
   updateTradesKPIs(filteredTrades);
-  renderTradesTable();
+  sortAndRenderTrades();
 }
 
 function updateTradesKPIs(trades) {

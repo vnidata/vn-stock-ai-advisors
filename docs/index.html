@@ -22,15 +22,25 @@
         </div>
         <div class="brand-text">
           <div class="brand-title">ALPHAQUANT <span class="brand-accent">AI</span></div>
-          <div class="brand-sub">Hệ Thống Phân Tích Thực Chiến &amp; Cố Vấn Danh Mục Đa Chuyên Gia AI</div>
+          <div class="brand-sub">Autonomous AI Stock Advisory &amp; Quant Terminal</div>
         </div>
       </div>
-      <div class="system-status">
-        <div class="status-indicator">
-          <span class="status-dot pulse"></span>
-          <span class="status-label" id="system-status-text">HỆ THỐNG TRỰC TUYẾN</span>
+      <div class="nav-right-controls">
+        <div class="live-clock-badge" id="live-clock" title="Thời gian giao dịch theo múi giờ">
+          <span class="clock-icon">🕒</span>
+          <span id="clock-time">--:--:--</span>
+          <span class="clock-zone" id="clock-zone">HÀ NỘI</span>
         </div>
-        <div class="last-sync" id="last-updated-text">Đồng bộ: Đang tải...</div>
+        <button class="btn-quick-refresh" id="btn-refresh-data" title="Làm mới toàn bộ dữ liệu từ máy chủ">
+          <span class="refresh-icon" id="refresh-icon">🔄</span> <span class="refresh-text">Làm Mới</span>
+        </button>
+        <div class="system-status">
+          <div class="status-indicator">
+            <span class="status-dot pulse"></span>
+            <span class="status-label" id="system-status-text">HỆ THỐNG TRỰC TUYẾN</span>
+          </div>
+          <div class="last-sync" id="last-updated-text">Đồng bộ: Đang tải...</div>
+        </div>
       </div>
     </div>
   </header>
@@ -41,14 +51,14 @@
     <div class="market-selector-bar">
       <div class="market-selector-left">
         <span class="selector-icon">🌐</span>
-        <span class="selector-title">KHÔNG GIAN KIỂM ĐỊNH & THỰC CHIẾN:</span>
+        <span class="selector-title">KHÔNG GIAN KIỂM ĐỊNH &amp; THỰC CHIẾN:</span>
       </div>
       <div class="market-selector-tabs">
         <button class="market-btn active" data-market="vn" id="btn-market-vn">
           <span class="market-flag">🇻🇳</span> Thị Trường Việt Nam (VN30 / VN-Index)
         </button>
         <button class="market-btn" data-market="us" id="btn-market-us">
-          <span class="market-flag">🌐</span> Thị Trường Quốc Tế (US Mega-Caps & S&P 500)
+          <span class="market-flag">🌐</span> Thị Trường Quốc Tế (US Mega-Caps &amp; S&amp;P 500)
           <span class="rr-chip">RR ~ 3.0x - 4.0x</span>
         </button>
       </div>
@@ -65,7 +75,7 @@
       <div class="market-stat-card">
         <div class="stat-header">TRẠNG THÁI THỊ TRƯỜNG</div>
         <div class="stat-badge badge-bull" id="market-regime">BULLISH TREND</div>
-        <div class="stat-note" id="market-regime-note">Chỉ số nằm trên MA20 & MA50</div>
+        <div class="stat-note" id="market-regime-note">Chỉ số nằm trên MA20 &amp; MA50</div>
       </div>
       <div class="market-stat-card">
         <div class="stat-header">CHIẾN LƯỢC TỐI ƯU 15 NĂM</div>
@@ -79,26 +89,43 @@
       </div>
     </section>
 
-    <!-- Navigation Tabs Bar -->
-    <nav class="dashboard-tabs">
-      <button class="tab-btn active" data-tab="tab-holdings">
-        <span class="tab-icon">💼</span> Danh Mục Hiện Hữu
-      </button>
-      <button class="tab-btn" data-tab="tab-signals">
-        <span class="tab-icon">⚡</span> Tín Hiệu Mua/Bán Mới
-      </button>
-      <button class="tab-btn" data-tab="tab-news-actions">
-        <span class="tab-icon">📰</span> Khuyến Nghị Theo Tin Tức
-      </button>
-      <button class="tab-btn" data-tab="tab-trades">
-        <span class="tab-icon">📜</span> Lịch Sử Lệnh & Tra Cứu Từng Mã
-      </button>
-      <button class="tab-btn" data-tab="tab-performance">
-        <span class="tab-icon">🏆</span> Xếp Hạng 15 Năm & Đồ Thị Vốn
-      </button>
-      <button class="tab-btn" data-tab="tab-evolution">
-        <span class="tab-icon">🧬</span> Hội Đồng Tiến Hóa Darwinian
-      </button>
+    <!-- Navigation Tabs Bar (Sticky with Live Badges & Keyboard Shortcuts) -->
+    <nav class="dashboard-tabs" id="sticky-tabs-nav">
+      <div class="tabs-scroll-container">
+        <button class="tab-btn active" data-tab="tab-holdings" data-shortcut="1" title="Phím tắt: 1">
+          <span class="tab-icon">💼</span>
+          <span class="tab-text">Danh Mục Hiện Hữu</span>
+          <span class="tab-badge" id="tab-badge-holdings">0</span>
+        </button>
+        <button class="tab-btn" data-tab="tab-signals" data-shortcut="2" title="Phím tắt: 2">
+          <span class="tab-icon">⚡</span>
+          <span class="tab-text">Tín Hiệu Mua/Bán Mới</span>
+          <span class="tab-badge badge-green" id="tab-badge-signals">0</span>
+        </button>
+        <button class="tab-btn" data-tab="tab-news-actions" data-shortcut="3" title="Phím tắt: 3">
+          <span class="tab-icon">📰</span>
+          <span class="tab-text">Khuyến Nghị Tin Tức</span>
+          <span class="tab-badge badge-amber" id="tab-badge-news">0</span>
+        </button>
+        <button class="tab-btn" data-tab="tab-trades" data-shortcut="4" title="Phím tắt: 4">
+          <span class="tab-icon">📜</span>
+          <span class="tab-text">Lịch Sử Lệnh &amp; Tra Cứu Mã</span>
+          <span class="tab-badge badge-blue" id="tab-badge-trades">0</span>
+        </button>
+        <button class="tab-btn" data-tab="tab-performance" data-shortcut="5" title="Phím tắt: 5">
+          <span class="tab-icon">🏆</span>
+          <span class="tab-text">Xếp Hạng &amp; Đồ Thị Vốn</span>
+          <span class="tab-badge badge-purple" id="tab-badge-perf">5 AI</span>
+        </button>
+        <button class="tab-btn" data-tab="tab-evolution" data-shortcut="6" title="Phím tắt: 6">
+          <span class="tab-icon">🧬</span>
+          <span class="tab-text">Tiến Hóa Darwinian</span>
+          <span class="tab-badge badge-gold" id="tab-badge-evo">Gen 2</span>
+        </button>
+      </div>
+      <div class="tabs-quick-hint">
+        <span class="kbd-hint">Phím [1-6] chuyển tab nhanh</span>
+      </div>
     </nav>
 
     <!-- TAB 1: CURRENT PORTFOLIO HOLDINGS -->
@@ -569,8 +596,11 @@
         <!-- Filter & Search Control Panel -->
         <div class="filter-panel-card">
           <div class="filter-row-header">
-            <span class="filter-title">🔍 BỘ LỌC & TRA CỨU THEO THỜI GIAN VÀ CHUYÊN GIA</span>
-            <button class="btn-reset-filter" id="btn-reset-filters">Đặt Lại Bộ Lọc</button>
+            <span class="filter-title">🔍 BỘ LỌC &amp; TRA CỨU THEO THỜI GIAN VÀ CHUYÊN GIA</span>
+            <div class="filter-actions-group">
+              <button class="btn-export-csv" id="btn-export-trades-csv" title="Tải xuống tệp CSV các lệnh đang lọc">📥 Xuất File CSV</button>
+              <button class="btn-reset-filter" id="btn-reset-filters">Đặt Lại Bộ Lọc</button>
+            </div>
           </div>
 
           <!-- Quick Time Range Pills -->
@@ -632,17 +662,17 @@
             <table class="data-table" id="trades-table">
               <thead>
                 <tr>
-                  <th>Mã Lệnh</th>
-                  <th>Chế Độ</th>
-                  <th>Chuyên Gia AI</th>
-                  <th>Mã CP</th>
+                  <th class="th-sortable" data-sort="id">Mã Lệnh <span class="sort-icon">⇅</span></th>
+                  <th class="th-sortable" data-sort="is_live">Chế Độ <span class="sort-icon">⇅</span></th>
+                  <th class="th-sortable" data-sort="advisor">Chuyên Gia AI <span class="sort-icon">⇅</span></th>
+                  <th class="th-sortable" data-sort="symbol">Mã CP <span class="sort-icon">⇅</span></th>
                   <th>Ngành</th>
-                  <th>Ngày Vào ➔ Ngày Ra</th>
+                  <th class="th-sortable" data-sort="exit_date">Ngày Vào ➔ Ra <span class="sort-icon">⇅</span></th>
                   <th class="text-right">Giá Vào ➔ Ra</th>
-                  <th class="text-center">Số Lượng</th>
-                  <th class="text-center">Số Ngày</th>
-                  <th class="text-center">Hiệu Suất (%)</th>
-                  <th class="text-right" id="th-trades-pnl-header">Lãi/Lỗ VND</th>
+                  <th class="text-center th-sortable" data-sort="shares">Số Lượng <span class="sort-icon">⇅</span></th>
+                  <th class="text-center th-sortable" data-sort="holding_days">Số Ngày <span class="sort-icon">⇅</span></th>
+                  <th class="text-center th-sortable" data-sort="return_pct">Hiệu Suất (%) <span class="sort-icon">⇅</span></th>
+                  <th class="text-right th-sortable" data-sort="pnl" id="th-trades-pnl-header">Lãi/Lỗ VND <span class="sort-icon">⇅</span></th>
                   <th>Lý Do Đóng Lệnh</th>
                 </tr>
               </thead>
@@ -856,6 +886,14 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button id="btn-back-to-top" class="back-to-top-btn" title="Cuộn lên đầu trang">
+    <span>↑</span>
+  </button>
+
+  <!-- Global Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
 
   <script src="app.js"></script>
 </body>
