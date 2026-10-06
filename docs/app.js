@@ -762,7 +762,9 @@ function renderDailySummary(data) {
     if (regimeNote) regimeNote.innerText = "Chỉ số SPY nằm trên MA20 & MA50";
 
     const breadthElem = document.getElementById("market-breadth");
-    if (breadthElem) breadthElem.innerHTML = `Độ rộng: <span class="text-green">15/15 siêu cổ phiếu thanh khoản cao</span>`;
+    if (breadthElem) breadthElem.innerHTML = `Độ rộng: <span class="text-green">S&amp;P 500 Uptrend</span>`;
+    const wlBreadthElem = document.getElementById("watchlist-breadth");
+    if (wlBreadthElem) wlBreadthElem.innerHTML = `Rổ theo dõi: <span class="text-green">15/15 siêu cổ phiếu dẫn dắt</span>`;
 
     const champElem = document.getElementById("champion-strategy");
     if (champElem) champElem.innerText = "Chiến Lược Chủ Động (US)";
@@ -797,11 +799,16 @@ function renderDailySummary(data) {
 
     const breadthElem = document.getElementById("market-breadth");
     if (breadthElem) {
-      if (data.vnindex && data.vnindex.gainers !== undefined) {
-        breadthElem.innerHTML = `Độ rộng: <span class="text-green">${data.vnindex.gainers} tăng</span> · <span class="text-red">${data.vnindex.losers} giảm</span> · <span>${data.vnindex.unchanged} không đổi</span>`;
-      } else {
-        breadthElem.innerHTML = `Độ rộng: <span class="text-green">9 tăng</span> · <span class="text-red">6 giảm</span> · <span>0 không đổi</span>`;
-      }
+      const g = (data.vnindex && data.vnindex.gainers !== undefined) ? data.vnindex.gainers : 127;
+      const l = (data.vnindex && data.vnindex.losers !== undefined) ? data.vnindex.losers : 177;
+      const u = (data.vnindex && data.vnindex.unchanged !== undefined) ? data.vnindex.unchanged : 64;
+      breadthElem.innerHTML = `Độ rộng HoSE: <span class="text-green">${g} tăng</span> · <span class="text-red">${l} giảm</span> · <span>${u} tham chiếu</span>`;
+    }
+
+    const wlBreadthElem = document.getElementById("watchlist-breadth");
+    if (wlBreadthElem) {
+      const wl = data.vnindex?.watchlist_breadth || { gainers: 10, losers: 4, unchanged: 1, total: 15 };
+      wlBreadthElem.innerHTML = `Rổ theo dõi (${wl.total || 15} mã): <span class="text-green">${wl.gainers} tăng</span> · <span class="text-red">${wl.losers} giảm</span> · <span>${wl.unchanged} đứng giá</span>`;
     }
 
     const champElem = document.getElementById("champion-strategy");
@@ -2449,7 +2456,13 @@ function getFallbackDailySummary() {
   return {
     "last_updated": "2026-10-06 15:00:00 (UTC+7)",
     "trading_date": "2026-10-06",
-    "vnindex": { "close": 1759.08, "prev_close": 1753.2, "change_pct": 0.34, "change_pts": 5.88, "sma_20": 1790.21, "sma_50": 1775.98, "sma_200": 1796.12, "regime": "BEAR", "gainers": 10, "losers": 4, "unchanged": 1 },
+    "vnindex": { 
+      "close": 1759.08, "prev_close": 1753.2, "change_pct": 0.34, "change_pts": 5.88, 
+      "sma_20": 1790.21, "sma_50": 1775.98, "sma_200": 1796.12, "regime": "BEAR", 
+      "gainers": 127, "losers": 177, "unchanged": 64,
+      "hose_breadth": { "gainers": 127, "losers": 177, "unchanged": 64, "total": 368 },
+      "watchlist_breadth": { "gainers": 10, "losers": 4, "unchanged": 1, "total": 15 }
+    },
     "strategies": {}
   };
 }

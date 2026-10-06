@@ -431,6 +431,14 @@ body {
   font-size: 0.75rem;
   color: var(--text-muted);
   margin-top: 4px;
+  line-height: 1.4;
+}
+
+.stat-breadth-sub {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+  line-height: 1.4;
 }
 
 .stat-sub {

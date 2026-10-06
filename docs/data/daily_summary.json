@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-06 21:11:52 (UTC+7)",
+  "last_updated": "2026-10-06 21:32:36 (UTC+7)",
   "trading_date": "2026-10-06",
   "vnindex": {
     "close": 1759.08,
@@ -10,16 +10,32 @@
     "sma_50": 1775.98,
     "sma_200": 1796.12,
     "regime": "BEAR",
-    "gainers": 10,
-    "losers": 4,
-    "unchanged": 1
+    "gainers": 119,
+    "losers": 173,
+    "unchanged": 108,
+    "ceilings": 3,
+    "floors": 6,
+    "hose_breadth": {
+      "gainers": 119,
+      "losers": 173,
+      "unchanged": 108,
+      "ceilings": 3,
+      "floors": 6,
+      "total": 400
+    },
+    "watchlist_breadth": {
+      "gainers": 10,
+      "losers": 4,
+      "unchanged": 1,
+      "total": 15
+    }
   },
   "news_radar": {
     "total_news_scanned": 160,
     "red_flags_detected": 0,
     "catalysts_detected": 2,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-06 21:11:52"
+    "last_scanned": "2026-10-06 21:32:36"
   },
   "current_holdings": [],
   "new_signals": [],
