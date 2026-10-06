@@ -263,9 +263,9 @@ function startAiScanTicker() {
 let currentModalTradeData = {
   symbol: "HPG",
   action: "MUA (BUY)",
-  entryPrice: 31.8,
-  stopLoss: 30.35,
-  targetPrice: 36.55,
+  entryPrice: 20.5,
+  stopLoss: 19.55,
+  targetPrice: 23.6,
   rrRatio: "3.3x",
   sector: "Thép & Vật Liệu",
   winRate: 78
@@ -306,9 +306,9 @@ function setupQuickTradeModal() {
 function openQuickTradeModal(symbol, action, entry, sl, tp, rr, sector, winRate) {
   currentModalTradeData.symbol = symbol || "HPG";
   currentModalTradeData.action = action || "MUA (BUY)";
-  currentModalTradeData.entryPrice = Number(entry) || 31.8;
-  currentModalTradeData.stopLoss = Number(sl) || 30.35;
-  currentModalTradeData.targetPrice = Number(tp) || 36.55;
+  currentModalTradeData.entryPrice = Number(entry) || 20.5;
+  currentModalTradeData.stopLoss = Number(sl) || 19.55;
+  currentModalTradeData.targetPrice = Number(tp) || 23.6;
   currentModalTradeData.rrRatio = rr || "3.3x";
   currentModalTradeData.sector = sector || "Thép & Vật Liệu";
   currentModalTradeData.winRate = winRate || 78;
@@ -1196,9 +1196,9 @@ function renderNewSignals(data) {
       const isUs = currentMarket === 'us';
       const sampleSym = isUs ? "NVDA" : "HPG";
       const sampleSector = isUs ? "Semiconductors" : "Thép & Vật Liệu";
-      const samplePrice = isUs ? 122.5 : 31.8;
-      const sampleSl = isUs ? 116.9 : 30.35;
-      const sampleTp = isUs ? 140.8 : 36.55;
+      const samplePrice = isUs ? 122.5 : 20.5;
+      const sampleSl = isUs ? 116.9 : 19.55;
+      const sampleTp = isUs ? 140.8 : 23.6;
 
       cardsContainer.innerHTML = `
         <div class="signal-action-card" style="grid-column: 1 / -1; background: #121620; border: 1px solid rgba(251, 191, 36, 0.35); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
