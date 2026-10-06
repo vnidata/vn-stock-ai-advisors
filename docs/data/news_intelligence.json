@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-06 21:36:46",
+  "last_updated": "2026-10-06 22:37:15",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 2,
@@ -55,17 +55,26 @@
     },
     "VCB": {
       "symbol": "VCB",
-      "news_count": 2,
+      "news_count": 3,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Lãi suất ngân hàng 5/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+      "latest_headline": "Lãi suất ngân hàng 6/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Duy trì tỷ trọng khuyến nghị",
       "sentiment_multiplier": 1.0,
       "related_news": [
+        {
+          "title": "Lãi suất ngân hàng 6/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+          "date": "Tue, 06 Oct 26 21:47:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/lai-suat-ngan-hang-6-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261006215111713.chn"
+        },
         {
           "title": "Lãi suất ngân hàng 5/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
           "date": "Mon, 05 Oct 26 22:36:00 +0700",
@@ -112,17 +121,26 @@
     },
     "TCB": {
       "symbol": "TCB",
-      "news_count": 5,
+      "news_count": 6,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Giám đốc adidas Việt Nam: Giải Marathon Quốc tế Hà Nội Techcombank kết nối người yêu thể thao, phù hợp với tham vọng của adidas",
+      "latest_headline": "Lãi suất ngân hàng 6/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Duy trì tỷ trọng khuyến nghị",
       "sentiment_multiplier": 1.0,
       "related_news": [
+        {
+          "title": "Lãi suất ngân hàng 6/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+          "date": "Tue, 06 Oct 26 21:47:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/lai-suat-ngan-hang-6-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261006215111713.chn"
+        },
         {
           "title": "Giám đốc adidas Việt Nam: Giải Marathon Quốc tế Hà Nội Techcombank kết nối người yêu thể thao, phù hợp với tham vọng của adidas",
           "date": "Tue, 06 Oct 26 20:18:00 +0700",
@@ -158,15 +176,6 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/lai-suat-ngan-hang-5-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261005223716397.chn"
-        },
-        {
-          "title": "Lãi suất ngân hàng 4/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
-          "date": "Sun, 04 Oct 26 15:06:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
-          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/lai-suat-ngan-hang-4-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261004140827663.chn"
         }
       ]
     },
@@ -404,25 +413,6 @@
       "published_date": "Tue, 06 Oct 26 16:12:00 +0700"
     },
     {
-      "title": "Ông Lưu Bách Đạt bị khởi tố, doanh nghiệp phát thông báo mới",
-      "description": "Việc thay Chủ tịch diễn ra cùng thời điểm TSB tiến hành kiện toàn lại HĐQT.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
-      "sentiment_score": -1.0,
-      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
-      "sentiment_badge": "neg-danger",
-      "is_red_flag": true,
-      "is_catalyst": false,
-      "triggers_found": [
-        "khởi tố"
-      ],
-      "re_eval_action": "VETO_REJECT",
-      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
-      "link": "https://cafef.vn/ong-luu-bach-dat-bi-khoi-to-doanh-nghiep-phat-thong-bao-moi-188261005214106608.chn",
-      "published_date": "Mon, 05 Oct 26 21:40:00 +0700"
-    },
-    {
       "title": "Kinh tế Ukraine ngày càng kiệt quệ vì chiến sự",
       "description": "Các cuộc tấn công của Nga khiến hàng loạt doanh nghiệp Ukraine ngừng hoạt động, xuất khẩu bị bóp nghẹt trong khi thâm hụt ngân sách ngày càng lớn.",
       "source": "VnExpress Kinh Doanh",
@@ -601,25 +591,6 @@
       "published_date": "Mon, 05 Oct 26 22:32:00 +0700"
     },
     {
-      "title": "Hai ngân hàng sẽ lăn chốt trả cổ tức trong tháng 10",
-      "description": "Hai ngân hàng này sẽ lần lượt chốt danh sách cổ đông hưởng quyền nhận cổ tức vào ngày 5/10 và 12/10.",
-      "source": "CafeF Tài Chính Ngân Hàng",
-      "symbols": [],
-      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
-      "sentiment_score": 0.6,
-      "sentiment_label": "TÍCH CỰC MẠNH",
-      "sentiment_badge": "pos",
-      "is_red_flag": false,
-      "is_catalyst": true,
-      "triggers_found": [
-        "lăn chốt"
-      ],
-      "re_eval_action": "STRONG_BUY_CATALYST",
-      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
-      "link": "https://cafef.vn/hai-ngan-hang-se-lan-chot-tra-co-tuc-trong-thang-10-188261004135802616.chn",
-      "published_date": "Sun, 04 Oct 26 13:57:00 +0700"
-    },
-    {
       "title": "Đại Thịnh Phát bị phạt vì chậm công bố thông tin",
       "description": "Đại Thịnh Phát bị phạt tiền 85 triệu đồng do vi phạm quy định về thời hạn công bố thông tin.",
       "source": "CafeF Thị Trường",
@@ -688,6 +659,25 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://vnexpress.net/viet-nam-muon-duy-tri-muc-tieu-gdp-tang-10-de-nang-hang-tin-nhiem-vao-2030-5128181.html",
       "published_date": "Sun, 04 Oct 2026 11:29:20 +0700"
+    },
+    {
+      "title": "Một chủ nợ nước ngoài của Novaland đổi khoản nợ lấy cổ phiếu NVL với giá gây sốc",
+      "description": "Mức giá chuyển đổi 34.000 đồng/cổ phiếu hiện cao hơn hơn 3 lần so với thị giá của NVL trên sàn.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "NVL"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/mot-chu-no-nuoc-ngoai-cua-novaland-doi-khoan-no-lay-co-phieu-nvl-voi-gia-gay-soc-188261006220128498.chn",
+      "published_date": "Tue, 06 Oct 26 22:20:00 +0700"
     },
     {
       "title": "Con trai bà Thái Hương được Bac A Bank cấp thẻ tín dụng hạn mức 500 triệu đồng",
@@ -1112,6 +1102,25 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/vicostone-bi-xu-phat-va-truy-thu-thue-hon-260-trieu-dong-18826100609284203.chn",
       "published_date": "Tue, 06 Oct 26 09:28:00 +0700"
+    },
+    {
+      "title": "Kỳ lạ doanh nghiệp doanh thu bằng 0 nhưng vẫn báo lãi hàng tỷ đồng",
+      "description": "Không ghi nhận một đồng doanh thu bán hàng hay cung cấp dịch vụ trong 6 tháng đầu năm 2026, CTCP Đầu tư Sao Thăng Long (DST) vẫn báo lãi gần 1,9 tỷ đồng.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "DST"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/ky-la-doanh-nghiep-doanh-thu-bang-0-nhung-van-bao-lai-hang-ty-dong-188261006090937384.chn",
+      "published_date": "Tue, 06 Oct 26 09:09:00 +0700"
     }
   ]
 }

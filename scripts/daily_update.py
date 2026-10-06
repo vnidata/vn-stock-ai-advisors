@@ -59,6 +59,130 @@ def get_technical_signal(df_feat: pd.DataFrame) -> str:
         return "Tích lũy chờ dòng tiền"
 
 
+WATCHLIST_METADATA = {
+    "HPG": {
+        "name": "Tập đoàn Hòa Phát",
+        "sector": "Materials",
+        "sector_vi": "Thép & Vật Liệu",
+        "market_cap_tier": "Mega-Cap (Top 5 HoSE)",
+        "selection_reason": "Doanh nghiệp sản xuất thép số 1 Đông Nam Á, thanh khoản cao nhất toàn thị trường (thường xuyên >15-30M cp/phiên). Hưởng lợi từ chu kỳ giải ngân đầu tư công hạ tầng và đại dự án Dung Quất 2. Dòng tiền ngoại và tổ chức quan tâm đặc biệt.",
+        "quant_criteria": "Thanh khoản top 1 VN30, Beta cao theo sóng hồi, biên lợi nhuận cải thiện theo chu kỳ phục hồi giá thép HRC."
+    },
+    "VCB": {
+        "name": "Ngân hàng Ngoại Thương Việt Nam (Vietcombank)",
+        "sector": "Banking",
+        "sector_vi": "Ngân Hàng",
+        "market_cap_tier": "Vốn Hóa Số 1 Toàn Thị Trường",
+        "selection_reason": "Định chế tài chính số 1 Việt Nam, điều tiết tỷ trọng lớn nhất chỉ số VN-Index. Chất lượng tài sản dẫn đầu toàn ngành (nợ xấu NPL thấp nhất, tỷ lệ bao phủ nợ xấu cao nhất hệ thống ngân hàng).",
+        "quant_criteria": "Vốn hóa số 1, trụ đỡ tâm lý điều tiết thị trường, sức khỏe tài chính chuẩn mực Basel III."
+    },
+    "MBB": {
+        "name": "Ngân hàng Quân Đội (MBBank)",
+        "sector": "Banking",
+        "sector_vi": "Ngân Hàng",
+        "market_cap_tier": "Top 3 Ngân Hàng TMCP",
+        "selection_reason": "Ngân hàng thương mại cổ phần dẫn đầu về tốc độ số hóa và tỷ lệ tiền gửi không kỳ hạn (CASA > 40%). Hiệu quả sinh lời ROE > 20%, định giá P/B ở vùng chiết khấu sâu thu hút dòng tiền định chế.",
+        "quant_criteria": "CASA top 1, tăng trưởng tín dụng vượt trội ngành, thanh khoản trung bình >15M cp/phiên."
+    },
+    "TCB": {
+        "name": "Ngân hàng Kỹ Thương Việt Nam (Techcombank)",
+        "sector": "Banking",
+        "sector_vi": "Ngân Hàng",
+        "market_cap_tier": "Top Ngân Hàng Tư Nhân",
+        "selection_reason": "Ngân hàng tư nhân dẫn đầu về năng lực vốn và quản trị tài sản cá nhân giàu có. Hưởng lợi từ sự phục hồi của thị trường bất động sản, trái phiếu doanh nghiệp và hệ sinh thái khách hàng cao cấp.",
+        "quant_criteria": "Tỷ lệ an toàn vốn CAR cao nhất ngành (>15%), biên lãi thuần NIM phục hồi, giao dịch sôi động."
+    },
+    "ACB": {
+        "name": "Ngân hàng Á Châu",
+        "sector": "Banking",
+        "sector_vi": "Ngân Hàng",
+        "market_cap_tier": "Ngân Hàng Bán Lẻ Chuẩn Mực",
+        "selection_reason": "Chuẩn mực quản trị rủi ro khắt khe nhất trong nhóm ngân hàng tư nhân. Danh mục tín dụng tập trung bán lẻ an toàn, không có dư nợ trái phiếu rủi ro cao, tỷ lệ nợ xấu luôn thuộc nhóm thấp nhất.",
+        "quant_criteria": "ROE ổn định 22-25%, hồ sơ rủi ro tín dụng sạch, cổ tức tiền mặt và cổ phiếu đều đặn hàng năm."
+    },
+    "FPT": {
+        "name": "Tập đoàn FPT",
+        "sector": "Technology",
+        "sector_vi": "Công Nghệ & Viễn Thông",
+        "market_cap_tier": "Mega-Cap Công Nghệ Số 1",
+        "selection_reason": "Doanh nghiệp công nghệ, xuất khẩu phần mềm, AI và bán dẫn số 1 Việt Nam. Tăng trưởng doanh thu và lợi nhuận liên tục trên 20%/năm suốt hơn 10 năm, đối tác chiến lược toàn cầu của Nvidia.",
+        "quant_criteria": "Tăng trưởng lợi nhuận EPS 20%+ bền vững 5 năm, tỷ lệ nợ vay thấp, dòng tiền thuần dồi dào."
+    },
+    "SSI": {
+        "name": "Chứng khoán SSI",
+        "sector": "Securities",
+        "sector_vi": "Chứng Khoán",
+        "market_cap_tier": "Đầu Ngành Chứng Khoán",
+        "selection_reason": "Công ty chứng khoán có quy mô vốn điều lệ và thị phần hàng đầu thị trường. Là thước đo phong vũ biểu cho thanh khoản VN-Index và hưởng lợi trực tiếp từ hệ thống KRX cũng như câu chuyện nâng hạng thị trường FTSE.",
+        "quant_criteria": "Hệ số Beta cao (1.4x), thanh khoản cực mạnh, biên lợi nhuận cho vay margin và tự doanh mở rộng."
+    },
+    "VND": {
+        "name": "Chứng khoán VNDIRECT",
+        "sector": "Securities",
+        "sector_vi": "Chứng Khoán",
+        "market_cap_tier": "Top Thị Phần Môi Giới Bán Lẻ",
+        "selection_reason": "Độ nhạy cực cao với tâm lý nhà đầu tư cá nhân và chu kỳ thanh khoản thị trường. Định giá P/B chiết khấu sâu sau các nhịp thanh lọc tài chính, tạo tiềm năng bứt phá mạnh khi thị trường bước vào pha tăng mới.",
+        "quant_criteria": "Biên độ dao động giá lớn, nhạy bén với các thông tin thanh khoản thị trường và chu kỳ tiền rẻ."
+    },
+    "VHM": {
+        "name": "Công ty Cổ phần Vinhomes",
+        "sector": "RealEstate",
+        "sector_vi": "Bất Động Sản Dân Cư",
+        "market_cap_tier": "Số 1 Bất Động Sản Việt Nam",
+        "selection_reason": "Nhà phát triển bất động sản quy mô số 1 Việt Nam với quỹ đất sạch lớn nhất cả nước. Khả năng triển khai đại đô thị và tạo lập dòng tiền bàn giao dự án áp đảo thị trường, chi phối mạnh chỉ số VN-Index.",
+        "quant_criteria": "Vốn hóa trụ cột Top 3 VN-Index, quỹ đất hàng nghìn ha, đóng góp lớn vào biến động điểm số chỉ số."
+    },
+    "MWG": {
+        "name": "Đầu tư Thế Giới Di Động",
+        "sector": "Retail",
+        "sector_vi": "Bán Lẻ & Chuỗi",
+        "market_cap_tier": "Đầu Ngành Bán Lẻ",
+        "selection_reason": "Chuỗi bán lẻ đa ngành số 1 Việt Nam (Thế Giới Di Động, Điện Máy Xanh, Bách Hóa Xanh, An Khang). Tái cấu trúc thành công chuỗi Bách Hóa Xanh đạt điểm hòa vốn và bước vào chu kỳ đóng góp lợi nhuận ròng tăng tốc.",
+        "quant_criteria": "Doanh thu tăng trưởng sau tái cấu trúc, dòng tiền FCF mạnh, cổ phiếu phục hồi chu kỳ tiêu dùng."
+    },
+    "MSN": {
+        "name": "Tập đoàn Masan",
+        "sector": "Consumer",
+        "sector_vi": "Tiêu Dùng & Bán Lẻ",
+        "market_cap_tier": "Đầu Ngành Tiêu Dùng Thiết Yếu",
+        "selection_reason": "Tập đoàn tiêu dùng - bán lẻ nhu yếu phẩm tích hợp lớn nhất Việt Nam (Masan Consumer, WinCommerce, Masan MEATLife). Hưởng lợi từ sự hồi phục của sức mua nội địa và kế hoạch IPO Masan Consumer.",
+        "quant_criteria": "Mô hình phòng thủ tiêu dùng thiết yếu kết hợp tăng trưởng bán lẻ hiện đại, dòng tiền hoạt động lớn."
+    },
+    "VNM": {
+        "name": "Sữa Việt Nam (Vinamilk)",
+        "sector": "Consumer",
+        "sector_vi": "Tiêu Dùng Thiết Yếu",
+        "market_cap_tier": "Cổ Phiếu Phòng Thủ Cổ Tức Cao",
+        "selection_reason": "Thương hiệu quốc gia nắm thị phần sữa áp đảo (>50%). Tỷ suất cổ tức tiền mặt ổn định, tài chính lành mạnh với lượng tiền mặt ròng khổng lồ, đóng vai trò cổ phiếu phòng thủ và giữ nhịp chỉ số khi thị trường biến động.",
+        "quant_criteria": "Dòng tiền kinh doanh đều đặn, tỷ lệ chi trả cổ tức tiền mặt cao, tính phòng thủ cao trong pha gấu."
+    },
+    "DGC": {
+        "name": "Tập đoàn Hóa chất Đức Giang",
+        "sector": "Chemicals",
+        "sector_vi": "Hóa Chất & Phân Bón",
+        "market_cap_tier": "Đầu Ngành Phốt Pho Vàng Toàn Cầu",
+        "selection_reason": "Doanh nghiệp xuất khẩu Phốt pho vàng (P4) hàng đầu thế giới - nguyên liệu cốt lõi cho công nghiệp bán dẫn và pin xe điện. Biên lợi nhuận ròng vượt trội (>30%), cơ cấu tài chính gần như không có nợ vay rủi ro.",
+        "quant_criteria": "Biên EBITDA cao nhất ngành hóa chất, hưởng lợi xu hướng chuỗi cung ứng bán dẫn toàn cầu."
+    },
+    "GAS": {
+        "name": "Tổng Công ty Khí Việt Nam (PV GAS)",
+        "sector": "Energy",
+        "sector_vi": "Dầu Khí & Năng Lượng",
+        "market_cap_tier": "Độc Quyền Phân Phối Khí & LNG",
+        "selection_reason": "Doanh nghiệp độc quyền thu gom, vận chuyển và kinh doanh khí tự nhiên, khí hóa lỏng LNG tại Việt Nam. Vị thế tài chính cực kỳ vững mạnh, đóng vai trò trụ cột chiến lược năng lượng quốc gia và điều tiết VN-Index.",
+        "quant_criteria": "Tỷ suất sinh lời cao, dự trữ tiền mặt hàng chục nghìn tỷ đồng, hưởng lợi từ Quy hoạch Điện VIII."
+    },
+    "GMD": {
+        "name": "Công ty Cổ phần Gemadept",
+        "sector": "Logistics",
+        "sector_vi": "Cảng Biển & Logistics",
+        "market_cap_tier": "Đầu Ngành Cảng Biển Nước Sâu",
+        "selection_reason": "Sở hữu hệ thống cảng biển nước sâu và hạ tầng logistics hiện đại bậc nhất Việt Nam (nổi bật là Cụm cảng nước sâu Gemalink). Đón đầu trực tiếp dòng vốn FDI và làn sóng dịch chuyển chuỗi cung ứng thương mại quốc tế.",
+        "quant_criteria": "Tăng trưởng sản lượng container qua cảng vượt trội toàn ngành, hưởng lợi từ xuất nhập khẩu phục hồi."
+    }
+}
+
+
 def fetch_hose_market_breadth() -> dict:
     """
     Fetch comprehensive market breadth for the entire HoSE exchange (VN-Index breadth).
@@ -458,6 +582,94 @@ def run_daily_update():
     wl_losers = losers
     wl_unchanged = unchanged
 
+    # 5B. Build Detailed Watchlist Items for the 15 Alpha Universe Stocks
+    watchlist_items = []
+    for sym in symbols:
+        df_feat = market_data.get(sym)
+        if df_feat is None or df_feat.empty:
+            continue
+        
+        curr_p = current_prices.get(sym, 0.0)
+        prev_p = prev_prices.get(sym, curr_p)
+        chg_pct = daily_changes.get(sym, 0.0)
+        chg_pts = round(curr_p - prev_p, 2)
+        vol = daily_volumes.get(sym, 0)
+        
+        latest_row = df_feat.iloc[-1]
+        rs = float(latest_row.get("rs_rating", 50.0))
+        rsi = float(latest_row.get("rsi_14", 50.0))
+        vol_ratio = float(latest_row.get("vol_ratio", 1.0))
+        sma_20 = float(latest_row.get("sma_20", curr_p))
+        sma_50 = float(latest_row.get("sma_50", curr_p))
+        dist_sma20 = float(latest_row.get("dist_sma20", 0.0)) * 100.0
+        dist_sma50 = float(latest_row.get("dist_sma50", 0.0)) * 100.0
+        vol_sma20 = int(df_feat["volume"].tail(20).mean()) if len(df_feat) >= 20 else vol
+        
+        meta = WATCHLIST_METADATA.get(sym, {
+            "name": sym,
+            "sector": SECTOR_MAP.get(sym, "Bluechip"),
+            "sector_vi": "Cổ Phiếu Trụ Bluechip",
+            "market_cap_tier": "Bluechip HoSE",
+            "selection_reason": "Cổ phiếu thanh khoản hàng đầu trong rổ chỉ số VN30, đáp ứng tiêu chuẩn thanh khoản và chất lượng cơ bản.",
+            "quant_criteria": "Thanh khoản top 30, cơ bản đầu ngành."
+        })
+        
+        if chg_pct > 0.05:
+            badge = "pos"
+            if dist_sma20 > 1.5:
+                status_desc = f"Tăng +{chg_pct:.2f}% | Vượt lên trên MA20 (+{dist_sma20:.1f}%)"
+            elif rsi < 35:
+                status_desc = f"Hồi phục +{chg_pct:.2f}% từ vùng quá bán kỹ thuật (RSI {rsi:.0f})"
+            elif vol_ratio >= 1.2:
+                status_desc = f"Tăng +{chg_pct:.2f}% | Khối lượng tăng {vol_ratio:.1f}x trung bình"
+            else:
+                status_desc = f"Tăng +{chg_pct:.2f}% | Lực cầu chủ động tích cực"
+            radar_action = "Quan sát tín hiệu tích lũy cạn cung; Đưa vào Radar chờ phiên bùng nổ FTD"
+        elif chg_pct < -0.05:
+            badge = "neg"
+            if rsi < 25:
+                status_desc = f"Giảm {chg_pct:.2f}% | Vùng quá bán sâu (RSI {rsi:.0f}), lực bán suy yếu"
+            elif dist_sma50 < -3.0:
+                status_desc = f"Giảm {chg_pct:.2f}% | Dưới MA50 ({dist_sma50:.1f}%), chờ vùng cân bằng"
+            else:
+                status_desc = f"Điều chỉnh nhẹ {chg_pct:.2f}% | Giữ hỗ trợ nền giá"
+            radar_action = "Chưa kích hoạt điểm mua an toàn; Tuân thủ kỷ luật 100% tiền mặt phòng thủ"
+        else:
+            badge = "neutral"
+            status_desc = f"Đứng giá tham chiếu (0.00%) | Cân bằng cung cầu tại vùng hỗ trợ"
+            radar_action = "Theo dõi chặt chẽ ngưỡng hỗ trợ kỹ thuật; Chờ dòng tiền lớn kích hoạt"
+
+        sym_news = news_sentiment_map.get(sym, {})
+
+        watchlist_items.append({
+            "symbol": sym,
+            "name": meta["name"],
+            "sector": meta["sector"],
+            "sector_vi": meta["sector_vi"],
+            "market_cap_tier": meta["market_cap_tier"],
+            "current_price": round(curr_p, 2),
+            "prev_price": round(prev_p, 2),
+            "daily_change_pct": chg_pct,
+            "daily_change_pts": chg_pts,
+            "volume": vol,
+            "vol_20d_avg": vol_sma20,
+            "vol_ratio": round(vol_ratio, 2),
+            "rs_rating": round(rs, 1),
+            "rsi_14": round(rsi, 1),
+            "sma_20": round(sma_20, 2),
+            "sma_50": round(sma_50, 2),
+            "dist_sma20_pct": round(dist_sma20, 2),
+            "dist_sma50_pct": round(dist_sma50, 2),
+            "status_badge": badge,
+            "status_text": status_desc,
+            "ai_radar_action": radar_action,
+            "selection_reason": meta["selection_reason"],
+            "quant_criteria": meta["quant_criteria"],
+            "news_status": sym_news.get("status", "THÔNG TIN BÌNH ỔN"),
+            "news_badge": sym_news.get("status_badge", "neutral"),
+            "latest_headline": sym_news.get("latest_headline", "Không có tin bất thường")
+        })
+
     # 6. Assemble Daily Summary JSON payload
     daily_payload = {
         "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S (UTC+7)"),
@@ -494,6 +706,7 @@ def run_daily_update():
         "current_holdings": all_current_holdings,
         "new_signals": new_signals,
         "news_action_recommendations": news_actions,
+        "watchlist_items": watchlist_items,
         "universe_count": len(market_data),
         "strategies": strategy_recommendations
     }

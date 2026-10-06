@@ -19,6 +19,8 @@ let equityChartInstance = null;
 let allNewsArticles = [];
 let currentTradeSortCol = 'exit_date';
 let currentTradeSortDir = 'desc';
+let currentWatchlistSector = 'all';
+let currentWatchlistSearch = '';
 
 const SECTOR_VIETNAMESE = {
   "Materials": "Thép & Vật Liệu",
@@ -60,6 +62,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   setupExportCsv();
   setupTradeSorting();
   setupHoldingsControls();
+  setupWatchlistControls();
   setupSignalControls();
   setupQuickTradeModal();
   setupSymbolStatsControls();
@@ -676,6 +679,7 @@ async function loadDashboardData() {
     globalDailyData = summaryRes && summaryRes.ok ? await summaryRes.json() : getFallbackDailySummary();
     renderDailySummary(globalDailyData);
     renderHoldingsTable(globalDailyData);
+    renderWatchlistTable(globalDailyData);
     renderNewSignals(globalDailyData);
     renderNewsActionRecommendations(globalDailyData);
 
@@ -1097,6 +1101,204 @@ function renderHoldingsTable(data) {
         <td class="text-right font-mono text-green">${Number(h.target_price).toFixed(2)}</td>
         <td class="text-center"><span class="${statusPillClass}">${h.status_text || 'ĐANG NẮM GIỮ'}</span></td>
         <td style="font-size: 0.82rem; color: var(--text-muted);">${h.action_advice || 'Duy trì vị thế'}</td>
+      </tr>
+    `;
+  });
+
+  tbody.innerHTML = html;
+}
+
+// ==========================================
+// 3A-2. ALPHA WATCHLIST UNIVERSE CONTROLLER & RENDERER
+// ==========================================
+function setupWatchlistControls() {
+  const chips = document.querySelectorAll(".wl-filter-chip");
+  chips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      chips.forEach(c => c.classList.remove("active"));
+      chip.classList.add("active");
+      currentWatchlistSector = chip.getAttribute("data-wl-sector");
+      renderWatchlistTable(globalDailyData);
+    });
+  });
+
+  const searchInput = document.getElementById("watchlist-search-input");
+  if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+      currentWatchlistSearch = (e.target.value || "").trim().toLowerCase();
+      renderWatchlistTable(globalDailyData);
+    });
+  }
+
+  // Interactive quick scroll from Top Banner Watchlist Breadth chip
+  const wlBreadthBtn = document.getElementById("watchlist-breadth");
+  if (wlBreadthBtn) {
+    wlBreadthBtn.addEventListener("click", () => {
+      switchTab("tab-holdings");
+      const target = document.getElementById("section-watchlist");
+      if (target) {
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+          target.classList.add("highlight-jump");
+          setTimeout(() => target.classList.remove("highlight-jump"), 1600);
+        }, 120);
+      }
+    });
+  }
+}
+
+function renderWatchlistTable(data) {
+  if (!data) return;
+  const items = data.watchlist_items || [];
+  const isUs = currentMarket === 'us' || data.market === "US_EQUITIES";
+
+  // Filter by sector
+  let filtered = items;
+  if (currentWatchlistSector !== 'all') {
+    if (currentWatchlistSector === 'Retail-Consumer') {
+      filtered = filtered.filter(it => ['Retail', 'Consumer', 'ConsumerDiscretionary', 'ConsumerStaples'].includes(it.sector));
+    } else if (currentWatchlistSector === 'Technology') {
+      filtered = filtered.filter(it => ['Technology', 'Semiconductors'].includes(it.sector));
+    } else if (currentWatchlistSector === 'RealEstate') {
+      filtered = filtered.filter(it => ['RealEstate', 'IndustrialRealEstate'].includes(it.sector));
+    } else if (currentWatchlistSector === 'Others') {
+      filtered = filtered.filter(it => ['Chemicals', 'Energy', 'Logistics', 'Financials', 'Healthcare', 'IndexETF'].includes(it.sector));
+    } else {
+      filtered = filtered.filter(it => it.sector === currentWatchlistSector);
+    }
+  }
+
+  // Filter by search query
+  if (currentWatchlistSearch) {
+    filtered = filtered.filter(it => {
+      const sym = (it.symbol || "").toLowerCase();
+      const name = (it.name || "").toLowerCase();
+      const reason = (it.selection_reason || "").toLowerCase();
+      const sector = (it.sector_vi || it.sector || "").toLowerCase();
+      return sym.includes(currentWatchlistSearch) || 
+             name.includes(currentWatchlistSearch) || 
+             reason.includes(currentWatchlistSearch) || 
+             sector.includes(currentWatchlistSearch);
+    });
+  }
+
+  // Update Summary Pill & Badge
+  const countBadge = document.getElementById("watchlist-count-badge");
+  if (countBadge) {
+    countBadge.innerText = `${items.length} Cổ Phiếu Tuyển Chọn (${filtered.length} Hiển Thị)`;
+  }
+
+  const gainers = items.filter(it => (it.daily_change_pct || 0) > 0.05).length;
+  const losers = items.filter(it => (it.daily_change_pct || 0) < -0.05).length;
+  const unchanged = items.length - gainers - losers;
+
+  const pillGain = document.getElementById("wl-pill-gainers");
+  if (pillGain) pillGain.innerText = `${gainers} Tăng`;
+  const pillLose = document.getElementById("wl-pill-losers");
+  if (pillLose) pillLose.innerText = `${losers} Giảm`;
+  const pillUnch = document.getElementById("wl-pill-unchanged");
+  if (pillUnch) pillUnch.innerText = `${unchanged} Đứng Giá`;
+
+  const tbody = document.getElementById("watchlist-table-body");
+  if (!tbody) return;
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="10" class="text-center text-muted" style="padding: 26px;">Không tìm thấy cổ phiếu nào phù hợp với bộ lọc trong rổ 15 mã.</td></tr>`;
+    return;
+  }
+
+  let html = "";
+  filtered.forEach(it => {
+    const chg = it.daily_change_pct || 0;
+    const isGainer = chg > 0.05;
+    const isLoser = chg < -0.05;
+    const chgSign = isGainer ? "+" : "";
+    const chgClass = isGainer ? "change-badge pos" : (isLoser ? "change-badge neg" : "change-badge");
+    const ptsSign = (it.daily_change_pts || 0) >= 0 ? "+" : "";
+    const ptsText = it.daily_change_pts !== undefined ? ` (${ptsSign}${Number(it.daily_change_pts).toFixed(2)})` : "";
+
+    const priceFormatted = isUs ? `$${Number(it.current_price).toFixed(2)}` : Number(it.current_price).toFixed(2);
+    const prevFormatted = isUs ? `$${Number(it.prev_price).toFixed(2)}` : Number(it.prev_price).toFixed(2);
+    const volumeFormatted = (it.volume || 0).toLocaleString('vi-VN');
+
+    // RS Badge Class
+    const rs = it.rs_rating || 50;
+    let rsBadgeClass = "badge-info";
+    if (rs >= 75) rsBadgeClass = "badge-bull";
+    else if (rs >= 50) rsBadgeClass = "badge-cyan";
+    else rsBadgeClass = "tag-yellow";
+
+    // RSI Badge Class
+    const rsi = it.rsi_14 || 50;
+    let rsiBadgeClass = "";
+    if (rsi < 30) rsiBadgeClass = "text-green"; // Oversold bounce
+    else if (rsi > 70) rsiBadgeClass = "text-red"; // Overbought
+    else rsiBadgeClass = "text-muted";
+
+    // MA20 & MA50 Position
+    const distMA20 = it.dist_sma20_pct !== undefined ? it.dist_sma20_pct : 0;
+    const distMA50 = it.dist_sma50_pct !== undefined ? it.dist_sma50_pct : 0;
+    const ma20Class = distMA20 >= 0 ? "text-green" : "text-red";
+    const ma50Class = distMA50 >= 0 ? "text-green" : "text-red";
+    const ma20Sign = distMA20 >= 0 ? "+" : "";
+    const ma50Sign = distMA50 >= 0 ? "+" : "";
+
+    let radarBoxClass = "wl-radar-box";
+    if (it.ai_radar_action && it.ai_radar_action.includes("kỷ luật")) {
+      radarBoxClass = "wl-radar-box defend";
+    } else if (it.ai_radar_action && it.ai_radar_action.includes("chờ")) {
+      radarBoxClass = "wl-radar-box wait";
+    }
+
+    html += `
+      <tr>
+        <td>
+          <div style="display: flex; align-items: baseline; gap: 8px;">
+            <span class="ticker-pill">${it.symbol}</span>
+            <span class="badge ${rsBadgeClass}" style="font-size: 0.65rem;">RS ${rs.toFixed(0)}</span>
+          </div>
+          <span class="wl-company-name">${it.name || it.symbol}</span>
+          <span style="font-size: 0.68rem; color: var(--color-cyan);">${it.market_cap_tier || 'Top Liquid'}</span>
+        </td>
+        <td>
+          <span class="sector-label">${it.sector_vi || getSectorVi(it.sector)}</span>
+        </td>
+        <td class="text-right">
+          <strong class="font-mono" style="font-size: 0.95rem;">${priceFormatted}</strong>
+          <div style="font-size: 0.72rem; color: var(--text-dim);">TC: ${prevFormatted}</div>
+        </td>
+        <td class="text-center">
+          <span class="${chgClass}">${chgSign}${chg.toFixed(2)}%</span>
+          <div style="font-size: 0.68rem; color: var(--text-dim); margin-top: 2px;">${ptsText}</div>
+        </td>
+        <td class="text-right font-mono">
+          <div>${volumeFormatted} CP</div>
+          <div style="font-size: 0.72rem; color: var(--text-dim);">${it.vol_ratio ? `${it.vol_ratio}x Vol 20D` : ''}</div>
+        </td>
+        <td class="text-center font-mono">
+          <div><strong>RS ${rs.toFixed(1)}</strong></div>
+          <div class="${rsiBadgeClass}" style="font-size: 0.75rem;">RSI: ${rsi.toFixed(1)}</div>
+        </td>
+        <td class="text-center font-mono" style="font-size: 0.78rem;">
+          <div class="${ma20Class}">MA20: ${ma20Sign}${distMA20.toFixed(1)}%</div>
+          <div class="${ma50Class}">MA50: ${ma50Sign}${distMA50.toFixed(1)}%</div>
+        </td>
+        <td class="text-center">
+          <div style="font-size: 0.78rem; font-weight: 600; color: #fff;">${it.status_text || 'Tích lũy'}</div>
+          ${it.news_status ? `<div style="margin-top: 4px;"><span class="news-badge ${it.news_badge || 'neutral'}">${it.news_status}</span></div>` : ''}
+        </td>
+        <td>
+          <div class="wl-thesis-box">
+            <strong>Luận điểm AI:</strong> ${it.selection_reason || 'Cổ phiếu đầu ngành trong rổ VN30.'}
+            <span class="wl-quant-tag">⚙️ Tiêu chí Quant: ${it.quant_criteria || 'Thanh khoản cao, chất lượng cơ bản'}</span>
+          </div>
+        </td>
+        <td>
+          <div class="${radarBoxClass}">
+            <span>🎯 <strong>Khuyến nghị Radar:</strong></span>
+            <div>${it.ai_radar_action || 'Theo dõi sát diễn biến dòng tiền'}</div>
+          </div>
+        </td>
       </tr>
     `;
   });

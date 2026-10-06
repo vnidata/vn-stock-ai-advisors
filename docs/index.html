@@ -102,7 +102,9 @@
         <div class="stat-value" id="vnindex-close">1.759,08</div>
         <div class="stat-change text-green" id="vnindex-change">+0.34% (+5,88 điểm)</div>
         <div class="stat-breadth" id="market-breadth">Độ rộng HoSE: <span class="text-green">127 tăng</span> · <span class="text-red">177 giảm</span> · <span>64 tham chiếu</span></div>
-        <div class="stat-breadth-sub" id="watchlist-breadth">Rổ theo dõi (15 mã): <span class="text-green">10 tăng</span> · <span class="text-red">4 giảm</span> · <span>1 đứng giá</span></div>
+        <div class="stat-breadth-sub" id="watchlist-breadth" style="cursor: pointer;" title="Nhấn để cuộn xuống xem chi tiết 15 mã trong Rổ Theo Dõi">
+          Rổ theo dõi (15 mã): <span class="text-green">10 tăng</span> · <span class="text-red">4 giảm</span> · <span>1 đứng giá</span> <span class="badge-link">🔍 Xem Rổ Mã ➔</span>
+        </div>
       </div>
       <div class="market-stat-card">
         <div class="stat-header">TRẠNG THÁI THỊ TRƯỜNG</div>
@@ -307,6 +309,72 @@
         <!-- View 2: Advisor Top 5 Cards Container -->
         <div class="strategy-cards-grid" id="strategy-cards-container" style="display: none; margin-top: 16px;">
           <div class="loading-spinner">Đang nạp thẻ khuyến nghị theo chuyên gia...</div>
+        </div>
+
+        <!-- SECTION WATCHLIST UNIVERSE (Rổ 15 Siêu Cổ Phiếu Theo Dõi Sát) -->
+        <div class="watchlist-universe-container" id="section-watchlist">
+          <div class="section-header" style="margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+            <div>
+              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                <span style="font-size: 1.5rem;">🔭</span>
+                <h3 class="section-title" style="font-size: 1.25rem;">Rổ 15 Siêu Cổ Phiếu Theo Dõi Sát (Alpha Watchlist Universe)</h3>
+                <span class="badge badge-info" id="watchlist-count-badge">15 Cổ Phiếu Tuyển Chọn</span>
+              </div>
+              <p class="section-subtitle">
+                Không gian 15 cổ phiếu thanh khoản hàng đầu (VN30 &amp; Midcaps dẫn dắt) được AI liên tục quét 6 lần/ngày (09h, 10h, 11h30, 13h30, 14h, 15h) để tìm kiếm điểm mua bùng nổ theo đà (FTD).
+              </p>
+            </div>
+            <div class="watchlist-breadth-pill" id="watchlist-breadth-summary-pill">
+              <span class="text-green" id="wl-pill-gainers">10 Tăng</span> · 
+              <span class="text-red" id="wl-pill-losers">4 Giảm</span> · 
+              <span class="text-muted" id="wl-pill-unchanged">1 Đứng Giá</span>
+            </div>
+          </div>
+
+          <!-- Watchlist Filter & Search Bar -->
+          <div class="watchlist-filter-bar">
+            <div class="watchlist-chips-group" id="wl-chips-container">
+              <span class="range-label">Lọc theo ngành:</span>
+              <button class="wl-filter-chip active" data-wl-sector="all">Tất Cả (15)</button>
+              <button class="wl-filter-chip" data-wl-sector="Banking">Ngân Hàng (4)</button>
+              <button class="wl-filter-chip" data-wl-sector="Securities">Chứng Khoán (2)</button>
+              <button class="wl-filter-chip" data-wl-sector="Materials">Thép &amp; Vật Liệu (1)</button>
+              <button class="wl-filter-chip" data-wl-sector="Retail-Consumer">Bán Lẻ &amp; Tiêu Dùng (3)</button>
+              <button class="wl-filter-chip" data-wl-sector="Technology">Công Nghệ (1)</button>
+              <button class="wl-filter-chip" data-wl-sector="RealEstate">Bất Động Sản (1)</button>
+              <button class="wl-filter-chip" data-wl-sector="Others">Hóa Chất, Dầu Khí, Cảng (3)</button>
+            </div>
+
+            <div class="watchlist-search-box">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="watchlist-search-input" placeholder="Tìm nhanh mã hoặc lý do..." />
+            </div>
+          </div>
+
+          <!-- Watchlist Data Table -->
+          <div class="table-card" style="margin-top: 14px;">
+            <div class="table-responsive">
+              <table class="data-table" id="watchlist-table">
+                <thead>
+                  <tr>
+                    <th>Mã CP &amp; Doanh Nghiệp</th>
+                    <th>Ngành Nghề</th>
+                    <th class="text-right">Giá Đóng Cửa</th>
+                    <th class="text-center">Phiên Nay (%)</th>
+                    <th class="text-right">Khối Lượng Khớp</th>
+                    <th class="text-center">RS &amp; RSI</th>
+                    <th class="text-center">Vị Thế MA20 / MA50</th>
+                    <th class="text-center">Trạng Thái Kỹ Thuật</th>
+                    <th style="min-width: 320px;">Lý Do Đưa Vào Rổ Theo Dõi (Investment Thesis)</th>
+                    <th style="min-width: 240px;">Hành Động AI Radar</th>
+                  </tr>
+                </thead>
+                <tbody id="watchlist-table-body">
+                  <tr><td colspan="10" class="text-center" style="padding: 24px;">Đang tải danh sách 15 cổ phiếu trong rổ theo dõi...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </section>
     </div>
