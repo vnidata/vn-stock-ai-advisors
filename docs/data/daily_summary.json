@@ -1,20 +1,25 @@
 {
-  "last_updated": "2026-10-05 14:52:05 (UTC+7)",
-  "trading_date": "2026-10-05",
+  "last_updated": "2026-10-06 21:11:52 (UTC+7)",
+  "trading_date": "2026-10-06",
   "vnindex": {
-    "close": 1753.2,
-    "change_pct": 0.89,
+    "close": 1759.08,
+    "prev_close": 1753.2,
+    "change_pct": 0.34,
+    "change_pts": 5.88,
+    "sma_20": 1790.21,
+    "sma_50": 1775.98,
+    "sma_200": 1796.12,
     "regime": "BEAR",
-    "gainers": 9,
-    "losers": 6,
-    "unchanged": 0
+    "gainers": 10,
+    "losers": 4,
+    "unchanged": 1
   },
   "news_radar": {
     "total_news_scanned": 160,
-    "red_flags_detected": 2,
+    "red_flags_detected": 0,
     "catalysts_detected": 2,
-    "system_verdict": "CẢNH BÁO (2 MÃ RỦI RO BẤT THƯỜNG)",
-    "last_scanned": "2026-10-05 14:52:05"
+    "system_verdict": "AN TOÀN",
+    "last_scanned": "2026-10-06 21:11:52"
   },
   "current_holdings": [],
   "new_signals": [],
@@ -27,50 +32,25 @@
         "sentiment_multiplier": 1.2,
         "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
         "status_badge": "pos",
-        "latest_headline": "Ngỡ ngàng khối tài sản ở tuổi 30 của thiếu gia vừa đăng ký mua 50 triệu cổ phiếu Hòa Phát",
+        "latest_headline": "Con trai tỷ phú Trần Đình Long “phát tín hiệu”, nhóm cổ phiếu thép đồng loạt nổi sóng, có mã tăng kịch trần",
         "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
-        "news_count": 2,
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
-        "symbol": "MWG",
-        "sector": "Retail",
-        "net_sentiment": 0.65,
+        "symbol": "MSN",
+        "sector": "Consumer",
+        "net_sentiment": 0.7,
         "sentiment_multiplier": 1.2,
         "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
         "status_badge": "pos",
-        "latest_headline": "Đại gia Nguyễn Đức Tài đang tuyển 6.000 người, thu nhập lên đến 30 triệu đồng, sinh viên mới ra trường cũng có cơ hội",
+        "latest_headline": "Tỷ phú Nguyễn Đăng Quang sắp có thương vụ 400 triệu USD nâng sở hữu Masan Consumer",
         "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
-        "news_count": 2,
-        "re_eval_note": ""
-      }
-    ],
-    "red_flags": [
-      {
-        "symbol": "MBB",
-        "sector": "Banking",
-        "net_sentiment": -0.8,
-        "sentiment_multiplier": 0.0,
-        "status": "CẢNH BÁO BẤT THƯỜNG (RED FLAG)",
-        "status_badge": "neg-danger",
-        "latest_headline": "MB bơm 3.500 tỷ tăng vốn cho một ngân hàng bị kiểm soát đặc biệt",
-        "action_desc": "Phủ quyết / Loại bỏ khẩn cấp khỏi danh mục",
-        "news_count": 1,
-        "re_eval_note": ""
-      },
-      {
-        "symbol": "DGC",
-        "sector": "Chemicals",
-        "net_sentiment": -0.6,
-        "sentiment_multiplier": 0.0,
-        "status": "CẢNH BÁO BẤT THƯỜNG (RED FLAG)",
-        "status_badge": "neg-danger",
-        "latest_headline": "Nóng: 65 mã chứng khoán bị HoSE cắt margin quý 4/2026: HVN, DGC cùng hàng loạt cổ phiếu \"hot\" nằm trong danh sách",
-        "action_desc": "Phủ quyết / Loại bỏ khẩn cấp khỏi danh mục",
         "news_count": 1,
         "re_eval_note": ""
       }
     ],
+    "red_flags": [],
     "cautions": [
       {
         "symbol": "FPT",
@@ -79,7 +59,7 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Báo cáo phân tích: PNJ, FPT và MSB có nguy cơ bị loại khỏi rổ Diamond",
+        "latest_headline": "Từ thực tập sinh không lương, Chủ tịch FPT Retail Nguyễn Bạch Điệp vào Top 100 Phụ nữ quyền lực nhất châu Á 2026 của Fortune",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
         "news_count": 1,
         "re_eval_note": ""
@@ -91,9 +71,21 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Lãi suất ngân hàng 4/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+        "latest_headline": "Lãi suất ngân hàng 5/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 3,
+        "news_count": 2,
+        "re_eval_note": ""
+      },
+      {
+        "symbol": "MBB",
+        "sector": "Banking",
+        "net_sentiment": 0.0,
+        "sentiment_multiplier": 1.0,
+        "status": "THÔNG TIN ỔN ĐỊNH",
+        "status_badge": "neutral",
+        "latest_headline": "Giá vốn chưa đến 3.000 đồng/cp, doanh nghiệp thuộc Bộ Quốc phòng muốn chốt lãi 2,5 triệu cổ phiếu MBB với giá tối thiểu hơn 20.000 đồng/cp",
+        "action_desc": "Duy trì tỷ trọng khuyến nghị",
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -103,9 +95,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Lãi suất ngân hàng 4/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+        "latest_headline": "Giám đốc adidas Việt Nam: Giải Marathon Quốc tế Hà Nội Techcombank kết nối người yêu thể thao, phù hợp với tham vọng của adidas",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 3,
+        "news_count": 5,
         "re_eval_note": ""
       },
       {
@@ -115,9 +107,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Lãi suất ngân hàng 4/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+        "latest_headline": "Loạt ngân hàng VPBank, Techcombank, ACB,... tăng lãi suất cơ sở, lãi suất tham chiếu",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 3,
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -149,18 +141,6 @@
         "sector": "RealEstate",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN ỔN ĐỊNH",
-        "status_badge": "neutral",
-        "latest_headline": "Vinhomes cho vay tối đa 1.352 tỷ đồng với 'cựu vương' ngành thép, hơn 1.100 tỷ đã được rót không lãi suất",
-        "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
-        "re_eval_note": ""
-      },
-      {
-        "symbol": "MSN",
-        "sector": "Consumer",
-        "net_sentiment": 0.0,
-        "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN BÌNH ỔN",
         "status_badge": "neutral",
         "latest_headline": "Không có thông tin bất thường gần đây",
@@ -169,8 +149,32 @@
         "re_eval_note": ""
       },
       {
+        "symbol": "MWG",
+        "sector": "Retail",
+        "net_sentiment": 0.0,
+        "sentiment_multiplier": 1.0,
+        "status": "THÔNG TIN ỔN ĐỊNH",
+        "status_badge": "neutral",
+        "latest_headline": "12.410 tỷ đồng doanh thu chỉ trong 1 tháng: Điện Máy Xanh lập kỷ lục chưa từng có",
+        "action_desc": "Duy trì tỷ trọng khuyến nghị",
+        "news_count": 3,
+        "re_eval_note": ""
+      },
+      {
         "symbol": "VNM",
         "sector": "Consumer",
+        "net_sentiment": 0.0,
+        "sentiment_multiplier": 1.0,
+        "status": "THÔNG TIN ỔN ĐỊNH",
+        "status_badge": "neutral",
+        "latest_headline": "5 nữ doanh nhân Việt lọt top quyền lực nhất châu Á",
+        "action_desc": "Duy trì tỷ trọng khuyến nghị",
+        "news_count": 2,
+        "re_eval_note": ""
+      },
+      {
+        "symbol": "DGC",
+        "sector": "Chemicals",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN BÌNH ỔN",
@@ -197,18 +201,18 @@
         "sector": "Logistics",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN BÌNH ỔN",
+        "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Không có thông tin bất thường gần đây",
-        "action_desc": "Duy trì khuyến nghị định lượng gốc",
-        "news_count": 0,
+        "latest_headline": "Gemadept thành lập công ty con vốn điều lệ gần 498 tỷ đồng",
+        "action_desc": "Duy trì tỷ trọng khuyến nghị",
+        "news_count": 1,
         "re_eval_note": ""
       }
     ],
     "summary": {
       "total_catalysts": 2,
-      "total_red_flags": 2,
-      "total_cautions": 11
+      "total_red_flags": 0,
+      "total_cautions": 13
     }
   },
   "universe_count": 15,

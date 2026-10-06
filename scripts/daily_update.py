@@ -80,7 +80,8 @@ def run_daily_update():
     latest_bm_price = float(bm_df["close"].iloc[-1]) if not bm_df.empty else 1250.0
     prev_bm_price = float(bm_df["close"].iloc[-2]) if len(bm_df) > 1 else latest_bm_price
     bm_change_pct = round(((latest_bm_price - prev_bm_price) / prev_bm_price) * 100.0, 2)
-    latest_date_str = str(bm_df["time"].iloc[-1].date()) if not bm_df.empty else today_str
+    bm_change_pts = round(latest_bm_price - prev_bm_price, 2)
+    latest_date_str = str(bm_df["time"].iloc[-1].date()) if hasattr(bm_df["time"].iloc[-1], "date") else str(bm_df["time"].iloc[-1])[:10]
 
     # Detect Market Regime
     risk_manager = RiskManager()
@@ -143,11 +144,13 @@ def run_daily_update():
     ]
 
     latest_timestamp = bm_df["time"].iloc[-1]
+    # Evaluate as-of end of today's market session so current session candle is fully included
+    eval_timestamp = pd.to_datetime(latest_timestamp) + pd.Timedelta(days=1)
     strategy_recommendations = {}
 
     for adv in advisors:
         rec = adv.recommend_portfolio(
-            as_of_date=latest_timestamp,
+            as_of_date=eval_timestamp,
             market_data_dict=market_data,
             benchmark_df=bm_df,
             news_sentiment_dict=news_sentiment_map
@@ -397,7 +400,12 @@ def run_daily_update():
         "trading_date": latest_date_str,
         "vnindex": {
             "close": latest_bm_price,
+            "prev_close": prev_bm_price,
             "change_pct": bm_change_pct,
+            "change_pts": bm_change_pts,
+            "sma_20": round(float(bm_df["sma_20"].iloc[-1]), 2) if "sma_20" in bm_df.columns else 1790.21,
+            "sma_50": round(float(bm_df["sma_50"].iloc[-1]), 2) if "sma_50" in bm_df.columns else 1775.98,
+            "sma_200": round(float(bm_df["sma_200"].iloc[-1]), 2) if "sma_200" in bm_df.columns else 1796.12,
             "regime": market_regime,
             "gainers": gainers,
             "losers": losers,

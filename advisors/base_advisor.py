@@ -68,7 +68,7 @@ class BaseAdvisor(ABC):
         Uses strictly past data prior to as_of_date.
         """
         # High-performance Point-in-Time indexing via searchsorted
-        times = df["time"].values
+        times = pd.to_datetime(df["time"]).values
         target = np.datetime64(pd.to_datetime(as_of_date))
         idx = int(np.searchsorted(times, target))
         if idx < 30:
@@ -78,7 +78,7 @@ class BaseAdvisor(ABC):
         
         # Strict Conviction Gate 1: Macro Market Regime Check
         if benchmark_df is not None and not benchmark_df.empty:
-            bm_times = benchmark_df["time"].values
+            bm_times = pd.to_datetime(benchmark_df["time"]).values
             bm_idx = int(np.searchsorted(bm_times, target))
             if bm_idx > 50:
                 bm_latest = benchmark_df.iloc[bm_idx - 1]
@@ -186,7 +186,7 @@ class BaseAdvisor(ABC):
                     news_re_eval_notes[sym] = f"ĐIỀU CHỈNH TIN TỨC: Hệ số {mult:.2f}x ({news_info.get('status', '')})"
 
             symbol_scores[sym] = score
-            times = df["time"].values
+            times = pd.to_datetime(df["time"]).values
             target = np.datetime64(pd.to_datetime(as_of_date))
             idx = int(np.searchsorted(times, target))
             past_vol = float(df["volatility_20d"].iloc[idx - 1]) if ("volatility_20d" in df.columns and idx > 0) else 0.25

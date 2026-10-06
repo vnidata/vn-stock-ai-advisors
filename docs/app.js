@@ -243,7 +243,7 @@ function startAiScanTicker() {
     "● [15:00 ATC] Đã quét 15 mã VN30 & 160 tin tức tài chính. Hệ thống duy trì 100% tiền mặt phòng thủ bảo toàn vốn trong thị trường gấu.",
     "● [14:00 Cao Điểm] Kiểm tra xung lực RSI & Dòng tiền MA20. Toàn bộ mã chưa đạt điều kiện giải ngân an toàn.",
     "● [13:30 Mở Chiều] Hấp thụ lượng cổ phiếu T+2.5 khớp lệnh. Không phát hiện phân kỳ dương thỏa mãn tỷ lệ RR 3.0x.",
-    "● [11:30 Chốt Trưa] VN-Index 1.753,2 điểm gãy MA20/MA50. 5 AI Advisors đồng thuận kỷ luật giữ 100% tiền mặt.",
+    "● [11:30 Chốt Trưa] VN-Index 1.759,08 điểm dưới MA20/MA50. 5 AI Advisors đồng thuận kỷ luật giữ 100% tiền mặt.",
     "● [10:00 Giữa Sáng] Tin tức bất thường: Kích hoạt Red Flag Veto đối với 2 mã rủi ro vốn & thanh khoản.",
     "● [09:00 Mở Phiên] Khởi động radar 6 phiên/ngày. Đọc dữ liệu realtime từ vnstock API & Yahoo Finance."
   ];
@@ -776,11 +776,13 @@ function renderDailySummary(data) {
     const rrSub = document.getElementById("banner-rr-sub");
     if (rrSub) rrSub.innerText = "Lãi TB: +12.5% | Lỗ TB: -4.2% (Peak: 3.99x)";
   } else {
-    const vnClose = data.vnindex ? Number(data.vnindex.close).toLocaleString('vi-VN', { maximumFractionDigits: 1 }) : (data.benchmark_close ? Number(data.benchmark_close).toLocaleString('vi-VN', { maximumFractionDigits: 1 }) : "1.753,2");
+    const vnClose = data.vnindex ? Number(data.vnindex.close).toLocaleString('vi-VN', { maximumFractionDigits: 2 }) : (data.benchmark_close ? Number(data.benchmark_close).toLocaleString('vi-VN', { maximumFractionDigits: 2 }) : "1.759,08");
     document.getElementById("vnindex-close").innerText = vnClose;
     const changeElem = document.getElementById("vnindex-change");
     const change = (data.vnindex ? data.vnindex.change_pct : data.benchmark_change_pct) || 0;
-    changeElem.innerText = `${change >= 0 ? '+' : ''}${change}%`;
+    const changePts = (data.vnindex && data.vnindex.change_pts !== undefined) ? data.vnindex.change_pts : null;
+    const ptsText = changePts !== null ? ` (${changePts >= 0 ? '+' : ''}${Number(changePts).toLocaleString('vi-VN', { maximumFractionDigits: 2 })} điểm)` : '';
+    changeElem.innerText = `${change >= 0 ? '+' : ''}${change}%${ptsText}`;
     changeElem.className = change >= 0 ? "stat-change text-green" : "stat-change text-red";
 
     const regime = data.vnindex?.regime || (data.market_regime === "BEAR" ? "BEAR" : "BEAR");
@@ -1013,14 +1015,16 @@ function renderHoldingsTable(data) {
     if (holdings.length === 0) {
       defenseBanner.style.display = "block";
       const isBear = data.vnindex && data.vnindex.regime === "BEAR";
-      const bmClose = data.vnindex ? Number(data.vnindex.close).toLocaleString('vi-VN', { maximumFractionDigits: 1 }) : "1.746,25";
+      const bmClose = data.vnindex ? Number(data.vnindex.close).toLocaleString('vi-VN', { maximumFractionDigits: 2 }) : "1.759,08";
+      const ma20 = (data.vnindex && data.vnindex.sma_20) ? Number(data.vnindex.sma_20).toLocaleString('vi-VN', { maximumFractionDigits: 2 }) : "1.790,21";
+      const ma50 = (data.vnindex && data.vnindex.sma_50) ? Number(data.vnindex.sma_50).toLocaleString('vi-VN', { maximumFractionDigits: 2 }) : "1.775,98";
       const regBadge = document.getElementById("defense-regime-badge");
       if (regBadge) {
         regBadge.innerHTML = `<span class="pulse-dot"></span> ${isBear ? 'BEAR REGIME ACTIVATED' : 'CASH DEFENSE ACTIVATED'}`;
       }
       const r1 = document.getElementById("defense-reason-1");
       if (r1) {
-        r1.innerHTML = `Chỉ số VN-Index (<strong>${bmClose} điểm</strong>) đã gãy xuống dưới đường trung bình MA20 (1.793 điểm) và MA50 (1.774 điểm). Hệ thống xác nhận thị trường chung suy yếu (BEAR REGIME).`;
+        r1.innerHTML = `Chỉ số VN-Index (<strong>${bmClose} điểm</strong>) nằm dưới đường trung bình MA20 (${ma20} điểm) và MA50 (${ma50} điểm). Hệ thống xác nhận thị trường chung suy yếu (BEAR REGIME).`;
       }
     } else {
       defenseBanner.style.display = "none";
@@ -1032,6 +1036,7 @@ function renderHoldingsTable(data) {
 
   if (filtered.length === 0) {
     if (holdings.length === 0) {
+      const bmClose = data.vnindex ? Number(data.vnindex.close).toLocaleString('vi-VN', { maximumFractionDigits: 2 }) : "1.759,08";
       tbody.innerHTML = `
         <tr>
           <td colspan="13" class="text-center" style="padding: 40px 20px;">
@@ -1042,7 +1047,7 @@ function renderHoldingsTable(data) {
                 Thị trường VN-Index đang trong trạng thái <strong>BEAR REGIME</strong> (đóng cửa dưới MA20 &amp; MA50). Toàn bộ 15 cổ phiếu trong rổ VN30 đều vi phạm tiêu chuẩn an toàn định lượng (RS &lt; 55 hoặc gãy hỗ trợ kỹ thuật). AI kiên quyết giữ 100% tiền mặt bảo toàn vốn và không bắt đáy dao rơi.
               </p>
               <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 6px;">
-                <span class="badge tag-red">VN-Index: ${data.vnindex ? Number(data.vnindex.close).toFixed(1) : '1.746,25'} (Gãy MA50)</span>
+                <span class="badge tag-red">VN-Index: ${bmClose} (Dưới MA50)</span>
                 <span class="badge tag-yellow">15/15 Mã Bị Loại Bởi Conviction Gate</span>
                 <span class="badge tag-green">Tỷ Trọng Tiền Mặt: 100.0%</span>
                 <span class="badge badge-info">Sức Mua Được Bảo Toàn Tuyệt Đối</span>
@@ -2442,8 +2447,9 @@ function renderEquityChart(curvesData, zoom = "all") {
 // Fallback generators
 function getFallbackDailySummary() {
   return {
-    "last_updated": "2026-10-04 17:00:00 (UTC+7)",
-    "vnindex": { "close": 1280.5, "change_pct": 0.85, "regime": "BULL", "gainers": 8, "losers": 5, "unchanged": 2 },
+    "last_updated": "2026-10-06 15:00:00 (UTC+7)",
+    "trading_date": "2026-10-06",
+    "vnindex": { "close": 1759.08, "prev_close": 1753.2, "change_pct": 0.34, "change_pts": 5.88, "sma_20": 1790.21, "sma_50": 1775.98, "sma_200": 1796.12, "regime": "BEAR", "gainers": 10, "losers": 4, "unchanged": 1 },
     "strategies": {}
   };
 }

@@ -17,6 +17,14 @@ import subprocess
 from datetime import datetime, time as dtime
 import pytz
 
+# Force UTF-8 encoding on Windows
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 VN_TZ = pytz.timezone('Asia/Ho_Chi_Minh')
 
 SCHEDULED_SLOTS = [

@@ -87,7 +87,9 @@ class StockUniverse:
                 continue
             
             # Point-in-time slice: only past data before current rebalance date
-            past_df = df[df["time"] < as_of_date]
+            time_series = pd.to_datetime(df["time"])
+            as_of_dt = pd.to_datetime(as_of_date)
+            past_df = df[time_series < as_of_dt]
             if len(past_df) < lookback_days:
                 continue
             

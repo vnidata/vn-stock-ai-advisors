@@ -79,61 +79,50 @@ class VnStockClient:
         req_start = pd.to_datetime(start_date)
         req_end = pd.to_datetime(end_date)
 
-        # 1. Try reading from cache
-        if not self.force_refresh:
-            if cache_file.exists():
-                try:
-                    df = pd.read_parquet(cache_file)
-                    df = self._standardize_df(df, clean_sym)
-                    cache_start = df["time"].min()
-                    # Only accept cache if it covers requested start date reasonably well
-                    if cache_start <= req_start + pd.Timedelta(days=60):
-                        mask = (df["time"] >= req_start) & (df["time"] <= req_end)
-                        filtered = df[mask].copy()
-                        if len(filtered) > 10:
-                            return filtered.reset_index(drop=True)
-                except Exception as e:
-                    logger.debug("Failed to read parquet cache for %s: %s", clean_sym, e)
+        # 1. Load existing cache if available
+        existing_df = None
+        if cache_file.exists():
+            try:
+                existing_df = self._standardize_df(pd.read_parquet(cache_file), clean_sym)
+            except Exception as e:
+                logger.debug("Failed to read parquet cache for %s: %s", clean_sym, e)
 
-            if csv_fallback.exists():
-                try:
-                    df = pd.read_csv(csv_fallback)
-                    df = self._standardize_df(df, clean_sym)
-                    cache_start = df["time"].min()
-                    if cache_start <= req_start + pd.Timedelta(days=60):
-                        mask = (df["time"] >= req_start) & (df["time"] <= req_end)
-                        filtered = df[mask].copy()
-                        if len(filtered) > 10:
-                            return filtered.reset_index(drop=True)
-                except Exception as e:
-                    logger.debug("Failed to read csv cache for %s: %s", clean_sym, e)
+        if (existing_df is None or existing_df.empty) and csv_fallback.exists():
+            try:
+                existing_df = self._standardize_df(pd.read_csv(csv_fallback), clean_sym)
+            except Exception as e:
+                logger.debug("Failed to read csv cache for %s: %s", clean_sym, e)
 
-        # 2. Fetch from VnStock API
-        df_fetched = self._fetch_from_api(clean_sym, start_date, end_date)
+        # 2. Check if cache already contains latest requested date
+        if existing_df is not None and not existing_df.empty:
+            cache_max = pd.to_datetime(existing_df["time"]).max()
+            cache_min = pd.to_datetime(existing_df["time"]).min()
+            
+            # If cache covers start and reaches end_date, return immediately
+            if cache_max >= req_end.normalize() and cache_min <= req_start + pd.Timedelta(days=60):
+                mask = (existing_df["time"] >= req_start) & (existing_df["time"] <= req_end)
+                filtered = existing_df[mask].copy()
+                if len(filtered) > 10:
+                    return filtered.reset_index(drop=True)
+
+            # Incremental update: only query the delta from (cache_max - 5 days) to avoid API timeouts
+            fetch_start = (cache_max - pd.Timedelta(days=5)).strftime("%Y-%m-%d")
+        else:
+            fetch_start = start_date
+
+        # 3. Fetch from VnStock API (fast delta query)
+        df_fetched = self._fetch_from_api(clean_sym, fetch_start, end_date)
         
-        # 3. If API fails, try offline generator fallback
-        if df_fetched is None or df_fetched.empty or len(df_fetched) < 5:
-            logger.warning("VnStock API returned empty data for %s. Checking cache or generating fallback series.", clean_sym)
-            if cache_file.exists():
-                return pd.read_parquet(cache_file)
-            if csv_fallback.exists():
-                return pd.read_csv(csv_fallback)
+        # 4. If API fails, fallback to existing cache or synthetic data
+        if df_fetched is None or df_fetched.empty or len(df_fetched) < 1:
+            logger.warning("VnStock API returned empty data for %s. Using existing cache or fallback generator.", clean_sym)
+            if existing_df is not None and len(existing_df) > 10:
+                mask = (existing_df["time"] >= req_start) & (existing_df["time"] <= req_end)
+                return existing_df[mask].reset_index(drop=True)
             df_fetched = self._generate_synthetic_market_data(clean_sym, start_date, end_date)
 
-        # 4. Standardize and cache (merge with existing cache to preserve full history)
+        # 5. Standardize and merge with existing cache to preserve full history
         df_standard = self._standardize_df(df_fetched, clean_sym)
-
-        existing_df = None
-        if csv_fallback.exists():
-            try:
-                existing_df = pd.read_csv(csv_fallback)
-            except Exception as e:
-                logger.debug("Failed to read existing CSV cache for %s: %s", clean_sym, e)
-        elif cache_file.exists():
-            try:
-                existing_df = pd.read_parquet(cache_file)
-            except Exception as e:
-                logger.debug("Failed to read existing Parquet cache for %s: %s", clean_sym, e)
 
         if existing_df is not None and not existing_df.empty:
             existing_df = self._standardize_df(existing_df, clean_sym)
