@@ -34,11 +34,10 @@ jobs:
       - name: Install Python Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install --extra-index-url https://vnstocks.com/api/simple -r requirements.txt || {
-            echo "::warning::Direct installation via vnstocks index failed, falling back to git repository..."
-            pip install git+https://github.com/thinh-vu/vnstock.git@main || true
-            pip install -r requirements.txt
-          }
+          pip install -r requirements.txt
+          # Attempt vnstock installation from custom index (optional, non-blocking if blocked by datacenter firewall)
+          pip install --extra-index-url https://vnstocks.com/api/simple --trusted-host vnstocks.com vnstock || echo "::warning::vnstock custom package index is unreachable from CI runner IP. Proceeding with cache & direct feeds."
+
 
       - name: Run Daily Data Ingestion & Advisor Inference
         run: |
@@ -48,7 +47,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add docs/data/
+          git add docs/data/ data/cache/ news/news_cache.json
           if git diff --staged --quiet; then
             echo "No daily data changes to commit."
           else

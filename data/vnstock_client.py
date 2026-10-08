@@ -148,23 +148,58 @@ class VnStockClient:
         return df_to_save[mask].reset_index(drop=True)
 
     def _fetch_from_api(self, symbol: str, start_date: str, end_date: str) -> Optional[pd.DataFrame]:
-        """Fetch quotes from VnStock VCI endpoint with retry mechanism."""
+        """Fetch quotes from VnStock VCI endpoint with retry mechanism and direct live feed fallback."""
         if self._quote_cls is None:
             self._init_vnstock()
-            if self._quote_cls is None:
-                return None
 
-        retries = 3
-        for attempt in range(retries):
-            try:
-                time.sleep(0.3)  # Gentle rate limiting
-                q = self._quote_cls(symbol)
-                df = q.history(start=start_date, end=end_date)
-                if df is not None and not df.empty:
-                    return df
-            except Exception as e:
-                logger.debug("Attempt %d failed for %s: %s", attempt + 1, symbol, e)
-                time.sleep(1.0 * (attempt + 1))
+        if self._quote_cls is not None:
+            retries = 3
+            for attempt in range(retries):
+                try:
+                    time.sleep(0.3)  # Gentle rate limiting
+                    q = self._quote_cls(symbol)
+                    df = q.history(start=start_date, end=end_date)
+                    if df is not None and not df.empty:
+                        return df
+                except Exception as e:
+                    logger.debug("Attempt %d failed for %s: %s", attempt + 1, symbol, e)
+                    time.sleep(1.0 * (attempt + 1))
+
+        # Direct feed fallback (e.g. CI/CD runners or when vnstock is unavailable)
+        return self._fetch_from_live_feed(symbol)
+
+    def _fetch_from_live_feed(self, symbol: str) -> Optional[pd.DataFrame]:
+        """Fetch latest daily snapshot from exchange feed when vnstock library is unavailable."""
+        clean_sym = symbol.upper().strip()
+        if clean_sym == "VNINDEX":
+            return None
+        try:
+            import requests
+            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
+            r = requests.get("https://banggia.cafef.vn/stockhandler.ashx?center=1", headers=headers, timeout=5)
+            if r.status_code == 200:
+                data = r.json()
+                item = next((x for x in data if x.get("a") == clean_sym), None)
+                if item:
+                    close_p = float(item.get("l", 0) or item.get("b", 0))
+                    if close_p > 0:
+                        open_p = float(item.get("b", close_p) or close_p)
+                        high_p = float(item.get("v", close_p) or close_p)
+                        low_p = float(item.get("w", close_p) or close_p)
+                        vol = float(item.get("totalvolume", 0) or 0)
+                        from datetime import datetime
+                        today_dt = pd.to_datetime(datetime.now().strftime("%Y-%m-%d"))
+                        return pd.DataFrame([{
+                            "time": today_dt,
+                            "open": open_p,
+                            "high": high_p,
+                            "low": low_p,
+                            "close": close_p,
+                            "volume": vol,
+                            "symbol": clean_sym
+                        }])
+        except Exception as e:
+            logger.debug("Direct live feed fetch for %s failed: %s", clean_sym, e)
         return None
 
     def _standardize_df(self, df: pd.DataFrame, symbol: str) -> pd.DataFrame:
