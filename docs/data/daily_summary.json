@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-08 19:43:25 (UTC+7)",
+  "last_updated": "2026-10-08 20:06:15 (UTC+7)",
   "trading_date": "2026-10-08",
   "vnindex": {
     "close": 1738.97,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 0,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-08 19:43:24"
+    "last_scanned": "2026-10-08 20:06:14"
   },
   "current_holdings": [],
   "new_signals": [
@@ -268,7 +268,7 @@
         "status_badge": "neutral",
         "latest_headline": "Phiên 7/10: Khối ngoại thẳng tay bán ròng hơn 900 tỷ đồng, cổ phiếu nào bị \"xả\" mạnh nhất?",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 2,
+        "news_count": 1,
         "re_eval_note": ""
       },
       {

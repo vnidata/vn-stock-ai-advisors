@@ -2117,33 +2117,6 @@ body {
   }
 }
 
-@media (max-width: 768px) {
-  .nav-container {
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-start;
-  }
-  .system-status {
-    text-align: left;
-  }
-  .status-indicator {
-    justify-content: flex-start;
-  }
-  .market-selector-bar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .filters-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .chart-wrapper {
-    height: 320px;
-  }
-  .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
 
 /* ==========================================
    SORTABLE TABLES & EXPORT ACTIONS
@@ -3018,41 +2991,6 @@ body {
   padding: 1px 5px;
 }
 
-/* Mobile Responsive Optimization */
-@media (max-width: 768px) {
-  body {
-    padding-bottom: 70px; /* Space for Mobile Bottom Nav */
-  }
-
-  .mobile-bottom-nav {
-    display: flex;
-  }
-
-  .scan-countdown-widget {
-    display: none; /* Collapsed into mobile ticker */
-  }
-
-  .quick-trade-sheet {
-    position: fixed;
-    bottom: 0;
-    border-radius: 16px 16px 0 0;
-    max-width: 100%;
-    animation: slideUpSheet 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  @keyframes slideUpSheet {
-    from { transform: translateY(100%); }
-    to { transform: translateY(0); }
-  }
-
-  .trade-params-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .signal-cards-grid {
-    grid-template-columns: 1fr;
-  }
-}
 
 /* ==========================================================================
    ALPHA WATCHLIST UNIVERSE STYLES
@@ -3221,5 +3159,650 @@ body {
   0% { box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.8); }
   100% { box-shadow: none; }
 }
+
+/* ==========================================================================
+   COMPREHENSIVE MOBILE & TOUCH OPTIMIZATION (<= 768px & <= 480px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* 1. Global & Safe Area Setup */
+  :root {
+    --space-mobile-bottom: calc(64px + env(safe-area-inset-bottom, 16px));
+  }
+
+  body {
+    padding-bottom: var(--space-mobile-bottom);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .main-container {
+    padding: 10px 10px 24px 10px;
+  }
+
+  /* 2. Compact Mobile Header */
+  .navbar {
+    padding: 8px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .brand-group {
+    gap: 8px;
+  }
+
+  .brand-logo {
+    padding: 4px 8px;
+    font-size: 0.95rem;
+  }
+
+  .brand-title {
+    font-size: 0.95rem;
+  }
+
+  .brand-sub {
+    display: none; /* Hide lengthy slogan on mobile to save vertical space */
+  }
+
+  .nav-right-controls {
+    gap: 6px;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .scan-countdown-widget {
+    display: none; /* Collapsed into mobile ticker */
+  }
+
+  .live-clock-badge {
+    padding: 4px 8px;
+    font-size: 0.72rem;
+  }
+
+  .clock-zone {
+    display: none; /* Save space on mobile */
+  }
+
+  .btn-quick-refresh {
+    padding: 5px 9px;
+    font-size: 0.74rem;
+  }
+
+  .refresh-text {
+    display: none; /* Show only spinning refresh icon on small screens */
+  }
+
+  .system-status {
+    text-align: right;
+  }
+
+  .status-label {
+    font-size: 0.65rem;
+    letter-spacing: 0;
+  }
+
+  .last-sync {
+    display: none;
+  }
+
+  /* 3. Market Selector as Segmented Touch Control */
+  .market-selector-bar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px 12px;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .market-selector-left {
+    justify-content: space-between;
+  }
+
+  .selector-title {
+    font-size: 0.72rem;
+  }
+
+  .market-selector-tabs {
+    display: flex;
+    width: 100%;
+    gap: 6px;
+  }
+
+  .market-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 8px 6px;
+    font-size: 0.75rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .market-btn .rr-chip {
+    display: none; /* Hide verbose chip inside mobile tab */
+  }
+
+  /* 4. AI Radar Feed & Ticker Bar */
+  .ai-scan-ticker-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 12px;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .ticker-left {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .ticker-text-wrapper {
+    width: 100%;
+    white-space: normal;
+  }
+
+  .ticker-headline {
+    font-size: 0.78rem;
+    line-height: 1.4;
+    display: block;
+  }
+
+  .ticker-schedule-tag {
+    width: 100%;
+    font-size: 0.7rem;
+    padding: 5px 8px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* 5. Market Overview Banner: 2x2 Clean Mobile Grid */
+  .market-banner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .market-banner .market-stat-card:first-child {
+    grid-column: span 2; /* VN-Index spans full width */
+  }
+
+  .market-banner .market-stat-card:nth-child(3) {
+    grid-column: span 2; /* Champion Strategy spans full width */
+  }
+
+  .market-stat-card {
+    padding: 12px 14px;
+  }
+
+  .stat-header {
+    font-size: 0.65rem;
+    margin-bottom: 4px;
+  }
+
+  .stat-value {
+    font-size: 1.35rem;
+  }
+
+  .stat-change {
+    font-size: 0.78rem;
+  }
+
+  .stat-breadth, .stat-breadth-sub {
+    font-size: 0.7rem;
+    line-height: 1.35;
+  }
+
+  .badge-link {
+    display: inline-block;
+    padding: 1px 5px;
+    font-size: 0.64rem;
+    margin-top: 3px;
+  }
+
+  /* 6. Sticky Top Tabs Bar */
+  .dashboard-tabs {
+    top: 48px;
+    padding: 6px 8px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+  }
+
+  .tabs-quick-hint {
+    display: none; /* No physical keyboard on mobile */
+  }
+
+  .tabs-scroll-container {
+    gap: 4px;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+
+  .tab-btn {
+    padding: 7px 11px;
+    font-size: 0.78rem;
+    gap: 5px;
+  }
+
+  .tab-btn .tab-badge {
+    font-size: 0.62rem;
+    padding: 1px 5px;
+  }
+
+  /* 7. KPI Metrics Grid */
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .kpi-grid-7 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px;
+  }
+
+  .kpi-card {
+    padding: 10px 12px;
+  }
+
+  .kpi-label {
+    font-size: 0.62rem;
+  }
+
+  .kpi-value {
+    font-size: 1.22rem;
+  }
+
+  .kpi-sub {
+    font-size: 0.66rem;
+  }
+
+  /* 8. Horizontal Touch-Swipe Filter Strips */
+  .holdings-control-bar,
+  .watchlist-filter-bar,
+  .trade-history-controls,
+  .phase-selector-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .advisor-chips-group,
+  .watchlist-chips-group,
+  .phase-chips-group,
+  .chart-zoom-group {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 6px;
+    padding: 2px 0 6px 0;
+    width: 100%;
+  }
+
+  .advisor-chips-group::-webkit-scrollbar,
+  .watchlist-chips-group::-webkit-scrollbar,
+  .phase-chips-group::-webkit-scrollbar,
+  .chart-zoom-group::-webkit-scrollbar {
+    display: none;
+  }
+
+  .holdings-chip,
+  .wl-filter-chip,
+  .phase-btn,
+  .zoom-btn {
+    flex-shrink: 0;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    border-radius: 6px;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .watchlist-search-box,
+  .symbol-search-box {
+    width: 100%;
+    min-width: 0;
+    padding: 8px 12px;
+    min-height: 42px;
+  }
+
+  .watchlist-search-box input,
+  .filter-input {
+    font-size: 16px !important; /* Prevents iOS Safari auto-zoom on focus */
+  }
+
+  .filters-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .filter-field label {
+    font-size: 0.75rem;
+  }
+
+  .filter-select {
+    height: 42px;
+    font-size: 16px !important; /* Anti auto-zoom */
+  }
+
+  /* 9. Data Tables Mobile Optimization (Sticky First Column & Smooth Touch Scroll) */
+  .table-card {
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    position: relative;
+  }
+
+  .data-table {
+    font-size: 0.78rem;
+  }
+
+  .data-table th {
+    padding: 8px 10px;
+    font-size: 0.68rem;
+  }
+
+  .data-table td {
+    padding: 9px 10px;
+  }
+
+  /* Sticky First Column for Stock Symbol Identification */
+  .data-table th:first-child,
+  .data-table td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 5;
+    background: #0d111a;
+    box-shadow: 3px 0 8px rgba(0, 0, 0, 0.5);
+  }
+
+  .data-table th:first-child {
+    z-index: 6;
+    background: #090c14;
+  }
+
+  .data-table tbody tr:nth-child(even) td:first-child {
+    background: #0f1420;
+  }
+
+  .data-table tbody tr:hover td:first-child {
+    background: #131b2c;
+  }
+
+  .wl-company-name {
+    max-width: 140px;
+    white-space: normal;
+    font-size: 0.68rem;
+  }
+
+  .wl-thesis-box {
+    max-width: 260px;
+    white-space: normal;
+    font-size: 0.74rem;
+    padding: 6px 10px;
+  }
+
+  .wl-radar-box {
+    max-width: 200px;
+    white-space: normal;
+    font-size: 0.72rem;
+  }
+
+  /* Pagination Bar on Mobile */
+  .pagination-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+  }
+
+  .pagination-controls {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .page-btn {
+    min-width: 36px;
+    height: 36px;
+    font-size: 0.8rem;
+  }
+
+  /* 10. Signal Cards & Trading Actions */
+  .signal-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .signal-action-card {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .signal-sym {
+    font-size: 1.25rem;
+  }
+
+  .signal-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .btn-quick-trade {
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+    font-size: 0.88rem;
+    border-radius: 8px;
+  }
+
+  /* 11. Quick Trade Modal -> Bottom Action Sheet */
+  .modal-overlay {
+    align-items: flex-end; /* Slides up from bottom on mobile */
+    padding: 0;
+  }
+
+  .modal-card.quick-trade-sheet {
+    position: relative;
+    border-radius: 20px 20px 0 0;
+    max-width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding-bottom: max(16px, env(safe-area-inset-bottom, 16px));
+    animation: slideUpSheet 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes slideUpSheet {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+
+  .modal-card.quick-trade-sheet::before {
+    content: '';
+    display: block;
+    width: 44px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 2px;
+    margin: 8px auto 4px auto;
+  }
+
+  .modal-header {
+    padding: 12px 16px;
+  }
+
+  .modal-body {
+    padding: 14px 16px;
+  }
+
+  .trade-params-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .param-box {
+    padding: 6px 8px;
+  }
+
+  .modal-footer {
+    flex-direction: column-reverse;
+    gap: 8px;
+    padding: 12px 16px;
+  }
+
+  .btn-modal-confirm,
+  .btn-modal-cancel {
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+
+  /* 12. Charts on Mobile */
+  .chart-wrapper {
+    height: 280px;
+  }
+
+  /* 13. Mobile Bottom Navigation Bar (5-Tab Standard) */
+  .mobile-bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: calc(56px + env(safe-area-inset-bottom, 12px));
+    padding-bottom: env(safe-area-inset-bottom, 12px);
+    background: rgba(11, 14, 20, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 998;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .mobile-nav-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 6px 0;
+    min-height: 48px;
+    color: var(--text-dim);
+    font-size: 0.65rem;
+    font-weight: 600;
+    position: relative;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: color 0.15s ease, transform 0.15s ease;
+  }
+
+  .mobile-nav-btn:active {
+    transform: scale(0.92);
+  }
+
+  .mobile-nav-btn.active {
+    color: #38bdf8;
+    font-weight: 700;
+  }
+
+  .mobile-nav-btn.active .mobile-nav-icon {
+    transform: translateY(-2px);
+    filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.6));
+  }
+
+  .mobile-nav-icon {
+    font-size: 1.15rem;
+    transition: transform 0.15s ease;
+  }
+
+  .mobile-nav-badge {
+    position: absolute;
+    top: 2px;
+    right: 18%;
+    font-size: 0.58rem;
+    background: #0ecb81;
+    color: #0b0e14;
+    font-weight: 800;
+    border-radius: 8px;
+    padding: 1px 4px;
+    line-height: 1;
+    min-width: 14px;
+    text-align: center;
+  }
+
+  .mobile-nav-badge.badge-green { background: #0ecb81; color: #0b0e14; }
+  .mobile-nav-badge.badge-amber { background: #f59e0b; color: #0b0e14; }
+  .mobile-nav-badge.badge-blue { background: #38bdf8; color: #0b0e14; }
+
+  /* 14. Section Headers on Mobile */
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: 1.05rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.72rem;
+  }
+
+  .rebalance-tag {
+    font-size: 0.68rem;
+    padding: 3px 8px;
+  }
+
+  /* 15. Footer on Mobile */
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding: 20px 12px 10px 12px;
+  }
+}
+
+/* Extra small devices (<= 380px) */
+@media (max-width: 380px) {
+  .market-banner {
+    grid-template-columns: 1fr;
+  }
+  .market-banner .market-stat-card:first-child,
+  .market-banner .market-stat-card:nth-child(3) {
+    grid-column: span 1;
+  }
+  .mobile-nav-text {
+    font-size: 0.58rem;
+  }
+}
+
 
 

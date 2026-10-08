@@ -147,6 +147,21 @@ function switchTab(targetId) {
 
   localStorage.setItem("alphaquant_active_tab", targetId);
 
+  // Auto-scroll top sticky tab button into view on mobile
+  const activeTabBtn = document.querySelector(`.tab-btn[data-tab="${targetId}"]`);
+  if (activeTabBtn && activeTabBtn.scrollIntoView) {
+    activeTabBtn.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+  }
+
+  // On mobile devices, smooth-scroll to content top when switching tabs
+  if (window.innerWidth <= 768) {
+    const pane = document.getElementById(targetId);
+    if (pane) {
+      const topOffset = pane.getBoundingClientRect().top + window.pageYOffset - 110;
+      window.scrollTo({ top: Math.max(0, topOffset), behavior: "smooth" });
+    }
+  }
+
   // Resize chart if performance tab is opened
   if (targetId === "tab-performance" && equityChartInstance) {
     setTimeout(() => equityChartInstance.resize(), 100);
@@ -536,7 +551,10 @@ function updateTabBadges() {
   const badgeTrades = document.getElementById("tab-badge-trades");
   if (badgeTrades) {
     const count = allTrades.length;
-    badgeTrades.innerText = count > 999 ? `${(count / 1000).toFixed(1)}k` : count;
+    const txt = count > 999 ? `${(count / 1000).toFixed(1)}k` : count;
+    badgeTrades.innerText = txt;
+    const mobTrades = document.getElementById("mob-badge-trades");
+    if (mobTrades) mobTrades.innerText = txt;
   }
 
   const badgePerf = document.getElementById("tab-badge-perf");

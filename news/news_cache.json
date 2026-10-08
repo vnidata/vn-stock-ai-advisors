@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-08 19:43:24",
+  "last_updated": "2026-10-08 20:06:14",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 0,
@@ -315,7 +315,7 @@
     },
     "MSN": {
       "symbol": "MSN",
-      "news_count": 2,
+      "news_count": 1,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
@@ -334,15 +334,6 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/phien-7-10-khoi-ngoai-thang-tay-ban-rong-hon-900-ty-dong-co-phieu-nao-bi-xa-manh-nhat-188261007154345758.chn"
-        },
-        {
-          "title": "Chuyện gì đây: Nhóm cổ phiếu đào kho báu nổi sóng, công ty khai thác vàng lớn nhất Việt Nam kịch trần, MSR của tỷ phú Nguyễn Đăng Quang bật gần 8%",
-          "date": "Wed, 07 Oct 26 15:07:00 +0700",
-          "source": "CafeF Doanh Nghiệp (CBTT)",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/chuyen-gi-day-nhom-co-phieu-dao-kho-bau-noi-song-cong-ty-khai-thac-vang-lon-nhat-viet-nam-kich-tran-msr-cua-ty-phu-nguyen-dang-quang-bat-gan-8-188261007145646637.chn"
         }
       ]
     },
@@ -641,6 +632,40 @@
       "published_date": "Wed, 07 Oct 26 19:31:00 +0700"
     },
     {
+      "title": "AIGS công bố kết quả kiểm định: 100% mẫu kim cương PNJ là kim cương thiên nhiên",
+      "description": "Theo AIGS, 100% mẫu được kiểm định là kim cương thiên nhiên và phù hợp với các thông số 4C được PNJ công bố.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/aigs-cong-bo-ket-qua-kiem-dinh-100-mau-kim-cuong-pnj-la-kim-cuong-thien-nhien-188261008200503144.chn",
+      "published_date": "Thu, 08 Oct 26 20:04:00 +0700"
+    },
+    {
+      "title": "Tiệm kim cương nổi tiếng Cần Thơ ngừng kinh doanh hết năm nay",
+      "description": "Sở Công Thương Cần Thơ cho biết, Công ty TNHH Vàng bạc đá quý Kimberly Diamond đã làm thủ tục tạm ngừng kinh doanh tới hết năm nay (thay vì chỉ tạm dừng hoạt động 5 ngày như thông báo trước đó tại cửa hàng). Cơ quan quản lý cũng nhận được phản ánh của khách hàng việc khó bán lại sản phẩm kim cương đã mua tại Kimberly.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/tiem-kim-cuong-noi-tieng-can-tho-ngung-kinh-doanh-het-nam-nay-188261008164757557.chn",
+      "published_date": "Thu, 08 Oct 26 19:36:00 +0700"
+    },
+    {
       "title": "Một doanh nghiệp sắp \"phát\" 4.000 đồng/cp ngay tháng 10, quá khứ từng bạo chi 93% bằng tiền mặt",
       "description": "Trên thị trường, cổ phiếu này đã trong trạng thái \"tắt thanh khoản\" trong vòng hơn nửa năm trở lại đây, kể từ tháng 2/2026.",
       "source": "CafeF Thị Trường",
@@ -730,23 +755,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/vps-quy-iii-2026-tich-luy-nen-tang-kien-tao-tuong-lai-188261008154649263.chn",
       "published_date": "Thu, 08 Oct 26 17:30:00 +0700"
-    },
-    {
-      "title": "Tiệm kim cương nổi tiếng Cần Thơ ngừng kinh doanh hết năm nay",
-      "description": "Sở Công Thương Cần Thơ cho biết, Công ty TNHH Vàng bạc đá quý Kimberly Diamond đã làm thủ tục tạm ngừng kinh doanh tới hết năm nay (thay vì chỉ tạm dừng hoạt động 5 ngày như thông báo trước đó tại cửa hàng). Cơ quan quản lý cũng nhận được phản ánh của khách hàng việc khó bán lại sản phẩm kim cương đã mua tại Kimberly.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/tiem-kim-cuong-noi-tieng-can-tho-ngung-kinh-doanh-het-nam-nay-188261008164757557.chn",
-      "published_date": "Thu, 08 Oct 26 16:47:00 +0700"
     },
     {
       "title": "Hai cổ phiếu ngân hàng bất ngờ \"hút\" tiền nhóm tự doanh CTCK phiên 8/10",
@@ -1121,25 +1129,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/mot-nhom-co-phieu-bat-ngo-noi-song-giua-luc-vn-index-gap-kho-hang-loat-ma-tim-tran-18826100715492465.chn",
       "published_date": "Wed, 07 Oct 26 15:52:00 +0700"
-    },
-    {
-      "title": "Phiên 7/10: Khối ngoại thẳng tay bán ròng hơn 900 tỷ đồng, cổ phiếu nào bị \"xả\" mạnh nhất?",
-      "description": "Ở chiều mua ròng, MSN dẫn đầu với giá trị khoảng 44 tỷ đồng.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "MSN"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/phien-7-10-khoi-ngoai-thang-tay-ban-rong-hon-900-ty-dong-co-phieu-nao-bi-xa-manh-nhat-188261007154345758.chn",
-      "published_date": "Wed, 07 Oct 26 15:45:00 +0700"
     }
   ]
 }
