@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-08 14:31:38 (UTC+7)",
+  "last_updated": "2026-10-08 15:01:33 (UTC+7)",
   "trading_date": "2026-10-08",
   "vnindex": {
     "close": 1738.97,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 0,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-08 14:31:36"
+    "last_scanned": "2026-10-08 15:01:31"
   },
   "current_holdings": [],
   "new_signals": [
@@ -371,11 +371,11 @@
         "sector": "Consumer",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN ỔN ĐỊNH",
+        "status": "THÔNG TIN BÌNH ỔN",
         "status_badge": "neutral",
-        "latest_headline": "5 nữ doanh nhân Việt lọt top quyền lực nhất châu Á",
-        "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
+        "latest_headline": "Không có thông tin bất thường gần đây",
+        "action_desc": "Duy trì khuyến nghị định lượng gốc",
+        "news_count": 0,
         "re_eval_note": ""
       },
       {
@@ -754,9 +754,9 @@
       "ai_radar_action": "Chưa kích hoạt điểm mua an toàn; Tuân thủ kỷ luật 100% tiền mặt phòng thủ",
       "selection_reason": "Thương hiệu quốc gia nắm thị phần sữa áp đảo (>50%). Tỷ suất cổ tức tiền mặt ổn định, tài chính lành mạnh với lượng tiền mặt ròng khổng lồ, đóng vai trò cổ phiếu phòng thủ và giữ nhịp chỉ số khi thị trường biến động.",
       "quant_criteria": "Dòng tiền kinh doanh đều đặn, tỷ lệ chi trả cổ tức tiền mặt cao, tính phòng thủ cao trong pha gấu.",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
-      "latest_headline": "5 nữ doanh nhân Việt lọt top quyền lực nhất châu Á"
+      "latest_headline": "Không có thông tin bất thường gần đây"
     },
     {
       "symbol": "DGC",
