@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-08 20:06:14",
+  "last_updated": "2026-10-08 13:56:06",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 0,
@@ -55,17 +55,26 @@
     },
     "VCB": {
       "symbol": "VCB",
-      "news_count": 3,
+      "news_count": 4,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Dự báo lợi nhuận ngân hàng quý 3/2026 sẽ có bất ngờ lớn: Vietcombank, VietinBank, MB, Techcombank, VPBank, HDBank,...",
+      "latest_headline": "Lãi suất ngân hàng 8/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Duy trì tỷ trọng khuyến nghị",
       "sentiment_multiplier": 1.0,
       "related_news": [
+        {
+          "title": "Lãi suất ngân hàng 8/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+          "date": "Thu, 08 Oct 26 20:41:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/lai-suat-ngan-hang-8-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261008204232797.chn"
+        },
         {
           "title": "Dự báo lợi nhuận ngân hàng quý 3/2026 sẽ có bất ngờ lớn: Vietcombank, VietinBank, MB, Techcombank, VPBank, HDBank,...",
           "date": "Wed, 07 Oct 26 00:00:00 +0700",
@@ -116,11 +125,20 @@
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Các ngân hàng Việt Nam huy động vốn nước ngoài nhiều chưa từng thấy: Đâu là nguyên nhân?",
+      "latest_headline": "Lãi suất ngân hàng 8/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Duy trì tỷ trọng khuyến nghị",
       "sentiment_multiplier": 1.0,
       "related_news": [
+        {
+          "title": "Lãi suất ngân hàng 8/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+          "date": "Thu, 08 Oct 26 20:41:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/lai-suat-ngan-hang-8-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261008204232797.chn"
+        },
         {
           "title": "Các ngân hàng Việt Nam huy động vốn nước ngoài nhiều chưa từng thấy: Đâu là nguyên nhân?",
           "date": "Wed, 07 Oct 26 06:00:00 +0700",
@@ -156,15 +174,6 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/giam-doc-adidas-viet-nam-giai-marathon-quoc-te-ha-noi-techcombank-ket-noi-nguoi-yeu-the-thao-phu-hop-voi-tham-vong-cua-adidas-188261006201841067.chn"
-        },
-        {
-          "title": "Loạt ngân hàng VPBank, Techcombank, ACB,... tăng lãi suất cơ sở, lãi suất tham chiếu",
-          "date": "Tue, 06 Oct 26 16:25:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
-          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/loat-ngan-hang-vpbank-techcombank-acb-tang-lai-suat-co-so-lai-suat-tham-chieu-188261006162226267.chn"
         }
       ]
     },
@@ -556,6 +565,25 @@
       "published_date": "Thu, 08 Oct 26 08:43:00 +0700"
     },
     {
+      "title": "Đề nghị truy tố, xét xử vắng mặt cựu Phó TGĐ Ngân hàng VNCB Đỗ Hoàng Linh",
+      "description": "Cơ quan điều tra Bộ Công an đề nghị truy tố, xét xử vắng mặt 2 bị can Đỗ Hoàng Linh và Trần Trọng Nghĩa trong vụ án vi phạm quy định về cho vay tại Ngân hàng VNCB.",
+      "source": "CafeF Tài Chính Ngân Hàng",
+      "symbols": [],
+      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
+      "sentiment_score": -0.7,
+      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
+      "sentiment_badge": "neg-danger",
+      "is_red_flag": true,
+      "is_catalyst": false,
+      "triggers_found": [
+        "điều tra"
+      ],
+      "re_eval_action": "EMERGENCY_SELL",
+      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
+      "link": "https://cafef.vn/de-nghi-truy-to-xet-xu-vang-mat-cuu-pho-tgd-ngan-hang-vncb-do-hoang-linh-188261008201448289.chn",
+      "published_date": "Thu, 08 Oct 26 20:14:00 +0700"
+    },
+    {
       "title": "Tổng công ty Thuốc lá lần đầu lãi nghìn tỷ trong nửa năm",
       "description": "Lợi nhuận sau thuế 6 tháng đầu năm nay của Tổng công ty Thuốc lá Việt Nam (Vinataba) đạt hơn 1.300 tỷ đồng, mức cao nhất từ trước đến nay.",
       "source": "VnExpress Kinh Doanh",
@@ -613,6 +641,27 @@
       "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
       "link": "https://cafef.vn/sap-he-lo-ngoai-hinh-tau-cao-toc-tai-2-du-an-hon-10-ty-usd-cua-ty-phu-pham-nhat-vuong-188261008104019558.chn",
       "published_date": "Thu, 08 Oct 26 10:39:00 +0700"
+    },
+    {
+      "title": "Khối ngoại mua ròng khi SHB 'lao' về sát mệnh giá",
+      "description": "Cổ phiếu SHB giảm sàn trong phiên giao dịch ngày 8/10, rơi xuống 10.050 đồng, nối dài đà giảm từ vùng 18.000 đồng hồi cuối năm 2025. Trong khi đó, khối ngoại tiếp tục bán ròng phiên thứ 12 liên tiếp, gây thêm áp lực lên nhóm ngân hàng.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "SHB"
+      ],
+      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
+      "sentiment_score": 0.5,
+      "sentiment_label": "TÍCH CỰC MẠNH",
+      "sentiment_badge": "pos",
+      "is_red_flag": false,
+      "is_catalyst": true,
+      "triggers_found": [
+        "khối ngoại mua ròng"
+      ],
+      "re_eval_action": "POSITIVE_BOOST",
+      "action_desc": "Cộng điểm khuyến nghị (+15% Conviction)",
+      "link": "https://cafef.vn/khoi-ngoai-mua-rong-khi-shb-lao-ve-sat-menh-gia-188261008201931254.chn",
+      "published_date": "Thu, 08 Oct 26 20:19:00 +0700"
     },
     {
       "title": "NHNN sẽ kiểm soát chặt tỷ giá, lãi suất trong những tháng cuối năm",
@@ -1095,40 +1144,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/mr-pips-mr-hunter-shark-binh-sap-hau-toa-trong-vu-an-lua-dao-rua-tien-188261007162146066.chn",
       "published_date": "Wed, 07 Oct 26 16:23:00 +0700"
-    },
-    {
-      "title": "Shark Bình liên quan thế nào trong đường dây lừa đảo gần 1.600 tỷ đồng của \"ông trùm\" Mr Pips?",
-      "description": "Ông Nguyễn Hòa Bình (Shark Bình), Chủ tịch HĐQT Tập đoàn NextTech kiêm Chủ tịch Công ty Ngân Lượng, bị cáo buộc chỉ đạo duy trì tài khoản ví điện tử tiếp tay cho sàn forex trái phép và tạo dữ liệu đối phó cơ quan công an, qua đó vướng lao lý với cáo buộc rửa tiền gần 320 tỷ đồng.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/shark-binh-lien-quan-the-nao-trong-duong-day-lua-dao-gan-1600-ty-dong-cua-ong-trum-mr-pips-18826100715152023.chn",
-      "published_date": "Wed, 07 Oct 26 16:15:00 +0700"
-    },
-    {
-      "title": "Một nhóm cổ phiếu bất ngờ “nổi sóng” giữa lúc VN-Index gặp khó, hàng loạt mã tím trần",
-      "description": "Trong số đó, một cái tên thậm chí tăng 80% chỉ trong 3 tháng, đưa thị giá lên vùng cao nhất lịch sử.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/mot-nhom-co-phieu-bat-ngo-noi-song-giua-luc-vn-index-gap-kho-hang-loat-ma-tim-tran-18826100715492465.chn",
-      "published_date": "Wed, 07 Oct 26 15:52:00 +0700"
     }
   ]
 }
