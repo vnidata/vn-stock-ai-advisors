@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-08 11:30:18",
+  "last_updated": "2026-10-08 19:43:24",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 0,
@@ -603,25 +603,6 @@
       "published_date": "Wed, 07 Oct 26 18:45:00 +0700"
     },
     {
-      "title": "Sun Group, Taseco Land, Geleximco sắp khởi công những dự án nào dịp 10/10 tại Hà Nội?",
-      "description": "Theo danh sách dự kiến của UBND TP Hà Nội, dịp 10/10 tới đây, hàng loạt dự án lớn sẽ được khởi công, với sự góp mặt của những tên tuổi như Sun Group, Taseco Land, Geleximco... trải rộng từ chỉnh trang đô thị, hạ tầng đến môi trường, du lịch và công nghiệp.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
-      "sentiment_score": 0.6,
-      "sentiment_label": "TÍCH CỰC MẠNH",
-      "sentiment_badge": "pos",
-      "is_red_flag": false,
-      "is_catalyst": true,
-      "triggers_found": [
-        "khởi công"
-      ],
-      "re_eval_action": "STRONG_BUY_CATALYST",
-      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
-      "link": "https://cafef.vn/sun-group-taseco-land-geleximco-sap-khoi-cong-nhung-du-an-nao-dip-10-10-tai-ha-noi-188261007102054449.chn",
-      "published_date": "Wed, 07 Oct 26 11:21:00 +0700"
-    },
-    {
       "title": "Sắp hé lộ ngoại hình tàu cao tốc tại 2 dự án hơn 10 tỷ USD của tỷ phú Phạm Nhật Vượng",
       "description": "Tại gian hàng German Pavilion tại VRT&CON 2026, trưng bày Velaro Novo - thế hệ tàu cao tốc mới nhất từ Siemens Mobility, dự kiến sẽ được đưa vào vận hành trên các tuyến đường sắt tốc độ cao Hà Nội – Quảng Ninh và Bến Thành – Cần Giờ trong tương lai.",
       "source": "CafeF Doanh Nghiệp (CBTT)",
@@ -660,12 +641,12 @@
       "published_date": "Wed, 07 Oct 26 19:31:00 +0700"
     },
     {
-      "title": "World Bank nâng dự báo tăng trưởng GDP Việt Nam lên 7,4%",
-      "description": "World Bank dự báo GDP Việt Nam tăng 7,4% trong năm nay, cao nhất khu vực, nhờ sự bứt phá trong sản xuất và xuất khẩu sản phẩm liên quan đến AI.",
-      "source": "VnExpress Kinh Doanh",
+      "title": "Một doanh nghiệp sắp \"phát\" 4.000 đồng/cp ngay tháng 10, quá khứ từng bạo chi 93% bằng tiền mặt",
+      "description": "Trên thị trường, cổ phiếu này đã trong trạng thái \"tắt thanh khoản\" trong vòng hơn nửa năm trở lại đây, kể từ tháng 2/2026.",
+      "source": "CafeF Thị Trường",
       "symbols": [],
-      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-      "sentiment_score": 0.1,
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
       "sentiment_label": "TRUNG TÍNH",
       "sentiment_badge": "neutral",
       "is_red_flag": false,
@@ -673,8 +654,8 @@
       "triggers_found": [],
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://vnexpress.net/world-bank-nang-du-bao-tang-truong-gdp-viet-nam-len-7-4-5129047.html",
-      "published_date": "Tue, 06 Oct 2026 14:23:11 +0700"
+      "link": "https://cafef.vn/mot-doanh-nghiep-sap-phat-4000-dong-cp-ngay-thang-10-qua-khu-tung-bao-chi-93-bang-tien-mat-188261008175619271.chn",
+      "published_date": "Thu, 08 Oct 26 18:30:00 +0700"
     },
     {
       "title": "VinFast hợp tác với hơn 50 showroom tại 15 bang Ấn Độ, nhắm tới thị trường xe 2 bánh lớn nhất thế giới",
@@ -751,12 +732,10 @@
       "published_date": "Thu, 08 Oct 26 17:30:00 +0700"
     },
     {
-      "title": "Hơn 63.000 cổ đông mua ưu đãi cổ phiếu SHB giá 12.500 đồng, đợi 5 tháng chưa được giao dịch, thị giá còn 10.050 đồng",
-      "description": "Thị giá SHB hiện đã thấp hơn gần 20% so với giá ưu đãi mà ngân hàng chào bán cho cổ đông hiện hữu hồi tháng 5.",
+      "title": "Tiệm kim cương nổi tiếng Cần Thơ ngừng kinh doanh hết năm nay",
+      "description": "Sở Công Thương Cần Thơ cho biết, Công ty TNHH Vàng bạc đá quý Kimberly Diamond đã làm thủ tục tạm ngừng kinh doanh tới hết năm nay (thay vì chỉ tạm dừng hoạt động 5 ngày như thông báo trước đó tại cửa hàng). Cơ quan quản lý cũng nhận được phản ánh của khách hàng việc khó bán lại sản phẩm kim cương đã mua tại Kimberly.",
       "source": "CafeF Thị Trường",
-      "symbols": [
-        "SHB"
-      ],
+      "symbols": [],
       "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
       "sentiment_score": 0.0,
       "sentiment_label": "TRUNG TÍNH",
@@ -766,7 +745,7 @@
       "triggers_found": [],
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/hon-63000-co-dong-mua-uu-dai-co-phieu-shb-gia-12500-dong-doi-5-thang-chua-duoc-giao-dich-thi-gia-con-10050-dong-188261008164757557.chn",
+      "link": "https://cafef.vn/tiem-kim-cuong-noi-tieng-can-tho-ngung-kinh-doanh-het-nam-nay-188261008164757557.chn",
       "published_date": "Thu, 08 Oct 26 16:47:00 +0700"
     },
     {
@@ -1142,6 +1121,25 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/mot-nhom-co-phieu-bat-ngo-noi-song-giua-luc-vn-index-gap-kho-hang-loat-ma-tim-tran-18826100715492465.chn",
       "published_date": "Wed, 07 Oct 26 15:52:00 +0700"
+    },
+    {
+      "title": "Phiên 7/10: Khối ngoại thẳng tay bán ròng hơn 900 tỷ đồng, cổ phiếu nào bị \"xả\" mạnh nhất?",
+      "description": "Ở chiều mua ròng, MSN dẫn đầu với giá trị khoảng 44 tỷ đồng.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "MSN"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/phien-7-10-khoi-ngoai-thang-tay-ban-rong-hon-900-ty-dong-co-phieu-nao-bi-xa-manh-nhat-188261007154345758.chn",
+      "published_date": "Wed, 07 Oct 26 15:45:00 +0700"
     }
   ]
 }
