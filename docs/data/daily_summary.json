@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-08 10:31:11 (UTC+7)",
+  "last_updated": "2026-10-08 11:30:20 (UTC+7)",
   "trading_date": "2026-10-08",
   "vnindex": {
     "close": 1738.97,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 0,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-08 10:31:08"
+    "last_scanned": "2026-10-08 11:30:18"
   },
   "current_holdings": [
     {
@@ -305,7 +305,7 @@
         "status_badge": "neutral",
         "latest_headline": "Pyn Elite Fund lỗ sâu từ đầu năm, vẫn cược lớn vào Sacombank, Hòa Phát và Thế Giới Di Động",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 2,
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -317,7 +317,7 @@
         "status_badge": "neutral",
         "latest_headline": "Dự báo lợi nhuận ngân hàng quý 3/2026 sẽ có bất ngờ lớn: Vietcombank, VietinBank, MB, Techcombank, VPBank, HDBank,...",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 2,
+        "news_count": 3,
         "re_eval_note": ""
       },
       {

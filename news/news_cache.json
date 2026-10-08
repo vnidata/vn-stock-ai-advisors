@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-08 10:31:08",
+  "last_updated": "2026-10-08 11:30:18",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 0,
@@ -31,7 +31,7 @@
     },
     "HPG": {
       "symbol": "HPG",
-      "news_count": 2,
+      "news_count": 1,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
@@ -50,21 +50,12 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/pyn-elite-fund-lo-sau-tu-dau-nam-van-cuoc-lon-vao-sacombank-hoa-phat-va-the-gioi-di-dong-18826100811021877.chn"
-        },
-        {
-          "title": "Tin vui đến với Hòa Phát",
-          "date": "Wed, 07 Oct 26 11:05:00 +0700",
-          "source": "CafeF Thị Trường",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/tin-vui-den-voi-hoa-phat-188261007110329872.chn"
         }
       ]
     },
     "VCB": {
       "symbol": "VCB",
-      "news_count": 2,
+      "news_count": 3,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
@@ -92,6 +83,15 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/lai-suat-ngan-hang-6-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261006215111713.chn"
+        },
+        {
+          "title": "Vietcombank ra mắt thẻ độc quyền lấy cảm hứng từ nghệ sĩ Quán Nhà Haha",
+          "date": "Thu, 08 Oct 2026 18:00:00 +0700",
+          "source": "VnExpress Kinh Doanh",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://vnexpress.net/vietcombank-ra-mat-the-doc-quyen-lay-cam-hung-tu-nghe-si-quan-nha-haha-5130025.html"
         }
       ]
     },
@@ -677,6 +677,80 @@
       "published_date": "Tue, 06 Oct 2026 14:23:11 +0700"
     },
     {
+      "title": "VinFast hợp tác với hơn 50 showroom tại 15 bang Ấn Độ, nhắm tới thị trường xe 2 bánh lớn nhất thế giới",
+      "description": "Đây là bước đầu trong kế hoạch xây dựng mạng lưới phân phối xe máy điện của VinFast tại thị trường xe hai bánh lớn nhất thế giới.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "VIC"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/vinfast-hop-tac-voi-hon-50-showroom-tai-15-bang-an-do-nham-toi-thi-truong-xe-2-banh-lon-nhat-the-gioi-188261008180404473.chn",
+      "published_date": "Thu, 08 Oct 26 18:04:00 +0700"
+    },
+    {
+      "title": "3 năm sau cái bắt tay với 'ông lớn' Nhật Bản SMBC, Phó TGĐ VPBank kể về cuộc chơi phía sau những khoản vốn tỷ USD",
+      "description": "Lãnh đạo VPBank cho biết sự kết hợp thế mạnh quốc tế của SMBC đang mở ra những hướng hợp tác mới trong bối cảnh dòng vốn FDI tại Việt Nam ngày càng đặt ra yêu cầu cao hơn.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "VPB"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/3-nam-sau-cai-bat-tay-voi-ong-lon-nhat-ban-smbc-pho-tgd-vpbank-ke-ve-cuoc-choi-phia-sau-nhung-khoan-von-ty-usd-188261008180306488.chn",
+      "published_date": "Thu, 08 Oct 26 18:03:00 +0700"
+    },
+    {
+      "title": "VPBankS nhận “cú đúp” giải thưởng quốc tế về phân tích và quản trị",
+      "description": "Nhận \"cú đúp\" hai giải thưởng quốc tế từ International Finance Awards và Global Banking & Finance Awards, VPBankS tiếp tục khẳng định dấu ấn về năng lực phân tích chứng khoán và sáng kiến quản trị doanh nghiệp.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "VPB"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/vpbanks-nhan-cu-dup-giai-thuong-quoc-te-ve-phan-tich-va-quan-tri-18826100816384421.chn",
+      "published_date": "Thu, 08 Oct 26 17:30:00 +0700"
+    },
+    {
+      "title": "VPS quý III/2026: Tích lũy nền tảng, kiến tạo tương lai",
+      "description": "Trong bối cảnh thanh khoản thu hẹp, VPS tiếp tục dẫn đầu thị phần quý III/2026. Trước những cơ hội sau nâng hạng, Công ty củng cố nền tảng công nghệ và phát triển giải pháp đầu tư dài hạn, mở rộng vai trò đồng hành cùng nhà đầu tư.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/vps-quy-iii-2026-tich-luy-nen-tang-kien-tao-tuong-lai-188261008154649263.chn",
+      "published_date": "Thu, 08 Oct 26 17:30:00 +0700"
+    },
+    {
       "title": "Hơn 63.000 cổ đông mua ưu đãi cổ phiếu SHB giá 12.500 đồng, đợi 5 tháng chưa được giao dịch, thị giá còn 10.050 đồng",
       "description": "Thị giá SHB hiện đã thấp hơn gần 20% so với giá ưu đãi mà ngân hàng chào bán cho cổ đông hiện hữu hồi tháng 5.",
       "source": "CafeF Thị Trường",
@@ -1068,78 +1142,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/mot-nhom-co-phieu-bat-ngo-noi-song-giua-luc-vn-index-gap-kho-hang-loat-ma-tim-tran-18826100715492465.chn",
       "published_date": "Wed, 07 Oct 26 15:52:00 +0700"
-    },
-    {
-      "title": "Phiên 7/10: Khối ngoại thẳng tay bán ròng hơn 900 tỷ đồng, cổ phiếu nào bị \"xả\" mạnh nhất?",
-      "description": "Ở chiều mua ròng, MSN dẫn đầu với giá trị khoảng 44 tỷ đồng.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "MSN"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/phien-7-10-khoi-ngoai-thang-tay-ban-rong-hon-900-ty-dong-co-phieu-nao-bi-xa-manh-nhat-188261007154345758.chn",
-      "published_date": "Wed, 07 Oct 26 15:45:00 +0700"
-    },
-    {
-      "title": "Một cổ phiếu ngân hàng bứt phá phiên VN-Index đỏ lửa, có lúc tăng kịch trần",
-      "description": "So với vùng đỉnh 24.100 đồng/cổ phiếu, thị giá hiện vẫn thấp hơn khoảng 25%.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/mot-co-phieu-ngan-hang-but-pha-phien-vn-index-do-lua-co-luc-tang-kich-tran-188261007143725246.chn",
-      "published_date": "Wed, 07 Oct 26 15:45:00 +0700"
-    },
-    {
-      "title": "Một 'ông lớn' nước ngoài vừa bán ra gần 5,5 triệu cổ phiếu PNJ",
-      "description": "Các quỹ thành viên trong nhóm nhà đầu tư nước ngoài do T. Rowe Price Associates, Inc. đại diện vừa có động thái mua vào-bán ra cổ phiếu PNJ trong phiên 2/10/2026.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "PNJ"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/mot-ong-lon-nuoc-ngoai-vua-ban-ra-gan-55-trieu-co-phieu-pnj-188261007152215254.chn",
-      "published_date": "Wed, 07 Oct 26 15:22:00 +0700"
-    },
-    {
-      "title": "\"Hố đen\" AI hút tiền: Elon Musk muốn huy động 40 tỷ USD để SpaceX mua chip NVIDIA",
-      "description": "SpaceX của Elon Musk đang tìm cách huy động khoảng 40 tỷ USD trong một thương vụ do Apollo Global Management dẫn dắt, nhằm tài trợ cho việc mua chip NVIDIA.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/ho-den-ai-hut-tien-elon-musk-muon-huy-dong-40-ty-usd-de-spacex-mua-chip-nvidia-188261007142832953.chn",
-      "published_date": "Wed, 07 Oct 26 14:28:00 +0700"
     }
   ]
 }
