@@ -89,6 +89,18 @@ def detect_entry_technique(df_feat: pd.DataFrame) -> Tuple[str, str]:
     return technique, reason
 
 
+def evaluate_position_status(current_return: float) -> Tuple[str, str, str]:
+    """Determine standardized status text, badge, and action advice based on return %."""
+    if current_return >= 10.0:
+        return "GẦN TARGET (+15%)", "pos-bold", "Sẵn sàng chốt lời từng phần / Nâng Trailing Stop"
+    elif current_return > 0:
+        return "ĐANG CÓ LÃI", "pos", "Tiếp tục nắm giữ theo xu hướng tăng"
+    elif current_return > -3.0:
+        return "TÍCH LŨY / HÒA VỐN", "neutral", "Giữ vị thế, quan sát hỗ trợ MA20"
+    else:
+        return "CẢNH BÁO STOP LOSS", "neg", "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng"
+
+
 def get_technical_signal(df_feat: pd.DataFrame) -> str:
     """Generate concise Vietnamese technical signal description."""
     if df_feat is None or df_feat.empty:
@@ -368,6 +380,17 @@ def run_daily_update():
     eval_timestamp = pd.to_datetime(latest_timestamp) + pd.Timedelta(days=1)
     strategy_recommendations = {}
 
+    # Load actual active positions from portfolio state (guaranteeing zero fabricated history)
+    holdings_state_path = config.project_root / "data" / "portfolio_holdings.json"
+    active_positions_by_adv = {}
+    if holdings_state_path.exists():
+        try:
+            with open(holdings_state_path, "r", encoding="utf-8") as f:
+                state_data = json.load(f)
+                active_positions_by_adv = state_data.get("positions", {})
+        except Exception as e:
+            print(f"Notice reading portfolio_holdings.json: {e}")
+
     for adv in advisors:
         rec = adv.recommend_portfolio(
             as_of_date=eval_timestamp,
@@ -378,52 +401,48 @@ def run_daily_update():
         weights = rec.get("target_weights", {})
         scores = rec.get("scores", {})
         news_notes = rec.get("news_re_eval_notes", {})
-        # Load actual active positions from portfolio state (guaranteeing zero fabricated history)
-        holdings_state_path = config.project_root / "data" / "portfolio_holdings.json"
-        active_positions_by_adv = {}
-        if holdings_state_path.exists():
-            try:
-                with open(holdings_state_path, "r", encoding="utf-8") as f:
-                    state_data = json.load(f)
-                    active_positions_by_adv = state_data.get("positions", {})
-            except Exception as e:
-                print(f"Notice reading portfolio_holdings.json: {e}")
 
-        # Active holdings lookup for this advisor
-        adv_active_positions = {p["symbol"]: p for p in active_positions_by_adv.get(adv.name, [])}
-
+        # True active open positions for this advisor (from live execution from 2026-01-01)
+        adv_active_list = active_positions_by_adv.get(adv.name, [])
         top5_list = []
-        for sym, w in weights.items():
-            price = current_prices.get(sym, 0.0)
+        held_syms = set()
+
+        # Step 1: ALWAYS include all open positions currently held by this advisor
+        for pos in adv_active_list:
+            sym = pos["symbol"]
+            held_syms.add(sym)
+            curr_p = current_prices.get(sym, float(pos.get("entry_price", 0.0)))
+            entry_p = float(pos.get("entry_price", curr_p))
+            entry_d = str(pos.get("entry_date", "2026-01-01"))
             df_feat = market_data.get(sym)
 
-            # Check if this stock is genuinely an open position
-            if sym in adv_active_positions:
-                pos = adv_active_positions[sym]
-                entry_price = float(pos.get("entry_price", price))
-                holding_days = int(pos.get("holding_days", 0))
-                current_return = round(((price - entry_price) / entry_price) * 100.0, 2) if entry_price > 0 else 0.0
-                status_text = "ĐANG CÓ LÃI" if current_return > 0 else ("HÒA VỐN" if current_return == 0 else "CẢNH BÁO STOP LOSS")
-                status_badge = "pos" if current_return > 0 else ("neutral" if current_return == 0 else "neg")
-                action_advice = "Tiếp tục nắm giữ theo xu hướng tăng" if current_return >= 0 else "Gần ngưỡng cắt lỗ, quan sát kỷ luật"
+            # Calculate exact trading sessions held
+            if df_feat is not None and not df_feat.empty:
+                all_dates = [str(pd.to_datetime(t).date()) for t in df_feat["time"]]
+                if entry_d in all_dates:
+                    days_held = len(all_dates) - 1 - all_dates.index(entry_d)
+                else:
+                    days_held = max(1, (pd.to_datetime(latest_date_str) - pd.to_datetime(entry_d)).days)
             else:
-                # Newly recommended candidate for the upcoming rebalance cycle:
-                # NEVER fake an entry price from the past. Entry price is current market price today.
-                entry_price = price
-                holding_days = 0
-                current_return = 0.0
-                status_text = "KHUYẾN NGHỊ MUA MỚI"
-                status_badge = "buy"
-                action_advice = "Mở vị thế mua mới theo tỷ trọng khuyến nghị"
+                days_held = max(1, (pd.to_datetime(latest_date_str) - pd.to_datetime(entry_d)).days)
 
-            # Dynamic ATR-based Risk Brackets & Institutional Entry Setup
+            ret = round(((curr_p - entry_p) / entry_p) * 100.0, 2) if entry_p > 0 else 0.0
+            status_text, status_badge, action_advice = evaluate_position_status(ret)
+            w_pct = float(pos.get("weight_pct", round(100.0 / adv.portfolio_size, 1)))
+
+            # Update position in-place for saving back to portfolio_holdings.json
+            pos["current_price"] = curr_p
+            pos["current_return_pct"] = ret
+            pos["holding_days"] = days_held
+
+            # Dynamic ATR risk brackets
             if df_feat is not None and not df_feat.empty:
                 latest_row = df_feat.iloc[-1]
-                atr_14 = float(latest_row.get("atr_14", entry_price * 0.025))
-                supp_20d = float(latest_row.get("support_20d", entry_price * 0.95))
-                res_20d = float(latest_row.get("resistance_20d", entry_price * 1.10))
+                atr_14 = float(latest_row.get("atr_14", entry_p * 0.025))
+                supp_20d = float(latest_row.get("support_20d", entry_p * 0.95))
+                res_20d = float(latest_row.get("resistance_20d", entry_p * 1.10))
                 brackets = RiskManager.calculate_dynamic_entry_brackets(
-                    entry_price=entry_price,
+                    entry_price=entry_p,
                     atr_14=atr_14,
                     support_price=supp_20d,
                     resistance_price=res_20d,
@@ -435,46 +454,108 @@ def run_daily_update():
                 technique, tech_reason = detect_entry_technique(df_feat)
                 conf_score = adv.calculate_confidence_score(sym, df_feat, eval_timestamp)
             else:
-                stop_loss = round(entry_price * 0.955, 2)
-                target_tp = round(entry_price * 1.15, 2)
+                stop_loss = round(entry_p * 0.955, 2)
+                target_tp = round(entry_p * 1.15, 2)
                 rr_str = "3.3 : 1"
                 technique, tech_reason = "TÍCH LŨY QUAN SÁT", "Đang theo dõi nền giá"
                 conf_score = 80
 
-            signal = f"{technique} | {tech_reason}"
             sym_news = news_sentiment_map.get(sym, {})
-
             top5_list.append({
                 "symbol": sym,
-                "weight_pct": round(w * 100.0, 1),
+                "weight_pct": w_pct,
                 "score": scores.get(sym, 0.0),
                 "confidence_score": conf_score,
                 "sector": SECTOR_MAP.get(sym, "Bluechip"),
-                "entry_price": round(entry_price, 2),
-                "current_price": round(price, 2),
+                "entry_price": round(entry_p, 2),
+                "entry_date": entry_d,
+                "current_price": round(curr_p, 2),
                 "daily_change_pct": daily_changes.get(sym, 0.0),
-                "current_return_pct": current_return,
+                "current_return_pct": ret,
                 "stop_loss": stop_loss,
                 "target_price": target_tp,
                 "rr_ratio": rr_str,
                 "entry_technique": technique,
-                "holding_days": holding_days,
+                "holding_days": days_held,
                 "status_text": status_text,
                 "status_badge": status_badge,
                 "action_advice": action_advice,
                 "volume": daily_volumes.get(sym, 0),
-                "technical_signal": signal,
+                "technical_signal": f"{technique} | {tech_reason}",
                 "news_status": sym_news.get("status", "THÔNG TIN BÌNH ỔN"),
                 "news_badge": sym_news.get("status_badge", "neutral"),
                 "news_headline": sym_news.get("latest_headline", "Không có tin bất thường"),
-                "news_action": sym_news.get("action_desc", "Duy trì khuyến nghị gốc"),
+                "news_action": sym_news.get("action_desc", "Duy trì vị thế nắm giữ"),
                 "news_score": sym_news.get("net_sentiment", 0.0)
             })
 
+        # Step 2: Fill available empty slots with NEW candidates (strictly not held)
+        open_slots = max(0, adv.portfolio_size - len(adv_active_list))
+        if open_slots > 0:
+            candidate_syms = [s for s in rec.get("top_symbols", []) if s not in held_syms and scores.get(s, 0) > 0]
+            for c_sym in candidate_syms[:open_slots]:
+                curr_p = current_prices.get(c_sym, 0.0)
+                df_feat = market_data.get(c_sym)
+                c_weight = round(weights.get(c_sym, 1.0 / adv.portfolio_size) * 100.0, 1)
+
+                if df_feat is not None and not df_feat.empty:
+                    latest_row = df_feat.iloc[-1]
+                    atr_14 = float(latest_row.get("atr_14", curr_p * 0.025))
+                    supp_20d = float(latest_row.get("support_20d", curr_p * 0.95))
+                    res_20d = float(latest_row.get("resistance_20d", curr_p * 1.10))
+                    brackets = RiskManager.calculate_dynamic_entry_brackets(
+                        entry_price=curr_p,
+                        atr_14=atr_14,
+                        support_price=supp_20d,
+                        resistance_price=res_20d,
+                        min_rr=2.85
+                    )
+                    stop_loss = brackets["stop_loss"]
+                    target_tp = brackets["target_price"]
+                    rr_str = brackets["rr_string"]
+                    technique, tech_reason = detect_entry_technique(df_feat)
+                    conf_score = adv.calculate_confidence_score(c_sym, df_feat, eval_timestamp)
+                else:
+                    stop_loss = round(curr_p * 0.955, 2)
+                    target_tp = round(curr_p * 1.15, 2)
+                    rr_str = "3.3 : 1"
+                    technique, tech_reason = "TÍCH LŨY QUAN SÁT", "Đang theo dõi nền giá"
+                    conf_score = 80
+
+                sym_news = news_sentiment_map.get(c_sym, {})
+                top5_list.append({
+                    "symbol": c_sym,
+                    "weight_pct": c_weight,
+                    "score": scores.get(c_sym, 0.0),
+                    "confidence_score": conf_score,
+                    "sector": SECTOR_MAP.get(c_sym, "Bluechip"),
+                    "entry_price": round(curr_p, 2),
+                    "entry_date": latest_date_str,
+                    "current_price": round(curr_p, 2),
+                    "daily_change_pct": daily_changes.get(c_sym, 0.0),
+                    "current_return_pct": 0.0,
+                    "stop_loss": stop_loss,
+                    "target_price": target_tp,
+                    "rr_ratio": rr_str,
+                    "entry_technique": technique,
+                    "holding_days": 0,
+                    "status_text": "KHUYẾN NGHỊ MUA MỚI",
+                    "status_badge": "buy",
+                    "action_advice": "Mở vị thế mua mới theo tỷ trọng khuyến nghị",
+                    "volume": daily_volumes.get(c_sym, 0),
+                    "technical_signal": f"{technique} | {tech_reason}",
+                    "news_status": sym_news.get("status", "THÔNG TIN BÌNH ỔN"),
+                    "news_badge": sym_news.get("status_badge", "neutral"),
+                    "news_headline": sym_news.get("latest_headline", "Không có tin bất thường"),
+                    "news_action": sym_news.get("action_desc", "Khuyến nghị mở vị thế mua mới"),
+                    "news_score": sym_news.get("net_sentiment", 0.0)
+                })
+
         # Calculate current cycle portfolio return from GENUINE held positions only
-        held_in_top5 = [item for item in top5_list if item["symbol"] in adv_active_positions]
+        held_in_top5 = [item for item in top5_list if item["holding_days"] > 0]
         if held_in_top5:
-            weighted_current_return = round(sum(item["current_return_pct"] * (item["weight_pct"] / 100.0) for item in held_in_top5), 2)
+            total_held_w = sum(item["weight_pct"] for item in held_in_top5)
+            weighted_current_return = round(sum(item["current_return_pct"] * (item["weight_pct"] / total_held_w) for item in held_in_top5), 2) if total_held_w > 0 else 0.0
             winning_count = sum(1 for item in held_in_top5 if item["current_return_pct"] > 0)
         else:
             weighted_current_return = 0.0
@@ -496,62 +577,49 @@ def run_daily_update():
             "news_notes": news_notes
         }
 
+    # Save live synchronized active holdings to data/portfolio_holdings.json
+    with open(holdings_state_path, "w", encoding="utf-8") as f:
+        json.dump({
+            "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "deployment_date": "2026-01-01",
+            "positions": active_positions_by_adv
+        }, f, ensure_ascii=False, indent=2)
+
     # 4. Generate structured Current Holdings, New Signals, and News Action Recommendations
-    # 4A. Consolidated Current Holdings - ONLY TRUE OPEN POSITIONS
+    # 4A. Consolidated Current Holdings - ONLY TRUE OPEN POSITIONS (Holding days > 0)
     all_current_holdings = []
     for adv_name, s_data in strategy_recommendations.items():
         adv_clean = adv_name.replace("AI_Advisor_", "")
-        adv_active = active_positions_by_adv.get(adv_name, [])
-        for pos in adv_active:
-            sym = pos["symbol"]
-            curr_p = current_prices.get(sym, float(pos.get("entry_price", 0.0)))
-            entry_p = float(pos.get("entry_price", curr_p))
-            days_held = int(pos.get("holding_days", 0)) + 1
-            ret = round(((curr_p - entry_p) / entry_p) * 100.0, 2) if entry_p > 0 else 0.0
-            weight_pct = float(pos.get("weight_pct", 20.0))
-            pnl_vnd = int(weight_pct * 10000000 * (ret / 100.0))
-            sym_news = news_sentiment_map.get(sym, {})
-            df_feat = market_data.get(sym)
-
-            if ret >= 10.0:
-                status_text = "GẦN TARGET (+15%)"
-                status_badge = "pos-bold"
-                action_advice = "Sẵn sàng chốt lời từng phần / Nâng Trailing Stop"
-            elif ret > 0:
-                status_text = "ĐANG CÓ LÃI"
-                status_badge = "pos"
-                action_advice = "Tiếp tục nắm giữ theo xu hướng tăng"
-            elif ret > -3.0:
-                status_text = "TÍCH LŨY / HÒA VỐN"
-                status_badge = "neutral"
-                action_advice = "Giữ vị thế, quan sát hỗ trợ MA20"
-            else:
-                status_text = "CẢNH BÁO STOP LOSS"
-                status_badge = "neg"
-                action_advice = "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng"
-
-            all_current_holdings.append({
-                "symbol": sym,
-                "advisor": adv_name,
-                "advisor_name": adv_clean,
-                "sector": SECTOR_MAP.get(sym, "Bluechip"),
-                "weight_pct": weight_pct,
-                "entry_price": entry_p,
-                "current_price": curr_p,
-                "daily_change_pct": daily_changes.get(sym, 0.0),
-                "current_return_pct": ret,
-                "pnl_vnd": pnl_vnd,
-                "holding_days": days_held,
-                "stop_loss": round(entry_p * 0.955, 2),
-                "target_price": round(entry_p * 1.15, 2),
-                "status_text": status_text,
-                "status_badge": status_badge,
-                "action_advice": action_advice,
-                "technical_signal": get_technical_signal(df_feat) if df_feat is not None else "Đang theo dõi",
-                "news_status": sym_news.get("status", "THÔNG TIN BÌNH ỔN"),
-                "news_badge": sym_news.get("status_badge", "neutral"),
-                "volume": daily_volumes.get(sym, 0)
-            })
+        for item in s_data.get("top5", []):
+            if item.get("holding_days", 0) > 0:
+                sym = item["symbol"]
+                weight_pct = item["weight_pct"]
+                ret = item["current_return_pct"]
+                pnl_vnd = int(weight_pct * 10000000 * (ret / 100.0))
+                all_current_holdings.append({
+                    "symbol": sym,
+                    "advisor": adv_name,
+                    "advisor_name": adv_clean,
+                    "sector": item["sector"],
+                    "weight_pct": weight_pct,
+                    "entry_price": item["entry_price"],
+                    "entry_date": item.get("entry_date", "2026-01-01"),
+                    "current_price": item["current_price"],
+                    "daily_change_pct": item["daily_change_pct"],
+                    "current_return_pct": ret,
+                    "pnl_vnd": pnl_vnd,
+                    "holding_days": item["holding_days"],
+                    "stop_loss": item["stop_loss"],
+                    "target_price": item["target_price"],
+                    "rr_ratio": item["rr_ratio"],
+                    "status_text": item["status_text"],
+                    "status_badge": item["status_badge"],
+                    "action_advice": item["action_advice"],
+                    "technical_signal": item["technical_signal"],
+                    "news_status": item["news_status"],
+                    "news_badge": item["news_badge"],
+                    "volume": item["volume"]
+                })
 
     # 4B. Generate Actionable New Signals (Buy / Take Profit / Stop Loss / Switch)
     new_signals = []
@@ -569,72 +637,47 @@ def run_daily_update():
         "Mean_Reversion": 65
     }
 
-    # Buy signals: generated for all newly recommended stocks that are not yet in current holdings
+    # Buy signals: ONLY generated for newly recommended candidates filling open portfolio slots
     recommended_candidates = set()
     for adv_name, s_data in strategy_recommendations.items():
         adv_clean = adv_name.replace("AI_Advisor_", "")
-        adv_active_syms = {p["symbol"] for p in active_positions_by_adv.get(adv_name, [])}
         for item in s_data.get("top5", []):
-            sym = item["symbol"]
-            if sym not in adv_active_syms and (adv_clean, sym) not in recommended_candidates:
-                recommended_candidates.add((adv_clean, sym))
-                curr_p = current_prices.get(sym, 0.0)
-                df_feat = market_data.get(sym)
-                vol_ratio = 1.0
-                rs = 50.0
-                dist_sma20 = 0.0
-                atr_14 = curr_p * 0.025
-                support_20d = curr_p * 0.95
-                resistance_20d = curr_p * 1.10
-                technique = item.get("entry_technique", "BÙNG NỔ VƯỢT NỀN")
-                tech_reason = "Vượt MA20"
-                conf_score = item.get("confidence_score", 85)
+            if item.get("status_badge") == "buy":
+                sym = item["symbol"]
+                if (adv_clean, sym) not in recommended_candidates:
+                    recommended_candidates.add((adv_clean, sym))
+                    win_rate = adv_win_rate_map.get(adv_clean, 72)
+                    curr_p = item["current_price"]
+                    tp = item["target_price"]
+                    sl = item["stop_loss"]
+                    target_ret = round(((tp - curr_p) / curr_p) * 100.0, 2) if curr_p > 0 else 15.0
+                    max_loss = round(((sl - curr_p) / curr_p) * 100.0, 2) if curr_p > 0 else -4.5
 
-                if df_feat is not None and not df_feat.empty:
-                    latest = df_feat.iloc[-1]
-                    rs = float(latest.get("rs_rating", 50.0))
-                    vol_ratio = float(latest.get("vol_ratio", 1.0))
-                    dist_sma20 = float(latest.get("dist_sma20", 0.0))
-                    atr_14 = float(latest.get("atr_14", curr_p * 0.025))
-                    support_20d = float(latest.get("support_20d", curr_p * 0.95))
-                    resistance_20d = float(latest.get("resistance_20d", curr_p * 1.10))
-                    technique, tech_reason = detect_entry_technique(df_feat)
+                    advisor_rationale = f"Cố vấn {adv_clean} kích hoạt lệnh [{item['entry_technique']}] (Tỷ trọng {item['weight_pct']}%), Asymmetric R:R {item['rr_ratio']}"
 
-                brackets = RiskManager.calculate_dynamic_entry_brackets(
-                    entry_price=curr_p,
-                    atr_14=atr_14,
-                    support_price=support_20d,
-                    resistance_price=resistance_20d,
-                    min_rr=2.85
-                )
-
-                win_rate = adv_win_rate_map.get(adv_clean, 72)
-                sym_news = news_sentiment_map.get(sym, {})
-                advisor_rationale = f"Cố vấn {adv_clean} kích hoạt lệnh [{technique}] (Tỷ trọng {item['weight_pct']}%), Asymmetric R:R {brackets['rr_string']}"
-
-                new_signals.append({
-                    "id": f"SIG-BUY-{sig_id:02d}",
-                    "symbol": sym,
-                    "sector": SECTOR_MAP.get(sym, "Bluechip"),
-                    "signal_type": "MUA MỚI",
-                    "signal_badge": "buy",
-                    "recommended_advisor": adv_clean,
-                    "signal_price": curr_p,
-                    "target_price": brackets["target_price"],
-                    "target_return_pct": brackets["target_return_pct"],
-                    "stop_loss": brackets["stop_loss"],
-                    "max_loss_pct": brackets["max_loss_pct"],
-                    "rr_ratio": brackets["rr_string"],
-                    "confidence_score": conf_score,
-                    "win_rate": win_rate,
-                    "entry_technique": technique,
-                    "recommended_weight_pct": item["weight_pct"],
-                    "technical_reason": tech_reason,
-                    "advisor_rationale": advisor_rationale,
-                    "news_status": sym_news.get("status", "THÔNG TIN BÌNH ỔN"),
-                    "news_badge": sym_news.get("status_badge", "neutral")
-                })
-                sig_id += 1
+                    new_signals.append({
+                        "id": f"SIG-BUY-{sig_id:02d}",
+                        "symbol": sym,
+                        "sector": item["sector"],
+                        "signal_type": "MUA MỚI",
+                        "signal_badge": "buy",
+                        "recommended_advisor": adv_clean,
+                        "signal_price": curr_p,
+                        "target_price": tp,
+                        "target_return_pct": target_ret,
+                        "stop_loss": sl,
+                        "max_loss_pct": max_loss,
+                        "rr_ratio": item["rr_ratio"],
+                        "confidence_score": item["confidence_score"],
+                        "win_rate": win_rate,
+                        "entry_technique": item["entry_technique"],
+                        "recommended_weight_pct": item["weight_pct"],
+                        "technical_reason": item["technical_signal"].split("|")[-1].strip(),
+                        "advisor_rationale": advisor_rationale,
+                        "news_status": item["news_status"],
+                        "news_badge": item["news_badge"]
+                    })
+                    sig_id += 1
 
     # Take profit signals (ONLY for genuine held positions with return >= 10.0%)
     for h in all_current_holdings:
@@ -683,6 +726,7 @@ def run_daily_update():
                 "news_badge": h["news_badge"]
             })
             sig_id += 1
+
 
     # 4C. News Action Recommendations
     news_actions = {
@@ -845,6 +889,14 @@ def run_daily_update():
             "catalysts_detected": news_report.get("catalysts_detected", 0),
             "system_verdict": news_report.get("system_verdict", "AN TOÀN"),
             "last_scanned": news_report.get("last_updated", "")
+        },
+        "portfolio_summary": {
+            "total_positions": len(all_current_holdings),
+            "winning_positions": len([h for h in all_current_holdings if h["current_return_pct"] > 0]),
+            "losing_positions": len([h for h in all_current_holdings if h["current_return_pct"] <= 0]),
+            "avg_return_pct": round(sum(h["current_return_pct"] for h in all_current_holdings) / len(all_current_holdings), 2) if all_current_holdings else 0.0,
+            "total_pnl_vnd": sum(h.get("pnl_vnd", 0) for h in all_current_holdings),
+            "deployment_date": "2026-01-01"
         },
         "current_holdings": all_current_holdings,
         "new_signals": new_signals,

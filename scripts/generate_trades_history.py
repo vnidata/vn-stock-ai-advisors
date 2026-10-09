@@ -157,12 +157,34 @@ def generate_all_trades_history():
     engine = BacktestEngine(initial_capital=config.initial_capital)
     all_trades: List[Dict[str, Any]] = []
     strategies_stats: Dict[str, Any] = {}
+    active_holdings_by_adv: Dict[str, List[Dict[str, Any]]] = {}
 
     for adv in advisors:
         print(f"Running simulation for {adv.name}...")
         res = engine.run(adv, market_data, bm_df)
         trades = pair_round_trip_trades(res.trades, adv.name)
         all_trades.extend(trades)
+
+        # Extract true active open positions as of today (guaranteeing zero fabricated history)
+        adv_positions_list = []
+        last_nav = res.nav_series["nav"].iloc[-1] if not res.nav_series.empty else config.initial_capital
+        for sym, pos in res.active_positions.items():
+            curr_p = pos.current_price
+            entry_p = pos.entry_price
+            ret_pct = round(((curr_p - entry_p) / (entry_p + 1e-9)) * 100.0, 2)
+            w_pct = round((pos.market_value / (last_nav + 1e-9)) * 100.0, 1)
+            adv_positions_list.append({
+                "symbol": sym,
+                "shares": pos.shares,
+                "entry_price": round(entry_p, 2),
+                "entry_date": pos.entry_date.strftime("%Y-%m-%d"),
+                "current_price": round(curr_p, 2),
+                "holding_days": pos.days_held,
+                "current_return_pct": ret_pct,
+                "weight_pct": w_pct,
+                "sector": SECTOR_MAP.get(sym, "Bluechip")
+            })
+        active_holdings_by_adv[adv.name] = adv_positions_list
 
         # Compute stats for this strategy
         if trades:
@@ -189,6 +211,17 @@ def generate_all_trades_history():
                 "avg_holding_days": avg_hold,
                 "total_pnl_vnd": sum(t["pnl_vnd"] for t in trades)
             }
+
+    # Save true active holdings state to data/portfolio_holdings.json
+    holdings_file = config.project_root / "data" / "portfolio_holdings.json"
+    holdings_file.parent.mkdir(parents=True, exist_ok=True)
+    with open(holdings_file, "w", encoding="utf-8") as f:
+        json.dump({
+            "last_updated": pd.Timestamp.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "deployment_date": "2026-01-01",
+            "positions": active_holdings_by_adv
+        }, f, ensure_ascii=False, indent=2)
+    print(f"Successfully saved true active open positions to: {holdings_file}")
 
     # Sort trades descending by exit_date
     all_trades.sort(key=lambda x: x["exit_date"], reverse=True)

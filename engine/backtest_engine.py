@@ -3,11 +3,11 @@ Core Event-Driven Backtesting Engine.
 Simulates daily execution on the Vietnam Stock Market with realistic settlement (T+2),
 commissions, taxes, slippage, and portfolio rebalancing mechanics.
 """
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Dict, List, Optional, Any
 import pandas as pd
 import numpy as np
-from portfolio.position_tracker import PositionTracker, TradeRecord
+from portfolio.position_tracker import PositionTracker, TradeRecord, Position
 from portfolio.risk_manager import RiskManager, RiskParameters
 from portfolio.allocation import PortfolioAllocator, AllocationMethod
 from config.trading_rules import VietnamTradingRules
@@ -21,6 +21,7 @@ class BacktestResult:
     nav_series: pd.DataFrame
     trades: List[TradeRecord]
     portfolio_history: List[Dict[str, Any]]
+    active_positions: Dict[str, Position] = field(default_factory=dict)
 
 
 class BacktestEngine:
@@ -250,5 +251,6 @@ class BacktestEngine:
             metrics=metrics,
             nav_series=nav_series,
             trades=tracker.trade_history,
-            portfolio_history=portfolio_snapshots
+            portfolio_history=portfolio_snapshots,
+            active_positions=tracker.positions
         )

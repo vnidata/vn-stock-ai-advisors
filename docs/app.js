@@ -522,7 +522,8 @@ function setupBackToTop() {
 function updateTabBadges() {
   const badgeHoldings = document.getElementById("tab-badge-holdings");
   if (badgeHoldings) {
-    const count = (globalDailyData && globalDailyData.portfolio_summary && globalDailyData.portfolio_summary.total_positions) || 0;
+    const count = (globalDailyData && globalDailyData.portfolio_summary && globalDailyData.portfolio_summary.total_positions) || 
+                  (globalDailyData && globalDailyData.current_holdings ? globalDailyData.current_holdings.length : 0);
     badgeHoldings.innerText = count;
     const mobHoldings = document.getElementById("mob-badge-holdings");
     if (mobHoldings) mobHoldings.innerText = count;

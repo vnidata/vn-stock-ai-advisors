@@ -1,10 +1,169 @@
 {
-  "last_updated": "2026-10-08",
+  "last_updated": "2026-10-09 11:03:24",
+  "deployment_date": "2026-01-01",
   "positions": {
-    "AI_Advisor_ChuDong_2W": [],
-    "AI_Advisor_NhipNhang_1M": [],
     "AI_Advisor_BenBi_3M": [],
-    "AI_Advisor_CANSLIM_Breakout": [],
-    "AI_Advisor_Mean_Reversion": []
+    "AI_Advisor_NhipNhang_1M": [
+      {
+        "symbol": "TCB",
+        "shares": 112396600,
+        "entry_price": 32.39,
+        "entry_date": "2026-09-10",
+        "current_price": 31.9,
+        "holding_days": 21,
+        "current_return_pct": -1.51,
+        "weight_pct": 28.6,
+        "sector": "Banking"
+      },
+      {
+        "symbol": "MSN",
+        "shares": 52003600,
+        "entry_price": 70.77,
+        "entry_date": "2026-10-02",
+        "current_price": 74.0,
+        "holding_days": 5,
+        "current_return_pct": 4.56,
+        "weight_pct": 30.7,
+        "sector": "Consumer"
+      },
+      {
+        "symbol": "GAS",
+        "shares": 46658000,
+        "entry_price": 78.88,
+        "entry_date": "2026-10-02",
+        "current_price": 82.0,
+        "holding_days": 5,
+        "current_return_pct": 3.96,
+        "weight_pct": 30.5,
+        "sector": "Energy"
+      }
+    ],
+    "AI_Advisor_ChuDong_2W": [
+      {
+        "symbol": "TCB",
+        "shares": 89745100,
+        "entry_price": 32.4,
+        "entry_date": "2026-09-10",
+        "current_price": 31.9,
+        "holding_days": 21,
+        "current_return_pct": -1.54,
+        "weight_pct": 28.6,
+        "sector": "Banking"
+      },
+      {
+        "symbol": "MSN",
+        "shares": 41601500,
+        "entry_price": 70.77,
+        "entry_date": "2026-10-02",
+        "current_price": 74.0,
+        "holding_days": 5,
+        "current_return_pct": 4.56,
+        "weight_pct": 30.7,
+        "sector": "Consumer"
+      },
+      {
+        "symbol": "GAS",
+        "shares": 33095000,
+        "entry_price": 78.88,
+        "entry_date": "2026-10-02",
+        "current_price": 82.0,
+        "holding_days": 5,
+        "current_return_pct": 3.96,
+        "weight_pct": 27.1,
+        "sector": "Energy"
+      }
+    ],
+    "AI_Advisor_CANSLIM_Breakout": [
+      {
+        "symbol": "TCB",
+        "shares": 98002300,
+        "entry_price": 32.39,
+        "entry_date": "2026-09-10",
+        "current_price": 31.9,
+        "holding_days": 21,
+        "current_return_pct": -1.51,
+        "weight_pct": 28.6,
+        "sector": "Banking"
+      },
+      {
+        "symbol": "MSN",
+        "shares": 45341600,
+        "entry_price": 70.77,
+        "entry_date": "2026-10-02",
+        "current_price": 74.0,
+        "holding_days": 5,
+        "current_return_pct": 4.56,
+        "weight_pct": 30.7,
+        "sector": "Consumer"
+      },
+      {
+        "symbol": "GAS",
+        "shares": 40680800,
+        "entry_price": 78.88,
+        "entry_date": "2026-10-02",
+        "current_price": 82.0,
+        "holding_days": 5,
+        "current_return_pct": 3.96,
+        "weight_pct": 30.5,
+        "sector": "Energy"
+      }
+    ],
+    "AI_Advisor_Mean_Reversion": [
+      {
+        "symbol": "MSN",
+        "shares": 20000200,
+        "entry_price": 75.28,
+        "entry_date": "2026-10-07",
+        "current_price": 74.0,
+        "holding_days": 2,
+        "current_return_pct": -1.7,
+        "weight_pct": 19.6,
+        "sector": "Consumer"
+      },
+      {
+        "symbol": "MWG",
+        "shares": 19558100,
+        "entry_price": 76.98,
+        "entry_date": "2026-10-07",
+        "current_price": 75.3,
+        "holding_days": 2,
+        "current_return_pct": -2.18,
+        "weight_pct": 19.5,
+        "sector": "Retail"
+      },
+      {
+        "symbol": "VCB",
+        "shares": 26294000,
+        "entry_price": 57.26,
+        "entry_date": "2026-10-07",
+        "current_price": 56.4,
+        "holding_days": 2,
+        "current_return_pct": -1.5,
+        "weight_pct": 19.6,
+        "sector": "Banking"
+      },
+      {
+        "symbol": "MBB",
+        "shares": 78744500,
+        "entry_price": 19.12,
+        "entry_date": "2026-10-07",
+        "current_price": 18.85,
+        "holding_days": 2,
+        "current_return_pct": -1.41,
+        "weight_pct": 19.6,
+        "sector": "Banking"
+      },
+      {
+        "symbol": "ACB",
+        "shares": 72833900,
+        "entry_price": 20.67,
+        "entry_date": "2026-10-07",
+        "current_price": 20.35,
+        "holding_days": 2,
+        "current_return_pct": -1.55,
+        "weight_pct": 19.6,
+        "sector": "Banking"
+      }
+    ]
   }
 }
