@@ -829,6 +829,13 @@ function renderStockDiagnosisModal(d) {
   const ma20Sign = d.distMA20 >= 0 ? "+" : "";
   const ma50Sign = d.distMA50 >= 0 ? "+" : "";
 
+  // HOSE Dual MA & Pullback Strategy Variables
+  const isCloseAboveSma50 = d.currentPrice > d.sma50;
+  const isSma20AboveSma50 = d.sma20 >= d.sma50;
+  d.isDualMaUptrend = (d.isDualMaUptrend !== undefined) ? d.isDualMaUptrend : (isCloseAboveSma50 && isSma20AboveSma50);
+  d.isPullbackZone = (d.isPullbackZone !== undefined) ? d.isPullbackZone : (d.distMA20 <= 2.8 && d.distMA20 >= -3.5);
+  d.isVolConfirmed = (d.isVolConfirmed !== undefined) ? d.isVolConfirmed : ((d.volRatio || 1.0) >= 1.50);
+
   // Portfolio Holding Section HTML
   let portfolioHtml = "";
   if (d.holdingItems && d.holdingItems.length > 0) {
@@ -984,6 +991,51 @@ function renderStockDiagnosisModal(d) {
         <span class="diag-metric-name">Tỷ Lệ Risk / Reward (R:R)</span>
         <span class="diag-metric-val font-mono text-yellow">${d.rrRatio}</span>
         <span class="diag-metric-sub">Kỳ vọng lợi nhuận tối ưu</span>
+      </div>
+    </div>
+
+    <!-- HOSE Quantitative Strategy Audit Section -->
+    <div class="diag-quant-section-title" style="margin-top: 14px;">
+      <span>🇻🇳 CHIẾN LƯỢC ĐỊNH LƯỢNG TỐI ƯU HOSE: DUAL MA (20/50) + PULLBACK EMA15 &amp; VOL ≥ 1.5X</span>
+    </div>
+    <div class="diag-hose-strategy-box">
+      <div class="diag-hose-header">
+        <div class="diag-hose-title">
+          <span>🎯 Khung Giao Dịch Trung Hạn (Holding 10–30 Phiên)</span>
+        </div>
+        <span class="badge ${d.isDualMaUptrend && d.isPullbackZone && d.isVolConfirmed ? 'badge-bull' : (d.isDualMaUptrend && d.isPullbackZone ? 'badge-cyan' : (d.isDualMaUptrend ? 'badge-green' : 'tag-yellow'))}" style="font-size: 0.72rem;">
+          ${d.isDualMaUptrend && d.isPullbackZone && d.isVolConfirmed ? 'ĐẠT ĐIỂM VÀO LỆNH (BUY)' : (d.isDualMaUptrend && d.isPullbackZone ? 'PULLBACK CHỜ VOL ≥ 1.5X' : (d.isDualMaUptrend ? 'XU HƯỚNG TĂNG MA20/50' : 'CHƯA ĐẠT CHUẨN'))}
+        </span>
+      </div>
+      <div class="diag-hose-grid">
+        <div class="diag-hose-cell">
+          <span class="diag-hose-label">1. Xu Hướng Dual MA 20/50</span>
+          <span class="diag-hose-status ${d.isDualMaUptrend ? 'text-green' : 'text-red'}">
+            ${d.isDualMaUptrend ? '✓ Đạt Chuẩn' : '✗ Chưa Đạt'}
+          </span>
+          <span class="diag-hose-desc">Giá &gt; SMA50 &amp; SMA20 &gt; SMA50 (${Number(d.sma20).toFixed(1)} / ${Number(d.sma50).toFixed(1)})</span>
+        </div>
+        <div class="diag-hose-cell">
+          <span class="diag-hose-label">2. Vùng Pullback EMA15</span>
+          <span class="diag-hose-status ${d.isPullbackZone ? 'text-green' : 'text-yellow'}">
+            ${d.isPullbackZone ? '✓ Trong Vùng Hỗ Trợ' : '• Cách Nền Giá'}
+          </span>
+          <span class="diag-hose-desc">Pullback EMA 10–15 | Bật nến xanh cản cung</span>
+        </div>
+        <div class="diag-hose-cell">
+          <span class="diag-hose-label">3. Khối Lượng ≥ 1.5x MA20</span>
+          <span class="diag-hose-status ${d.isVolConfirmed ? 'text-green' : 'text-muted'}">
+            ${d.isVolConfirmed ? '✓ Đạt 1.5x (' + Number(d.volRatio).toFixed(1) + 'x)' : '• ' + Number(d.volRatio).toFixed(1) + 'x (Cần ≥1.5x)'}
+          </span>
+          <span class="diag-hose-desc">Thanh khoản: ${volumeFormatted} CP (Chuẩn ≥1M)</span>
+        </div>
+        <div class="diag-hose-cell">
+          <span class="diag-hose-label">4. Quản Trị Rủi Ro HOSE</span>
+          <span class="diag-hose-status text-gold font-mono">
+            SL: 2.0× ATR (${Number(d.stopLoss).toFixed(1)})
+          </span>
+          <span class="diag-hose-desc">Trailing +1.5R về hòa vốn | Tỷ trọng 0.5–0.8% NAV</span>
+        </div>
       </div>
     </div>
 

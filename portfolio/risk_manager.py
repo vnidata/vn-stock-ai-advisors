@@ -30,9 +30,19 @@ class RiskParameters:
     max_portfolio_drawdown_limit: float = -0.15 # -15% portfolio emergency cashout
     bear_regime_cash_target: float = 0.50      # Keep 50% cash when benchmark is in bear downtrend
 
+    # HOSE-optimized ATR & Position Risk Parameters
+    stop_loss_atr_mult: float = 2.0             # 1.8–2.2x ATR(14) tối ưu cho biến động HOSE (+/-7%)
+    trailing_atr_mult: float = 2.0              # Trailing stop theo 2.0x ATR hoặc EMA 15
+    risk_per_trade_nav_pct: float = 0.007       # 0.5%–0.8% NAV rủi ro mỗi vị thế
+    max_portfolio_risk_pct: float = 0.045       # Tổng rủi ro mở đồng thời <= 4.0%–5.0% NAV (tối đa 5–7 vị thế)
+    time_stop_sessions: int = 30                # Time-stop 25–30 phiên nếu không bứt phá
+    min_liquidity_shares_20d: int = 1_000_000   # Thanh khoản tối thiểu 1–2 triệu CP/phiên hoặc 20–30 tỷ ₫
+    min_liquidity_value_vnd: float = 20_000_000_000
+
     def __post_init__(self):
         if self.market.upper() in ["US", "INTERNATIONAL"] and self.stop_loss_pct == -0.060:
             self.stop_loss_pct = -0.045  # Tighter stop-loss for US stocks (no +/-7% daily floor)
+            self.stop_loss_atr_mult = 1.5
 
 
 class RiskManager:
@@ -140,11 +150,12 @@ class RiskManager:
         atr_14: float = 0.0,
         support_price: Optional[float] = None,
         resistance_price: Optional[float] = None,
-        min_rr: float = 2.85
+        min_rr: float = 2.85,
+        atr_multiplier: float = 2.0
     ) -> Dict[str, Any]:
         """
         Calculates dynamic, volatility-adjusted Stop Loss, Target Price, and Asymmetric Reward:Risk Ratio.
-        - Stop Loss adapts to 1.6x ATR and 20-day swing support (strictly between -3.8% and -6.8% to fit HoSE +/-7% limit).
+        - Stop Loss adapts to 1.8–2.2x ATR (default 2.0x ATR) and swing support (strictly between -3.8% and -6.8% for HOSE).
         - Take Profit targets asymmetric payoff (minimum R:R 2.85:1, expanded if resistance pivot allows).
         """
         if entry_price <= 0:
@@ -158,12 +169,12 @@ class RiskManager:
                 "rr_string": "3.3 : 1"
             }
 
-        # 1. Volatility Risk Distance
-        vol_risk = max(atr_14 * 1.6, entry_price * 0.040)
+        # 1. Volatility Risk Distance (HOSE-optimized: 2.0x ATR)
+        vol_risk = max(atr_14 * atr_multiplier, entry_price * 0.042)
 
         # 2. Dynamic Stop Loss anchored to Key Support
         if support_price is not None and 0 < support_price < entry_price:
-            support_sl = support_price * 0.992  # 0.8% below swing low to avoid wick shakeout
+            support_sl = support_price * 0.990  # 1.0% below swing low to avoid wick shakeout
             sl_price = max(entry_price * 0.932, min(entry_price * 0.962, support_sl))
         else:
             sl_price = max(entry_price * 0.932, entry_price - vol_risk)

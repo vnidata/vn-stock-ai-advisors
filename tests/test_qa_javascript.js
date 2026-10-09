@@ -272,6 +272,57 @@ it("Phase switcher: Filter 2026+ live trades correctly isolates deployment recor
 });
 
 // -----------------------------------------------------------------------------
+// TEST SUITE 5: HOSE-OPTIMIZED DUAL MA (20/50) & PULLBACK STRATEGY
+// -----------------------------------------------------------------------------
+console.log("\n[TEST GROUP 5: HOSE Dual MA (20/50) & Pullback Strategy]");
+
+it("HOSE Strategy: Validates Dual MA 20/50 Golden Cross & Uptrend logic", () => {
+  function evalHoseDualMA(price, sma20, sma50, volRatio) {
+    const isCloseAboveSma50 = price > sma50;
+    const isSma20AboveSma50 = sma20 >= sma50;
+    const isDualMaUptrend = isCloseAboveSma50 && isSma20AboveSma50;
+    const isVolConfirmed = volRatio >= 1.50;
+    return { isDualMaUptrend, isVolConfirmed };
+  }
+
+  // Case A: Perfect uptrend with volume
+  const valid = evalHoseDualMA(32.5, 31.0, 29.5, 1.65);
+  assert.strictEqual(valid.isDualMaUptrend, true);
+  assert.strictEqual(valid.isVolConfirmed, true);
+
+  // Case B: Price below SMA50 fails uptrend
+  const weak = evalHoseDualMA(28.0, 31.0, 29.5, 1.80);
+  assert.strictEqual(weak.isDualMaUptrend, false);
+
+  // Case C: Volume below 1.5x fails volume confirmation
+  const lowVol = evalHoseDualMA(32.5, 31.0, 29.5, 1.25);
+  assert.strictEqual(lowVol.isVolConfirmed, false, "Must strictly require >= 1.5x volume for HOSE");
+});
+
+it("HOSE Strategy: Dynamic Stop Loss is calibrated to 2.0x ATR", () => {
+  function getHoseStopLoss(entryPrice, atr14, supportPrice = null) {
+    const volRisk = Math.max(atr14 * 2.0, entryPrice * 0.042);
+    let sl = entryPrice - volRisk;
+    if (supportPrice && supportPrice > 0 && supportPrice < entryPrice) {
+      const supportSl = supportPrice * 0.990;
+      sl = Math.max(entryPrice * 0.932, Math.min(entryPrice * 0.962, supportSl));
+    } else {
+      sl = Math.max(entryPrice * 0.932, sl);
+    }
+    return Number(sl.toFixed(2));
+  }
+
+  // Stock at 30.0 with ATR 1.2 (2.0x ATR is 2.4 -> stop at 27.6, bounded to floor -6.8% at 27.96)
+  const sl1 = getHoseStopLoss(30.0, 1.2);
+  assert.ok(sl1 < 30.0);
+  assert.ok(sl1 >= 30.0 * 0.932, "Stop loss must respect HOSE -6.8% risk floor");
+
+  // Stock with nearby support at 29.0
+  const sl2 = getHoseStopLoss(30.0, 0.8, 29.0);
+  assert.strictEqual(sl2, 28.71); // 29.0 * 0.990
+});
+
+// -----------------------------------------------------------------------------
 // SUMMARY
 // -----------------------------------------------------------------------------
 console.log("\n================================================================================");

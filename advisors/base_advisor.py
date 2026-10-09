@@ -123,16 +123,18 @@ class BaseAdvisor(ABC):
         norm_mom_20 = float(np.clip(roc_20 / 0.15, -1.0, 1.0))
         norm_mom_60 = float(np.clip(roc_60 / 0.30, -1.0, 1.0))
 
-        # 2. Trend Alignment (Price > SMA20 > SMA50 > SMA200)
+        # 2. Trend Alignment (Price > SMA20 > SMA50 > SMA200 & HOSE MA20/50 Uptrend)
         trend_align = float(latest.get("bullish_alignment", 0.0))
-        norm_trend = float(0.6 * trend_align + 0.4 * np.clip(dist_sma20 / 0.08, -1.0, 1.0))
+        hose_regime = float(latest.get("hose_regime_uptrend", 0.0))
+        norm_trend = float(0.4 * trend_align + 0.3 * hose_regime + 0.3 * np.clip(dist_sma20 / 0.08, -1.0, 1.0))
 
-        # 3. Volume Flow / Breakout (with VSA effort vs result & pocket pivot)
+        # 3. Volume Flow / Breakout (with VSA effort vs result, pocket pivot & HOSE pullback)
         vol_ratio = float(latest.get("vol_ratio", 1.0))
         obv_trend = float(latest.get("obv_trend", 0.0))
         pocket_pivot = float(latest.get("pocket_pivot", 0.0))
+        hose_pullback = float(latest.get("hose_pullback_signal", 0.0))
         norm_vol = float(np.clip((vol_ratio - 1.0) / 1.5, -0.5, 1.0))
-        vol_score = float(0.5 * norm_vol + 0.3 * obv_trend + 0.2 * pocket_pivot)
+        vol_score = float(0.4 * norm_vol + 0.3 * obv_trend + 0.15 * pocket_pivot + 0.15 * hose_pullback)
 
         # 4. Relative Strength vs VN-Index (normalized to [0.0, 1.0])
         rs_score = float(np.clip(rs_rating_raw / 100.0, 0.0, 1.0))
@@ -273,23 +275,25 @@ class BaseAdvisor(ABC):
         s20 = float(latest.get("sma_20", 0.0))
         s50 = float(latest.get("sma_50", 0.0))
         if c > s20:
-            p1 += 7.0
-        if c > s50:
             p1 += 6.0
+        if c > s50:
+            p1 += 5.0
         if s20 > s50:
-            p1 += 4.0
-        if latest.get("bullish_alignment", 0.0) == 1.0:
             p1 += 3.0
+        if latest.get("hose_regime_uptrend", 0) == 1:
+            p1 += 4.0  # Dual MA 20/50 HOSE uptrend slope confirmation
+        elif latest.get("bullish_alignment", 0.0) == 1.0:
+            p1 += 2.0
         p1 = min(25.0, p1)
 
         # Pillar 2: Volume & Institutional Flow (max 25 pts)
         p2 = 8.0  # baseline for liquid universe
         vol_ratio = float(latest.get("vol_ratio", 1.0))
-        if vol_ratio >= 1.3:
-            p2 += 8.0
-        elif vol_ratio >= 1.0:
+        if vol_ratio >= 1.5:
+            p2 += 8.0  # Strict >=1.5x HOSE volume threshold
+        elif vol_ratio >= 1.2:
             p2 += 5.0
-        elif vol_ratio >= 0.8:
+        elif vol_ratio >= 0.9:
             p2 += 3.0
         if latest.get("pocket_pivot", 0) == 1:
             p2 += 5.0
@@ -313,18 +317,24 @@ class BaseAdvisor(ABC):
             p3 = 9.0
 
         # Pillar 4: Setup Pattern & Momentum Acceleration (max 25 pts)
-        p4 = 8.0  # baseline technical setup
+        p4 = 7.0  # baseline technical setup
+        if latest.get("hose_pullback_signal", 0) == 1:
+            p4 += 6.0  # Perfect HOSE Dual MA 20/50 + EMA15 Pullback trigger
+        elif latest.get("pullback_ema20_signal", 0) == 1:
+            p4 += 4.0
+        if latest.get("candlestick_reversal", 0) == 1:
+            p4 += 3.0  # Bullish Engulfing, Hammer, or Piercing Line
         if latest.get("bb_squeeze", 0) == 1:
-            p4 += 6.0  # Volatility contraction setup
+            p4 += 3.0  # Volatility contraction setup
         if float(latest.get("macd_hist_slope", 0.0)) > 0:
-            p4 += 4.0  # MACD momentum accelerating
+            p4 += 2.0  # MACD momentum accelerating
         rsi = float(latest.get("rsi_14", 50.0))
         rsi_slope = float(latest.get("rsi_slope_5d", 0.0))
         if (35.0 <= rsi <= 65.0) or rsi_slope > 0:
-            p4 += 4.0  # RSI expansion or healthy range
+            p4 += 2.0  # RSI expansion or healthy range
         dist_supp = float(latest.get("dist_support", 0.05))
         if 0.0 <= dist_supp <= 0.05:
-            p4 += 3.0  # Low risk near 20d support
+            p4 += 2.0  # Low risk near 20d support
         p4 = min(25.0, p4)
 
         total_confidence = int(round(p1 + p2 + p3 + p4))

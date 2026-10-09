@@ -10,7 +10,10 @@ import re
 import pytest
 from bs4 import BeautifulSoup
 
+import sys
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
 DOCS_DIR = os.path.join(ROOT_DIR, "docs")
 DATA_DIR = os.path.join(DOCS_DIR, "data")
 INDEX_HTML = os.path.join(DOCS_DIR, "index.html")
@@ -236,5 +239,76 @@ class TestCodeSyntaxAndStructure:
         assert "buy_signals = []" in code, "daily_update.py must enforce 0 buy signals in bear regime"
 
 
+# ==============================================================================
+# TEST SUITE 4: HOSE-OPTIMIZED QUANTITATIVE STRATEGY & RISK INVARIANTS
+# ==============================================================================
+
+class TestHoseQuantStrategy:
+    """Verifies HOSE-tailored Dual MA 20/50, Pullback EMA15, Volume 1.5x, and 2.0x ATR risk rules."""
+
+    def test_hose_indicator_feature_engineering(self):
+        import pandas as pd
+        import numpy as np
+        from data.indicators import TechnicalFeatureEngineer
+
+        n = 120
+        dates = pd.date_range("2026-01-01", periods=n)
+        # Construct an uptrending stock with pullback
+        close = np.linspace(20.0, 35.0, n)
+        high = close + 0.5
+        low = close - 0.5
+        df = pd.DataFrame({
+            "time": dates,
+            "open": close - 0.1,
+            "high": high,
+            "low": low,
+            "close": close,
+            "volume": np.full(n, 2000000)
+        })
+
+        feat_df = TechnicalFeatureEngineer.compute_features(df)
+        required_cols = [
+            "ema_12", "ema_15", "ema_20", "dist_ema15",
+            "sma_20", "sma_50", "sma_20_slope_5",
+            "hose_regime_uptrend", "candlestick_reversal",
+            "hose_pullback_signal"
+        ]
+        for col in required_cols:
+            assert col in feat_df.columns, f"HOSE indicator column '{col}' missing from feature stack"
+
+        # Check uptrend condition logic on late rows
+        tail = feat_df.tail(10)
+        assert (tail["hose_regime_uptrend"] == 1).all(), "Late rows of strong linear uptrend must satisfy hose_regime_uptrend == 1"
+
+    def test_hose_risk_parameters_and_sizing(self):
+        from portfolio.risk_manager import RiskParameters, RiskManager
+
+        params = RiskParameters(market="VN")
+        # 1. Stop loss ATR multiplier between 1.8 and 2.2x ATR
+        assert 1.8 <= params.stop_loss_atr_mult <= 2.2, f"Expected HOSE ATR stop 1.8-2.2x, got {params.stop_loss_atr_mult}"
+        # 2. Trailing ATR multiplier 2.0x
+        assert params.trailing_atr_mult == 2.0
+        # 3. Position risk 0.5% - 0.8% NAV per trade
+        assert 0.005 <= params.risk_per_trade_nav_pct <= 0.008
+        # 4. Total portfolio open risk <= 4.5% - 5.0% NAV
+        assert params.max_portfolio_risk_pct <= 0.050
+        # 5. Time-stop sessions between 25 and 30
+        assert 25 <= params.time_stop_sessions <= 30
+
+        # Dynamic entry brackets test
+        brackets = RiskManager.calculate_dynamic_entry_brackets(
+            entry_price=30.0,
+            atr_14=1.2,
+            support_price=28.5,
+            min_rr=2.85,
+            atr_multiplier=2.0
+        )
+        assert brackets["entry_price"] == 30.0
+        assert brackets["stop_loss"] < 30.0
+        assert brackets["target_price"] > 30.0
+        assert brackets["rr_ratio"] >= 2.85, f"R:R ratio must be >= 2.85, got {brackets['rr_ratio']}"
+
+
 if __name__ == "__main__":
     pytest.main(["-v", __file__])
+

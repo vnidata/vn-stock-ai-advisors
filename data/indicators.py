@@ -44,11 +44,13 @@ class TechnicalFeatureEngineer:
         df["sma_150"] = close.rolling(150).mean()
         df["sma_200"] = close.rolling(200).mean()
         df["ema_12"] = close.ewm(span=12, adjust=False).mean()
+        df["ema_15"] = close.ewm(span=15, adjust=False).mean()
         df["ema_20"] = close.ewm(span=20, adjust=False).mean()
         df["ema_26"] = close.ewm(span=26, adjust=False).mean()
 
         # Trend Divergences (%)
         df["dist_sma20"] = (close - df["sma_20"]) / (df["sma_20"] + 1e-9)
+        df["dist_ema15"] = (close - df["ema_15"]) / (df["ema_15"] + 1e-9)
         df["dist_ema20"] = (close - df["ema_20"]) / (df["ema_20"] + 1e-9)
         df["dist_sma50"] = (close - df["sma_50"]) / (df["sma_50"] + 1e-9)
         df["dist_sma200"] = (close - df["sma_200"]) / (df["sma_200"] + 1e-9)
@@ -59,6 +61,14 @@ class TechnicalFeatureEngineer:
             (close > df["sma_200"]) &
             (df["sma_50"] > df["sma_200"]) &
             (df["sma_50_slope_10"] > 0)
+        ).astype(int)
+
+        # Dual Moving Average (20/50) HOSE-Optimized Regime & Slope
+        df["sma_20_slope_5"] = (df["sma_20"] - df["sma_20"].shift(5)) / (df["sma_20"].shift(5) + 1e-9)
+        df["hose_regime_uptrend"] = (
+            (close > df["sma_50"]) &
+            (df["sma_20"] > df["sma_50"]) &
+            (df["sma_20_slope_5"] > 0)
         ).astype(int)
 
         # Bullish moving average alignment (Thế trận rồng bay)
@@ -145,7 +155,7 @@ class TechnicalFeatureEngineer:
         df["macd_hist_slope"] = df["macd_hist"].diff().fillna(0.0)
         df["rsi_slope_5d"] = df["rsi_14"].diff(5).fillna(0.0)
 
-        # 7B. Dual MA (50/200) Pullback to EMA 20 with Volume Confirmation
+        # 7B. Dual MA (50/200) Pullback to EMA 20 with Volume Confirmation (Global Baseline)
         open_price = df["open"] if "open" in df.columns else close.shift(1)
         touched_pullback_zone = (low <= df["ema_20"]) | ((low <= df["sma_20"]) & (low >= df["sma_50"] * 0.98))
         bullish_candle = (close > df["ema_20"]) & (close > open_price)
@@ -157,6 +167,40 @@ class TechnicalFeatureEngineer:
             touched_pullback_zone &
             bullish_candle &
             vol_confirmed
+        ).astype(int)
+
+        # 7C. Candlestick Reversal Patterns & HOSE-Optimized Dual MA (20/50) + EMA15 Pullback
+        candle_body = (close - open_price).abs()
+        candle_range = (high - low) + 1e-9
+        
+        # Hammer / Bullish Pinbar: long lower wick >= 1.8x body, close in upper 35% of range
+        is_hammer = ((close > open_price) | (close >= low + 0.60 * candle_range)) & \
+                    ((df[["open", "close"]].min(axis=1) - low) >= 1.5 * candle_body)
+        
+        # Bullish Engulfing: green candle completely engulfs preceding red body
+        prev_open = open_price.shift(1)
+        prev_close = close.shift(1)
+        is_bullish_engulfing = (prev_close < prev_open) & (close > open_price) & (open_price <= prev_close) & (close >= prev_open)
+        
+        # Piercing Line: opens below prev low, closes > 50% into prev red body
+        is_piercing = (prev_close < prev_open) & (close > open_price) & (open_price < prev_close) & (close >= (prev_open + prev_close) / 2)
+        
+        df["candlestick_reversal"] = (is_hammer | is_bullish_engulfing | is_piercing).astype(int)
+
+        # HOSE Pullback Signal:
+        # 1. Regime Filter: Close > SMA50 & SMA20 > SMA50 & SMA20 Slope > 0 (5 days)
+        # 2. Pullback Zone: Low tests EMA 12–15 or holds near SMA50
+        # 3. Confirmation: Bullish green close above EMA 15
+        # 4. Volume Threshold: Vol >= 1.5x MA20 (strict HoSE threshold)
+        touched_ema15_zone = (low <= df["ema_15"] * 1.005) & (low >= df["sma_50"] * 0.96)
+        bullish_ema15_close = (close > df["ema_15"]) & (close > open_price)
+        vol_confirmed_hose = (df["vol_ratio"] >= 1.50)
+
+        df["hose_pullback_signal"] = (
+            (df["hose_regime_uptrend"] == 1) &
+            touched_ema15_zone &
+            bullish_ema15_close &
+            vol_confirmed_hose
         ).astype(int)
 
         # 8. Relative Strength (RS Rating) vs Benchmark (VN-Index)
@@ -183,3 +227,6 @@ class TechnicalFeatureEngineer:
             df["rs_rating"] = 50.0 + (df["roc_20"].fillna(0) * 100.0).clip(-45.0, 45.0)
 
         return df
+
+    # Convenient alias for feature extraction
+    add_technical_indicators = compute_features

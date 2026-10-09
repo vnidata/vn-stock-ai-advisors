@@ -60,8 +60,16 @@ def detect_entry_technique(df_feat: pd.DataFrame) -> Tuple[str, str]:
     bb_squeeze = int(latest.get("bb_squeeze", 0))
     rsi_slope = float(latest.get("rsi_slope_5d", 0.0))
     macd_slope = float(latest.get("macd_hist_slope", 0.0))
+    hose_pullback = int(latest.get("hose_pullback_signal", 0))
+    pullback_ema20 = int(latest.get("pullback_ema20_signal", 0))
 
-    if pocket_pivot == 1 and dist_sma20 >= -0.01:
+    if hose_pullback == 1:
+        technique = "PULLBACK EMA15 (HOSE)"
+        reason = f"Đạt chuẩn Dual MA 20/50 | Pullback chạm EMA15 bật nến xanh | Vol bùng nổ {vol_ratio:.1f}x (>=1.5x)"
+    elif pullback_ema20 == 1:
+        technique = "PULLBACK EMA20"
+        reason = f"Uptrend Golden Cross MA50/200 | Bật tăng từ EMA20 | Khối lượng xác nhận {vol_ratio:.1f}x"
+    elif pocket_pivot == 1 and dist_sma20 >= -0.01:
         technique = "POCKET PIVOT"
         reason = f"Dòng tiền tổ chức gom hàng (Pocket Pivot) | Vol {vol_ratio:.1f}x vượt đỉnh vol giảm 10D | Giữ MA20"
     elif vol_ratio >= 1.25 and dist_sma20 > 0.015:
