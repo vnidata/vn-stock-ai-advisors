@@ -662,6 +662,7 @@ function performStockLookup(inputSymbol) {
   const rsi = wlItem?.rsi_14 !== undefined ? wlItem.rsi_14 : 45.0;
   const sma20 = wlItem?.sma_20 !== undefined ? wlItem.sma_20 : (currentPrice * 1.03);
   const sma50 = wlItem?.sma_50 !== undefined ? wlItem.sma_50 : (currentPrice * 1.06);
+  const sma200 = wlItem?.sma_200 !== undefined ? wlItem.sma_200 : (currentPrice * 1.08);
   const distMA20 = wlItem?.dist_sma20_pct !== undefined ? wlItem.dist_sma20_pct : ((currentPrice - sma20) / sma20 * 100);
   const distMA50 = wlItem?.dist_sma50_pct !== undefined ? wlItem.dist_sma50_pct : ((currentPrice - sma50) / sma50 * 100);
 
@@ -771,6 +772,7 @@ function performStockLookup(inputSymbol) {
     rsi,
     sma20,
     sma50,
+    sma200,
     distMA20,
     distMA50,
     stopLoss,
@@ -832,6 +834,7 @@ function renderStockDiagnosisModal(d) {
   // HOSE Dual MA & Pullback Strategy Variables
   const isCloseAboveSma50 = d.currentPrice > d.sma50;
   const isSma20AboveSma50 = d.sma20 >= d.sma50;
+  const isMacroAnchorUptrend = (d.sma50 >= (d.sma200 || d.sma50)) || (d.currentPrice > (d.sma200 || d.sma50) * 0.98);
   d.isDualMaUptrend = (d.isDualMaUptrend !== undefined) ? d.isDualMaUptrend : (isCloseAboveSma50 && isSma20AboveSma50);
   d.isPullbackZone = (d.isPullbackZone !== undefined) ? d.isPullbackZone : (d.distMA20 <= 2.8 && d.distMA20 >= -3.5);
   d.isVolConfirmed = (d.isVolConfirmed !== undefined) ? d.isVolConfirmed : ((d.volRatio || 1.0) >= 1.50);
@@ -1013,7 +1016,7 @@ function renderStockDiagnosisModal(d) {
           <span class="diag-hose-status ${d.isDualMaUptrend ? 'text-green' : 'text-red'}">
             ${d.isDualMaUptrend ? '✓ Đạt Chuẩn' : '✗ Chưa Đạt'}
           </span>
-          <span class="diag-hose-desc">Giá &gt; SMA50 &amp; SMA20 &gt; SMA50 (${Number(d.sma20).toFixed(1)} / ${Number(d.sma50).toFixed(1)})</span>
+          <span class="diag-hose-desc">Chiến thuật: MA20&gt;MA50 (${Number(d.sma20).toFixed(1)} / ${Number(d.sma50).toFixed(1)}) · Vĩ mô: ${isMacroAnchorUptrend ? 'SMA50&ge;SMA200 (Bảo vệ)' : 'Dưới SMA200'}</span>
         </div>
         <div class="diag-hose-cell">
           <span class="diag-hose-label">2. Vùng Pullback EMA15</span>

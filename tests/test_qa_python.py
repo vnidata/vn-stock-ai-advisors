@@ -270,8 +270,9 @@ class TestHoseQuantStrategy:
         required_cols = [
             "ema_12", "ema_15", "ema_20", "dist_ema15",
             "sma_20", "sma_50", "sma_20_slope_5",
-            "hose_regime_uptrend", "candlestick_reversal",
-            "hose_pullback_signal"
+            "hose_regime_uptrend", "hose_hybrid_trend",
+            "candlestick_reversal", "hose_pullback_signal",
+            "hose_hybrid_pullback_signal"
         ]
         for col in required_cols:
             assert col in feat_df.columns, f"HOSE indicator column '{col}' missing from feature stack"
@@ -279,6 +280,7 @@ class TestHoseQuantStrategy:
         # Check uptrend condition logic on late rows
         tail = feat_df.tail(10)
         assert (tail["hose_regime_uptrend"] == 1).all(), "Late rows of strong linear uptrend must satisfy hose_regime_uptrend == 1"
+        assert (tail["hose_hybrid_trend"] == 1).all(), "Late rows of strong linear uptrend must satisfy hose_hybrid_trend == 1"
 
     def test_hose_risk_parameters_and_sizing(self):
         from portfolio.risk_manager import RiskParameters, RiskManager
