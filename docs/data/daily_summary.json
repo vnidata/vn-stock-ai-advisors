@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-09 14:18:37 (UTC+7)",
+  "last_updated": "2026-10-09 14:46:09 (UTC+7)",
   "trading_date": "2026-10-09",
   "vnindex": {
     "close": 1735.09,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 1,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-09 14:18:35"
+    "last_scanned": "2026-10-09 14:46:06"
   },
   "portfolio_summary": {
     "total_positions": 14,
