@@ -489,10 +489,19 @@ def run_daily_update():
                 "news_score": sym_news.get("net_sentiment", 0.0)
             })
 
-        # Step 2: Fill available empty slots with NEW candidates (strictly not held)
+        # Step 2: Fill available empty slots with NEW candidates (STRICTLY when market is NOT in BEAR regime)
+        # In BEAR REGIME (Close < SMA20 and Close < SMA50), 100% Cash Defense is enforced on all empty slots.
         open_slots = max(0, adv.portfolio_size - len(adv_active_list))
-        if open_slots > 0:
-            candidate_syms = [s for s in rec.get("top_symbols", []) if s not in held_syms and scores.get(s, 0) > 0]
+        all_globally_held = set()
+        for p_list in active_positions_by_adv.values():
+            for p in p_list:
+                all_globally_held.add(p.get("symbol"))
+
+        if open_slots > 0 and market_regime != "BEAR":
+            candidate_syms = [
+                s for s in rec.get("top_symbols", [])
+                if s not in held_syms and s not in all_globally_held and scores.get(s, 0) > 0
+            ]
             for c_sym in candidate_syms[:open_slots]:
                 curr_p = current_prices.get(c_sym, 0.0)
                 df_feat = market_data.get(c_sym)
@@ -710,46 +719,48 @@ def run_daily_update():
     buy_sig_id = 1
     recommended_candidates = set()
 
-    for adv_name, s_data in strategy_recommendations.items():
-        adv_clean = adv_name.replace("AI_Advisor_", "")
-        adv_audit = ADV_AUDIT_METRICS.get(adv_clean, {})
-        for item in s_data.get("top5", []):
-            if item.get("status_badge") == "buy":
-                sym = item["symbol"]
-                if (adv_clean, sym) not in recommended_candidates:
-                    recommended_candidates.add((adv_clean, sym))
-                    win_rate = adv_audit.get("win_rate", 48.0)
-                    curr_p = item["current_price"]
-                    tp = item["target_price"]
-                    sl = item["stop_loss"]
-                    target_ret = round(((tp - curr_p) / curr_p) * 100.0, 2) if curr_p > 0 else 15.0
-                    max_loss = round(((sl - curr_p) / curr_p) * 100.0, 2) if curr_p > 0 else -4.5
+    # In BEAR REGIME (Close < SMA20 and Close < SMA50), 100% Cash Defense is enforced: NO new buy signals are generated!
+    if market_regime != "BEAR":
+        for adv_name, s_data in strategy_recommendations.items():
+            adv_clean = adv_name.replace("AI_Advisor_", "")
+            adv_audit = ADV_AUDIT_METRICS.get(adv_clean, {})
+            for item in s_data.get("top5", []):
+                if item.get("status_badge") == "buy":
+                    sym = item["symbol"]
+                    if (adv_clean, sym) not in recommended_candidates:
+                        recommended_candidates.add((adv_clean, sym))
+                        win_rate = adv_audit.get("win_rate", 48.0)
+                        curr_p = item["current_price"]
+                        tp = item["target_price"]
+                        sl = item["stop_loss"]
+                        target_ret = round(((tp - curr_p) / curr_p) * 100.0, 2) if curr_p > 0 else 15.0
+                        max_loss = round(((sl - curr_p) / curr_p) * 100.0, 2) if curr_p > 0 else -4.5
 
-                    advisor_rationale = f"Cố vấn {adv_clean} kích hoạt lệnh [{item['entry_technique']}] (Tỷ trọng {item['weight_pct']}%), Asymmetric R:R {item['rr_ratio']}"
+                        advisor_rationale = f"Cố vấn {adv_clean} kích hoạt lệnh [{item['entry_technique']}] (Tỷ trọng {item['weight_pct']}%), Asymmetric R:R {item['rr_ratio']}"
 
-                    buy_signals.append({
-                        "id": f"SIG-BUY-{buy_sig_id:02d}",
-                        "symbol": sym,
-                        "sector": item["sector"],
-                        "signal_type": "MUA MỚI",
-                        "signal_badge": "buy",
-                        "recommended_advisor": adv_clean,
-                        "signal_price": curr_p,
-                        "target_price": tp,
-                        "target_return_pct": target_ret,
-                        "stop_loss": sl,
-                        "max_loss_pct": max_loss,
-                        "rr_ratio": item["rr_ratio"],
-                        "confidence_score": item["confidence_score"],
-                        "win_rate": win_rate,
-                        "entry_technique": item["entry_technique"],
-                        "recommended_weight_pct": item["weight_pct"],
-                        "technical_reason": item["technical_signal"].split("|")[-1].strip(),
-                        "advisor_rationale": advisor_rationale,
-                        "news_status": item["news_status"],
-                        "news_badge": item["news_badge"]
-                    })
-                    buy_sig_id += 1
+                        buy_signals.append({
+                            "id": f"SIG-BUY-{buy_sig_id:02d}",
+                            "symbol": sym,
+                            "sector": item["sector"],
+                            "signal_type": "MUA MỚI",
+                            "signal_badge": "buy",
+                            "recommended_advisor": adv_clean,
+                            "signal_price": curr_p,
+                            "target_price": tp,
+                            "target_return_pct": target_ret,
+                            "stop_loss": sl,
+                            "max_loss_pct": max_loss,
+                            "rr_ratio": item["rr_ratio"],
+                            "confidence_score": item["confidence_score"],
+                            "win_rate": win_rate,
+                            "entry_technique": item["entry_technique"],
+                            "recommended_weight_pct": item["weight_pct"],
+                            "technical_reason": item["technical_signal"].split("|")[-1].strip(),
+                            "advisor_rationale": advisor_rationale,
+                            "news_status": item["news_status"],
+                            "news_badge": item["news_badge"]
+                        })
+                        buy_sig_id += 1
 
     # TAB 2 DATA: Sell signals & Risk Management Actions (Take Profit, Stop Loss, Trailing Stop, Rebalance)
     sell_signals = []
@@ -866,8 +877,8 @@ def run_daily_update():
             })
             sell_sig_id += 1
 
-        # Case 5: Risk Warning (-4.0% < ret <= -1.5%)
-        elif ret <= -1.5:
+        # Case 5: Risk Warning (-4.0% < ret <= -3.2%)
+        elif ret <= -3.2:
             sell_signals.append({
                 "id": f"SIG-SELL-{sell_sig_id:02d}",
                 "symbol": sym,
@@ -883,7 +894,7 @@ def run_daily_update():
                 "max_loss_pct": round(((sl - curr_p) / curr_p) * 100.0, 2),
                 "rr_ratio": "Cảnh giác",
                 "recommended_weight_pct": h["weight_pct"],
-                "technical_reason": f"Hiệu suất âm nhẹ {ret}%, áp lực cung gia tăng tại vùng hỗ trợ",
+                "technical_reason": f"Hiệu suất âm {ret}%, áp lực cung gia tăng sát ngưỡng cắt lỗ",
                 "advisor_rationale": "Đưa vào danh sách giám sát đặc biệt; Tuyệt đối không trung bình giá xuống",
                 "action_advice": "Quan sát hỗ trợ MA20/MA50; Sẵn sàng cắt lỗ nếu gãy nền",
                 "news_status": h["news_status"],

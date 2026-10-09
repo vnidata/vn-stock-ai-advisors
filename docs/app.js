@@ -96,11 +96,10 @@ function setupTabs() {
     const shortcutMap = {
       '1': 'tab-buy-signals',
       '2': 'tab-sell-signals',
-      '3': 'tab-holdings',
-      '4': 'tab-trades',
-      '5': 'tab-performance',
-      '6': 'tab-news-actions',
-      '7': 'tab-evolution'
+      '3': 'tab-trades',
+      '4': 'tab-performance',
+      '5': 'tab-news-actions',
+      '6': 'tab-evolution'
     };
 
     if (shortcutMap[e.key]) {
@@ -1056,6 +1055,8 @@ function renderHoldingsTable(data) {
 
   const kpiCountElem = document.getElementById("kpi-holdings-count");
   if (kpiCountElem) kpiCountElem.innerText = `${totalCount} mã`;
+  const sellTabHoldingsBadge = document.getElementById("sell-tab-holdings-count-badge");
+  if (sellTabHoldingsBadge) sellTabHoldingsBadge.innerText = `${totalCount} Vị Thế Đang Nắm Giữ`;
   
   const kpiAvgRetElem = document.getElementById("kpi-holdings-avg-ret");
   if (kpiAvgRetElem) {
@@ -1157,6 +1158,10 @@ function renderHoldingsTable(data) {
   });
 
   tbody.innerHTML = html;
+  const sellTabTbody = document.getElementById("sell-tab-holdings-table-body");
+  if (sellTabTbody) {
+    sellTabTbody.innerHTML = html;
+  }
 }
 
 // ==========================================
@@ -1483,9 +1488,7 @@ function renderBuySignals(data) {
 
           <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.08); flex-wrap: wrap; gap: 10px;">
             <span class="signal-validity-tag">⏱️ Phiên quét hiện hành: Còn hiệu lực trong phiên</span>
-            <button class="btn-quick-trade" onclick="openQuickTradeModal('${sampleSym}', 'MUA (TEST TRẢI NGHIỆM)', ${samplePrice}, ${sampleSl}, ${sampleTp}, '3.3x', '${sampleSector}', 78)">
-              <span>⚡ Trải Nghiệm Đặt Lệnh Nhanh (Click-to-Trade)</span>
-            </button>
+            <span class="badge tag-yellow" style="padding: 6px 14px; font-weight: 600; font-size: 0.8rem;">🛡️ Đang ở chế độ bảo vệ vốn — Khóa vị thế mua mới</span>
           </div>
         </div>
       `;

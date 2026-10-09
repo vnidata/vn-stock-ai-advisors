@@ -123,47 +123,49 @@
       </div>
     </section>
 
-    <!-- Navigation Tabs Bar (Sticky with Live Badges & Keyboard Shortcuts) -->
+    <!-- Navigation Tabs Bar (Primary 2 Recommendation Tabs + Secondary Analysis Tabs) -->
     <nav class="dashboard-tabs" id="sticky-tabs-nav">
       <div class="tabs-scroll-container">
-        <button class="tab-btn active" data-tab="tab-buy-signals" data-shortcut="1" title="Phím tắt: 1">
-          <span class="tab-icon">🟢</span>
-          <span class="tab-text">Khuyến Nghị Mua Mới</span>
-          <span class="tab-badge badge-green" id="tab-badge-buy">0</span>
-        </button>
-        <button class="tab-btn" data-tab="tab-sell-signals" data-shortcut="2" title="Phím tắt: 2">
-          <span class="tab-icon">🔴</span>
-          <span class="tab-text">Khuyến Nghị Bán & QTRR</span>
-          <span class="tab-badge badge-red" id="tab-badge-sell">0</span>
-        </button>
-        <button class="tab-btn" data-tab="tab-holdings" data-shortcut="3" title="Phím tắt: 3">
-          <span class="tab-icon">💼</span>
-          <span class="tab-text">Danh Mục Hiện Hữu</span>
-          <span class="tab-badge" id="tab-badge-holdings">0</span>
-        </button>
-        <button class="tab-btn" data-tab="tab-trades" data-shortcut="4" title="Phím tắt: 4">
-          <span class="tab-icon">📜</span>
-          <span class="tab-text">Lịch Sử Lệnh &amp; Tra Cứu Mã</span>
-          <span class="tab-badge badge-blue" id="tab-badge-trades">0</span>
-        </button>
-        <button class="tab-btn" data-tab="tab-performance" data-shortcut="5" title="Phím tắt: 5">
-          <span class="tab-icon">🏆</span>
-          <span class="tab-text">Xếp Hạng &amp; Đồ Thị Vốn</span>
-          <span class="tab-badge badge-purple" id="tab-badge-perf">5 AI</span>
-        </button>
-        <button class="tab-btn" data-tab="tab-news-actions" data-shortcut="6" title="Phím tắt: 6">
-          <span class="tab-icon">📰</span>
-          <span class="tab-text">Khuyến Nghị Tin Tức</span>
-          <span class="tab-badge badge-amber" id="tab-badge-news">0</span>
-        </button>
-        <button class="tab-btn" data-tab="tab-evolution" data-shortcut="7" title="Phím tắt: 7">
-          <span class="tab-icon">🧬</span>
-          <span class="tab-text">Tiến Hóa Darwinian</span>
-          <span class="tab-badge badge-gold" id="tab-badge-evo">Gen 2</span>
-        </button>
+        <!-- 2 Primary Recommendation Tabs -->
+        <div class="primary-tabs-group" style="display: flex; gap: 8px;">
+          <button class="tab-btn active primary-tab" data-tab="tab-buy-signals" data-shortcut="1" title="Phím tắt: 1">
+            <span class="tab-icon">🟢</span>
+            <span class="tab-text">Khuyến Nghị Mua Mới</span>
+            <span class="tab-badge badge-green" id="tab-badge-buy">0</span>
+          </button>
+          <button class="tab-btn primary-tab" data-tab="tab-sell-signals" data-shortcut="2" title="Phím tắt: 2">
+            <span class="tab-icon">🔴</span>
+            <span class="tab-text">Khuyến Nghị Bán &amp; Quản Lý Vị Thế</span>
+            <span class="tab-badge badge-red" id="tab-badge-sell">0</span>
+          </button>
+        </div>
+        <div class="tabs-divider" style="width: 1px; height: 26px; background: rgba(255, 255, 255, 0.15); margin: 0 4px; align-self: center;"></div>
+        <!-- Secondary Analytical & Audit Tabs -->
+        <div class="secondary-tabs-group" style="display: flex; gap: 6px;">
+          <button class="tab-btn" data-tab="tab-trades" data-shortcut="3" title="Phím tắt: 3">
+            <span class="tab-icon">📜</span>
+            <span class="tab-text">Sổ Lệnh &amp; Tra Cứu Mã</span>
+            <span class="tab-badge badge-blue" id="tab-badge-trades">0</span>
+          </button>
+          <button class="tab-btn" data-tab="tab-performance" data-shortcut="4" title="Phím tắt: 4">
+            <span class="tab-icon">🏆</span>
+            <span class="tab-text">Xếp Hạng &amp; Đồ Thị Vốn</span>
+            <span class="tab-badge badge-purple" id="tab-badge-perf">5 AI</span>
+          </button>
+          <button class="tab-btn" data-tab="tab-news-actions" data-shortcut="5" title="Phím tắt: 5">
+            <span class="tab-icon">📰</span>
+            <span class="tab-text">Khuyến Nghị Tin Tức</span>
+            <span class="tab-badge badge-amber" id="tab-badge-news">0</span>
+          </button>
+          <button class="tab-btn" data-tab="tab-evolution" data-shortcut="6" title="Phím tắt: 6">
+            <span class="tab-icon">🧬</span>
+            <span class="tab-text">Tiến Hóa Darwinian</span>
+            <span class="tab-badge badge-gold" id="tab-badge-evo">Gen 2</span>
+          </button>
+        </div>
       </div>
       <div class="tabs-quick-hint">
-        <span class="kbd-hint">Phím [1-7] chuyển tab nhanh</span>
+        <span class="kbd-hint">Phím [1-6] chuyển tab nhanh</span>
       </div>
     </nav>
 
@@ -333,6 +335,57 @@
                 <tr><td colspan="12" class="text-center">Đang tải danh sách lệnh bán...</td></tr>
               </tbody>
             </table>
+          </div>
+        </div>
+
+        <!-- Integrated Section: Live Open Portfolio Holdings inside Tab 2 -->
+        <div class="holdings-in-sell-container" style="margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--border-color);">
+          <div class="section-header">
+            <div>
+              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                <span style="font-size: 1.5rem;">💼</span>
+                <h3 class="section-title" style="font-size: 1.25rem;">Danh Mục Vị Thế Đang Nắm Giữ (Live Open Positions)</h3>
+                <span class="badge badge-info" id="sell-tab-holdings-count-badge">14 Vị Thế Đang Nắm Giữ</span>
+              </div>
+              <p class="section-subtitle">
+                Giám sát liên tục giá vốn, giá hiện tại, lãi/lỗ %, số ngày nắm giữ, ngưỡng cắt lỗ (-4.5%) và mục tiêu (+15%) của tất cả các vị thế mở từ 01/01/2026.
+              </p>
+            </div>
+            <div class="advisor-chips-group">
+              <span class="range-label">Chuyên gia:</span>
+              <button class="holdings-chip active" data-advisor="all">Tất Cả</button>
+              <button class="holdings-chip" data-advisor="AI_Advisor_ChuDong_2W">Chủ Động</button>
+              <button class="holdings-chip" data-advisor="AI_Advisor_NhipNhang_1M">Nhịp Nhàng</button>
+              <button class="holdings-chip" data-advisor="AI_Advisor_CANSLIM_Breakout">CANSLIM</button>
+              <button class="holdings-chip" data-advisor="AI_Advisor_Mean_Reversion">Đảo Chiều</button>
+            </div>
+          </div>
+
+          <div class="table-card" id="sell-tab-holdings-table-container">
+            <div class="table-responsive">
+              <table class="data-table" id="sell-tab-holdings-table">
+                <thead>
+                  <tr>
+                    <th>Mã CP</th>
+                    <th>Chuyên Gia AI</th>
+                    <th>Ngành</th>
+                    <th class="text-center">Tỷ Trọng</th>
+                    <th class="text-right">Giá Vốn</th>
+                    <th class="text-right">Giá Hiện Tại</th>
+                    <th class="text-center">Trong Ngày</th>
+                    <th class="text-center">Lãi/Lỗ Hiện Tại</th>
+                    <th class="text-center">Số Ngày Giữ</th>
+                    <th class="text-right">Cắt Lỗ (-4.5%)</th>
+                    <th class="text-right">Mục Tiêu (+15%)</th>
+                    <th class="text-center">Trạng Thái Vị Thế</th>
+                    <th>Hành Động Đề Xuất</th>
+                  </tr>
+                </thead>
+                <tbody id="sell-tab-holdings-table-body">
+                  <tr><td colspan="13" class="text-center">Đang tải danh mục cổ phiếu đang nắm giữ...</td></tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
@@ -1193,11 +1246,6 @@
       <span class="mobile-nav-text">Lệnh Bán</span>
       <span class="mobile-nav-badge badge-red" id="mob-badge-sell">0</span>
     </button>
-    <button class="mobile-nav-btn" data-tab="tab-holdings">
-      <span class="mobile-nav-icon">💼</span>
-      <span class="mobile-nav-text">Danh Mục</span>
-      <span class="mobile-nav-badge" id="mob-badge-holdings">0</span>
-    </button>
     <button class="mobile-nav-btn" data-tab="tab-trades">
       <span class="mobile-nav-icon">📜</span>
       <span class="mobile-nav-text">Sổ Lệnh</span>
@@ -1206,6 +1254,11 @@
     <button class="mobile-nav-btn" data-tab="tab-performance">
       <span class="mobile-nav-icon">🏆</span>
       <span class="mobile-nav-text">Hiệu Suất</span>
+    </button>
+    <button class="mobile-nav-btn" data-tab="tab-news-actions">
+      <span class="mobile-nav-icon">📰</span>
+      <span class="mobile-nav-text">Tin Tức</span>
+      <span class="mobile-nav-badge badge-amber" id="mob-badge-news">0</span>
     </button>
   </nav>
 
