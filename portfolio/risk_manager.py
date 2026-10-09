@@ -4,7 +4,7 @@ Enforces Stop-Loss, Trailing Stop-Profit, and Macro Market Regime Circuit Breake
 Protects advisors from severe drawdowns during VN-Index bear phases (e.g. 2022).
 """
 from dataclasses import dataclass
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Tuple, Optional, Any
 import pandas as pd
 from .position_tracker import PositionTracker
 
@@ -133,3 +133,64 @@ class RiskManager:
             return "BEAR"
         else:
             return "SIDEWAYS"
+
+    @staticmethod
+    def calculate_dynamic_entry_brackets(
+        entry_price: float,
+        atr_14: float = 0.0,
+        support_price: Optional[float] = None,
+        resistance_price: Optional[float] = None,
+        min_rr: float = 2.85
+    ) -> Dict[str, Any]:
+        """
+        Calculates dynamic, volatility-adjusted Stop Loss, Target Price, and Asymmetric Reward:Risk Ratio.
+        - Stop Loss adapts to 1.6x ATR and 20-day swing support (strictly between -3.8% and -6.8% to fit HoSE +/-7% limit).
+        - Take Profit targets asymmetric payoff (minimum R:R 2.85:1, expanded if resistance pivot allows).
+        """
+        if entry_price <= 0:
+            return {
+                "entry_price": entry_price,
+                "stop_loss": round(entry_price * 0.955, 2),
+                "max_loss_pct": -4.5,
+                "target_price": round(entry_price * 1.15, 2),
+                "target_return_pct": 15.0,
+                "rr_ratio": 3.33,
+                "rr_string": "3.3 : 1"
+            }
+
+        # 1. Volatility Risk Distance
+        vol_risk = max(atr_14 * 1.6, entry_price * 0.040)
+
+        # 2. Dynamic Stop Loss anchored to Key Support
+        if support_price is not None and 0 < support_price < entry_price:
+            support_sl = support_price * 0.992  # 0.8% below swing low to avoid wick shakeout
+            sl_price = max(entry_price * 0.932, min(entry_price * 0.962, support_sl))
+        else:
+            sl_price = max(entry_price * 0.932, entry_price - vol_risk)
+
+        sl_price = round(sl_price, 2)
+        risk_distance = max(0.01, entry_price - sl_price)
+        max_loss_pct = round(((sl_price - entry_price) / entry_price) * 100.0, 2)
+
+        # 3. Dynamic Take Profit & Asymmetric Payoff
+        base_target = entry_price + (risk_distance * min_rr)
+        if resistance_price is not None and resistance_price > entry_price:
+            breakout_target = resistance_price * 1.05  # Blue sky breakout target
+            target_price = max(base_target, breakout_target)
+        else:
+            target_price = base_target
+
+        target_price = max(target_price, entry_price * 1.12)  # Minimum +12% target
+        target_price = round(target_price, 2)
+        target_return_pct = round(((target_price - entry_price) / entry_price) * 100.0, 2)
+        rr_ratio = round((target_price - entry_price) / risk_distance, 2)
+
+        return {
+            "entry_price": round(entry_price, 2),
+            "stop_loss": sl_price,
+            "max_loss_pct": max_loss_pct,
+            "target_price": target_price,
+            "target_return_pct": target_return_pct,
+            "rr_ratio": rr_ratio,
+            "rr_string": f"{rr_ratio:.1f} : 1"
+        }

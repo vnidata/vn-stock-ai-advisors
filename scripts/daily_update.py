@@ -9,6 +9,7 @@ import os
 import json
 from pathlib import Path
 from datetime import datetime
+from typing import Tuple, Dict, Any, Optional
 import pandas as pd
 
 # Add project root to sys.path
@@ -35,28 +36,65 @@ from advisors.canslim_advisor import CanslimAdvisor
 from advisors.mean_reversion_advisor import MeanReversionAdvisor
 
 
-def get_technical_signal(df_feat: pd.DataFrame) -> str:
-    """Generate concise Vietnamese technical signal description."""
-    if df_feat.empty:
-        return "Tích lũy ổn định"
+def detect_entry_technique(df_feat: pd.DataFrame) -> Tuple[str, str]:
+    """
+    Identifies institutional entry technique and returns (technique_name, technical_reason).
+    Techniques:
+    - BÙNG NỔ VƯỢT NỀN (Breakout with heavy volume > 1.25x and price acceleration)
+    - POCKET PIVOT (Gil Morales pocket pivot institutional accumulation inside base)
+    - PULLBACK MA20 (Constructive pullback test to 20-day EMA/SMA support)
+    - LEADER RS CAO (Top relative strength leader RS >= 70)
+    - THẮT CHẶT BIÊN ĐỘ (Bollinger Band squeeze VCP contraction)
+    - ĐẢO CHIỀU PHÂN KỲ (Oversold bounce or momentum divergence)
+    """
+    if df_feat is None or df_feat.empty:
+        return "TÍCH LŨY QUAN SÁT", "Tích lũy nền giá, chờ dòng tiền kích hoạt"
+
     latest = df_feat.iloc[-1]
     rs = float(latest.get("rs_rating", 50.0))
     rsi = float(latest.get("rsi_14", 50.0))
-    dist_sma20 = float(latest.get("dist_sma20", 0.0))
     vol_ratio = float(latest.get("vol_ratio", 1.0))
+    dist_sma20 = float(latest.get("dist_sma20", 0.0))
+    dist_supp = float(latest.get("dist_support", 0.05))
+    pocket_pivot = int(latest.get("pocket_pivot", 0))
+    bb_squeeze = int(latest.get("bb_squeeze", 0))
+    rsi_slope = float(latest.get("rsi_slope_5d", 0.0))
+    macd_slope = float(latest.get("macd_hist_slope", 0.0))
 
-    if rs >= 75 and vol_ratio >= 1.3:
-        return f"Dẫn dắt RS {rs:.0f} | Bùng nổ Vol"
-    elif dist_sma20 > 0.03 and rsi < 70:
-        return f"Xu hướng Tăng mạnh > MA20"
-    elif rsi >= 70:
-        return f"Tăng nóng | RSI {rsi:.0f}"
-    elif rs >= 70:
-        return f"Sức mạnh giá RS {rs:.0f}"
+    if pocket_pivot == 1 and dist_sma20 >= -0.01:
+        technique = "POCKET PIVOT"
+        reason = f"Dòng tiền tổ chức gom hàng (Pocket Pivot) | Vol {vol_ratio:.1f}x vượt đỉnh vol giảm 10D | Giữ MA20"
+    elif vol_ratio >= 1.25 and dist_sma20 > 0.015:
+        technique = "BÙNG NỔ VƯỢT NỀN"
+        reason = f"Breakout vượt nền giá | Vol bùng nổ {vol_ratio:.1f}x | Trên MA20 (+{dist_sma20*100:.1f}%)"
+    elif rs >= 70.0 and dist_sma20 >= 0.0:
+        technique = "LEADER RS CAO"
+        reason = f"Cổ phiếu dẫn dắt hàng đầu (RS {rs:.0f}) | Vượt trội VN-Index | Nền giá vững trên MA20"
+    elif bb_squeeze == 1 and dist_sma20 >= -0.02:
+        technique = "THẮT CHẶT BIÊN ĐỘ (VCP)"
+        reason = f"Biên độ co thắt Bollinger Squeeze cực hẹp | Cạn cung chờ bùng nổ | Vol {vol_ratio:.1f}x"
+    elif -0.025 <= dist_sma20 <= 0.025 and dist_supp <= 0.035:
+        technique = "PULLBACK MA20"
+        reason = f"Test thành công hỗ trợ MA20/Nền 20D (+{dist_supp*100:.1f}% từ đáy) | Tỷ lệ R:R tối ưu"
+    elif rsi < 42.0 and (rsi_slope > 0.0 or macd_slope > 0.0):
+        technique = "ĐẢO CHIỀU PHÂN KỲ"
+        reason = f"Hồi phục từ vùng quá bán kỹ thuật (RSI {rsi:.0f}) | Phân kỳ động lượng dương MACD/RSI"
     elif dist_sma20 > 0:
-        return "Giữ vững nền MA20"
+        technique = "BÁM ĐƯỜNG MA20"
+        reason = f"Giữ vững xu hướng ngắn hạn trên MA20 (+{dist_sma20*100:.1f}%) | RS {rs:.0f}"
     else:
-        return "Tích lũy chờ dòng tiền"
+        technique = "TÍCH LŨY CẠN CUNG"
+        reason = f"Cân bằng cung cầu vùng hỗ trợ | Vol {vol_ratio:.1f}x | RS {rs:.0f}"
+
+    return technique, reason
+
+
+def get_technical_signal(df_feat: pd.DataFrame) -> str:
+    """Generate concise Vietnamese technical signal description."""
+    if df_feat is None or df_feat.empty:
+        return "Tích lũy ổn định"
+    technique, reason = detect_entry_technique(df_feat)
+    return f"{technique} | {reason.split('|')[0].strip()}"
 
 
 WATCHLIST_METADATA = {
@@ -378,15 +416,39 @@ def run_daily_update():
                 status_badge = "buy"
                 action_advice = "Mở vị thế mua mới theo tỷ trọng khuyến nghị"
 
-            stop_loss = round(entry_price * 0.955, 2)  # -4.5% tight stop loss
-            target_tp = round(entry_price * 1.15, 2)   # +15% target profit
-            signal = get_technical_signal(df_feat) if df_feat is not None else "Đang theo dõi"
+            # Dynamic ATR-based Risk Brackets & Institutional Entry Setup
+            if df_feat is not None and not df_feat.empty:
+                latest_row = df_feat.iloc[-1]
+                atr_14 = float(latest_row.get("atr_14", entry_price * 0.025))
+                supp_20d = float(latest_row.get("support_20d", entry_price * 0.95))
+                res_20d = float(latest_row.get("resistance_20d", entry_price * 1.10))
+                brackets = RiskManager.calculate_dynamic_entry_brackets(
+                    entry_price=entry_price,
+                    atr_14=atr_14,
+                    support_price=supp_20d,
+                    resistance_price=res_20d,
+                    min_rr=2.85
+                )
+                stop_loss = brackets["stop_loss"]
+                target_tp = brackets["target_price"]
+                rr_str = brackets["rr_string"]
+                technique, tech_reason = detect_entry_technique(df_feat)
+                conf_score = adv.calculate_confidence_score(sym, df_feat, eval_timestamp)
+            else:
+                stop_loss = round(entry_price * 0.955, 2)
+                target_tp = round(entry_price * 1.15, 2)
+                rr_str = "3.3 : 1"
+                technique, tech_reason = "TÍCH LŨY QUAN SÁT", "Đang theo dõi nền giá"
+                conf_score = 80
+
+            signal = f"{technique} | {tech_reason}"
             sym_news = news_sentiment_map.get(sym, {})
 
             top5_list.append({
                 "symbol": sym,
                 "weight_pct": round(w * 100.0, 1),
                 "score": scores.get(sym, 0.0),
+                "confidence_score": conf_score,
                 "sector": SECTOR_MAP.get(sym, "Bluechip"),
                 "entry_price": round(entry_price, 2),
                 "current_price": round(price, 2),
@@ -394,6 +456,8 @@ def run_daily_update():
                 "current_return_pct": current_return,
                 "stop_loss": stop_loss,
                 "target_price": target_tp,
+                "rr_ratio": rr_str,
+                "entry_technique": technique,
                 "holding_days": holding_days,
                 "status_text": status_text,
                 "status_badge": status_badge,
@@ -493,6 +557,18 @@ def run_daily_update():
     new_signals = []
     sig_id = 1
 
+    adv_win_rate_map = {
+        "CANSLIM": 78,
+        "CANSLIM_Breakout": 78,
+        "Active": 72,
+        "ChuDong_2W": 72,
+        "Persistent": 69,
+        "BenBi_3M": 69,
+        "Harmony": 66,
+        "NhipNhang_1M": 66,
+        "Mean_Reversion": 65
+    }
+
     # Buy signals: generated for all newly recommended stocks that are not yet in current holdings
     recommended_candidates = set()
     for adv_name, s_data in strategy_recommendations.items():
@@ -507,17 +583,34 @@ def run_daily_update():
                 vol_ratio = 1.0
                 rs = 50.0
                 dist_sma20 = 0.0
+                atr_14 = curr_p * 0.025
+                support_20d = curr_p * 0.95
+                resistance_20d = curr_p * 1.10
+                technique = item.get("entry_technique", "BÙNG NỔ VƯỢT NỀN")
+                tech_reason = "Vượt MA20"
+                conf_score = item.get("confidence_score", 85)
+
                 if df_feat is not None and not df_feat.empty:
                     latest = df_feat.iloc[-1]
                     rs = float(latest.get("rs_rating", 50.0))
                     vol_ratio = float(latest.get("vol_ratio", 1.0))
                     dist_sma20 = float(latest.get("dist_sma20", 0.0))
+                    atr_14 = float(latest.get("atr_14", curr_p * 0.025))
+                    support_20d = float(latest.get("support_20d", curr_p * 0.95))
+                    resistance_20d = float(latest.get("resistance_20d", curr_p * 1.10))
+                    technique, tech_reason = detect_entry_technique(df_feat)
 
+                brackets = RiskManager.calculate_dynamic_entry_brackets(
+                    entry_price=curr_p,
+                    atr_14=atr_14,
+                    support_price=support_20d,
+                    resistance_price=resistance_20d,
+                    min_rr=2.85
+                )
+
+                win_rate = adv_win_rate_map.get(adv_clean, 72)
                 sym_news = news_sentiment_map.get(sym, {})
-                target_p = round(curr_p * 1.15, 2)
-                sl_p = round(curr_p * 0.955, 2)
-                reason_tech = f"Khối lượng {round(vol_ratio, 1)}x | Vượt MA20 (+{round(dist_sma20*100, 1)}%) | RS {rs:.0f} dẫn dắt rổ"
-                advisor_rationale = f"Cố vấn {adv_clean} khuyến nghị mở vị thế Mua Mới (Tỷ trọng {item['weight_pct']}%), tỷ lệ R:R 3.3 : 1"
+                advisor_rationale = f"Cố vấn {adv_clean} kích hoạt lệnh [{technique}] (Tỷ trọng {item['weight_pct']}%), Asymmetric R:R {brackets['rr_string']}"
 
                 new_signals.append({
                     "id": f"SIG-BUY-{sig_id:02d}",
@@ -527,13 +620,16 @@ def run_daily_update():
                     "signal_badge": "buy",
                     "recommended_advisor": adv_clean,
                     "signal_price": curr_p,
-                    "target_price": target_p,
-                    "target_return_pct": 15.0,
-                    "stop_loss": sl_p,
-                    "max_loss_pct": -4.5,
-                    "rr_ratio": "3.3 : 1",
+                    "target_price": brackets["target_price"],
+                    "target_return_pct": brackets["target_return_pct"],
+                    "stop_loss": brackets["stop_loss"],
+                    "max_loss_pct": brackets["max_loss_pct"],
+                    "rr_ratio": brackets["rr_string"],
+                    "confidence_score": conf_score,
+                    "win_rate": win_rate,
+                    "entry_technique": technique,
                     "recommended_weight_pct": item["weight_pct"],
-                    "technical_reason": reason_tech,
+                    "technical_reason": tech_reason,
                     "advisor_rationale": advisor_rationale,
                     "news_status": sym_news.get("status", "THÔNG TIN BÌNH ỔN"),
                     "news_badge": sym_news.get("status_badge", "neutral")

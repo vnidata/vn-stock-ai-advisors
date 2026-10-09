@@ -104,13 +104,38 @@ class TechnicalFeatureEngineer:
         df["obv_sma20"] = df["obv"].rolling(20).mean()
         df["obv_trend"] = (df["obv"] > df["obv_sma20"]).astype(int)
 
-        # 6. 52-Week High / Low & Drawdown
+        # 6. 52-Week High / Low & Support / Resistance Brackets
         rolling_max_250 = close.rolling(250, min_periods=50).max()
         rolling_min_250 = close.rolling(250, min_periods=50).min()
         df["dist_52w_high"] = (close - rolling_max_250) / (rolling_max_250 + 1e-9)
         df["drawdown_60d"] = (close - close.rolling(60, min_periods=20).max()) / (close.rolling(60, min_periods=20).max() + 1e-9)
 
-        # 7. Relative Strength (RS Rating) vs Benchmark (VN-Index)
+        # Dynamic 20-day Support / Resistance Pivots
+        df["support_20d"] = low.rolling(20, min_periods=5).min()
+        df["resistance_20d"] = high.rolling(20, min_periods=5).max()
+        df["dist_support"] = (close - df["support_20d"]) / (df["support_20d"] + 1e-9)
+        df["dist_resistance"] = (df["resistance_20d"] - close) / (close + 1e-9)
+
+        # 7. Volume Spread Analysis (VSA) & Institutional Flow
+        bar_spread = (high - low) / (close + 1e-9)
+        bar_spread_ratio = bar_spread / (bar_spread.rolling(20, min_periods=5).mean() + 1e-9)
+        df["effort_vs_result"] = df["vol_ratio"] / (bar_spread_ratio + 1e-9)
+
+        # Pocket Pivot (Volume on up-day exceeds highest down-day volume in past 10 sessions)
+        is_up_day = close > close.shift(1)
+        down_vol = volume.where(~is_up_day, 0.0)
+        max_down_vol_10 = down_vol.rolling(10, min_periods=3).max()
+        df["pocket_pivot"] = ((is_up_day) & (volume > max_down_vol_10) & (close > df["sma_20"])).astype(int)
+
+        # Bollinger Band Squeeze (Width in lowest 25th percentile over 60 days)
+        rolling_bb_min = df["bb_width"].rolling(60, min_periods=20).quantile(0.25)
+        df["bb_squeeze"] = (df["bb_width"] <= rolling_bb_min).astype(int)
+
+        # MACD & RSI Acceleration Slopes
+        df["macd_hist_slope"] = df["macd_hist"].diff().fillna(0.0)
+        df["rsi_slope_5d"] = df["rsi_14"].diff(5).fillna(0.0)
+
+        # 8. Relative Strength (RS Rating) vs Benchmark (VN-Index)
         if benchmark_df is not None and not benchmark_df.empty:
             bm_close = benchmark_df.set_index("time")["close"]
             cur_time = df["time"]
