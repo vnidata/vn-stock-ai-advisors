@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-09 11:26:18",
+  "last_updated": "2026-10-09 13:40:40",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 1,
@@ -55,17 +55,26 @@
     },
     "VCB": {
       "symbol": "VCB",
-      "news_count": 3,
+      "news_count": 4,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Lãnh đạo Vietcombank: Gần 50% khách hàng cá nhân của Vietcombank tuổi dưới 35",
+      "latest_headline": "Lãi suất ngân hàng 9/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Duy trì tỷ trọng khuyến nghị",
       "sentiment_multiplier": 1.0,
       "related_news": [
+        {
+          "title": "Lãi suất ngân hàng 9/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+          "date": "Fri, 09 Oct 26 20:18:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/lai-suat-ngan-hang-9-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261009202048176.chn"
+        },
         {
           "title": "Lãnh đạo Vietcombank: Gần 50% khách hàng cá nhân của Vietcombank tuổi dưới 35",
           "date": "Fri, 09 Oct 26 16:30:00 +0700",
@@ -121,7 +130,7 @@
     },
     "TCB": {
       "symbol": "TCB",
-      "news_count": 2,
+      "news_count": 3,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
@@ -140,6 +149,15 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/danh-muc-co-phieu-ngan-hang-khung-cua-vix-sau-eximbank-va-techcombank-lo-dien-so-co-phieu-vpbank-tri-gia-hon-2700-ty-dong-18826100810213419.chn"
+        },
+        {
+          "title": "Lãi suất ngân hàng 9/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+          "date": "Fri, 09 Oct 26 20:18:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/lai-suat-ngan-hang-9-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261009202048176.chn"
         },
         {
           "title": "Lãi suất ngân hàng 8/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
@@ -629,44 +647,6 @@
       "published_date": "Thu, 08 Oct 26 15:14:00 +0700"
     },
     {
-      "title": "SAGS chốt ngày chia cổ tức tiền mặt tỷ lệ 25%",
-      "description": "SAGS sẽ chia cổ tức tiền mặt tỷ lệ 25% trong tháng 11 tới. ACV là cổ đông lớn nhất nên dự kiến thu về hơn 40 tỷ đồng.",
-      "source": "CafeF Doanh Nghiệp (CBTT)",
-      "symbols": [],
-      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
-      "sentiment_score": 0.7,
-      "sentiment_label": "TÍCH CỰC MẠNH",
-      "sentiment_badge": "pos",
-      "is_red_flag": false,
-      "is_catalyst": true,
-      "triggers_found": [
-        "cổ tức tiền mặt"
-      ],
-      "re_eval_action": "STRONG_BUY_CATALYST",
-      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
-      "link": "https://cafef.vn/sags-chot-ngay-chia-co-tuc-tien-mat-ty-le-25-188261008094951101.chn",
-      "published_date": "Thu, 08 Oct 26 10:55:00 +0700"
-    },
-    {
-      "title": "Điểm danh loạt cựu quan chức ở Thanh Hóa nhận tiền của bầu Đoan",
-      "description": "Kết luận điều tra xác định, nhiều cựu quan chức tỉnh Thanh Hóa sau khi giúp bầu Đoan trúng đấu giá Dự án Quảng Thành đã được ông bầu \"lại quả\" từ vài chục triệu đến hàng tỷ đồng.",
-      "source": "CafeF Doanh Nghiệp (CBTT)",
-      "symbols": [],
-      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
-      "sentiment_score": -0.7,
-      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
-      "sentiment_badge": "neg-danger",
-      "is_red_flag": true,
-      "is_catalyst": false,
-      "triggers_found": [
-        "điều tra"
-      ],
-      "re_eval_action": "EMERGENCY_SELL",
-      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
-      "link": "https://cafef.vn/diem-danh-loat-cuu-quan-chuc-o-thanh-hoa-nhan-tien-cua-bau-doan-188261008084335217.chn",
-      "published_date": "Thu, 08 Oct 26 08:43:00 +0700"
-    },
-    {
       "title": "Thêm lãnh đạo SHB muốn mua lượng lớn cổ phiếu để đầu tư",
       "description": "Ông Nguyễn Huy Tài, Phó Tổng Giám đốc SHB, đăng ký mua 2 triệu cổ phiếu SHB để đầu tư cá nhân. Trước đó, một lãnh đạo khác của ngân hàng cũng đăng ký mua lượng cổ phiếu tương tự, nâng tổng số cổ phiếu hai lãnh đạo dự kiến mua lên 4 triệu đơn vị.",
       "source": "CafeF Tài Chính Ngân Hàng",
@@ -730,6 +710,25 @@
       "published_date": "Thu, 08 Oct 26 20:14:00 +0700"
     },
     {
+      "title": "Hai lãnh đạo SHB muốn 'bắt đáy' cổ phiếu",
+      "description": "Sau khi thị giá SHB giảm khoảng 43% trong một năm qua, hai Phó tổng giám đốc Nguyễn Hữu Tài và Đinh Ngọc Dũng đăng ký mua tổng cộng 4 triệu cổ phiếu.",
+      "source": "VnExpress Kinh Doanh",
+      "symbols": [],
+      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
+      "sentiment_score": 0.7,
+      "sentiment_label": "TÍCH CỰC MẠNH",
+      "sentiment_badge": "pos",
+      "is_red_flag": false,
+      "is_catalyst": true,
+      "triggers_found": [
+        "đăng ký mua"
+      ],
+      "re_eval_action": "STRONG_BUY_CATALYST",
+      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
+      "link": "https://vnexpress.net/hai-lanh-dao-shb-muon-bat-day-co-phieu-5130526.html",
+      "published_date": "Fri, 09 Oct 2026 19:03:05 +0700"
+    },
+    {
       "title": "Em dâu Chủ tịch Kosy muốn 'bắt đáy' cổ phiếu",
       "description": "Em dâu Chủ tịch HĐQT Kosy Nguyễn Việt Cường đăng ký mua 8 triệu cổ phiếu KOS khi thị giá xuống thấp kỷ lục sau chuỗi giảm sàn 14 phiên liên tiếp.",
       "source": "VnExpress Kinh Doanh",
@@ -790,27 +789,6 @@
       "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
       "link": "https://cafef.vn/hose-cap-nhat-danh-sach-cat-margin-dau-thang-10-188261009105150657.chn",
       "published_date": "Fri, 09 Oct 26 10:51:00 +0700"
-    },
-    {
-      "title": "Sắp hé lộ ngoại hình tàu cao tốc tại 2 dự án hơn 10 tỷ USD của tỷ phú Phạm Nhật Vượng",
-      "description": "Tại gian hàng German Pavilion tại VRT&CON 2026, trưng bày Velaro Novo - thế hệ tàu cao tốc mới nhất từ Siemens Mobility, dự kiến sẽ được đưa vào vận hành trên các tuyến đường sắt tốc độ cao Hà Nội – Quảng Ninh và Bến Thành – Cần Giờ trong tương lai.",
-      "source": "CafeF Doanh Nghiệp (CBTT)",
-      "symbols": [
-        "VIC"
-      ],
-      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
-      "sentiment_score": 0.6,
-      "sentiment_label": "TÍCH CỰC MẠNH",
-      "sentiment_badge": "pos",
-      "is_red_flag": false,
-      "is_catalyst": true,
-      "triggers_found": [
-        "đưa vào vận hành"
-      ],
-      "re_eval_action": "STRONG_BUY_CATALYST",
-      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
-      "link": "https://cafef.vn/sap-he-lo-ngoai-hinh-tau-cao-toc-tai-2-du-an-hon-10-ty-usd-cua-ty-phu-pham-nhat-vuong-188261008104019558.chn",
-      "published_date": "Thu, 08 Oct 26 10:39:00 +0700"
     },
     {
       "title": "Khối ngoại mua ròng khi SHB 'lao' về sát mệnh giá",
@@ -946,8 +924,8 @@
       "published_date": "Fri, 09 Oct 26 14:48:00 +0700"
     },
     {
-      "title": "Một Phó tổng giám đốc vừa bị miễn nhiệm",
-      "description": "Vị này bị miễn nhiệm sau khi giữ chức vụ Phó Tổng Giám đốc trong 1 năm.",
+      "title": "CTCK miễn nhiệm một Phó tổng giám đốc",
+      "description": "Vị này từng giữ chức vụ Phó Tổng Giám đốc trong 1 năm.",
       "source": "CafeF Thị Trường",
       "symbols": [],
       "category": "CÔNG BỐ THÔNG TIN ĐỊNH KỲ",
@@ -1174,6 +1152,43 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/trung-quoc-mua-vang-manh-nhat-trong-3-nam-chuyen-gi-dang-xay-ra-188261008223346924.chn",
       "published_date": "Fri, 09 Oct 26 00:03:00 +0700"
+    },
+    {
+      "title": "VinFast bất ngờ “đắt hàng” tại quốc gia đông dân nhất thế giới",
+      "description": "Theo SSI, VinFast đang đi đúng lộ trình để hoàn thành mục tiêu bán 300.000 ô tô điện trong cả năm 2026.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "SSI",
+        "VIC"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/vinfast-bat-ngo-dat-hang-tai-quoc-gia-dong-dan-nhat-the-gioi-188261008220208428.chn",
+      "published_date": "Fri, 09 Oct 26 00:03:00 +0700"
+    },
+    {
+      "title": "“Gã khổng lồ” bất động sản khu công nghiệp sắp trả cổ tức 6.000 đồng/cp",
+      "description": "Doanh nghiệp sẽ chi tổng cộng gần 144 tỷ đồng trong đợt trả cổ tức này.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/ga-khong-lo-bat-dong-san-khu-cong-nghiep-sap-tra-co-tuc-6000-dong-cp-188261008222739875.chn",
+      "published_date": "Thu, 08 Oct 26 22:27:00 +0700"
     }
   ]
 }
