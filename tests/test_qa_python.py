@@ -363,6 +363,55 @@ class TestHoseQuantStrategy:
         assert hasattr(metrics, "fitness_score")
 
 
+class TestStockLookupFeature:
+    """Comprehensive automated tests for Stock Lookup and AI Action Diagnosis system."""
+
+    def test_diagnosis_modal_dom_architecture(self, html_soup):
+        # Modal root & card
+        modal = html_soup.find(id="modal-stock-diagnosis")
+        assert modal is not None
+        assert "modal-overlay" in modal.get("class", [])
+
+        # Content container
+        content = html_soup.find(id="stock-diagnosis-content")
+        assert content is not None
+
+        # Modal action buttons
+        assert html_soup.find(id="btn-close-stock-diagnosis") is not None
+        assert html_soup.find(id="btn-close-diag-footer") is not None
+        assert html_soup.find(id="btn-diag-view-trades") is not None
+        assert html_soup.find(id="btn-diag-quick-trade") is not None
+
+    def test_lookup_css_styling_integrity(self):
+        with open(STYLE_CSS, "r", encoding="utf-8") as f:
+            css = f.read()
+        expected_classes = [
+            ".stock-diagnosis-card",
+            ".diag-hero-banner",
+            ".diag-action-banner",
+            ".diag-quant-grid",
+            ".diag-hose-strategy-box",
+            ".diag-turtle-strategy-box",
+            ".diag-turtle-grid",
+            ".diag-news-track-row"
+        ]
+        for cls in expected_classes:
+            assert cls in css, f"Required CSS class '{cls}' not found in style.css"
+
+    def test_lookup_js_execution_via_node(self):
+        import subprocess
+        result = subprocess.run(
+            ["node", os.path.join(ROOT_DIR, "tests", "test_stock_lookup.js")],
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            cwd=ROOT_DIR
+        )
+        assert result.returncode == 0, f"test_stock_lookup.js failed:\n{result.stderr}\n{result.stdout}"
+        assert "19 / 19 TESTS PASSED (100% SUCCESS)" in result.stdout
+
+
 if __name__ == "__main__":
     pytest.main(["-v", __file__])
+
 
