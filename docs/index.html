@@ -25,6 +25,19 @@
           <div class="brand-sub">Autonomous AI Stock Advisory &amp; Quant Terminal</div>
         </div>
       </div>
+
+      <!-- Nav Quick Search & Stock Lookup -->
+      <div class="nav-lookup-box" id="nav-stock-lookup-box">
+        <div class="nav-lookup-input-wrapper">
+          <span class="nav-lookup-icon">🔍</span>
+          <input type="text" id="nav-stock-lookup-input" class="nav-stock-lookup-input" placeholder="Tra cứu mã (VD: HPG, FPT...)" autocomplete="off" spellcheck="false" maxlength="10">
+          <kbd class="nav-lookup-kbd" title="Phím tắt: nhấn / hoặc Ctrl+K">/</kbd>
+        </div>
+        <button class="btn-stock-lookup" id="btn-nav-stock-lookup" title="Tra cứu thông tin &amp; khuyến nghị AI">
+          <span class="lookup-btn-icon">⚡</span> <span class="lookup-btn-text">Tra Cứu</span>
+        </button>
+      </div>
+
       <div class="nav-right-controls">
         <!-- Next Scan Countdown Widget (6 Daily Sessions: 09h, 10h, 11h30, 13h30, 14h, 15h) -->
         <div class="scan-countdown-widget" id="scan-countdown-widget" title="Lịch quét tự động 6 phiên/ngày: 09:00 • 10:00 • 11:30 • 13:30 • 14:00 • 15:00 (Giờ VN)">
@@ -94,6 +107,40 @@
         <span class="schedule-clock-icon">⏱️</span> 6 Phiên Quét: <strong>09h · 10h · 11h30 · 13h30 · 14h · 15h</strong>
       </div>
     </div>
+
+    <!-- Dedicated Stock Lookup & AI Diagnosis Bar -->
+    <section class="ticker-lookup-ribbon" id="ticker-lookup-ribbon">
+      <div class="lookup-ribbon-container">
+        <div class="lookup-ribbon-left">
+          <div class="lookup-ribbon-badge"><span class="pulse-dot"></span> ⚡ TRA CỨU CỔ PHIẾU</div>
+          <div class="lookup-ribbon-title">Tra cứu mã chứng khoán &amp; nhận khuyến nghị hành động AI tức thì:</div>
+        </div>
+        <div class="lookup-ribbon-search-row">
+          <div class="lookup-search-field">
+            <span class="search-lens-icon">🔍</span>
+            <input type="text" id="main-stock-lookup-input" class="main-stock-lookup-input" placeholder="Nhập mã CP (VD: HPG, FPT, TCB, VHM, SSI, NVDA...)" autocomplete="off" spellcheck="false" maxlength="10">
+            <button class="btn-clear-lookup" id="btn-clear-lookup-input" style="display:none;" title="Xóa">✕</button>
+          </div>
+          <button class="btn-main-lookup-action" id="btn-main-stock-lookup">
+            <span class="action-icon">🎯</span> <span class="action-text">Tra Cứu Khuyến Nghị</span>
+          </button>
+        </div>
+        <div class="lookup-quick-chips" id="lookup-quick-chips">
+          <span class="chips-label">Gợi ý nhanh:</span>
+          <button class="chip-sym-btn" data-sym="HPG">HPG</button>
+          <button class="chip-sym-btn" data-sym="FPT">FPT</button>
+          <button class="chip-sym-btn" data-sym="TCB">TCB</button>
+          <button class="chip-sym-btn" data-sym="MBB">MBB</button>
+          <button class="chip-sym-btn" data-sym="SSI">SSI</button>
+          <button class="chip-sym-btn" data-sym="VHM">VHM</button>
+          <button class="chip-sym-btn" data-sym="MWG">MWG</button>
+          <button class="chip-sym-btn" data-sym="MSN">MSN</button>
+          <button class="chip-sym-btn" data-sym="DGC">DGC</button>
+          <button class="chip-sym-btn" data-sym="VNM">VNM</button>
+          <button class="chip-sym-btn" data-sym="NVDA">NVDA</button>
+        </div>
+      </div>
+    </section>
 
     <!-- Market Overview Banner -->
     <section class="market-banner">
@@ -1146,6 +1193,32 @@
   <button id="btn-back-to-top" class="back-to-top-btn" title="Cuộn lên đầu trang">
     <span>↑</span>
   </button>
+
+  <!-- Modal Tra Cứu Cổ Phiếu & Khuyến Nghị Hành Động AI -->
+  <div class="modal-overlay" id="modal-stock-diagnosis" style="display: none;">
+    <div class="modal-card stock-diagnosis-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-icon">🔎</span>
+          <div>
+            <h3 class="modal-title" id="diag-modal-title">Hồ Sơ Định Lượng &amp; Khuyến Nghị AI</h3>
+            <span class="modal-subtitle">Chẩn đoán đa chiều: Trạng thái kỹ thuật, Vị thế danh mục, Rủi ro tin tức &amp; Hành động</span>
+          </div>
+        </div>
+        <button class="btn-close-modal" id="btn-close-stock-diagnosis">✕</button>
+      </div>
+
+      <div class="modal-body" id="stock-diagnosis-content">
+        <!-- Rendered dynamically by renderStockDiagnosisModal() -->
+      </div>
+
+      <div class="modal-footer diagnosis-footer" id="stock-diagnosis-footer">
+        <button class="btn-modal-cancel" id="btn-close-diag-footer">Đóng</button>
+        <button class="btn-diag-view-trades" id="btn-diag-view-trades">📜 Xem Sổ Lệnh</button>
+        <button class="btn-modal-confirm" id="btn-diag-quick-trade">⚡ Đặt Lệnh Nhanh</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Quick Trade Modal / Bottom Sheet (Click-to-Trade) -->
   <div class="modal-overlay" id="quick-trade-modal" style="display: none;">

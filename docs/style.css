@@ -770,6 +770,16 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
   letter-spacing: 0.5px;
   display: inline-block;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.ticker-pill:hover {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: #38bdf8;
+  color: #38bdf8;
+  transform: translateY(-1px);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
 }
 
 .sector-label {
@@ -3158,7 +3168,537 @@ body {
 
 @keyframes jumpGlow {
   0% { box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.8); }
-  100% { box-shadow: none; }
+/* ==========================================================================
+   STOCK LOOKUP & AI ACTION RECOMMENDATION STYLES
+   ========================================================================== */
+
+/* 1. Navbar Stock Lookup Box */
+.nav-lookup-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(14, 20, 32, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 3px 6px 3px 10px;
+  transition: all 0.2s ease;
+}
+
+.nav-lookup-box:focus-within {
+  border-color: rgba(56, 189, 248, 0.7);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.25);
+  background: rgba(14, 20, 32, 0.98);
+}
+
+.nav-lookup-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-lookup-icon {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.nav-stock-lookup-input {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  width: 170px;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.nav-stock-lookup-input::placeholder {
+  color: var(--text-dim);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 0.78rem;
+  text-transform: none;
+}
+
+.nav-lookup-kbd {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.btn-stock-lookup {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-stock-lookup:hover {
+  background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+  transform: translateY(-1px);
+}
+
+/* 2. Dedicated Stock Lookup & AI Diagnosis Ribbon (Main Container) */
+.ticker-lookup-ribbon {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.85) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+}
+
+.lookup-ribbon-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lookup-ribbon-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.lookup-ribbon-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.lookup-ribbon-title {
+  font-size: 0.88rem;
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+.lookup-ribbon-search-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.lookup-search-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  background: #090d16;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-sm);
+  padding: 0 12px;
+  transition: all 0.2s ease;
+}
+
+.lookup-search-field:focus-within {
+  border-color: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+}
+
+.search-lens-icon {
+  font-size: 1rem;
+  color: #94a3b8;
+  margin-right: 8px;
+}
+
+.main-stock-lookup-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.98rem;
+  font-weight: 700;
+  padding: 10px 0;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.main-stock-lookup-input::placeholder {
+  color: #64748b;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 0.85rem;
+  text-transform: none;
+}
+
+.btn-clear-lookup {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+
+.btn-clear-lookup:hover {
+  color: #fff;
+}
+
+.btn-main-lookup-action {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 10px 20px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+  transition: all 0.2s ease;
+}
+
+.btn-main-lookup-action:hover {
+  background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.5);
+  transform: translateY(-1px);
+}
+
+.lookup-quick-chips {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding-top: 4px;
+}
+
+.chips-label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-right: 4px;
+}
+
+.chip-sym-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #cbd5e1;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.chip-sym-btn:hover {
+  background: rgba(56, 189, 248, 0.18);
+  border-color: #38bdf8;
+  color: #38bdf8;
+  transform: scale(1.05);
+}
+
+/* 3. Stock Diagnosis Modal Card */
+.modal-card.stock-diagnosis-card {
+  background: #0f141f;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: var(--radius-lg);
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 35px rgba(56, 189, 248, 0.15);
+  animation: modalScaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.diag-hero-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  gap: 12px;
+}
+
+.diag-sym-badge {
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #38bdf8;
+  letter-spacing: 0.5px;
+}
+
+.diag-company-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 2px 0;
+}
+
+.diag-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.diag-price-group {
+  text-align: right;
+}
+
+.diag-current-price {
+  font-family: var(--font-mono);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.diag-price-change {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.diag-vol-text {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+/* AI Action Banner in Modal */
+.diag-action-banner {
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  border: 1px solid transparent;
+}
+
+.diag-action-banner.defend {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.diag-action-banner.buy {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.diag-action-banner.sell {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.diag-action-banner.hold {
+  background: rgba(234, 179, 8, 0.12);
+  border-color: rgba(234, 179, 8, 0.4);
+}
+
+.diag-action-banner.watch {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+.diag-action-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.diag-action-tag {
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.diag-action-tag.defend { background: #b45309; color: #fff; }
+.diag-action-tag.buy { background: #059669; color: #fff; }
+.diag-action-tag.sell { background: #dc2626; color: #fff; }
+.diag-action-tag.hold { background: #ca8a04; color: #fff; }
+.diag-action-tag.watch { background: #0284c7; color: #fff; }
+
+.diag-action-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.diag-action-desc {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #cbd5e1;
+}
+
+/* Portfolio Status Box */
+.diag-portfolio-box {
+  background: rgba(14, 165, 233, 0.08);
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin-bottom: 14px;
+}
+
+.diag-portfolio-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #38bdf8;
+  margin-bottom: 8px;
+}
+
+.diag-portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.diag-port-cell {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  padding: 6px 10px;
+}
+
+.diag-port-label {
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  display: block;
+}
+
+.diag-port-val {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+/* Quant Matrix Grid */
+.diag-quant-section-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #94a3b8;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.diag-quant-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.diag-metric-card {
+  background: #090d16;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  text-align: center;
+}
+
+.diag-metric-name {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.diag-metric-val {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.diag-metric-sub {
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+/* News & Track Record */
+.diag-news-track-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.diag-card-panel {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+}
+
+.diag-panel-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #cbd5e1;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.diag-panel-body {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: #94a3b8;
+}
+
+/* Footer Buttons */
+.diagnosis-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btn-diag-view-trades {
+  background: rgba(37, 99, 235, 0.2);
+  border: 1px solid rgba(37, 99, 235, 0.5);
+  color: #60a5fa;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-diag-view-trades:hover {
+  background: rgba(37, 99, 235, 0.4);
+  color: #fff;
 }
 
 /* ==========================================================================
@@ -3779,6 +4319,85 @@ body {
   .rebalance-tag {
     font-size: 0.68rem;
     padding: 3px 8px;
+  }
+
+  /* 14B. Mobile Adjustments for Stock Lookup & Diagnosis Modal */
+  .nav-lookup-box {
+    display: none; /* Hide header search on mobile to save navbar space; use main lookup ribbon */
+  }
+
+  .ticker-lookup-ribbon {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  .lookup-ribbon-search-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .lookup-search-field {
+    width: 100%;
+  }
+
+  .btn-main-lookup-action {
+    width: 100%;
+    justify-content: center;
+    padding: 11px;
+  }
+
+  .lookup-quick-chips {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+
+  .chip-sym-btn {
+    flex-shrink: 0;
+  }
+
+  .modal-card.stock-diagnosis-card {
+    border-radius: 20px 20px 0 0;
+    max-width: 100%;
+    max-height: 90vh;
+    animation: slideUpSheet 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .diag-hero-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .diag-price-group {
+    text-align: left;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .diag-portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .diag-quant-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .diag-news-track-row {
+    grid-template-columns: 1fr;
+  }
+
+  .diagnosis-footer {
+    flex-direction: column-reverse;
+    padding: 12px 16px;
+  }
+
+  .diagnosis-footer button {
+    width: 100%;
+    justify-content: center;
   }
 
   /* 15. Footer on Mobile */
