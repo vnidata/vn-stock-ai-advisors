@@ -34,6 +34,7 @@ from advisors.harmony_advisor import HarmonyAdvisor
 from advisors.persistent_advisor import PersistentAdvisor
 from advisors.canslim_advisor import CanslimAdvisor
 from advisors.mean_reversion_advisor import MeanReversionAdvisor
+from advisors.turtle_advisor import TurtleAdvisor
 
 
 def detect_entry_technique(df_feat: pd.DataFrame) -> Tuple[str, str]:
@@ -62,8 +63,12 @@ def detect_entry_technique(df_feat: pd.DataFrame) -> Tuple[str, str]:
     macd_slope = float(latest.get("macd_hist_slope", 0.0))
     hose_pullback = int(latest.get("hose_pullback_signal", 0))
     pullback_ema20 = int(latest.get("pullback_ema20_signal", 0))
+    turtle_breakout = int(latest.get("turtle_s2_breakout", 0))
 
-    if hose_pullback == 1:
+    if turtle_breakout == 1:
+        technique = "DONCHIAN-55 BREAKOUT (TURTLE S2)"
+        reason = f"Phá vỡ đỉnh hộp Donchian 55 phiên | Không trần | Vol {vol_ratio:.1f}x | Quản trị rủi ro 2N ATR"
+    elif hose_pullback == 1:
         technique = "PULLBACK EMA15 (HOSE)"
         reason = f"Đạt chuẩn Dual MA 20/50 | Pullback chạm EMA15 bật nến xanh | Vol bùng nổ {vol_ratio:.1f}x (>=1.5x)"
     elif pullback_ema20 == 1:
@@ -380,7 +385,8 @@ def run_daily_update():
         HarmonyAdvisor(),
         PersistentAdvisor(),
         CanslimAdvisor(),
-        MeanReversionAdvisor()
+        MeanReversionAdvisor(),
+        TurtleAdvisor()
     ]
 
     latest_timestamp = bm_df["time"].iloc[-1]

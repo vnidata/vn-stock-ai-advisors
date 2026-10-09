@@ -322,6 +322,70 @@ it("HOSE Strategy: Dynamic Stop Loss is calibrated to 2.0x ATR", () => {
   assert.strictEqual(sl2, 28.71); // 29.0 * 0.990
 });
 
+it("Turtle System 2: Donchian 55-day Breakout entry and ceiling protection", () => {
+  function evalTurtleS2(close, prevClose, donchianHigh55, donchianLow20) {
+    const isCeiling = close >= (prevClose * 1.0685);
+    const isBreakout55 = (close > donchianHigh55) && !isCeiling;
+    const isExit20 = (close < donchianLow20);
+    return { isBreakout55, isExit20, isCeiling };
+  }
+
+  // Normal valid breakout
+  const r1 = evalTurtleS2(35.2, 33.5, 35.0, 31.0);
+  assert.strictEqual(r1.isBreakout55, true);
+  assert.strictEqual(r1.isCeiling, false);
+
+  // Ceiling breakout (must not buy at ceiling)
+  const r2 = evalTurtleS2(37.45, 35.0, 35.0, 31.0); // +7.0% ceiling
+  assert.strictEqual(r2.isCeiling, true);
+  assert.strictEqual(r2.isBreakout55, false, "Must strictly reject entry on ceiling price");
+
+  // Exit when breaking 20-day low
+  const r3 = evalTurtleS2(30.5, 31.5, 35.0, 31.0);
+  assert.strictEqual(r3.isExit20, true);
+});
+
+it("Turtle System 2: Position sizing Unit calculation and 2N Stop Loss", () => {
+  function calculateTurtleUnit(equity, price, nAtr, riskPct = 0.01) {
+    const unitRiskVnd = equity * riskPct;
+    const dollarN = nAtr * 1000; // in VND
+    const shares = Math.floor(unitRiskVnd / dollarN / 100) * 100;
+    const stopLossPrice = price - (2.0 * nAtr);
+    return { shares, stopLossPrice: Number(stopLossPrice.toFixed(2)) };
+  }
+
+  // Equity 1 billion VND, Stock at 30.0 (30,000 VND), ATR N = 1.0 (1,000 VND)
+  // 1% risk = 10,000,000 VND. Shares = 10,000,000 / 1,000 = 10,000 shares
+  const u1 = calculateTurtleUnit(1000000000, 30.0, 1.0);
+  assert.strictEqual(u1.shares, 10000);
+  assert.strictEqual(u1.stopLossPrice, 28.0); // 30 - 2*1.0 = 28.0
+});
+
+it("Turtle System 2: Diagnosis data contract includes Donchian 55/20 channels & GA calibration", () => {
+  const css = fs.readFileSync(path.join(__dirname, "../docs/style.css"), "utf8");
+  assert.ok(css.includes(".diag-turtle-strategy-box"), "CSS must contain .diag-turtle-strategy-box");
+  assert.ok(css.includes(".diag-turtle-grid"), "CSS must contain .diag-turtle-grid");
+  assert.ok(css.includes(".pill-turtle"), "CSS must contain .pill-turtle");
+
+  const appJs = fs.readFileSync(path.join(__dirname, "../docs/app.js"), "utf8");
+  assert.ok(appJs.includes("donchianHigh55"), "app.js must compute donchianHigh55");
+  assert.ok(appJs.includes("donchianLow20"), "app.js must compute donchianLow20");
+  assert.ok(appJs.includes("stopLoss2N"), "app.js must compute stopLoss2N");
+  assert.ok(appJs.includes("turtleUnitShares"), "app.js must compute turtleUnitShares");
+  assert.ok(appJs.includes("diag-turtle-strategy-box"), "app.js modal template must render diag-turtle-strategy-box");
+});
+
+it("Turtle System 2: Genetic Algorithm fitness function behavior contract", () => {
+  function computeFitness(calmar, maxDd, wCalmar = 0.7, wDd = 0.3) {
+    return (wCalmar * calmar) - (wDd * Math.abs(maxDd));
+  }
+  // High Calmar, low DD (Ideal Turtle trend-follower)
+  const f1 = computeFitness(2.21, 10.2);
+  // Poor Calmar, deep DD
+  const f2 = computeFitness(0.40, 42.0);
+  assert.ok(f1 > f2, "Superior Calmar with low drawdown must yield substantially higher fitness");
+});
+
 // -----------------------------------------------------------------------------
 // SUMMARY
 // -----------------------------------------------------------------------------

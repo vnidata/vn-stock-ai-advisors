@@ -116,6 +116,8 @@ class TechnicalFeatureEngineer:
         tr3 = (low - close.shift(1)).abs()
         tr = pd.concat([tr1, tr2, tr3], axis=1).max(axis=1)
         df["atr_14"] = tr.rolling(14).mean()
+        df["atr_20"] = tr.rolling(20, min_periods=10).mean()
+        df["n_atr"] = df["atr_20"]  # Turtle Trading Volatility N
         df["atr_pct"] = df["atr_14"] / (close + 1e-9)
 
         # Historical Volatility (20-day annualized)
@@ -137,6 +139,27 @@ class TechnicalFeatureEngineer:
         rolling_min_250 = close.rolling(250, min_periods=50).min()
         df["dist_52w_high"] = (close - rolling_max_250) / (rolling_max_250 + 1e-9)
         df["drawdown_60d"] = (close - close.rolling(60, min_periods=20).max()) / (close.rolling(60, min_periods=20).max() + 1e-9)
+
+        # 6B. Donchian Channels & Turtle Trading System 2 (S2 - 55D Breakout / 20D Exit)
+        # Entry window: 55 days (prior high, excluding current candle)
+        # Exit window: 20 days (prior low, excluding current candle)
+        df["donchian_high_55"] = high.shift(1).rolling(55, min_periods=20).max()
+        df["donchian_low_55"] = low.shift(1).rolling(55, min_periods=20).min()
+        df["donchian_high_20"] = high.shift(1).rolling(20, min_periods=10).max()
+        df["donchian_low_20"] = low.shift(1).rolling(20, min_periods=10).min()
+
+        # HOSE Ceiling Price filter (biên độ +7%, không mua đuổi khi trần)
+        df["is_ceiling"] = (close >= (close.shift(1) * 1.0685)).astype(int)
+
+        # Turtle S2 Breakout Signal (Vượt đỉnh 55 phiên, không trần, vol >= 1.15x)
+        df["turtle_s2_breakout"] = (
+            (close > df["donchian_high_55"]) &
+            (df["is_ceiling"] == 0) &
+            (df["vol_ratio"] >= 1.15)
+        ).astype(int)
+
+        # Turtle S2 Exit Signal (Thủng đáy 20 phiên)
+        df["turtle_s2_exit"] = (close < df["donchian_low_20"]).astype(int)
 
         # Dynamic 20-day Support / Resistance Pivots
         df["support_20d"] = low.rolling(20, min_periods=5).min()

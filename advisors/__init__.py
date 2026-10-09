@@ -10,6 +10,7 @@ from .persistent_advisor import PersistentAdvisor
 from .canslim_advisor import CanslimAdvisor
 from .mean_reversion_advisor import MeanReversionAdvisor
 from .dynamic_advisor import DynamicAdvisor
+from .turtle_advisor import TurtleAdvisor
 
 __all__ = [
     "BaseAdvisor",
@@ -18,5 +19,7 @@ __all__ = [
     "PersistentAdvisor",
     "CanslimAdvisor",
     "MeanReversionAdvisor",
-    "DynamicAdvisor"
+    "DynamicAdvisor",
+    "TurtleAdvisor"
 ]
+

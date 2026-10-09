@@ -310,6 +310,58 @@ class TestHoseQuantStrategy:
         assert brackets["target_price"] > 30.0
         assert brackets["rr_ratio"] >= 2.85, f"R:R ratio must be >= 2.85, got {brackets['rr_ratio']}"
 
+    def test_donchian_breakout_turtle_s2(self):
+        import pandas as pd
+        import numpy as np
+        from data.indicators import TechnicalFeatureEngineer
+
+        n = 100
+        dates = pd.date_range("2026-01-01", periods=n)
+        close = np.linspace(20.0, 30.0, n)
+        high = close + 0.5
+        low = close - 0.5
+        df = pd.DataFrame({
+            "time": dates,
+            "open": close - 0.1,
+            "high": high,
+            "low": low,
+            "close": close,
+            "volume": np.full(n, 2000000)
+        })
+        feat_df = TechnicalFeatureEngineer.compute_features(df)
+        donchian_cols = [
+            "donchian_high_55", "donchian_low_20", "donchian_high_20", "donchian_low_55",
+            "atr_20", "n_atr", "is_ceiling", "turtle_s2_breakout", "turtle_s2_exit"
+        ]
+        for col in donchian_cols:
+            assert col in feat_df.columns, f"Donchian column '{col}' missing from feature stack"
+
+    def test_genetic_donchian_optimizer(self):
+        import pandas as pd
+        import numpy as np
+        from evolution.genetic_donchian_optimizer import GeneticDonchianOptimizer, TurtleGenome
+
+        n = 180
+        dates = pd.date_range("2025-06-01", periods=n)
+        close = 20.0 + np.cumsum(np.random.normal(0.04, 0.4, n))
+        df = pd.DataFrame({
+            "time": dates,
+            "open": close - 0.1,
+            "high": close + 0.3,
+            "low": close - 0.3,
+            "close": close,
+            "volume": np.full(n, 2500000)
+        })
+
+        opt = GeneticDonchianOptimizer(population_size=10, generations=3)
+        best_g, metrics = opt.optimize(df)
+        assert 40 <= best_g.entry_window <= 70
+        assert 15 <= best_g.exit_window <= 25
+        assert 14 <= best_g.atr_period <= 25
+        assert 0.005 <= best_g.risk_per_unit <= 0.015
+        assert hasattr(metrics, "calmar_ratio")
+        assert hasattr(metrics, "fitness_score")
+
 
 if __name__ == "__main__":
     pytest.main(["-v", __file__])
