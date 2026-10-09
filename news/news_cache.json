@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-09 08:30:55",
+  "last_updated": "2026-10-09 10:02:59",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 1,
@@ -55,17 +55,26 @@
     },
     "VCB": {
       "symbol": "VCB",
-      "news_count": 2,
+      "news_count": 3,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Lãi suất ngân hàng 8/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+      "latest_headline": "Lãnh đạo Vietcombank: Gần 50% khách hàng cá nhân của Vietcombank tuổi dưới 35",
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Duy trì tỷ trọng khuyến nghị",
       "sentiment_multiplier": 1.0,
       "related_news": [
+        {
+          "title": "Lãnh đạo Vietcombank: Gần 50% khách hàng cá nhân của Vietcombank tuổi dưới 35",
+          "date": "Fri, 09 Oct 26 16:30:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/lanh-dao-vietcombank-gan-50-khach-hang-ca-nhan-cua-vietcombank-tuoi-duoi-35-188261009155314667.chn"
+        },
         {
           "title": "Lãi suất ngân hàng 8/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
           "date": "Thu, 08 Oct 26 20:41:00 +0700",
@@ -112,7 +121,7 @@
     },
     "TCB": {
       "symbol": "TCB",
-      "news_count": 3,
+      "news_count": 2,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
@@ -140,41 +149,21 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/lai-suat-ngan-hang-8-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261008204232797.chn"
-        },
-        {
-          "title": "Các ngân hàng Việt Nam huy động vốn nước ngoài nhiều chưa từng thấy: Đâu là nguyên nhân?",
-          "date": "Wed, 07 Oct 26 06:00:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/cac-ngan-hang-viet-nam-huy-dong-von-nuoc-ngoai-nhieu-chua-tung-thay-dau-la-nguyen-nhan-188261006175818836.chn"
         }
       ]
     },
     "ACB": {
       "symbol": "ACB",
-      "news_count": 1,
+      "news_count": 0,
       "net_sentiment": 0.0,
-      "status": "THÔNG TIN ỔN ĐỊNH",
+      "status": "THÔNG TIN BÌNH ỔN",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Các ngân hàng Việt Nam huy động vốn nước ngoài nhiều chưa từng thấy: Đâu là nguyên nhân?",
+      "latest_headline": "Không có thông tin bất thường gần đây",
       "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Duy trì tỷ trọng khuyến nghị",
-      "sentiment_multiplier": 1.0,
-      "related_news": [
-        {
-          "title": "Các ngân hàng Việt Nam huy động vốn nước ngoài nhiều chưa từng thấy: Đâu là nguyên nhân?",
-          "date": "Wed, 07 Oct 26 06:00:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/cac-ngan-hang-viet-nam-huy-dong-von-nuoc-ngoai-nhieu-chua-tung-thay-dau-la-nguyen-nhan-188261006175818836.chn"
-        }
-      ]
+      "action_desc": "Duy trì khuyến nghị định lượng gốc",
+      "sentiment_multiplier": 1.0
     },
     "SSI": {
       "symbol": "SSI",
@@ -233,17 +222,26 @@
     },
     "VHM": {
       "symbol": "VHM",
-      "news_count": 1,
+      "news_count": 2,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Lãi vay mua nhà có thể lên 16%/năm, Vinhomes tung ưu đãi lãi suất từ 3-9% trong tối đa 5 năm",
+      "latest_headline": "Một cổ phiếu bất ngờ bị khối ngoại \"xả\" đột biến hơn 9.600 tỷ đồng phiên cuối tuần",
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Duy trì tỷ trọng khuyến nghị",
       "sentiment_multiplier": 1.0,
       "related_news": [
+        {
+          "title": "Một cổ phiếu bất ngờ bị khối ngoại \"xả\" đột biến hơn 9.600 tỷ đồng phiên cuối tuần",
+          "date": "Fri, 09 Oct 26 15:45:00 +0700",
+          "source": "CafeF Thị Trường",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/mot-co-phieu-bat-ngo-bi-khoi-ngoai-xa-dot-bien-hon-9600-ty-dong-phien-cuoi-tuan-188261009153241263.chn"
+        },
         {
           "title": "Lãi vay mua nhà có thể lên 16%/năm, Vinhomes tung ưu đãi lãi suất từ 3-9% trong tối đa 5 năm",
           "date": "Fri, 09 Oct 26 10:46:00 +0700",
@@ -488,6 +486,25 @@
       "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
       "link": "https://cafef.vn/mot-ong-lon-dau-nganh-duoc-du-bao-lai-quy-3-tang-soc-hon-700-188261008121548183.chn",
       "published_date": "Thu, 08 Oct 26 12:34:00 +0700"
+    },
+    {
+      "title": "Doanh nghiệp không kinh doanh nhiều năm vẫn có thể gánh 100 triệu đồng tiền phạt, chậm nộp: Chuyên gia kiến nghị gỡ vướng",
+      "description": "Chuyên gia kiến nghị phân loại đối tượng, xem xét miễn lệ phí môn bài và các khoản phạt, chậm nộp cho doanh nghiệp đã ngừng hoạt động, không phát sinh nghĩa vụ thuế thực tế.",
+      "source": "CafeF Doanh Nghiệp (CBTT)",
+      "symbols": [],
+      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
+      "sentiment_score": -0.8,
+      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
+      "sentiment_badge": "neg-danger",
+      "is_red_flag": true,
+      "is_catalyst": false,
+      "triggers_found": [
+        "ngừng hoạt động"
+      ],
+      "re_eval_action": "VETO_REJECT",
+      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
+      "link": "https://cafef.vn/doanh-nghiep-khong-kinh-doanh-nhieu-nam-van-co-the-ganh-100-trieu-dong-tien-phat-cham-nop-chuyen-gia-kien-nghi-go-vuong-188261009154856602.chn",
+      "published_date": "Fri, 09 Oct 26 15:48:00 +0700"
     },
     {
       "title": "6.000 đồng/cổ phiếu năm 2026: MSR đặt nền móng cho chính sách cổ tức tiền mặt dài hạn",
@@ -854,6 +871,42 @@
       "published_date": "Wed, 07 Oct 26 19:31:00 +0700"
     },
     {
+      "title": "Một cổ phiếu bất ngờ bị khối ngoại \"xả\" đột biến hơn 9.600 tỷ đồng phiên cuối tuần",
+      "description": "Ở chiều mua ròng, VHM dẫn đầu với giá trị khoảng 162 tỷ đồng.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "VHM"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/mot-co-phieu-bat-ngo-bi-khoi-ngoai-xa-dot-bien-hon-9600-ty-dong-phien-cuoi-tuan-188261009153241263.chn",
+      "published_date": "Fri, 09 Oct 26 15:45:00 +0700"
+    },
+    {
+      "title": "Bà Nguyễn Thị Như Loan từ án treo xuống cải tạo không giam giữ, đã chấp hành xong",
+      "description": "Tòa phúc thẩm giảm án cho 11 bị cáo trong vụ sai phạm khu đất 39-39B Bến Vân Đồn, xác định bà Nguyễn Thị Như Loan đã chấp hành xong hình phạt sau khi khấu trừ thời gian tạm giam.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/ba-nguyen-thi-nhu-loan-tu-an-treo-xuong-cai-tao-khong-giam-giu-da-chap-hanh-xong-188261009145513445.chn",
+      "published_date": "Fri, 09 Oct 26 15:45:00 +0700"
+    },
+    {
       "title": "Cổ phiếu Novaland bất ngờ \"có biến\"",
       "description": "Diễn biến hồi phục của NVL diễn ra trong bối cảnh xuất hiện một số thông tin mới liên quan đến quá trình tái cấu trúc tài chính của Novaland.",
       "source": "CafeF Thị Trường",
@@ -1119,59 +1172,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/vinfast-bat-ngo-dat-hang-tai-quoc-gia-dong-dan-nhat-the-gioi-188261008220208428.chn",
       "published_date": "Fri, 09 Oct 26 00:03:00 +0700"
-    },
-    {
-      "title": "“Gã khổng lồ” bất động sản khu công nghiệp sắp trả cổ tức 6.000 đồng/cp",
-      "description": "Doanh nghiệp sẽ chi tổng cộng gần 144 tỷ đồng trong đợt trả cổ tức này.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/ga-khong-lo-bat-dong-san-khu-cong-nghiep-sap-tra-co-tuc-6000-dong-cp-188261008222739875.chn",
-      "published_date": "Thu, 08 Oct 26 22:27:00 +0700"
-    },
-    {
-      "title": "Hãng taxi của tỷ phú Phạm Nhật Vượng vừa đạt cột mốc quan trọng",
-      "description": "Theo báo cáo, GSM hiện đang trong giai đoạn chuẩn bị trước IPO (pre-IPO) và đặt mục tiêu thực hiện IPO vào năm 2028. Đây là bước tiếp theo trong quá trình mở rộng quy mô của doanh nghiệp sau hơn 3 năm hoạt động.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "VIC"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/hang-taxi-cua-ty-phu-pham-nhat-vuong-vua-dat-cot-moc-quan-trong-188261008212520562.chn",
-      "published_date": "Thu, 08 Oct 26 22:26:00 +0700"
-    },
-    {
-      "title": "AIGS công bố kết quả kiểm định: 100% mẫu kim cương PNJ là kim cương thiên nhiên",
-      "description": "Theo AIGS, 100% mẫu được kiểm định là kim cương thiên nhiên và phù hợp với các thông số 4C được PNJ công bố.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/aigs-cong-bo-ket-qua-kiem-dinh-100-mau-kim-cuong-pnj-la-kim-cuong-thien-nhien-188261008200503144.chn",
-      "published_date": "Thu, 08 Oct 26 20:04:00 +0700"
     }
   ]
 }

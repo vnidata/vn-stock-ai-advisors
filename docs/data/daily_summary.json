@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-09 08:30:58 (UTC+7)",
+  "last_updated": "2026-10-09 10:03:01 (UTC+7)",
   "trading_date": "2026-10-09",
   "vnindex": {
     "close": 1735.09,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 1,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-09 08:30:55"
+    "last_scanned": "2026-10-09 10:02:59"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -59,9 +59,9 @@
       "current_return_pct": -0.15,
       "pnl_vnd": -429000,
       "holding_days": 21,
-      "stop_loss": 31.15,
+      "stop_loss": 31.09,
       "target_price": 36.29,
-      "rr_ratio": "3.1 : 1",
+      "rr_ratio": "3.0 : 1",
       "status_text": "TÍCH LŨY / HÒA VỐN",
       "status_badge": "neutral",
       "action_advice": "Giữ vị thế, quan sát hỗ trợ MA20",
@@ -131,9 +131,9 @@
       "current_return_pct": -0.12,
       "pnl_vnd": -343199,
       "holding_days": 21,
-      "stop_loss": 31.15,
+      "stop_loss": 31.09,
       "target_price": 36.28,
-      "rr_ratio": "3.1 : 1",
+      "rr_ratio": "3.0 : 1",
       "status_text": "TÍCH LŨY / HÒA VỐN",
       "status_badge": "neutral",
       "action_advice": "Giữ vị thế, quan sát hỗ trợ MA20",
@@ -203,9 +203,9 @@
       "current_return_pct": -0.12,
       "pnl_vnd": -343199,
       "holding_days": 21,
-      "stop_loss": 31.15,
+      "stop_loss": 31.09,
       "target_price": 36.28,
-      "rr_ratio": "3.1 : 1",
+      "rr_ratio": "3.0 : 1",
       "status_text": "TÍCH LŨY / HÒA VỐN",
       "status_badge": "neutral",
       "action_advice": "Giữ vị thế, quan sát hỗ trợ MA20",
@@ -378,7 +378,7 @@
       "status_badge": "neutral",
       "action_advice": "Giữ vị thế, quan sát hỗ trợ MA20",
       "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 1.4x | RS 41",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
       "volume": 11569900
     }
@@ -396,7 +396,7 @@
       "entry_price": 32.4,
       "target_price": 36.29,
       "target_return_pct": -0.15,
-      "stop_loss": 31.15,
+      "stop_loss": 31.09,
       "max_loss_pct": -0.15,
       "rr_ratio": "Tối ưu vốn",
       "recommended_weight_pct": 0.0,
@@ -438,7 +438,7 @@
       "entry_price": 32.39,
       "target_price": 36.28,
       "target_return_pct": -0.12,
-      "stop_loss": 31.15,
+      "stop_loss": 31.09,
       "max_loss_pct": -0.12,
       "rr_ratio": "Tối ưu vốn",
       "recommended_weight_pct": 0.0,
@@ -480,7 +480,7 @@
       "entry_price": 32.39,
       "target_price": 36.28,
       "target_return_pct": -0.12,
-      "stop_loss": 31.15,
+      "stop_loss": 31.09,
       "max_loss_pct": -0.12,
       "rr_ratio": "Tối ưu vốn",
       "recommended_weight_pct": 0.0,
@@ -524,7 +524,7 @@
       "entry_price": 32.4,
       "target_price": 36.29,
       "target_return_pct": -0.15,
-      "stop_loss": 31.15,
+      "stop_loss": 31.09,
       "max_loss_pct": -0.15,
       "rr_ratio": "Tối ưu vốn",
       "recommended_weight_pct": 0.0,
@@ -566,7 +566,7 @@
       "entry_price": 32.39,
       "target_price": 36.28,
       "target_return_pct": -0.12,
-      "stop_loss": 31.15,
+      "stop_loss": 31.09,
       "max_loss_pct": -0.12,
       "rr_ratio": "Tối ưu vốn",
       "recommended_weight_pct": 0.0,
@@ -608,7 +608,7 @@
       "entry_price": 32.39,
       "target_price": 36.28,
       "target_return_pct": -0.12,
-      "stop_loss": 31.15,
+      "stop_loss": 31.09,
       "max_loss_pct": -0.12,
       "rr_ratio": "Tối ưu vốn",
       "recommended_weight_pct": 0.0,
@@ -770,9 +770,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Lãi suất ngân hàng 8/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+        "latest_headline": "Lãnh đạo Vietcombank: Gần 50% khách hàng cá nhân của Vietcombank tuổi dưới 35",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 2,
+        "news_count": 3,
         "re_eval_note": ""
       },
       {
@@ -796,7 +796,7 @@
         "status_badge": "neutral",
         "latest_headline": "Danh mục cổ phiếu ngân hàng khủng của VIX: lộ diện số cổ phiếu VPBank trị giá hơn 2.700 tỷ đồng cùng hàng nghìn tỷ rót vào Eximbank, TCB",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 3,
+        "news_count": 2,
         "re_eval_note": ""
       },
       {
@@ -804,11 +804,11 @@
         "sector": "Banking",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN ỔN ĐỊNH",
+        "status": "THÔNG TIN BÌNH ỔN",
         "status_badge": "neutral",
-        "latest_headline": "Các ngân hàng Việt Nam huy động vốn nước ngoài nhiều chưa từng thấy: Đâu là nguyên nhân?",
-        "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
+        "latest_headline": "Không có thông tin bất thường gần đây",
+        "action_desc": "Duy trì khuyến nghị định lượng gốc",
+        "news_count": 0,
         "re_eval_note": ""
       },
       {
@@ -842,9 +842,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Lãi vay mua nhà có thể lên 16%/năm, Vinhomes tung ưu đãi lãi suất từ 3-9% trong tối đa 5 năm",
+        "latest_headline": "Một cổ phiếu bất ngờ bị khối ngoại \"xả\" đột biến hơn 9.600 tỷ đồng phiên cuối tuần",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
+        "news_count": 2,
         "re_eval_note": ""
       },
       {
@@ -997,7 +997,7 @@
       "quant_criteria": "Vốn hóa số 1, trụ đỡ tâm lý điều tiết thị trường, sức khỏe tài chính chuẩn mực Basel III.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Lãi suất ngân hàng 8/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,..."
+      "latest_headline": "Lãnh đạo Vietcombank: Gần 50% khách hàng cá nhân của Vietcombank tuổi dưới 35"
     },
     {
       "symbol": "MBB",
@@ -1079,9 +1079,9 @@
       "ai_radar_action": "Chưa kích hoạt điểm mua an toàn; Tuân thủ kỷ luật 100% tiền mặt phòng thủ",
       "selection_reason": "Chuẩn mực quản trị rủi ro khắt khe nhất trong nhóm ngân hàng tư nhân. Danh mục tín dụng tập trung bán lẻ an toàn, không có dư nợ trái phiếu rủi ro cao, tỷ lệ nợ xấu luôn thuộc nhóm thấp nhất.",
       "quant_criteria": "ROE ổn định 22-25%, hồ sơ rủi ro tín dụng sạch, cổ tức tiền mặt và cổ phiếu đều đặn hàng năm.",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
-      "latest_headline": "Các ngân hàng Việt Nam huy động vốn nước ngoài nhiều chưa từng thấy: Đâu là nguyên nhân?"
+      "latest_headline": "Không có thông tin bất thường gần đây"
     },
     {
       "symbol": "SSI",
@@ -1165,7 +1165,7 @@
       "quant_criteria": "Vốn hóa trụ cột Top 3 VN-Index, quỹ đất hàng nghìn ha, đóng góp lớn vào biến động điểm số chỉ số.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Lãi vay mua nhà có thể lên 16%/năm, Vinhomes tung ưu đãi lãi suất từ 3-9% trong tối đa 5 năm"
+      "latest_headline": "Một cổ phiếu bất ngờ bị khối ngoại \"xả\" đột biến hơn 9.600 tỷ đồng phiên cuối tuần"
     },
     {
       "symbol": "MWG",
@@ -1351,17 +1351,17 @@
         {
           "symbol": "TCB",
           "weight_pct": 28.6,
-          "score": 0.1161,
-          "confidence_score": 67,
+          "score": 0.1781,
+          "confidence_score": 63,
           "sector": "Banking",
           "entry_price": 32.4,
           "entry_date": "2026-09-10",
           "current_price": 32.35,
           "daily_change_pct": 1.41,
           "current_return_pct": -0.15,
-          "stop_loss": 31.15,
+          "stop_loss": 31.09,
           "target_price": 36.29,
-          "rr_ratio": "3.1 : 1",
+          "rr_ratio": "3.0 : 1",
           "entry_technique": "THẮT CHẶT BIÊN ĐỘ (VCP)",
           "holding_days": 21,
           "status_text": "TÍCH LŨY / HÒA VỐN",
@@ -1378,8 +1378,8 @@
         {
           "symbol": "MSN",
           "weight_pct": 30.7,
-          "score": 0.5688,
-          "confidence_score": 65,
+          "score": 0.6248,
+          "confidence_score": 66,
           "sector": "Consumer",
           "entry_price": 70.77,
           "entry_date": "2026-10-02",
@@ -1447,17 +1447,17 @@
         {
           "symbol": "TCB",
           "weight_pct": 28.6,
-          "score": 0.1881,
-          "confidence_score": 67,
+          "score": 0.2349,
+          "confidence_score": 63,
           "sector": "Banking",
           "entry_price": 32.39,
           "entry_date": "2026-09-10",
           "current_price": 32.35,
           "daily_change_pct": 1.41,
           "current_return_pct": -0.12,
-          "stop_loss": 31.15,
+          "stop_loss": 31.09,
           "target_price": 36.28,
-          "rr_ratio": "3.1 : 1",
+          "rr_ratio": "3.0 : 1",
           "entry_technique": "THẮT CHẶT BIÊN ĐỘ (VCP)",
           "holding_days": 21,
           "status_text": "TÍCH LŨY / HÒA VỐN",
@@ -1474,8 +1474,8 @@
         {
           "symbol": "MSN",
           "weight_pct": 30.7,
-          "score": 0.5826,
-          "confidence_score": 65,
+          "score": 0.6249,
+          "confidence_score": 66,
           "sector": "Consumer",
           "entry_price": 70.77,
           "entry_date": "2026-10-02",
@@ -1557,17 +1557,17 @@
         {
           "symbol": "TCB",
           "weight_pct": 28.6,
-          "score": 0.0998,
-          "confidence_score": 67,
+          "score": 0.162,
+          "confidence_score": 63,
           "sector": "Banking",
           "entry_price": 32.39,
           "entry_date": "2026-09-10",
           "current_price": 32.35,
           "daily_change_pct": 1.41,
           "current_return_pct": -0.12,
-          "stop_loss": 31.15,
+          "stop_loss": 31.09,
           "target_price": 36.28,
-          "rr_ratio": "3.1 : 1",
+          "rr_ratio": "3.0 : 1",
           "entry_technique": "THẮT CHẶT BIÊN ĐỘ (VCP)",
           "holding_days": 21,
           "status_text": "TÍCH LŨY / HÒA VỐN",
@@ -1584,8 +1584,8 @@
         {
           "symbol": "MSN",
           "weight_pct": 30.7,
-          "score": 0.5092,
-          "confidence_score": 65,
+          "score": 0.5656,
+          "confidence_score": 66,
           "sector": "Consumer",
           "entry_price": 70.77,
           "entry_date": "2026-10-02",
@@ -1653,8 +1653,8 @@
         {
           "symbol": "MSN",
           "weight_pct": 19.6,
-          "score": 0.5108,
-          "confidence_score": 65,
+          "score": 0.5789,
+          "confidence_score": 66,
           "sector": "Consumer",
           "entry_price": 75.28,
           "entry_date": "2026-10-07",
@@ -1680,8 +1680,8 @@
         {
           "symbol": "MWG",
           "weight_pct": 19.5,
-          "score": 0.3875,
-          "confidence_score": 65,
+          "score": 0.4472,
+          "confidence_score": 63,
           "sector": "Retail",
           "entry_price": 76.98,
           "entry_date": "2026-10-07",
@@ -1707,7 +1707,7 @@
         {
           "symbol": "VCB",
           "weight_pct": 19.6,
-          "score": 0.3558,
+          "score": 0.3637,
           "confidence_score": 60,
           "sector": "Banking",
           "entry_price": 57.26,
@@ -1727,14 +1727,14 @@
           "technical_signal": "ĐẢO CHIỀU PHÂN KỲ | Hồi phục từ vùng quá bán kỹ thuật (RSI 19) | Phân kỳ động lượng dương MACD/RSI",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Lãi suất ngân hàng 8/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+          "news_headline": "Lãnh đạo Vietcombank: Gần 50% khách hàng cá nhân của Vietcombank tuổi dưới 35",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
         {
           "symbol": "MBB",
           "weight_pct": 19.6,
-          "score": 0.3394,
+          "score": 0.3494,
           "confidence_score": 60,
           "sector": "Banking",
           "entry_price": 19.12,
@@ -1779,13 +1779,27 @@
           "action_advice": "Giữ vị thế, quan sát hỗ trợ MA20",
           "volume": 11569900,
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 1.4x | RS 41",
-          "news_status": "THÔNG TIN ỔN ĐỊNH",
+          "news_status": "THÔNG TIN BÌNH ỔN",
           "news_badge": "neutral",
-          "news_headline": "Các ngân hàng Việt Nam huy động vốn nước ngoài nhiều chưa từng thấy: Đâu là nguyên nhân?",
-          "news_action": "Duy trì tỷ trọng khuyến nghị",
+          "news_headline": "Không có thông tin bất thường gần đây",
+          "news_action": "Duy trì khuyến nghị định lượng gốc",
           "news_score": 0.0
         }
       ],
+      "news_notes": {
+        "MSN": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
+      }
+    },
+    "AI_Advisor_Turtle_Donchian": {
+      "name": "AI_Advisor_Turtle_Donchian",
+      "description": "Chuyên gia Donchian Breakout (Turtle S2): Phá vỡ hộp Donchian 55 ngày, thoát vị thế đáy 20 ngày, bảo vệ vốn 2N ATR(20), tối ưu hóa bằng Thuật toán Di truyền (GA).",
+      "rebalance_days": 45,
+      "allocation_method": "EQW",
+      "current_cycle_return_pct": 0.0,
+      "winning_picks": 0,
+      "total_picks": 0,
+      "cash_ratio_pct": 100.0,
+      "top5": [],
       "news_notes": {
         "MSN": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
       }
