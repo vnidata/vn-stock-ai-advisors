@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-09 11:03:23",
+  "last_updated": "2026-10-09 11:13:30",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 1,
@@ -280,7 +280,7 @@
     },
     "VHM": {
       "symbol": "VHM",
-      "news_count": 2,
+      "news_count": 1,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
@@ -299,15 +299,6 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/lai-vay-mua-nha-co-the-len-16-nam-vinhomes-tung-uu-dai-lai-suat-tu-3-9-trong-toi-da-5-nam-18826100910464673.chn"
-        },
-        {
-          "title": "Vinhomes của tỷ phú Phạm Nhật Vượng tập trung bán căn hộ “vừa túi tiền”",
-          "date": "Thu, 08 Oct 26 00:02:00 +0700",
-          "source": "CafeF Doanh Nghiệp (CBTT)",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/vinhomes-cua-ty-phu-pham-nhat-vuong-don-suc-ban-can-ho-vua-tui-tien-gia-5-6-ty-dong-188261007213603389.chn"
         }
       ]
     },

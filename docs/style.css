@@ -565,6 +565,7 @@ body {
 }
 
 .tab-badge.badge-green { background: rgba(16, 185, 129, 0.2); color: #34d399; border-color: rgba(16, 185, 129, 0.4); }
+.tab-badge.badge-red { background: rgba(239, 68, 68, 0.2); color: #f87171; border-color: rgba(239, 68, 68, 0.4); }
 .tab-badge.badge-amber { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border-color: rgba(245, 158, 11, 0.4); }
 .tab-badge.badge-blue { background: rgba(59, 130, 246, 0.2); color: #93c5fd; border-color: rgba(59, 130, 246, 0.4); }
 .tab-badge.badge-purple { background: rgba(129, 140, 248, 0.2); color: #c7d2fe; border-color: rgba(129, 140, 248, 0.4); }

@@ -621,32 +621,104 @@ def run_daily_update():
                     "volume": item["volume"]
                 })
 
-    # 4B. Generate Actionable New Signals (Buy / Take Profit / Stop Loss / Switch)
-    new_signals = []
-    sig_id = 1
-
-    adv_win_rate_map = {
-        "CANSLIM": 78,
-        "CANSLIM_Breakout": 78,
-        "Active": 72,
-        "ChuDong_2W": 72,
-        "Persistent": 69,
-        "BenBi_3M": 69,
-        "Harmony": 66,
-        "NhipNhang_1M": 66,
-        "Mean_Reversion": 65
+    # 4B. Audited Advisor Forecast Accuracy & Performance Metrics (from 15Y + 2026 execution audit)
+    ADV_AUDIT_METRICS = {
+        "ChuDong_2W": {
+            "name": "AI_Advisor_ChuDong_2W",
+            "advisor_name": "ChuDong_2W",
+            "display_name": "Chủ Động (2W)",
+            "win_rate": 47.2,
+            "rr_ratio": "2.30x",
+            "cagr": 15.8,
+            "max_drawdown": -21.8,
+            "profit_factor": 1.52,
+            "total_trades": 750,
+            "avg_win": 11.56,
+            "avg_loss": -5.03,
+            "expectancy": 3.01,
+            "forecast_accuracy_rating": "Hiệu suất Asymmetric R:R 2.30x (Lãi TB +11.6% / Lỗ TB -5.0%)",
+            "status": "Gen 2 Tối Ưu"
+        },
+        "NhipNhang_1M": {
+            "name": "AI_Advisor_NhipNhang_1M",
+            "advisor_name": "NhipNhang_1M",
+            "display_name": "Nhịp Nhàng (1M)",
+            "win_rate": 49.1,
+            "rr_ratio": "2.51x",
+            "cagr": 14.8,
+            "max_drawdown": -23.8,
+            "profit_factor": 1.55,
+            "total_trades": 658,
+            "avg_win": 12.90,
+            "avg_loss": -5.14,
+            "expectancy": 3.91,
+            "forecast_accuracy_rating": "Cân bằng đà tăng & thanh khoản (Win Rate 49.1%, R:R 2.51x)",
+            "status": "Gen 2 Tối Ưu"
+        },
+        "CANSLIM_Breakout": {
+            "name": "AI_Advisor_CANSLIM_Breakout",
+            "advisor_name": "CANSLIM_Breakout",
+            "display_name": "CANSLIM Breakout",
+            "win_rate": 48.3,
+            "rr_ratio": "2.46x",
+            "cagr": 14.4,
+            "max_drawdown": -23.8,
+            "profit_factor": 1.52,
+            "total_trades": 648,
+            "avg_win": 12.87,
+            "avg_loss": -5.24,
+            "expectancy": 4.00,
+            "forecast_accuracy_rating": "Săn siêu cổ phiếu vượt đỉnh (Win Rate 48.3%, R:R 2.46x)",
+            "status": "Gen 2 Tối Ưu"
+        },
+        "BenBi_3M": {
+            "name": "AI_Advisor_BenBi_3M",
+            "advisor_name": "BenBi_3M",
+            "display_name": "Bền Bỉ (3M)",
+            "win_rate": 49.2,
+            "rr_ratio": "3.22x",
+            "cagr": 8.7,
+            "max_drawdown": -22.4,
+            "profit_factor": 1.82,
+            "total_trades": 258,
+            "avg_win": 19.06,
+            "avg_loss": -5.92,
+            "expectancy": 6.32,
+            "forecast_accuracy_rating": "Tỷ lệ R:R cao nhất hệ thống (3.22x, Lãi TB +19.1%)",
+            "status": "Gen 2 Tối Ưu"
+        },
+        "Mean_Reversion": {
+            "name": "AI_Advisor_Mean_Reversion",
+            "advisor_name": "Mean_Reversion",
+            "display_name": "Đảo Chiều (20D)",
+            "win_rate": 47.5,
+            "rr_ratio": "2.39x",
+            "cagr": 15.9,
+            "max_drawdown": -34.7,
+            "profit_factor": 1.46,
+            "total_trades": 514,
+            "avg_win": 14.61,
+            "avg_loss": -6.12,
+            "expectancy": 5.85,
+            "forecast_accuracy_rating": "Bắt đáy phục hồi quá bán (Win Rate 47.5%, R:R 2.39x)",
+            "status": "Gen 2 Tối Ưu"
+        }
     }
 
-    # Buy signals: ONLY generated for newly recommended candidates filling open portfolio slots
+    # TAB 1 DATA: Buy signals (ONLY for newly recommended candidates filling open portfolio slots)
+    buy_signals = []
+    buy_sig_id = 1
     recommended_candidates = set()
+
     for adv_name, s_data in strategy_recommendations.items():
         adv_clean = adv_name.replace("AI_Advisor_", "")
+        adv_audit = ADV_AUDIT_METRICS.get(adv_clean, {})
         for item in s_data.get("top5", []):
             if item.get("status_badge") == "buy":
                 sym = item["symbol"]
                 if (adv_clean, sym) not in recommended_candidates:
                     recommended_candidates.add((adv_clean, sym))
-                    win_rate = adv_win_rate_map.get(adv_clean, 72)
+                    win_rate = adv_audit.get("win_rate", 48.0)
                     curr_p = item["current_price"]
                     tp = item["target_price"]
                     sl = item["stop_loss"]
@@ -655,8 +727,8 @@ def run_daily_update():
 
                     advisor_rationale = f"Cố vấn {adv_clean} kích hoạt lệnh [{item['entry_technique']}] (Tỷ trọng {item['weight_pct']}%), Asymmetric R:R {item['rr_ratio']}"
 
-                    new_signals.append({
-                        "id": f"SIG-BUY-{sig_id:02d}",
+                    buy_signals.append({
+                        "id": f"SIG-BUY-{buy_sig_id:02d}",
                         "symbol": sym,
                         "sector": item["sector"],
                         "signal_type": "MUA MỚI",
@@ -677,55 +749,150 @@ def run_daily_update():
                         "news_status": item["news_status"],
                         "news_badge": item["news_badge"]
                     })
-                    sig_id += 1
+                    buy_sig_id += 1
 
-    # Take profit signals (ONLY for genuine held positions with return >= 10.0%)
+    # TAB 2 DATA: Sell signals & Risk Management Actions (Take Profit, Stop Loss, Trailing Stop, Rebalance)
+    sell_signals = []
+    sell_sig_id = 1
+
     for h in all_current_holdings:
-        if h["current_return_pct"] >= 10.0:
-            new_signals.append({
-                "id": f"SIG-TP-{sig_id:02d}",
-                "symbol": h["symbol"],
+        ret = h["current_return_pct"]
+        days = h["holding_days"]
+        sym = h["symbol"]
+        adv_clean = h["advisor_name"]
+        curr_p = h["current_price"]
+        entry_p = h["entry_price"]
+        sl = h["stop_loss"]
+        tp = h["target_price"]
+
+        # Case 1: Target Profit Reached (+10% or more)
+        if ret >= 10.0:
+            sell_signals.append({
+                "id": f"SIG-SELL-{sell_sig_id:02d}",
+                "symbol": sym,
                 "sector": h["sector"],
-                "signal_type": "CHỐT LỜI",
+                "signal_type": "CHỐT LỜI KỲ VỌNG",
                 "signal_badge": "profit",
-                "recommended_advisor": h["advisor_name"],
-                "signal_price": h["current_price"],
-                "target_price": h["target_price"],
-                "target_return_pct": h["current_return_pct"],
-                "stop_loss": h["stop_loss"],
+                "recommended_advisor": adv_clean,
+                "signal_price": curr_p,
+                "entry_price": entry_p,
+                "target_price": tp,
+                "target_return_pct": ret,
+                "stop_loss": sl,
                 "max_loss_pct": 0.0,
                 "rr_ratio": "Đã đạt mục tiêu",
                 "recommended_weight_pct": 0.0,
-                "technical_reason": f"Lợi nhuận đạt +{h['current_return_pct']}% tiến sát mục tiêu chốt lời",
-                "advisor_rationale": "Chủ động hiện thực hóa lợi nhuận, nâng tiền mặt về mức an toàn",
+                "technical_reason": f"Lợi nhuận đạt +{ret}% tiến sát mục tiêu chốt lời (+15%)",
+                "advisor_rationale": "Chủ động hiện thực hóa lợi nhuận từng phần 50%, nâng tiền mặt về mức an toàn",
+                "action_advice": "Bán 50% chốt lời, giữ 50% nâng Trailing Stop theo MA10",
                 "news_status": h["news_status"],
                 "news_badge": h["news_badge"]
             })
-            sig_id += 1
+            sell_sig_id += 1
 
-    # Stop loss signals (ONLY for genuine held positions with return <= -4.0%)
-    for h in all_current_holdings:
-        if h["current_return_pct"] <= -4.0:
-            new_signals.append({
-                "id": f"SIG-SL-{sig_id:02d}",
-                "symbol": h["symbol"],
+        # Case 2: Trailing Stop Profit Lock (+3.0% to <10.0%)
+        elif ret >= 3.0:
+            trailing_stop_p = round(entry_p * 1.02, 2)
+            sell_signals.append({
+                "id": f"SIG-SELL-{sell_sig_id:02d}",
+                "symbol": sym,
+                "sector": h["sector"],
+                "signal_type": "BẢO TOÀN LÃI (TRAILING STOP)",
+                "signal_badge": "profit",
+                "recommended_advisor": adv_clean,
+                "signal_price": curr_p,
+                "entry_price": entry_p,
+                "target_price": tp,
+                "target_return_pct": ret,
+                "stop_loss": trailing_stop_p,
+                "max_loss_pct": 0.0,
+                "rr_ratio": f"+{ret}% lãi đệm",
+                "recommended_weight_pct": h["weight_pct"],
+                "technical_reason": f"Vị thế đang có lãi +{ret}%, lực tăng duy trì tốt trên MA20",
+                "advisor_rationale": f"Nâng chặn lãi Trailing Stop lên {trailing_stop_p} (+2.0% trên giá vốn) để bảo toàn thành quả",
+                "action_advice": "Duy trì vị thế, đặt lệnh dừng lãi Trailing Stop tự động",
+                "news_status": h["news_status"],
+                "news_badge": h["news_badge"]
+            })
+            sell_sig_id += 1
+
+        # Case 3: Stop Loss Violation (<= -4.0%)
+        elif ret <= -4.0:
+            sell_signals.append({
+                "id": f"SIG-SELL-{sell_sig_id:02d}",
+                "symbol": sym,
                 "sector": h["sector"],
                 "signal_type": "CẮT LỖ BẢO VỆ VỐN",
                 "signal_badge": "stop",
-                "recommended_advisor": h["advisor_name"],
-                "signal_price": h["current_price"],
-                "target_price": h["target_price"],
-                "target_return_pct": h["current_return_pct"],
-                "stop_loss": h["stop_loss"],
+                "recommended_advisor": adv_clean,
+                "signal_price": curr_p,
+                "entry_price": entry_p,
+                "target_price": tp,
+                "target_return_pct": ret,
+                "stop_loss": sl,
                 "max_loss_pct": -4.5,
                 "rr_ratio": "Bảo vệ vốn",
                 "recommended_weight_pct": 0.0,
-                "technical_reason": f"Hiệu suất suy giảm {h['current_return_pct']}%, chạm ngưỡng kỷ luật dừng lỗ",
-                "advisor_rationale": "Cắt lỗ dứt khoát -4.5% để triệt tiêu nguy cơ sụt giảm tài sản lớn (Max DD)",
+                "technical_reason": f"Hiệu suất suy giảm {ret}%, chạm ngưỡng kỷ luật dừng lỗ",
+                "advisor_rationale": "Cắt lỗ dứt khoát -4.5% để triệt tiêu nguy cơ sụt giảm tài sản lớn (Max Drawdown)",
+                "action_advice": "Bán toàn bộ vị thế, thu hồi 100% tiền mặt phòng thủ",
                 "news_status": h["news_status"],
                 "news_badge": h["news_badge"]
             })
-            sig_id += 1
+            sell_sig_id += 1
+
+        # Case 4: Time-Stop Rebalance (Held >= 20 days without upward traction)
+        elif days >= 20 and ret < 0:
+            sell_signals.append({
+                "id": f"SIG-SELL-{sell_sig_id:02d}",
+                "symbol": sym,
+                "sector": h["sector"],
+                "signal_type": "TÁI CƠ CẤU CHU KỲ (TIME-STOP)",
+                "signal_badge": "rebalance",
+                "recommended_advisor": adv_clean,
+                "signal_price": curr_p,
+                "entry_price": entry_p,
+                "target_price": tp,
+                "target_return_pct": ret,
+                "stop_loss": sl,
+                "max_loss_pct": ret,
+                "rr_ratio": "Tối ưu vốn",
+                "recommended_weight_pct": 0.0,
+                "technical_reason": f"Nắm giữ {days} phiên nhưng biến động đi ngang ({ret}%), dòng tiền yếu",
+                "advisor_rationale": "Tái cơ cấu danh mục định kỳ, giải phóng sức mua để chuẩn bị đón đầu cơ hội bùng nổ mới",
+                "action_advice": "Hạ tỷ trọng dần để luân chuyển sang cổ phiếu có RS dẫn dắt",
+                "news_status": h["news_status"],
+                "news_badge": h["news_badge"]
+            })
+            sell_sig_id += 1
+
+        # Case 5: Risk Warning (-4.0% < ret <= -1.5%)
+        elif ret <= -1.5:
+            sell_signals.append({
+                "id": f"SIG-SELL-{sell_sig_id:02d}",
+                "symbol": sym,
+                "sector": h["sector"],
+                "signal_type": "CẢNH BÁO SÁT STOP LOSS",
+                "signal_badge": "warning",
+                "recommended_advisor": adv_clean,
+                "signal_price": curr_p,
+                "entry_price": entry_p,
+                "target_price": tp,
+                "target_return_pct": ret,
+                "stop_loss": sl,
+                "max_loss_pct": round(((sl - curr_p) / curr_p) * 100.0, 2),
+                "rr_ratio": "Cảnh giác",
+                "recommended_weight_pct": h["weight_pct"],
+                "technical_reason": f"Hiệu suất âm nhẹ {ret}%, áp lực cung gia tăng tại vùng hỗ trợ",
+                "advisor_rationale": "Đưa vào danh sách giám sát đặc biệt; Tuyệt đối không trung bình giá xuống",
+                "action_advice": "Quan sát hỗ trợ MA20/MA50; Sẵn sàng cắt lỗ nếu gãy nền",
+                "news_status": h["news_status"],
+                "news_badge": h["news_badge"]
+            })
+            sell_sig_id += 1
+
+    new_signals = buy_signals + sell_signals
+
 
 
     # 4C. News Action Recommendations
@@ -899,7 +1066,10 @@ def run_daily_update():
             "deployment_date": "2026-01-01"
         },
         "current_holdings": all_current_holdings,
+        "buy_signals": buy_signals,
+        "sell_signals": sell_signals,
         "new_signals": new_signals,
+        "advisor_performance_audit": ADV_AUDIT_METRICS,
         "news_action_recommendations": news_actions,
         "watchlist_items": watchlist_items,
         "universe_count": len(market_data),

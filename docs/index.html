@@ -126,20 +126,20 @@
     <!-- Navigation Tabs Bar (Sticky with Live Badges & Keyboard Shortcuts) -->
     <nav class="dashboard-tabs" id="sticky-tabs-nav">
       <div class="tabs-scroll-container">
-        <button class="tab-btn active" data-tab="tab-holdings" data-shortcut="1" title="Phím tắt: 1">
+        <button class="tab-btn active" data-tab="tab-buy-signals" data-shortcut="1" title="Phím tắt: 1">
+          <span class="tab-icon">🟢</span>
+          <span class="tab-text">Khuyến Nghị Mua Mới</span>
+          <span class="tab-badge badge-green" id="tab-badge-buy">0</span>
+        </button>
+        <button class="tab-btn" data-tab="tab-sell-signals" data-shortcut="2" title="Phím tắt: 2">
+          <span class="tab-icon">🔴</span>
+          <span class="tab-text">Khuyến Nghị Bán & QTRR</span>
+          <span class="tab-badge badge-red" id="tab-badge-sell">0</span>
+        </button>
+        <button class="tab-btn" data-tab="tab-holdings" data-shortcut="3" title="Phím tắt: 3">
           <span class="tab-icon">💼</span>
           <span class="tab-text">Danh Mục Hiện Hữu</span>
           <span class="tab-badge" id="tab-badge-holdings">0</span>
-        </button>
-        <button class="tab-btn" data-tab="tab-signals" data-shortcut="2" title="Phím tắt: 2">
-          <span class="tab-icon">⚡</span>
-          <span class="tab-text">Tín Hiệu Mua/Bán Mới</span>
-          <span class="tab-badge badge-green" id="tab-badge-signals">0</span>
-        </button>
-        <button class="tab-btn" data-tab="tab-news-actions" data-shortcut="3" title="Phím tắt: 3">
-          <span class="tab-icon">📰</span>
-          <span class="tab-text">Khuyến Nghị Tin Tức</span>
-          <span class="tab-badge badge-amber" id="tab-badge-news">0</span>
         </button>
         <button class="tab-btn" data-tab="tab-trades" data-shortcut="4" title="Phím tắt: 4">
           <span class="tab-icon">📜</span>
@@ -151,19 +151,195 @@
           <span class="tab-text">Xếp Hạng &amp; Đồ Thị Vốn</span>
           <span class="tab-badge badge-purple" id="tab-badge-perf">5 AI</span>
         </button>
-        <button class="tab-btn" data-tab="tab-evolution" data-shortcut="6" title="Phím tắt: 6">
+        <button class="tab-btn" data-tab="tab-news-actions" data-shortcut="6" title="Phím tắt: 6">
+          <span class="tab-icon">📰</span>
+          <span class="tab-text">Khuyến Nghị Tin Tức</span>
+          <span class="tab-badge badge-amber" id="tab-badge-news">0</span>
+        </button>
+        <button class="tab-btn" data-tab="tab-evolution" data-shortcut="7" title="Phím tắt: 7">
           <span class="tab-icon">🧬</span>
           <span class="tab-text">Tiến Hóa Darwinian</span>
           <span class="tab-badge badge-gold" id="tab-badge-evo">Gen 2</span>
         </button>
       </div>
       <div class="tabs-quick-hint">
-        <span class="kbd-hint">Phím [1-6] chuyển tab nhanh</span>
+        <span class="kbd-hint">Phím [1-7] chuyển tab nhanh</span>
       </div>
     </nav>
 
-    <!-- TAB 1: CURRENT PORTFOLIO HOLDINGS -->
-    <div class="tab-pane active" id="tab-holdings">
+    <!-- TAB 1: ACTIONABLE BUY SIGNALS -->
+    <div class="tab-pane active" id="tab-buy-signals">
+      <section class="dashboard-section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Khuyến Nghị Mua Mới (Actionable Buy Signals)</h2>
+            <p class="section-subtitle">Tín hiệu mở vị thế mua mới tuyển chọn từ 5 AI Advisors: Đáp ứng tiêu chuẩn bùng nổ RS, vượt cản kỹ thuật và tỷ lệ Lời/Lỗ Asymmetric R:R tối ưu</p>
+          </div>
+          <div class="rebalance-tag" id="buy-signals-sync-tag">Kỳ EOD Mới Nhất · Quét 6 Lần/Ngày</div>
+        </div>
+
+        <!-- Buy Signals KPI Grid -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-label">TỔNG TÍN HIỆU MUA MỚI</div>
+            <div class="kpi-value text-green" id="kpi-buy-total">0 tín hiệu</div>
+            <div class="kpi-sub">Sẵn sàng mở vị thế giải ngân</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">TỶ LỆ LỜI / LỖ ASYMMETRIC</div>
+            <div class="kpi-value text-gold" id="kpi-buy-rr">3.33 : 1</div>
+            <div class="kpi-sub">Kỳ vọng +15.0% / Cắt lỗ -4.5%</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">ĐỘ CHÍNH XÁC DỰ BÁO LỊCH SỬ</div>
+            <div class="kpi-value text-cyan" id="kpi-buy-winrate">48.2%</div>
+            <div class="kpi-sub">Lợi thế bất đối xứng (Avg Win +13.5% / Loss -5.2%)</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">MỤC TIÊU LỢI NHUẬN BÌNH QUÂN</div>
+            <div class="kpi-value text-blue" id="kpi-buy-tp">+15.0%</div>
+            <div class="kpi-sub">Chốt lời từng phần khi đạt mục tiêu</div>
+          </div>
+        </div>
+
+        <!-- Buy Filter & View Controls -->
+        <div class="signals-filter-bar">
+          <div class="signals-filter-buttons" id="buy-filter-buttons">
+            <button class="sig-filter-btn active" data-buy-filter="all">Tất Cả Chuyên Gia</button>
+            <button class="sig-filter-btn" data-buy-filter="ChuDong_2W">Chủ Động (2W)</button>
+            <button class="sig-filter-btn" data-buy-filter="NhipNhang_1M">Nhịp Nhàng (1M)</button>
+            <button class="sig-filter-btn" data-buy-filter="CANSLIM_Breakout">CANSLIM Breakout</button>
+            <button class="sig-filter-btn" data-buy-filter="BenBi_3M">Bền Bỉ (3M)</button>
+            <button class="sig-filter-btn" data-buy-filter="Mean_Reversion">Đảo Chiều (20D)</button>
+          </div>
+          <div class="view-toggle-group">
+            <button class="view-toggle-btn active" id="btn-view-buy-cards">🗂️ Thẻ Khuyến Nghị (SaaS)</button>
+            <button class="view-toggle-btn" id="btn-view-buy-table">📋 Bảng Dữ Liệu</button>
+          </div>
+        </div>
+
+        <!-- View 1: Buy Cards Grid -->
+        <div class="signal-cards-grid" id="buy-signals-cards-container">
+          <div class="loading-spinner">Đang nạp khuyến nghị mua mới từ 5 AI Advisors...</div>
+        </div>
+
+        <!-- View 2: Buy Table Card -->
+        <div class="table-card" id="buy-signals-table-container" style="display: none;">
+          <div class="table-responsive">
+            <table class="data-table" id="buy-signals-table">
+              <thead>
+                <tr>
+                  <th>Mã Lệnh</th>
+                  <th>Mã CP</th>
+                  <th>Chuyên Gia AI</th>
+                  <th>Ngành</th>
+                  <th class="text-right">Giá Mua Khuyến Nghị</th>
+                  <th class="text-right">Mục Tiêu (+15%)</th>
+                  <th class="text-right">Cắt Lỗ (-4.5%)</th>
+                  <th class="text-center">Tỷ Lệ R:R</th>
+                  <th class="text-center">Tỷ Trọng NAV</th>
+                  <th class="text-center">Win Rate / Độ Tin Cậy</th>
+                  <th>Mô Thức Vào Lệnh</th>
+                  <th>Luận Điểm Chuyên Gia</th>
+                  <th class="text-center">Thao Tác</th>
+                </tr>
+              </thead>
+              <tbody id="buy-signals-table-body">
+                <tr><td colspan="13" class="text-center">Đang tải danh sách khuyến nghị mua mới...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- TAB 2: SELL SIGNALS & RISK MANAGEMENT -->
+    <div class="tab-pane" id="tab-sell-signals">
+      <section class="dashboard-section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Khuyến Nghị Bán & Quản Trị Rủi Ro (Sell Signals & Risk Protection)</h2>
+            <p class="section-subtitle">Chủ động hiện thực hóa lợi nhuận và siết chặt kỷ luật cắt lỗ: Chốt lời kỳ vọng (+15%), Khóa lãi Trailing Stop (+3%+), Cắt lỗ dứt khoát (-4.5%) và Tái cơ cấu chu kỳ</p>
+          </div>
+          <div class="rebalance-tag" id="sell-signals-sync-tag">Kỷ Luật Bảo Toàn Vốn 100%</div>
+        </div>
+
+        <!-- Sell Signals KPI Grid -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-label">TỔNG LỆNH BÁN &amp; QUẢN TRỊ</div>
+            <div class="kpi-value text-red" id="kpi-sell-total">0 lệnh</div>
+            <div class="kpi-sub">Đang trong diện hành động đóng vị thế</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">CHỐT LỜI KỲ VỌNG (+10% TRỞ LÊN)</div>
+            <div class="kpi-value text-green" id="kpi-sell-tp">0 lệnh</div>
+            <div class="kpi-sub">Hiện thực hóa lợi nhuận danh mục</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">BẢO TOÀN LÃI (TRAILING STOP)</div>
+            <div class="kpi-value text-gold" id="kpi-sell-trailing">0 lệnh</div>
+            <div class="kpi-sub">Nâng chặn lãi bảo vệ thành quả</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">CẮT LỖ KỶ LUẬT &amp; CẢNH BÁO</div>
+            <div class="kpi-value text-red" id="kpi-sell-sl">0 lệnh</div>
+            <div class="kpi-sub">Ngăn chặn triệt để Max Drawdown</div>
+          </div>
+        </div>
+
+        <!-- Sell Filter & View Controls -->
+        <div class="signals-filter-bar">
+          <div class="signals-filter-buttons" id="sell-filter-buttons">
+            <button class="sig-filter-btn active" data-sell-filter="all">Tất Cả Lệnh Bán</button>
+            <button class="sig-filter-btn" data-sell-filter="profit">🟡 Chốt Lời Kỳ Vọng</button>
+            <button class="sig-filter-btn" data-sell-filter="trailing">🟢 Khóa Lãi Trailing Stop</button>
+            <button class="sig-filter-btn" data-sell-filter="stop">🔴 Cắt Lỗ Bảo Vệ Vốn</button>
+            <button class="sig-filter-btn" data-sell-filter="rebalance">⏱️ Tái Cơ Cấu (Time-Stop)</button>
+            <button class="sig-filter-btn" data-sell-filter="warning">⚠️ Cảnh Báo Sát Stop Loss</button>
+          </div>
+          <div class="view-toggle-group">
+            <button class="view-toggle-btn active" id="btn-view-sell-cards">🗂️ Thẻ Khuyến Nghị (SaaS)</button>
+            <button class="view-toggle-btn" id="btn-view-sell-table">📋 Bảng Dữ Liệu</button>
+          </div>
+        </div>
+
+        <!-- View 1: Sell Cards Grid -->
+        <div class="signal-cards-grid" id="sell-signals-cards-container">
+          <div class="loading-spinner">Đang nạp danh sách lệnh bán và quản trị rủi ro...</div>
+        </div>
+
+        <!-- View 2: Sell Table Card -->
+        <div class="table-card" id="sell-signals-table-container" style="display: none;">
+          <div class="table-responsive">
+            <table class="data-table" id="sell-signals-table">
+              <thead>
+                <tr>
+                  <th>Mã Lệnh</th>
+                  <th>Mã CP</th>
+                  <th>Hành Động Khuyến Nghị</th>
+                  <th>Chuyên Gia AI</th>
+                  <th>Ngành</th>
+                  <th class="text-right">Giá Khuyến Nghị</th>
+                  <th class="text-right">Giá Vốn</th>
+                  <th class="text-center">Hiệu Suất Vị Thế</th>
+                  <th class="text-right">Ngưỡng Kích Hoạt / Chặn Lãi</th>
+                  <th>Hành Động Đề Xuất</th>
+                  <th>Luận Điểm Quản Trị Rủi Ro</th>
+                  <th class="text-center">Thao Tác</th>
+                </tr>
+              </thead>
+              <tbody id="sell-signals-table-body">
+                <tr><td colspan="12" class="text-center">Đang tải danh sách lệnh bán...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- TAB 3: CURRENT PORTFOLIO HOLDINGS -->
+    <div class="tab-pane" id="tab-holdings">
       <section class="dashboard-section">
         <div class="section-header">
           <div>
@@ -379,90 +555,7 @@
       </section>
     </div>
 
-    <!-- TAB 2: NEW BUY/SELL SIGNALS -->
-    <div class="tab-pane" id="tab-signals">
-      <section class="dashboard-section">
-        <div class="section-header">
-          <div>
-            <h2 class="section-title">Tín Hiệu Mua / Bán Mới Phát Sinh (New Buy/Sell Signals)</h2>
-            <p class="section-subtitle">Tín hiệu giao dịch tự động kích hoạt tại kỳ EOD gần nhất: MUA MỚI, CHỐT LỜI (+15%), CẮT LỖ KỶ LUẬT (-4.5%) và ĐẢO DANH MỤC</p>
-          </div>
-          <div class="rebalance-tag" id="signals-sync-tag">Kỳ Khớp Lệnh Gần Nhất</div>
-        </div>
-
-        <!-- Signals KPI Grid -->
-        <div class="kpi-grid">
-          <div class="kpi-card">
-            <div class="kpi-label">TÍN HIỆU MUA MỚI</div>
-            <div class="kpi-value text-green" id="kpi-sig-buy">0 tín hiệu</div>
-            <div class="kpi-sub">Bùng nổ RS > 75 & Vượt MA20</div>
-          </div>
-          <div class="kpi-card">
-            <div class="kpi-label">TÍN HIỆU CHỐT LỜI</div>
-            <div class="kpi-value text-gold" id="kpi-sig-tp">0 tín hiệu</div>
-            <div class="kpi-sub">Chạm mục tiêu kỳ vọng (+15%)</div>
-          </div>
-          <div class="kpi-card">
-            <div class="kpi-label">TÍN HIỆU CẮT LỖ BẢO TOÀN VỐN</div>
-            <div class="kpi-value text-red" id="kpi-sig-sl">0 tín hiệu</div>
-            <div class="kpi-sub">Siết kỷ luật -4.5% tối đa</div>
-          </div>
-          <div class="kpi-card">
-            <div class="kpi-label">TỶ LỆ LỢI NHUẬN / RỦI RO (R:R)</div>
-            <div class="kpi-value text-cyan" id="kpi-sig-rr">3.3 : 1</div>
-            <div class="kpi-sub">Kỳ vọng +15% / Rủi ro -4.5%</div>
-          </div>
-        </div>
-
-        <!-- Signals Filter & View Mode Bar -->
-        <div class="signals-filter-bar">
-          <div class="signals-filter-buttons">
-            <button class="sig-filter-btn active" data-sig-filter="all">Tất Cả Tín Hiệu</button>
-            <button class="sig-filter-btn" data-sig-filter="buy">🟢 Tín Hiệu MUA MỚI</button>
-            <button class="sig-filter-btn" data-sig-filter="profit">🟡 Tín Hiệu CHỐT LỜI</button>
-            <button class="sig-filter-btn" data-sig-filter="stop">🔴 Tín Hiệu CẮT LỖ</button>
-          </div>
-          <div class="view-toggle-group">
-            <button class="view-toggle-btn active" id="btn-view-sig-cards">🗂️ Thẻ Khuyến Nghị (SaaS)</button>
-            <button class="view-toggle-btn" id="btn-view-sig-table">📋 Bảng Dữ Liệu</button>
-          </div>
-        </div>
-
-        <!-- View 1: SaaS Signal Action Cards Grid -->
-        <div class="signal-cards-grid" id="signals-cards-container">
-          <div class="loading-spinner">Đang nạp thẻ khuyến nghị mua/bán từ AI...</div>
-        </div>
-
-        <!-- View 2: Signals Table Card -->
-        <div class="table-card" id="signals-table-container" style="display: none;">
-          <div class="table-responsive">
-            <table class="data-table" id="signals-table">
-              <thead>
-                <tr>
-                  <th>Mã Tín Hiệu</th>
-                  <th>Mã CP</th>
-                  <th>Loại Tín Hiệu</th>
-                  <th>Chuyên Gia Đề Xuất</th>
-                  <th>Ngành</th>
-                  <th class="text-right">Giá Tín Hiệu</th>
-                  <th class="text-right">Giá Mục Tiêu</th>
-                  <th class="text-right">Ngưỡng Dừng Lỗ</th>
-                  <th class="text-center">Tỷ Lệ R:R</th>
-                  <th class="text-center">Tỷ Trọng Đề Xuất</th>
-                  <th>Xung Lực Kỹ Thuật</th>
-                  <th>Luận Điểm Giao Dịch</th>
-                </tr>
-              </thead>
-              <tbody id="signals-table-body">
-                <tr><td colspan="12" class="text-center">Đang tải danh sách tín hiệu giao dịch mới...</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- TAB 3: NEWS ACTION RECOMMENDATIONS -->
+    <!-- TAB 6: NEWS ACTION RECOMMENDATIONS -->
     <div class="tab-pane" id="tab-news-actions">
       <section class="dashboard-section">
         <div class="section-header">
@@ -1090,25 +1183,25 @@
 
   <!-- Mobile Bottom Navigation Bar (5 Standard Thumb-Friendly Tabs) -->
   <nav class="mobile-bottom-nav" id="mobile-bottom-nav">
-    <button class="mobile-nav-btn active" data-tab="tab-holdings">
+    <button class="mobile-nav-btn active" data-tab="tab-buy-signals">
+      <span class="mobile-nav-icon">🟢</span>
+      <span class="mobile-nav-text">Mua Mới</span>
+      <span class="mobile-nav-badge badge-green" id="mob-badge-buy">0</span>
+    </button>
+    <button class="mobile-nav-btn" data-tab="tab-sell-signals">
+      <span class="mobile-nav-icon">🔴</span>
+      <span class="mobile-nav-text">Lệnh Bán</span>
+      <span class="mobile-nav-badge badge-red" id="mob-badge-sell">0</span>
+    </button>
+    <button class="mobile-nav-btn" data-tab="tab-holdings">
       <span class="mobile-nav-icon">💼</span>
       <span class="mobile-nav-text">Danh Mục</span>
       <span class="mobile-nav-badge" id="mob-badge-holdings">0</span>
-    </button>
-    <button class="mobile-nav-btn" data-tab="tab-signals">
-      <span class="mobile-nav-icon">⚡</span>
-      <span class="mobile-nav-text">Tín Hiệu</span>
-      <span class="mobile-nav-badge badge-green" id="mob-badge-signals">0</span>
     </button>
     <button class="mobile-nav-btn" data-tab="tab-trades">
       <span class="mobile-nav-icon">📜</span>
       <span class="mobile-nav-text">Sổ Lệnh</span>
       <span class="mobile-nav-badge badge-blue" id="mob-badge-trades">0</span>
-    </button>
-    <button class="mobile-nav-btn" data-tab="tab-news-actions">
-      <span class="mobile-nav-icon">📰</span>
-      <span class="mobile-nav-text">Radar Tin</span>
-      <span class="mobile-nav-badge badge-amber" id="mob-badge-news">0</span>
     </button>
     <button class="mobile-nav-btn" data-tab="tab-performance">
       <span class="mobile-nav-icon">🏆</span>
