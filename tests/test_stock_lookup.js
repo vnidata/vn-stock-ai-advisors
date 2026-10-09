@@ -218,6 +218,40 @@ it("Lookup SSI & VHM: Correctly identifies sectors Securities and RealEstate", (
   assert.ok(content.includes('VHM'));
 });
 
+it("Lookup CTS (Off-watchlist Securities Midcap): Correctly identifies VietinBank Securities, sector Securities (Chứng Khoán), HOSE exchange, and real reference price ~19.6", () => {
+  const env = createLookupContext('vn');
+  env.performLookup('CTS');
+  const content = env.getEl('stock-diagnosis-content').innerHTML;
+  const d = env.getCurrentDiagnosisData();
+
+  assert.strictEqual(d.symbol, 'CTS');
+  assert.strictEqual(d.currentPrice, 19.6, "Must use real market reference price 19.60, not default 31.80");
+  assert.strictEqual(d.exchange, 'HOSE');
+  assert.strictEqual(d.isCoreUniverse, false, "CTS is outside 15-stock core VN30 tracking universe");
+
+  assert.ok(content.includes('CTS'), "Must contain CTS ticker");
+  assert.ok(content.includes('VietinBank Securities') || content.includes('Ngân hàng Công thương'), "Must display company name");
+  assert.ok(content.includes('Chứng Khoán'), "Must display Securities sector in Vietnamese");
+  assert.ok(content.includes('19.60') || content.includes('19.6'), "Must display actual price 19.60 ₫");
+  assert.ok(content.includes('Thị Trường Mở Rộng'), "Must flag as expanded market equity");
+  assert.ok(content.includes('Beta cao (1.3x–1.6x)'), "Must explain high Beta risk for securities in Bear regime");
+  assert.ok(content.includes('100% TIỀN MẶT PHÒNG THỦ'), "Must enforce cash defense");
+});
+
+it("Lookup VGI (Off-watchlist UPCoM Tech): Detects UPCoM exchange, Viettel Global profile, and accurate reference price", () => {
+  const env = createLookupContext('vn');
+  env.performLookup('VGI');
+  const content = env.getEl('stock-diagnosis-content').innerHTML;
+  const d = env.getCurrentDiagnosisData();
+
+  assert.strictEqual(d.symbol, 'VGI');
+  assert.strictEqual(d.exchange, 'UPCoM');
+  assert.strictEqual(d.currentPrice, 88.0);
+  assert.ok(content.includes('Viettel Global') || content.includes('Viễn thông Quốc tế Viettel'));
+  assert.ok(content.includes('Công Nghệ &amp; Viễn Thông') || content.includes('Công Nghệ & Viễn Thông'));
+  assert.ok(content.includes('UPCoM'));
+});
+
 // -----------------------------------------------------------------------------
 // TEST GROUP 3: ACTIVE PORTFOLIO HOLDINGS & SELL SIGNALS
 // -----------------------------------------------------------------------------

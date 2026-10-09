@@ -38,6 +38,10 @@ const SECTOR_VIETNAMESE = {
   "Logistics": "Cảng Biển & Logistics",
   "Agriculture": "Nông Nghiệp & Chăn Nuôi",
   "Industrial": "Công Nghiệp Cơ Điện",
+  "Construction": "Xây Dựng & Hạ Tầng",
+  "Insurance": "Bảo Hiểm",
+  "Textiles": "Dệt May & May Mặc",
+  "Aviation": "Hàng Không & Vận Tải",
   "Bluechip": "Cổ Phiếu Trụ Bluechip",
   "Semiconductors": "Bán Dẫn & Chip AI",
   "CommunicationServices": "Truyền Thông & Internet",
@@ -45,11 +49,13 @@ const SECTOR_VIETNAMESE = {
   "ConsumerStaples": "Hàng Tiêu Dùng Thiết Yếu",
   "Financials": "Tài Chính & Ngân Hàng Mỹ",
   "Healthcare": "Y Tế & Dược Phẩm",
-  "IndexETF": "Quỹ Chỉ Số ETF SPY"
+  "IndexETF": "Quỹ Chỉ Số ETF SPY",
+  "Diversified": "Thị Trường Mở Rộng / Đa Ngành",
+  "General": "Cổ Phiếu Niêm Yết HOSE / HNX"
 };
 
 function getSectorVi(sector) {
-  return SECTOR_VIETNAMESE[sector] || sector || "Cổ Phiếu Bluechip";
+  return SECTOR_VIETNAMESE[sector] || sector || "Cổ Phiếu Niêm Yết";
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -412,36 +418,129 @@ function updateModalCalculations() {
 // 1E. ADVANCED STOCK LOOKUP & AI ACTION RECOMMENDATION
 // ==========================================
 const VN_COMPANIES_DIR = {
-  "HPG": { name: "CTCP Tập đoàn Hòa Phát", sector: "Materials", cap: "Mega-Cap Thép số 1 Việt Nam", desc: "Doanh nghiệp thép tích hợp chuỗi giá trị khép kín lớn nhất Đông Nam Á, thị phần xây dựng số 1." },
-  "FPT": { name: "CTCP FPT", sector: "Technology", cap: "Mega-Cap Công Nghệ Số 1", desc: "Doanh nghiệp công nghệ, xuất khẩu phần mềm, AI và bán dẫn hàng đầu, đối tác chiến lược toàn cầu của Nvidia." },
-  "TCB": { name: "Ngân hàng TMCP Kỹ Thương Việt Nam (Techcombank)", sector: "Banking", cap: "Top Ngân Hàng Tư Nhân Số 1", desc: "Ngân hàng số hàng đầu với tỷ lệ CASA vượt trội và hiệu quả sinh lời ROA/ROE cao nhất hệ thống." },
-  "MBB": { name: "Ngân hàng TMCP Quân Đội (MBBank)", sector: "Banking", cap: "Top Ngân Hàng Số & CASA", desc: "Ngân hàng quân đội tiên phong chuyển đổi số, CASA cao top 2 toàn ngành, tăng trưởng tín dụng bền vững." },
-  "VCB": { name: "Ngân hàng TMCP Ngoại Thương Việt Nam (Vietcombank)", sector: "Banking", cap: "Ngân Hàng Trụ Vốn Hóa Lớn Nhất", desc: "Ngân hàng uy tín số 1 Việt Nam, chất lượng tài sản tốt nhất, tỷ lệ bao phủ nợ xấu cao nhất hệ thống." },
-  "ACB": { name: "Ngân hàng TMCP Á Châu", sector: "Banking", cap: "Ngân Hàng Bán Lẻ An Toàn", desc: "Mô hình quản trị rủi ro hàng đầu, chất lượng nợ sạch nhất ngành ngân hàng bán lẻ." },
-  "SSI": { name: "CTCP Chứng khoán SSI", sector: "Securities", cap: "Công Ty Chứng Khoán Số 1", desc: "Thị phần môi giới và vốn điều lệ top đầu thị trường chứng khoán Việt Nam, hưởng lợi trực tiếp từ nâng hạng KRX." },
-  "VND": { name: "CTCP Chứng khoán VNDIRECT", sector: "Securities", cap: "Top 3 Môi Giới Bán Lẻ", desc: "Công ty chứng khoán số lượng tài khoản cá nhân lớn, hệ sinh thái tài chính và công nghệ mở rộng." },
-  "VHM": { name: "CTCP Vinhomes", sector: "RealEstate", cap: "Nhà Phát Triển BĐS Số 1", desc: "Doanh nghiệp phát triển đại đô thị lớn nhất Việt Nam, quỹ đất khổng lồ và năng lực triển khai dự án hàng đầu." },
-  "MWG": { name: "CTCP Đầu tư Thế Giới Di Động", sector: "Retail", cap: "Tập Đoàn Bán Lẻ Số 1", desc: "Chuỗi bán lẻ điện thoại, điện máy và Bách Hóa Xanh đạt điểm hòa vốn và bước vào chu kỳ tăng trưởng lợi nhuận." },
-  "MSN": { name: "CTCP Tập đoàn Masan", sector: "Consumer", cap: "Hệ Sinh Thái Tiêu Dùng - Bán Lẻ", desc: "Tập đoàn tiêu dùng cốt lõi, sở hữu WinCommerce, Masan Consumer Holdings và chuỗi thịt sạch MEATDeli." },
-  "VNM": { name: "CTCP Sữa Việt Nam (Vinamilk)", sector: "Consumer", cap: "Thương Hiệu Sữa Quốc Gia", desc: "Doanh nghiệp sữa dẫn đầu thị phần Việt Nam, dòng tiền thuần và cổ tức tiền mặt đều đặn, sức khỏe tài chính lành mạnh." },
-  "DGC": { name: "CTCP Tập đoàn Hóa chất Đức Giang", sector: "Chemicals", cap: "Thống Lĩnh Phốt Pho Vàng", desc: "Nhà sản xuất phốt pho vàng (P4) nguyên liệu quan trọng cho công nghiệp chip bán dẫn và pin lithium lớn nhất châu Á." },
-  "GAS": { name: "Tổng Công ty Khí Việt Nam (PV GAS)", sector: "Energy", cap: "Trụ Năng Lượng Quốc Gia", desc: "Độc quyền vận chuyển và phân phối khí thiên nhiên tại Việt Nam, dòng tiền dồi dào, đóng góp cổ tức lớn." },
-  "GMD": { name: "CTCP Gemadept", sector: "Logistics", cap: "Cảng Biển & Logistics Hàng Đầu", desc: "Sở hữu cụm cảng nước sâu Gemalink lớn nhất Cái Mép - Thị Vải, hưởng lợi từ làn sóng dịch chuyển sản xuất FDI." },
-  "STB": { name: "Ngân hàng TMCP Sài Gòn Thương Tín (Sacombank)", sector: "Banking", cap: "Ngân Hàng Tái Cơ Cấu Hoàn Tất", desc: "Ngân hàng xử lý xong đề án tái cơ cấu VAMC, mở ra dư địa hoàn nhập dự phòng và tăng trưởng mạnh mẽ." },
-  "VPB": { name: "Ngân hàng TMCP Việt Nam Thịnh Vượng (VPBank)", sector: "Banking", cap: "Top Ngân Hàng Vốn Chủ Sở Hữu", desc: "Quy mô vốn điều lệ và vốn chủ sở hữu khủng sau thương vụ bán vốn chiến lược cho SMBC Nhật Bản." },
-  "CTG": { name: "Ngân hàng TMCP Công Thương Việt Nam (VietinBank)", sector: "Banking", cap: "Trụ Cột Ngân Hàng Quốc Doanh", desc: "Quy mô tổng tài sản và dư nợ cho vay doanh nghiệp lớn nhất, hưởng lợi khi tín dụng mở rộng." },
-  "BID": { name: "Ngân hàng TMCP Đầu tư và Phát triển Việt Nam (BIDV)", sector: "Banking", cap: "Ngân Hàng Tổng Tài Sản Số 1", desc: "Quy mô huy động vốn và mạng lưới chi nhánh rộng khắp toàn quốc." },
-  "VCI": { name: "CTCP Chứng khoán Vietcap", sector: "Securities", cap: "Ngân Hàng Đầu Tư IB Số 1", desc: "Đơn vị tư vấn thương vụ M&A, IPO và môi giới khách hàng tổ chức nước ngoài dẫn đầu thị trường." },
-  "HCM": { name: "CTCP Chứng khoán TP.HCM (HSC)", sector: "Securities", cap: "Top Đầu Môi Giới Tổ Chức", desc: "Thị phần vững chắc khối tổ chức quốc tế và tự doanh ổn định." },
-  "NVL": { name: "CTCP Tập đoàn Đầu tư Địa ốc No Va (Novaland)", sector: "RealEstate", cap: "Bất Động Sản Dân Cư & Nghỉ Dưỡng", desc: "Doanh nghiệp BĐS đang trong tiến trình tái cấu trúc nợ và tháo gỡ pháp lý các đại dự án." },
-  "KDH": { name: "CTCP Đầu tư và Kinh doanh Nhà Khang Điền", sector: "RealEstate", cap: "Nhà Phát Triển BĐS Pháp Lý Sạch", desc: "Quỹ đất tập trung tại khu Đông TP.HCM, pháp lý minh bạch và sản phẩm nhà phố/căn hộ thanh khoản cao." },
-  "DXG": { name: "CTCP Tập đoàn Đất Xanh", sector: "RealEstate", cap: "Phát Triển & Dịch Vụ Môi Giới BĐS", desc: "Hệ thống phân phối BĐS số 1 Việt Nam kết hợp các dự án khu đô thị quy mô lớn." },
-  "PVD": { name: "Tổng CTCP Khoan và Dịch vụ Khoan Dầu khí", sector: "Energy", cap: "Dịch Vụ Giàn Khoan Biển", desc: "Đội giàn khoan tự nâng hoạt động hết công suất với giá thuê ngày duy trì ở mức cao trên thị trường quốc tế." },
-  "PVS": { name: "Tổng CTCP Dịch vụ Kỹ thuật Dầu khí Việt Nam", sector: "Energy", cap: "Xây Lắp & Dầu Khí - Điện Gió Ngoài Khơi", desc: "Doanh nghiệp tổng thầu EPCI hạ tầng năng lượng ngoài khơi, hợp đồng điện gió xuất khẩu quốc tế tỷ đô." },
-  "FRT": { name: "CTCP Bán lẻ Kỹ thuật số FPT (FPT Retail)", sector: "Retail", cap: "Chuỗi Bán Lẻ Dược Phẩm Long Châu", desc: "Chuỗi nhà thuốc Long Châu dẫn đầu toàn quốc với tốc độ mở mới và hiệu quả sinh lời vượt bậc." },
-  "DBC": { name: "CTCP Tập đoàn DABACO Việt Nam", sector: "Agriculture", cap: "Chuỗi 3F Nông Nghiệp & Vaccine", desc: "Mô hình khép kín thức ăn - trang trại - thực phẩm, nghiên cứu thành công vaccine dịch tả lợn châu Phi (ASF)." },
-  "REE": { name: "CTCP Cơ Điện Lạnh", sector: "Industrial", cap: "Tập Đoàn Cơ Điện & Năng Lượng Tái Tạo", desc: "Doanh nghiệp đa ngành cơ điện tử, văn phòng cho thuê cao cấp và sở hữu danh mục nhà máy thủy điện/điện gió." },
-  "VRE": { name: "CTCP Vincom Retail", sector: "RealEstate", cap: "Bất Động Sản Bán Lẻ & Trung Tâm Thương Mại", desc: "Chủ sở hữu hệ thống TTTM Vincom lớn nhất Việt Nam, tỷ lệ lấp đầy cao và dòng tiền kinh doanh vượt trội." }
+  // --- 1. CHỨNG KHOÁN (SECURITIES) ---
+  "CTS": { name: "CTCP Chứng khoán Ngân hàng Công thương Việt Nam (VietinBank Securities)", sector: "Securities", exchange: "HOSE", ref_price: 19.6, vol_avg: 1420000, cap: "CTCK Trực Thuộc VietinBank · Mid-Cap", desc: "Thành viên của VietinBank (CTG), có thế mạnh tư vấn phát hành trái phiếu, tự doanh và mạng lưới khách hàng doanh nghiệp." },
+  "SSI": { name: "CTCP Chứng khoán SSI", sector: "Securities", exchange: "HOSE", ref_price: 26.8, vol_avg: 15400000, cap: "CTCK Vốn Hóa Số 1 Việt Nam", desc: "Thị phần môi giới và quy mô vốn điều lệ top đầu thị trường chứng khoán Việt Nam, hưởng lợi trực tiếp từ thanh khoản thị trường và nâng hạng KRX." },
+  "VND": { name: "CTCP Chứng khoán VNDIRECT", sector: "Securities", exchange: "HOSE", ref_price: 14.5, vol_avg: 18500000, cap: "Top 3 Môi Giới Bán Lẻ", desc: "Công ty chứng khoán số lượng tài khoản cá nhân lớn, hệ sinh thái tài chính và công nghệ mở rộng." },
+  "VCI": { name: "CTCP Chứng khoán Vietcap", sector: "Securities", exchange: "HOSE", ref_price: 33.5, vol_avg: 5200000, cap: "Ngân Hàng Đầu Tư (IB) Số 1 Việt Nam", desc: "Đơn vị tư vấn thương vụ M&A, IPO và môi giới khách hàng tổ chức nước ngoài dẫn đầu thị trường." },
+  "HCM": { name: "CTCP Chứng khoán TP.HCM (HSC)", sector: "Securities", exchange: "HOSE", ref_price: 28.2, vol_avg: 6100000, cap: "Top Đầu Môi Giới Tổ Chức & Tự Doanh", desc: "Thị phần vững chắc khối tổ chức quốc tế, quản trị rủi ro margin thận trọng và tự doanh an toàn." },
+  "SHS": { name: "CTCP Chứng khoán Sài Gòn - Hà Nội", sector: "Securities", exchange: "HNX", ref_price: 13.8, vol_avg: 14500000, cap: "CTCK Sàn HNX Thanh Khoản Khủng", desc: "Thuộc hệ sinh thái SHB, quy mô vốn chủ sở hữu lớn và danh mục tự doanh cổ phiếu niêm yết linh hoạt." },
+  "MBS": { name: "CTCP Chứng khoán MB (MBS)", sector: "Securities", exchange: "HNX", ref_price: 26.5, vol_avg: 4800000, cap: "CTCK Trực Thuộc MBBank", desc: "Tận dụng hệ sinh thái số hơn 25 triệu khách hàng của MBBank, tăng trưởng dư nợ cho vay margin vượt bậc." },
+  "FTS": { name: "CTCP Chứng khoán FPT (FPTS)", sector: "Securities", exchange: "HOSE", ref_price: 42.0, vol_avg: 2100000, cap: "CTCK Công Nghệ & Nền Tảng SBI Nhật Bản", desc: "Công ty chứng khoán công nghệ trực thuộc FPT và SBI Holdings Nhật Bản, cơ cấu tài chính lành mạnh và hiệu quả cao." },
+  "BSI": { name: "CTCP Chứng khoán BIDV (BSC)", sector: "Securities", exchange: "HOSE", ref_price: 45.2, vol_avg: 1200000, cap: "CTCK Trực Thuộc BIDV & Hana Securities", desc: "Hợp tác chiến lược toàn diện với Hana Securities Hàn Quốc, tiềm lực tài chính dồi dào và mạng lưới BIDV." },
+  "VIX": { name: "CTCP Chứng khoán VIX", sector: "Securities", exchange: "HOSE", ref_price: 10.8, vol_avg: 22000000, cap: "CTCK Tự Doanh Năng Động", desc: "Quy mô vốn điều lệ tăng mạnh, danh mục tự doanh đóng góp tỷ trọng lớn vào doanh thu và lợi nhuận." },
+  "AGR": { name: "CTCP Chứng khoán Agribank (Agriseco)", sector: "Securities", exchange: "HOSE", ref_price: 16.2, vol_avg: 1800000, cap: "CTCK Trực Thuộc Agribank", desc: "Thành viên của Ngân hàng Agribank, mạng lưới chi nhánh rộng khắp các địa bàn nông nghiệp nông thôn." },
+  "ORS": { name: "CTCP Chứng khoán Tiên Phong (TPS)", sector: "Securities", exchange: "HOSE", ref_price: 12.8, vol_avg: 2400000, cap: "CTCK Trực Thuộc Hệ Sinh Thái TPBank", desc: "Thế mạnh mảng ngân hàng đầu tư, tư vấn trái phiếu và dịch vụ tài chính công nghệ liên kết TPBank." },
+  "BVS": { name: "CTCP Chứng khoán Bảo Việt (BVSC)", sector: "Securities", exchange: "HNX", ref_price: 34.0, vol_avg: 450000, cap: "CTCK Lâu Đời Trực Thuộc Bảo Việt", desc: "Công ty chứng khoán đầu tiên thành lập tại Việt Nam, trực thuộc Tập đoàn Bảo Việt (BVH)." },
+  "TVS": { name: "CTCP Chứng khoán Thiên Việt", sector: "Securities", exchange: "HOSE", ref_price: 22.0, vol_avg: 320000, cap: "CTCK Đầu Tư Mạo Hiểm & FinTech", desc: "Nổi tiếng với khoản đầu tư sớm vào ví điện tử MoMo và các startup công nghệ tài chính." },
+  "VDS": { name: "CTCP Chứng khoán Rồng Việt (VDSC)", sector: "Securities", exchange: "HOSE", ref_price: 18.5, vol_avg: 1600000, cap: "CTCK Bán Lẻ & Tư Vấn Miền Nam", desc: "Mạng lưới khách hàng cá nhân năng động, chất lượng phân tích vĩ mô và doanh nghiệp uy tín." },
+
+  // --- 2. NGÂN HÀNG (BANKING) ---
+  "VCB": { name: "Ngân hàng TMCP Ngoại Thương Việt Nam (Vietcombank)", sector: "Banking", exchange: "HOSE", ref_price: 89.0, vol_avg: 2100000, cap: "Ngân Hàng Trụ Vốn Hóa Lớn Nhất", desc: "Ngân hàng uy tín số 1 Việt Nam, chất lượng tài sản tốt nhất, tỷ lệ bao phủ nợ xấu cao nhất hệ thống." },
+  "BID": { name: "Ngân hàng TMCP Đầu tư và Phát triển Việt Nam (BIDV)", sector: "Banking", exchange: "HOSE", ref_price: 48.0, vol_avg: 2800000, cap: "Ngân Hàng Tổng Tài Sản Số 1", desc: "Quy mô huy động vốn và mạng lưới chi nhánh rộng khắp toàn quốc." },
+  "CTG": { name: "Ngân hàng TMCP Công Thương Việt Nam (VietinBank)", sector: "Banking", exchange: "HOSE", ref_price: 35.5, vol_avg: 6800000, cap: "Trụ Cột Ngân Hàng Quốc Doanh", desc: "Quy mô tổng tài sản và dư nợ cho vay doanh nghiệp lớn nhất, hưởng lợi khi tín dụng mở rộng." },
+  "TCB": { name: "Ngân hàng TMCP Kỹ Thương Việt Nam (Techcombank)", sector: "Banking", exchange: "HOSE", ref_price: 23.5, vol_avg: 14500000, cap: "Top Ngân Hàng Tư Nhân Số 1", desc: "Ngân hàng số hàng đầu với tỷ lệ CASA vượt trội và hiệu quả sinh lời ROA/ROE cao nhất hệ thống." },
+  "MBB": { name: "Ngân hàng TMCP Quân Đội (MBBank)", sector: "Banking", exchange: "HOSE", ref_price: 24.5, vol_avg: 16800000, cap: "Top Ngân Hàng Số & CASA", desc: "Ngân hàng quân đội tiên phong chuyển đổi số, CASA cao top 2 toàn ngành, tăng trưởng tín dụng bền vững." },
+  "ACB": { name: "Ngân hàng TMCP Á Châu", sector: "Banking", exchange: "HOSE", ref_price: 24.8, vol_avg: 9500000, cap: "Ngân Hàng Bán Lẻ An Toàn", desc: "Mô hình quản trị rủi ro hàng đầu, chất lượng nợ sạch nhất ngành ngân hàng bán lẻ." },
+  "STB": { name: "Ngân hàng TMCP Sài Gòn Thương Tín (Sacombank)", sector: "Banking", exchange: "HOSE", ref_price: 32.5, vol_avg: 15200000, cap: "Ngân Hàng Tái Cơ Cấu Hoàn Tất", desc: "Ngân hàng xử lý xong đề án tái cơ cấu VAMC, mở ra dư địa hoàn nhập dự phòng và tăng trưởng mạnh mẽ." },
+  "VPB": { name: "Ngân hàng TMCP Việt Nam Thịnh Vượng (VPBank)", sector: "Banking", exchange: "HOSE", ref_price: 18.9, vol_avg: 24000000, cap: "Top Ngân Hàng Vốn Chủ Sở Hữu", desc: "Quy mô vốn điều lệ và vốn chủ sở hữu khủng sau thương vụ bán vốn chiến lược cho SMBC Nhật Bản." },
+  "HDB": { name: "Ngân hàng TMCP Phát triển TP.HCM (HDBank)", sector: "Banking", exchange: "HOSE", ref_price: 26.2, vol_avg: 7500000, cap: "Ngân Hàng Bán Lẻ & Nông Nghiệp Hiệu Quả", desc: "Tăng trưởng tín dụng và lợi nhuận liên tục duy trì trên 20%/năm, cổ tức tiền mặt và cổ phiếu đều đặn." },
+  "TPB": { name: "Ngân hàng TMCP Tiên Phong (TPBank)", sector: "Banking", exchange: "HOSE", ref_price: 16.5, vol_avg: 9800000, cap: "Ngân Hàng Số Trẻ Trung LiveBank", desc: "Hệ thống ngân hàng tự động LiveBank 24/7 hàng đầu, thu hút mạnh mẽ tập khách hàng trẻ Gen Z." },
+  "LPB": { name: "Ngân hàng TMCP Lộc Phát Việt Nam (LPBank)", sector: "Banking", exchange: "HOSE", ref_price: 31.0, vol_avg: 5400000, cap: "Ngân Hàng Mạng Lưới Bưu Điện Rộng Nhất", desc: "Sở hữu mạng lưới phòng giao dịch phủ kín tới tận cấp huyện/xã thông qua hệ thống bưu điện." },
+  "SHB": { name: "Ngân hàng TMCP Sài Gòn - Hà Nội", sector: "Banking", exchange: "HOSE", ref_price: 10.5, vol_avg: 18200000, cap: "Ngân Hàng TMCP Vốn Hóa Lớn", desc: "Quy mô vốn điều lệ top 5 ngân hàng thương mại tư nhân, dòng tiền giao dịch dồi dào." },
+  "MSB": { name: "Ngân hàng TMCP Hàng Hải Việt Nam", sector: "Banking", exchange: "HOSE", ref_price: 12.2, vol_avg: 6800000, cap: "Ngân Hàng Bán Lẻ & Doanh Nghiệp SME", desc: "Nền tảng công nghệ số tốt, CASA cao và danh mục tài sản an toàn." },
+  "VIB": { name: "Ngân hàng TMCP Quốc tế Việt Nam", sector: "Banking", exchange: "HOSE", ref_price: 18.5, vol_avg: 8200000, cap: "Dẫn Đầu Mảng Bán Lẻ & Cho Vay Ô Tô, Thẻ", desc: "Thị phần cho vay mua ô tô và thẻ tín dụng số 1 Việt Nam, tốc độ tăng trưởng tín dụng bán lẻ cao." },
+  "OCB": { name: "Ngân hàng TMCP Phương Đông", sector: "Banking", exchange: "HOSE", ref_price: 11.5, vol_avg: 4500000, cap: "Ngân Hàng Bán Lẻ Tư Nhân", desc: "Hiệu quả chi phí tốt, tỷ lệ an toàn vốn CAR thuộc nhóm cao nhất hệ thống." },
+  "EIB": { name: "Ngân hàng TMCP Xuất Nhập Khẩu Việt Nam (Eximbank)", sector: "Banking", exchange: "HOSE", ref_price: 18.2, vol_avg: 7100000, cap: "Ngân Hàng Tài Trợ Thương Mại & Ngoại Hối", desc: "Tái cơ cấu thượng tầng cổ đông thành công, đẩy mạnh mảng thanh toán quốc tế và bán lẻ." },
+  "NAB": { name: "Ngân hàng TMCP Nam Á", sector: "Banking", exchange: "HOSE", ref_price: 15.5, vol_avg: 3200000, cap: "Ngân Hàng Số Nam A Bank", desc: "Chuyển sàn niêm yết lên HOSE thành công, mở rộng quy mô tín dụng xanh và ngân hàng số." },
+
+  // --- 3. BẤT ĐỘNG SẢN DÂN CƯ & KHU CÔNG NGHIỆP ---
+  "VHM": { name: "CTCP Vinhomes", sector: "RealEstate", exchange: "HOSE", ref_price: 41.5, vol_avg: 8200000, cap: "Nhà Phát Triển BĐS Số 1", desc: "Doanh nghiệp phát triển đại đô thị lớn nhất Việt Nam, quỹ đất khổng lồ và năng lực triển khai dự án hàng đầu." },
+  "VIC": { name: "Tập đoàn Vingroup - CTCP", sector: "RealEstate", exchange: "HOSE", ref_price: 42.0, vol_avg: 5400000, cap: "Tập Đoàn Đa Ngành Vốn Hóa Top Đầu", desc: "Hệ sinh thái VinFast (xe điện), Vinhomes (bất động sản), Vinmec, Vinschool, Vinpearl." },
+  "VRE": { name: "CTCP Vincom Retail", sector: "RealEstate", exchange: "HOSE", ref_price: 18.5, vol_avg: 9800000, cap: "Bất Động Sản Bán Lẻ & Trung Tâm Thương Mại", desc: "Chủ sở hữu hệ thống TTTM Vincom lớn nhất Việt Nam, tỷ lệ lấp đầy cao và dòng tiền kinh doanh vượt trội." },
+  "NVL": { name: "CTCP Tập đoàn Đầu tư Địa ốc No Va (Novaland)", sector: "RealEstate", exchange: "HOSE", ref_price: 11.2, vol_avg: 18500000, cap: "Bất Động Sản Dân Cư & Nghỉ Dưỡng", desc: "Doanh nghiệp BĐS đang trong tiến trình tái cấu trúc nợ và tháo gỡ pháp lý các đại dự án." },
+  "KDH": { name: "CTCP Đầu tư và Kinh doanh Nhà Khang Điền", sector: "RealEstate", exchange: "HOSE", ref_price: 35.8, vol_avg: 3200000, cap: "Nhà Phát Triển BĐS Pháp Lý Sạch", desc: "Quỹ đất tập trung tại khu Đông TP.HCM, pháp lý minh bạch và sản phẩm nhà phố/căn hộ thanh khoản cao." },
+  "NLG": { name: "CTCP Đầu tư Nam Long", sector: "RealEstate", exchange: "HOSE", ref_price: 38.6, vol_avg: 2900000, cap: "Nhà Phát Triển Đại Đô Thị Vệ Tinh", desc: "Đối tác chiến lược của Hankyu Hanshin và Nishi Nippon Nhật Bản, chuỗi dự án Akari, Mizuki, Waterpoint." },
+  "PDR": { name: "CTCP Phát triển Bất động sản Phát Đạt", sector: "RealEstate", exchange: "HOSE", ref_price: 20.4, vol_avg: 8900000, cap: "BĐS Tái Cấu Trúc Sạch Nợ Trái Phiếu", desc: "Đã đưa dư nợ trái phiếu về 0, tập trung phát triển các dự án căn hộ và đô thị biển miền Trung." },
+  "DIG": { name: "Tổng CTCP Đầu tư Phát triển Xây dựng (DIC Corp)", sector: "RealEstate", exchange: "HOSE", ref_price: 21.5, vol_avg: 16500000, cap: "Quỹ Đất Đô Thị Vệ Tinh Lớn", desc: "Sở hữu các đại dự án khu đô thị tại Vũng Tàu, Đồng Nai, Hậu Giang, độ nhạy cao với dòng tiền đầu cơ." },
+  "CEO": { name: "CTCP Tập đoàn C.E.O (CEO Group)", sector: "RealEstate", exchange: "HNX", ref_price: 15.6, vol_avg: 9200000, cap: "BĐS Nghỉ Dưỡng & Đô Thị HNX", desc: "Nhà phát triển đại dự án Sonasea Villas & Resort tại Phú Quốc và Vân Đồn, thanh khoản hàng đầu sàn HNX." },
+  "DXG": { name: "CTCP Tập đoàn Đất Xanh", sector: "RealEstate", exchange: "HOSE", ref_price: 14.8, vol_avg: 14200000, cap: "Phát Triển & Dịch Vụ Môi Giới BĐS", desc: "Hệ thống phân phối BĐS số 1 Việt Nam kết hợp các dự án khu đô thị quy mô lớn." },
+  "KBC": { name: "Tổng Công ty Phát triển Đô thị Kinh Bắc - CTCP", sector: "IndustrialRealEstate", exchange: "HOSE", ref_price: 27.2, vol_avg: 7400000, cap: "Top Đầu BĐS KCN & Thu Hút FDI", desc: "Đối tác cho thuê đất KCN của Apple (Foxconn), LG, Goertek, Canon tại Bắc Ninh, Hải Phòng, Bắc Giang." },
+  "IDC": { name: "Tổng Công ty IDICO - CTCP", sector: "IndustrialRealEstate", exchange: "HNX", ref_price: 54.5, vol_avg: 2100000, cap: "Quỹ Đất KCN Sẵn Sàng Cho Thuê Lớn", desc: "Sở hữu 10 khu công nghiệp quy mô lớn tại cả hai miền Nam - Bắc, cổ tức tiền mặt đều đặn 30-40%." },
+  "SZC": { name: "CTCP Sonadezi Châu Đức", sector: "IndustrialRealEstate", exchange: "HOSE", ref_price: 36.2, vol_avg: 1800000, cap: "Khu Đô Thị & Công Nghiệp Châu Đức", desc: "Đại dự án KCN kết hợp đô thị sân golf Châu Đức 2.287 ha tại Bà Rịa - Vũng Tàu, hưởng lợi trực tiếp từ cảng Cái Mép." },
+  "VGC": { name: "Tổng Công ty Viglacera - CTCP", sector: "IndustrialRealEstate", exchange: "HOSE", ref_price: 43.5, vol_avg: 1600000, cap: "Vật Liệu Xây Dựng & BĐS Công Nghiệp", desc: "Sở hữu chuỗi KCN lớn tại miền Bắc và doanh nghiệp vật liệu xây dựng kính, gạch ốp lát số 1." },
+  "BCM": { name: "Tổng Công ty Đầu tư và Phát triển Công nghiệp (Becamex IDC)", sector: "IndustrialRealEstate", exchange: "HOSE", ref_price: 65.0, vol_avg: 950000, cap: "Trụ Cột BĐS Công Nghiệp Bình Dương", desc: "Chủ đầu tư chuỗi KCN VSIP liên doanh Singapore và hàng loạt KCN trọng điểm tại Bình Dương, Bình Phước." },
+  "TCH": { name: "CTCP Đầu tư Dịch vụ Tài chính Hoàng Huy", sector: "RealEstate", exchange: "HOSE", ref_price: 16.5, vol_avg: 11000000, cap: "Bất Động Sản Đô Thị Hải Phòng", desc: "Sở hữu hàng loạt dự án bất động sản và căn hộ cao cấp tại trung tâm TP Hải Phòng." },
+  "CII": { name: "CTCP Đầu tư Hạ tầng Kỹ thuật TP.HCM", sector: "Construction", exchange: "HOSE", ref_price: 15.2, vol_avg: 8500000, cap: "Hạ Tầng Giao Thông BOT & Đất Thủ Thiêm", desc: "Khai thác các trạm thu phí BOT giao thông lớn tại miền Nam và sở hữu quỹ đất vàng Thủ Thiêm." },
+
+  // --- 4. THÉP & VẬT LIỆU XÂY DỰNG ---
+  "HPG": { name: "CTCP Tập đoàn Hòa Phát", sector: "Materials", exchange: "HOSE", ref_price: 26.5, vol_avg: 22000000, cap: "Mega-Cap Thép số 1 Việt Nam", desc: "Doanh nghiệp thép tích hợp chuỗi giá trị khép kín lớn nhất Đông Nam Á, thị phần xây dựng số 1." },
+  "HSG": { name: "CTCP Tập đoàn Hoa Sen", sector: "Materials", exchange: "HOSE", ref_price: 20.2, vol_avg: 11500000, cap: "Thống Lĩnh Thị Phần Tôn Mạ Việt Nam", desc: "Xuất khẩu tôn mạ tới hơn 87 quốc gia, chuỗi siêu thị Hoa Sen Home mở rộng." },
+  "NKG": { name: "CTCP Thép Nam Kim", sector: "Materials", exchange: "HOSE", ref_price: 21.0, vol_avg: 9800000, cap: "Top Đầu Xuất Khẩu Tôn Mạ Bắc Mỹ & EU", desc: "Thế mạnh xuất khẩu tôn mạ chất lượng cao vào thị trường Mỹ và EU, dự án Nam Kim Phú Mỹ." },
+  "VGS": { name: "CTCP Ống thép Việt Đức VG PIPE", sector: "Materials", exchange: "HNX", ref_price: 33.5, vol_avg: 1500000, cap: "Nhà Sản Xuất Ống Thép & Thép Xây Dựng", desc: "Thị phần ống thép xây dựng miền Bắc kết hợp dự án khu đô thị Legend City." },
+
+  // --- 5. HÓA CHẤT, PHÂN BÓN & CAO SU ---
+  "DGC": { name: "CTCP Tập đoàn Hóa chất Đức Giang", sector: "Chemicals", exchange: "HOSE", ref_price: 112.0, vol_avg: 3200000, cap: "Thống Lĩnh Phốt Pho Vàng", desc: "Nhà sản xuất phốt pho vàng (P4) nguyên liệu quan trọng cho công nghiệp chip bán dẫn và pin lithium lớn nhất châu Á." },
+  "DCM": { name: "CTCP Phân bón Dầu khí Cà Mau (Đạm Cà Mau)", sector: "Chemicals", exchange: "HOSE", ref_price: 38.0, vol_avg: 4500000, cap: "Doanh Nghiệp Phân Bón Xuất Khẩu", desc: "Thị phần phân bón lớn nhất miền Tây và Campuchia, thâu tóm Phân bón Hàn - Việt." },
+  "DPM": { name: "Tổng CTCP Phân bón và Hóa chất Dầu khí (Đạm Phú Mỹ)", sector: "Chemicals", exchange: "HOSE", ref_price: 33.8, vol_avg: 3800000, cap: "Nhà Sản Xuất Đạm Urê & NPK Dẫn Đầu", desc: "Sở hữu nhà máy Đạm Phú Mỹ, dòng tiền mặt khổng lồ, chi trả cổ tức tiền mặt cao." },
+  "BFC": { name: "CTCP Phân bón Bình Điền", sector: "Chemicals", exchange: "HOSE", ref_price: 38.5, vol_avg: 1200000, cap: "Thương Hiệu Phân Bón Đầu Trâu Số 1", desc: "Thương hiệu phân bón NPK phục vụ cây công nghiệp và lúa gạo dẫn đầu toàn quốc." },
+  "CSV": { name: "CTCP Hóa chất Cơ bản Miền Nam", sector: "Chemicals", exchange: "HOSE", ref_price: 41.0, vol_avg: 850000, cap: "Nhà Sản Xuất Xút & Hóa Chất Cơ Bản", desc: "Cung cấp xút (NaOH), axit HCl, clo lỏng cho các ngành công nghiệp xử lý nước, giấy, dệt nhuộm." },
+  "GVR": { name: "Tập đoàn Công nghiệp Cao su Việt Nam - CTCP", sector: "IndustrialRealEstate", exchange: "HOSE", ref_price: 33.5, vol_avg: 4200000, cap: "Quỹ Đất Chuyển Đổi KCN Khổng Lồ", desc: "Sở hữu hàng trăm nghìn hecta đất cao su sẵn sàng chuyển đổi thành khu công nghiệp thế hệ mới." },
+  "PHR": { name: "CTCP Cao su Phước Hòa", sector: "IndustrialRealEstate", exchange: "HOSE", ref_price: 56.0, vol_avg: 1100000, cap: "Chuyển Đổi Đất Cao Su Sang KCN", desc: "Nhận tiền đền bù đất chuyển đổi KCN và sở hữu diện tích đất lớn tại Bình Dương." },
+
+  // --- 6. BÁN LẺ & TIÊU DÙNG ---
+  "MWG": { name: "CTCP Đầu tư Thế Giới Di Động", sector: "Retail", exchange: "HOSE", ref_price: 64.5, vol_avg: 11200000, cap: "Tập Đoàn Bán Lẻ Số 1", desc: "Chuỗi bán lẻ điện thoại, điện máy và Bách Hóa Xanh đạt điểm hòa vốn và bước vào chu kỳ tăng trưởng lợi nhuận." },
+  "FRT": { name: "CTCP Bán lẻ Kỹ thuật số FPT (FPT Retail)", sector: "Retail", exchange: "HOSE", ref_price: 172.0, vol_avg: 1800000, cap: "Chuỗi Bán Lẻ Dược Phẩm Long Châu", desc: "Chuỗi nhà thuốc Long Châu dẫn đầu toàn quốc với tốc độ mở mới và hiệu quả sinh lời vượt bậc." },
+  "DGW": { name: "CTCP Thế Giới Số (Digiworld)", sector: "Retail", exchange: "HOSE", ref_price: 43.5, vol_avg: 3200000, cap: "Nhà Phân Phối ICT & Hàng Tiêu Dùng", desc: "Nhà phân phối độc quyền Xiaomi, Apple, HP, thiết bị văn phòng và dược phẩm." },
+  "PNJ": { name: "CTCP Vàng bạc Đá quý Phú Nhuận", sector: "Retail", exchange: "HOSE", ref_price: 98.0, vol_avg: 1400000, cap: "Thương Hiệu Trang Sức Số 1 Việt Nam", desc: "Hơn 400 cửa hàng PNJ trên cả nước, biên lợi nhuận trang sức vàng bạc cao và thương hiệu vững mạnh." },
+  "MSN": { name: "CTCP Tập đoàn Masan", sector: "Consumer", exchange: "HOSE", ref_price: 74.5, vol_avg: 5400000, cap: "Hệ Sinh Thái Tiêu Dùng - Bán Lẻ", desc: "Tập đoàn tiêu dùng cốt lõi, sở hữu WinCommerce, Masan Consumer Holdings và chuỗi thịt sạch MEATDeli." },
+  "VNM": { name: "CTCP Sữa Việt Nam (Vinamilk)", sector: "Consumer", exchange: "HOSE", ref_price: 67.5, vol_avg: 4800000, cap: "Thương Hiệu Sữa Quốc Gia", desc: "Doanh nghiệp sữa dẫn đầu thị phần Việt Nam, dòng tiền thuần và cổ tức tiền mặt đều đặn, sức khỏe tài chính lành mạnh." },
+  "SAB": { name: "Tổng CTCP Bia - Rượu - Nước giải khát Sài Gòn (Sabeco)", sector: "Consumer", exchange: "HOSE", ref_price: 54.0, vol_avg: 1600000, cap: "Bia Sài Gòn Dẫn Đầu Thị Phần", desc: "Trực thuộc tập đoàn ThaiBev, hệ thống phân phối bia rộng khắp toàn quốc." },
+  "MCH": { name: "CTCP Hàng tiêu dùng Masan (Masan Consumer)", sector: "Consumer", exchange: "UPCoM", ref_price: 198.0, vol_avg: 450000, cap: "Đế Chế Gia Vị & Thực Phẩm Tiện Lợi Số 1", desc: "Sở hữu các thương hiệu quốc dân Chin-Su, Nam Ngư, Omachi, Kokomi, Vinacafé." },
+  "QNS": { name: "CTCP Đường Quảng Ngãi", sector: "Consumer", exchange: "UPCoM", ref_price: 48.0, vol_avg: 1200000, cap: "Thống Lĩnh Thị Phần Sữa Đậu Nành", desc: "Sữa đậu nành Fami và Vinasoy chiếm trên 80% thị phần hộp giấy, kết hợp nhà máy đường và điện sinh khối." },
+
+  // --- 7. DẦU KHÍ & NĂNG LƯỢNG ---
+  "GAS": { name: "Tổng Công ty Khí Việt Nam (PV GAS)", sector: "Energy", exchange: "HOSE", ref_price: 75.0, vol_avg: 1200000, cap: "Trụ Năng Lượng Quốc Gia", desc: "Độc quyền vận chuyển và phân phối khí thiên nhiên tại Việt Nam, dòng tiền dồi dào, đóng góp cổ tức lớn." },
+  "PVD": { name: "Tổng CTCP Khoan và Dịch vụ Khoan Dầu khí", sector: "Energy", exchange: "HOSE", ref_price: 25.5, vol_avg: 6800000, cap: "Dịch Vụ Giàn Khoan Biển", desc: "Đội giàn khoan tự nâng hoạt động hết công suất với giá thuê ngày duy trì ở mức cao trên thị trường quốc tế." },
+  "PVS": { name: "Tổng CTCP Dịch vụ Kỹ thuật Dầu khí Việt Nam", sector: "Energy", exchange: "HNX", ref_price: 37.8, vol_avg: 5400000, cap: "Xây Lắp & Dầu Khí - Điện Gió Ngoài Khơi", desc: "Doanh nghiệp tổng thầu EPCI hạ tầng năng lượng ngoài khơi, hợp đồng điện gió xuất khẩu quốc tế tỷ đô." },
+  "BSR": { name: "CTCP Lọc Hóa dầu Bình Sơn", sector: "Energy", exchange: "UPCoM", ref_price: 19.5, vol_avg: 12500000, cap: "Nhà Máy Lọc Dầu Dung Quất", desc: "Cung cấp hơn 30% nhu cầu xăng dầu toàn quốc, chuẩn bị niêm yết chuyển sàn sang HOSE." },
+  "PLX": { name: "Tập đoàn Xăng Dầu Việt Nam (Petrolimex)", sector: "Energy", exchange: "HOSE", ref_price: 39.5, vol_avg: 1800000, cap: "Hệ Thống Phân Phối Bán Lẻ Xăng Dầu Số 1", desc: "Chiếm hơn 50% thị phần bán lẻ xăng dầu toàn quốc với hơn 5.500 cây xăng." },
+  "POW": { name: "Tổng Công ty Điện lực Dầu khí Việt Nam (PV Power)", sector: "Energy", exchange: "HOSE", ref_price: 12.0, vol_avg: 11000000, cap: "Nhà Sản Xuất Điện Khí Số 1 Việt Nam", desc: "Sở hữu các nhà máy điện Nhơn Trạch 1 & 2, Cà Mau 1 & 2 và siêu dự án điện khí LNG Nhơn Trạch 3 & 4." },
+  "PC1": { name: "CTCP Tập đoàn PC1", sector: "Energy", exchange: "HOSE", ref_price: 26.0, vol_avg: 3100000, cap: "Tổng Thầu Xây Lắp Điện & Khai Thác Niken", desc: "Tổng thầu xây lắp đường dây 500kV số 1 Việt Nam kết hợp mỏ niken và KCN Nomura." },
+  "REE": { name: "CTCP Cơ Điện Lạnh", sector: "Industrial", exchange: "HOSE", ref_price: 64.5, vol_avg: 1400000, cap: "Tập Đoàn Cơ Điện & Năng Lượng Tái Tạo", desc: "Doanh nghiệp đa ngành cơ điện tử, văn phòng cho thuê cao cấp và sở hữu danh mục nhà máy thủy điện/điện gió." },
+  "HDG": { name: "CTCP Tập đoàn Hà Đô", sector: "Energy", exchange: "HOSE", ref_price: 27.5, vol_avg: 3800000, cap: "Năng Lượng Tái Tạo & Bất Động Sản", desc: "Sở hữu các nhà máy thủy điện, điện gió, điện mặt trời và dự án Hado Centrosa Garden." },
+
+  // --- 8. CẢNG BIỂN & LOGISTICS ---
+  "GMD": { name: "CTCP Gemadept", sector: "Logistics", exchange: "HOSE", ref_price: 69.5, vol_avg: 2400000, cap: "Cảng Biển & Logistics Hàng Đầu", desc: "Sở hữu cụm cảng nước sâu Gemalink lớn nhất Cái Mép - Thị Vải, hưởng lợi từ làn sóng dịch chuyển sản xuất FDI." },
+  "HAH": { name: "CTCP Vận tải và Xếp dỡ Hải An", sector: "Logistics", exchange: "HOSE", ref_price: 43.5, vol_avg: 3900000, cap: "Đội Tàu Container Dẫn Đầu Việt Nam", desc: "Chiếm thị phần lớn vận tải container nội địa và nội Á, giá cước vận tải phục hồi mạnh mẽ." },
+  "VSC": { name: "CTCP Container Việt Nam (Viconship)", sector: "Logistics", exchange: "HOSE", ref_price: 18.2, vol_avg: 2800000, cap: "Cụm Cảng Biển Viconship Hải Phòng", desc: "Thâu tóm cảng Nam Hải Đình Vũ, nâng cao thị phần cụm cảng sông Cấm - Đình Vũ." },
+  "PVT": { name: "Tổng CTCP Vận tải Dầu khí (PVTrans)", sector: "Logistics", exchange: "HOSE", ref_price: 27.5, vol_avg: 3400000, cap: "Đội Tàu Vận Tải Dầu Khí & Hóa Chất Số 1", desc: "Đội tàu chở dầu thô, sản phẩm dầu, hóa chất và LPG hoạt động trên các tuyến quốc tế." },
+  "VOS": { name: "CTCP Vận tải Biển Việt Nam (Vosco)", sector: "Logistics", exchange: "HOSE", ref_price: 14.5, vol_avg: 4100000, cap: "Đội Tàu Hàng Rời & Hàng Lỏng", desc: "Doanh nghiệp vận tải biển kỳ cựu với đội tàu hàng khô và tàu chở dầu." },
+
+  // --- 9. NÔNG NGHIỆP, THỦY SẢN & CHĂN NUÔI ---
+  "DBC": { name: "CTCP Tập đoàn DABACO Việt Nam", sector: "Agriculture", exchange: "HOSE", ref_price: 28.5, vol_avg: 5400000, cap: "Chuỗi 3F Nông Nghiệp & Vaccine", desc: "Mô hình khép kín thức ăn - trang trại - thực phẩm, nghiên cứu thành công vaccine dịch tả lợn châu Phi (ASF)." },
+  "BAF": { name: "CTCP Nông nghiệp BaF Việt Nam", sector: "Agriculture", exchange: "HOSE", ref_price: 21.0, vol_avg: 3800000, cap: "Chuỗi Thịt Heo Ăn Chay Độc Đáo", desc: "Mô hình trang trại chăn nuôi công nghệ cao khép kín, mở rộng chuỗi cửa hàng thịt sạch Siba Food." },
+  "HAG": { name: "CTCP Hoàng Anh Gia Lai", sector: "Agriculture", exchange: "HOSE", ref_price: 10.5, vol_avg: 12000000, cap: "Tập Đoàn Nông Nghiệp Chuối & Heo", desc: "Sở hữu hàng nghìn hecta chuối xuất khẩu sang Trung Quốc, Hàn Quốc và chăn nuôi heo." },
+  "VHC": { name: "CTCP Vĩnh Hoàn", sector: "Agriculture", exchange: "HOSE", ref_price: 71.5, vol_avg: 1600000, cap: "Nữ Hoàng Cá Tra Xuất Khẩu Mỹ", desc: "Doanh nghiệp cá tra dẫn đầu thị phần xuất khẩu sang Mỹ, mảng Collagen & Gelatin biên lợi nhuận cao." },
+  "ANV": { name: "CTCP Nam Việt", sector: "Agriculture", exchange: "HOSE", ref_price: 29.5, vol_avg: 2800000, cap: "Xuất Khẩu Cá Tra Trung Quốc & EU", desc: "Tự chủ 100% thức ăn và con giống, đẩy mạnh thị trường xuất khẩu Trung Quốc." },
+
+  // --- 10. CÔNG NGHỆ & VIỄN THÔNG ---
+  "FPT": { name: "CTCP FPT", sector: "Technology", exchange: "HOSE", ref_price: 133.0, vol_avg: 6800000, cap: "Mega-Cap Công Nghệ Số 1", desc: "Doanh nghiệp công nghệ, xuất khẩu phần mềm, AI và bán dẫn hàng đầu, đối tác chiến lược toàn cầu của Nvidia." },
+  "CMG": { name: "CTCP Tập đoàn Công nghệ CMC", sector: "Technology", exchange: "HOSE", ref_price: 49.0, vol_avg: 1200000, cap: "Trung Tâm Dữ Liệu & Điện Toán Đám Mây", desc: "Đối tác chiến lược của Samsung SDS, sở hữu Data Center chuẩn quốc tế tại TP.HCM và Đà Nẵng." },
+  "ELC": { name: "CTCP Công nghệ - Viễn thông Elcom", sector: "Technology", exchange: "HOSE", ref_price: 19.5, vol_avg: 1400000, cap: "Tiên Phong Giao Thông Thông Minh ITS", desc: "Cung cấp giải pháp giám sát giao thông thông minh và thu phí không dừng ETC cho cao tốc Bắc - Nam." },
+  "VGI": { name: "Tổng CTCP Đầu tư Quốc tế Viettel (Viettel Global)", sector: "Technology", exchange: "UPCoM", ref_price: 88.0, vol_avg: 2100000, cap: "Đầu Tư Viễn Thông Quốc Tế Viettel", desc: "Vận hành mạng viễn thông tại 10 quốc gia châu Á, châu Phi và Mỹ Latinh, dòng tiền USD dồi dào." },
+  "CTR": { name: "Tổng CTCP Công trình Viettel (Viettel Construction)", sector: "Technology", exchange: "HOSE", ref_price: 128.0, vol_avg: 1800000, cap: "Hạ Tầng Viễn Thông TowerCo", desc: "Sở hữu hàng chục nghìn trạm phát sóng BTS, hưởng lợi từ tiến trình thương mại hóa mạng 5G." },
+
+  // --- 11. XÂY DỰNG & HẠ TẦNG ---
+  "VCG": { name: "Tổng CTCP Xuất nhập khẩu và Xây dựng Việt Nam (Vinaconex)", sector: "Construction", exchange: "HOSE", ref_price: 18.5, vol_avg: 6800000, cap: "Tổng Thầu Hạ Tầng & Sân Bay Long Thành", desc: "Trúng thầu thi công nhà ga sân bay Long Thành, cao tốc Bắc Nam và dự án Cát Bà Amatina." },
+  "HHV": { name: "CTCP Đầu tư Hạ tầng Giao thông Đèo Cả", sector: "Construction", exchange: "HOSE", ref_price: 12.2, vol_avg: 5400000, cap: "Vua Hầm Đèo & Trạm Thu Phí BOT", desc: "Sở hữu và vận hành chuỗi hầm Đèo Cả, Cù Mông, Hải Vân, tổng thầu thi công cao tốc." },
+  "LCG": { name: "CTCP Lizen", sector: "Construction", exchange: "HOSE", ref_price: 11.0, vol_avg: 4800000, cap: "Nhà Thầu Cao Tốc Bắc Nam Năng Động", desc: "Thi công các gói thầu cao tốc Vũng Áng - Bùng, Vân Phong - Nha Trang và hạ tầng giao thông." },
+  "CTD": { name: "CTCP Xây dựng Coteccons", sector: "Construction", exchange: "HOSE", ref_price: 66.5, vol_avg: 1200000, cap: "Tổng Thầu Xây Dựng Số 1 Việt Nam", desc: "Tổng thầu thi công siêu nhà máy LEGO tỷ USD tại Bình Dương, mở rộng sang thị trường quốc tế." },
+
+  // --- 12. BẢO HIỂM & DỆT MAY ---
+  "BVH": { name: "Tập đoàn Bảo Việt", sector: "Insurance", exchange: "HOSE", ref_price: 43.5, vol_avg: 850000, cap: "Tập Đoàn Tài Chính - Bảo Hiểm Số 1", desc: "Thị phần bảo hiểm nhân thọ và phi nhân thọ dẫn đầu Việt Nam, dòng tiền đầu tư trái phiếu và tiền gửi lớn." },
+  "MIG": { name: "Tổng CTCP Bảo hiểm Quân đội (MIC)", sector: "Insurance", exchange: "HOSE", ref_price: 17.5, vol_avg: 920000, cap: "Bảo Hiểm Phi Nhân Thọ Quân Đội", desc: "Thành viên của MBBank, tốc độ tăng trưởng doanh thu phí bảo hiểm số thuộc top đầu ngành." },
+  "TNG": { name: "CTCP Đầu tư và Thương mại TNG", sector: "Textiles", exchange: "HNX", ref_price: 24.5, vol_avg: 3200000, cap: "Xuất Khẩu Dệt May Hàng Đầu Sàn HNX", desc: "Đối tác gia công may mặc cho Decathlon, Columbia, The Children's Place, đơn hàng xuất khẩu ổn định." }
 };
 
 const US_COMPANIES_DIR = {
@@ -641,22 +740,25 @@ function performStockLookup(inputSymbol) {
 
   const isUs = currentMarket === 'us' || (US_COMPANIES_DIR[sym] && !VN_COMPANIES_DIR[sym]);
   const currencySymbol = isUs ? "$" : " ₫";
+  const isCoreUniverse = !!(wlItem || (holdingItems && holdingItems.length > 0) || sellSignal || buySignal || symStats);
+  const exchange = dirInfo?.exchange || (isUs ? "NASDAQ/NYSE" : "HOSE");
 
-  const sector = dirInfo?.sector || wlItem?.sector || (holdingItems[0] ? holdingItems[0].sector : null) || symStats?.sector || (isUs ? "Technology" : "Materials");
+  const sector = dirInfo?.sector || wlItem?.sector || (holdingItems[0] ? holdingItems[0].sector : null) || symStats?.sector || (isUs ? "Technology" : "Diversified");
   const sectorVi = dirInfo ? getSectorVi(dirInfo.sector) : (wlItem?.sector_vi || getSectorVi(sector));
   const companyName = dirInfo?.name || wlItem?.name || `Công ty Cổ phần ${sym}`;
-  const capTier = dirInfo?.cap || wlItem?.market_cap_tier || (isUs ? "US Large-Cap Equity" : "Cổ Phiếu Niêm Yết Sàn HoSE");
+  const capTier = dirInfo?.cap || wlItem?.market_cap_tier || (isUs ? "US Large-Cap Equity" : "Cổ Phiếu Niêm Yết Sàn HOSE");
   const marketRegime = (globalDailyData && globalDailyData.vnindex && globalDailyData.vnindex.regime) || "BEAR";
 
   // Price & changes
   const currentPrice = wlItem?.current_price !== undefined ? wlItem.current_price : 
                        (holdingItems[0]?.current_price !== undefined ? holdingItems[0].current_price : 
                        (buySignal?.suggested_price !== undefined ? buySignal.suggested_price : 
-                       (symStats?.last_price || (isUs ? 150.0 : 31.8))));
+                       (symStats?.last_price !== undefined ? symStats.last_price : 
+                       (dirInfo?.ref_price !== undefined ? dirInfo.ref_price : (isUs ? 150.0 : 20.0)))));
   const prevPrice = wlItem?.prev_price !== undefined ? wlItem.prev_price : currentPrice;
   const dailyChangePct = wlItem?.daily_change_pct !== undefined ? wlItem.daily_change_pct : (holdingItems[0]?.daily_change_pct || 0);
   const dailyChangePts = wlItem?.daily_change_pts !== undefined ? wlItem.daily_change_pts : 0;
-  const volume = wlItem?.volume !== undefined ? wlItem.volume : 2500000;
+  const volume = wlItem?.volume !== undefined ? wlItem.volume : (dirInfo?.vol_avg !== undefined ? dirInfo.vol_avg : 1500000);
   const volRatio = wlItem?.vol_ratio !== undefined ? wlItem.vol_ratio : 1.0;
   const rsRating = wlItem?.rs_rating !== undefined ? wlItem.rs_rating : 65.0;
   const rsi = wlItem?.rsi_14 !== undefined ? wlItem.rsi_14 : 45.0;
@@ -751,6 +853,11 @@ function performStockLookup(inputSymbol) {
     actionTitleText = "Thị Trường Gấu (Bear Regime): Kỷ Luật Bảo Toàn Vốn 100%";
     if (wlItem && wlItem.ai_radar_action) {
       actionDescText = wlItem.ai_radar_action;
+    } else if (!isCoreUniverse) {
+      const sectorNote = sector === "Securities" ? "Nhóm Cổ phiếu Chứng khoán có hệ số Beta cao (1.3x–1.6x), thường sụt giảm nhanh và sâu hơn VN-Index trong thị trường giá xuống." :
+                         sector === "RealEstate" ? "Nhóm Bất động sản chịu áp lực dòng tiền yếu và thanh khoản suy giảm trong chu kỳ điều chỉnh." :
+                         "Cổ phiếu ngoài danh mục cốt lõi VN30 có mức độ biến động và rủi ro thanh khoản cao hơn.";
+      actionDescText = `Thị trường VN-Index đang trong chế độ Thị Trường Gấu (Bear Regime - dưới SMA20 & SMA50). Mã ${sym} thuộc thị trường mở rộng (${sectorVi}). ${sectorNote} Hệ thống AlphaQuant AI áp đặt kỷ luật 100% TIỀN MẶT PHÒNG THỦ (0 lệnh mua). Tuyệt đối không bắt đáy mã ${sym} cho đến khi thị trường chung xác nhận Ngày Bùng Nổ Theo Đà (FTD).`;
     } else {
       actionDescText = `Thị trường VN-Index đang trong chế độ Bear Market (dưới SMA20 & SMA50). Theo nguyên tắc quản trị rủi ro bất đối xứng của AlphaQuant AI, hệ thống áp đặt lệnh CẤM MUA MỚI (0 lệnh mua) và duy trì 100% tiền mặt phòng thủ. Tuyệt đối không giải ngân vào mã ${sym} cho đến khi thị trường chung xác nhận Ngày Bùng Nổ Theo Đà (FTD).`;
     }
@@ -771,15 +878,21 @@ function performStockLookup(inputSymbol) {
     targetPrice,
     rrRatio,
     sectorVi,
-    winRate
+    winRate,
+    isCoreUniverse,
+    exchange
   };
 
   // 3. Render Modal Content
   renderStockDiagnosisModal({
     sym,
     companyName,
+    companyDesc: dirInfo?.desc || "",
+    sector,
     sectorVi,
     capTier,
+    exchange,
+    isCoreUniverse,
     isUs,
     currencySymbol,
     currentPrice,
@@ -954,7 +1067,7 @@ function renderStockDiagnosisModal(d) {
     `${d.totalPnl >= 0 ? '+' : ''}${(d.totalPnl / 1000000000).toFixed(2)} Tỷ ₫`;
   const pnlClass = d.totalPnl >= 0 ? "text-green" : "text-red";
 
-  const trackRecordHtml = `
+  const trackRecordHtml = d.totalTrades > 0 ? `
     <div class="diag-card-panel">
       <div class="diag-panel-title">
         <span>🏆 Lịch Sử Khuyến Nghị Thực Chiến (2010 - 2026)</span>
@@ -970,6 +1083,22 @@ function renderStockDiagnosisModal(d) {
         </div>
       </div>
     </div>
+  ` : `
+    <div class="diag-card-panel">
+      <div class="diag-panel-title">
+        <span>🏆 Lịch Sử Khuyến Nghị Thực Chiến (2010 - 2026)</span>
+        <span class="badge badge-cyan" style="font-size: 0.68rem;">Mã Thị Trường Mở Rộng</span>
+      </div>
+      <div class="diag-panel-body">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+          <span>Tổng số lệnh thực hiện: <strong class="font-mono text-muted">0 lệnh (Ngoài rổ VN30)</strong></span>
+          <span>Phạm vi: <strong class="font-mono text-blue">Theo dõi kỹ thuật</strong></span>
+        </div>
+        <div>
+          <span style="font-size: 0.73rem; color: var(--text-dim);">Hệ thống 5 AI Advisors tập trung phân bổ vốn tự động vào rổ 15 mã VN30 thanh khoản cao nhất. Các mã mở rộng được chẩn đoán theo thuật toán Donchian &amp; Dual MA.</span>
+        </div>
+      </div>
+    </div>
   `;
 
   // Put everything together
@@ -977,15 +1106,21 @@ function renderStockDiagnosisModal(d) {
     <!-- Hero Ticker Banner -->
     <div class="diag-hero-banner">
       <div class="diag-hero-left">
-        <div style="display: flex; align-items: baseline; gap: 8px;">
+        <div style="display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;">
           <span class="diag-sym-badge">${d.sym}</span>
           <span class="badge ${rsClass}" style="font-size: 0.72rem;">RS ${Number(d.rsRating).toFixed(0)}</span>
+          <span class="badge ${d.isCoreUniverse ? 'badge-bull' : 'badge-cyan'}" style="font-size: 0.70rem;">
+            ${d.isCoreUniverse ? '💎 Rổ 15 VN30 Cốt Lõi' : `🌐 Sàn ${d.exchange || 'HOSE'} · Thị Trường Mở Rộng`}
+          </span>
         </div>
         <div class="diag-company-name">${d.companyName}</div>
-        <div class="diag-meta-row">
+        ${d.companyDesc ? `<div style="font-size: 0.75rem; color: var(--text-dim); margin-top: 2px; line-height: 1.35;">${d.companyDesc}</div>` : ''}
+        <div class="diag-meta-row" style="margin-top: 4px;">
+          <span>Sàn: <strong class="text-cyan">${d.exchange || 'HOSE'}</strong></span>
+          <span>·</span>
           <span>Ngành: <strong class="text-blue">${d.sectorVi}</strong></span>
           <span>·</span>
-          <span>Quy mô: <strong>${d.capTier}</strong></span>
+          <span>Phân khúc: <strong>${d.capTier}</strong></span>
         </div>
       </div>
       <div class="diag-price-group">

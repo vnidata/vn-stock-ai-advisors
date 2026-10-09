@@ -408,7 +408,7 @@ class TestStockLookupFeature:
             cwd=ROOT_DIR
         )
         assert result.returncode == 0, f"test_stock_lookup.js failed:\n{result.stderr}\n{result.stdout}"
-        assert "19 / 19 TESTS PASSED (100% SUCCESS)" in result.stdout
+        assert "TESTS PASSED (100% SUCCESS)" in result.stdout
 
 
 if __name__ == "__main__":
