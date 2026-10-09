@@ -262,12 +262,12 @@ function startAiScanTicker() {
   if (!tickerHeadline) return;
 
   const feeds = [
-    "● [15:00 ATC] Đã quét 15 mã VN30 & 160 tin tức tài chính. Hệ thống duy trì 100% tiền mặt phòng thủ bảo toàn vốn trong thị trường gấu.",
-    "● [14:00 Cao Điểm] Kiểm tra xung lực RSI & Dòng tiền MA20. Toàn bộ mã chưa đạt điều kiện giải ngân an toàn.",
-    "● [13:30 Mở Chiều] Hấp thụ lượng cổ phiếu T+2.5 khớp lệnh. Không phát hiện phân kỳ dương thỏa mãn tỷ lệ RR 3.0x.",
-    "● [11:30 Chốt Trưa] VN-Index 1.759,08 điểm dưới MA20/MA50. 5 AI Advisors đồng thuận kỷ luật giữ 100% tiền mặt.",
-    "● [10:00 Giữa Sáng] Tin tức bất thường: Kích hoạt Red Flag Veto đối với 2 mã rủi ro vốn & thanh khoản.",
-    "● [09:00 Mở Phiên] Khởi động radar 6 phiên/ngày. Đọc dữ liệu realtime từ vnstock API & Yahoo Finance."
+    "🐂 [15:00 ATC] Đã quét sạch 15 mã VN30 & 160 tin tức. Hệ thống duy trì 100% tiền mặt phòng thủ bảo toàn vốn trong thị trường gấu — Không nôn nóng! ✨",
+    "⚡ [14:00 Cao Điểm] Radar rà soát RSI & Xung lực dòng tiền MA20. Chưa mã nào đủ độ chín, kiên nhẫn là chìa khóa vàng! 🧘‍♂️",
+    "🌊 [13:30 Mở Chiều] Hấp thụ hàng T+2.5 về tài khoản. Giữ kỷ luật thép, chỉ xuống tiền khi tỷ lệ R:R tối thiểu 3.0x 🚀",
+    "🥪 [11:30 Chốt Trưa] VN-Index 1.759,08 điểm dưới MA20/MA50. 5 AI Advisors đồng thuận kỷ luật giữ 100% tiền mặt chill chill! 💸",
+    "🚨 [10:00 Giữa Sáng] Hóng biến radar: Kích hoạt Red Flag Veto đối với 2 mã dính tin tức bất lợi, bảo vệ túi tiền của bạn 🛡️",
+    "☕ [09:00 Mở Phiên] Pha cà phê ngắm bảng! Khởi động radar 6 phiên/ngày từ vnstock API & Yahoo Finance 📈"
   ];
 
   let feedIdx = 0;
