@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-09 10:02:59",
+  "last_updated": "2026-10-09 11:26:18",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 1,
@@ -667,6 +667,28 @@
       "published_date": "Thu, 08 Oct 26 08:43:00 +0700"
     },
     {
+      "title": "Thêm lãnh đạo SHB muốn mua lượng lớn cổ phiếu để đầu tư",
+      "description": "Ông Nguyễn Huy Tài, Phó Tổng Giám đốc SHB, đăng ký mua 2 triệu cổ phiếu SHB để đầu tư cá nhân. Trước đó, một lãnh đạo khác của ngân hàng cũng đăng ký mua lượng cổ phiếu tương tự, nâng tổng số cổ phiếu hai lãnh đạo dự kiến mua lên 4 triệu đơn vị.",
+      "source": "CafeF Tài Chính Ngân Hàng",
+      "symbols": [
+        "HAI",
+        "SHB"
+      ],
+      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
+      "sentiment_score": 0.7,
+      "sentiment_label": "TÍCH CỰC MẠNH",
+      "sentiment_badge": "pos",
+      "is_red_flag": false,
+      "is_catalyst": true,
+      "triggers_found": [
+        "đăng ký mua"
+      ],
+      "re_eval_action": "STRONG_BUY_CATALYST",
+      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
+      "link": "https://cafef.vn/them-lanh-dao-shb-muon-mua-luong-lon-co-phieu-de-dau-tu-188261009180503942.chn",
+      "published_date": "Fri, 09 Oct 26 18:03:00 +0700"
+    },
+    {
       "title": "Lãnh đạo ngân hàng SHB đăng ký mua vào lượng lớn cổ phiếu",
       "description": "Giao dịch của ông Đinh Ngọc Dũng diễn ra trong bối cảnh cổ phiếu SHB đang có những biến động mạnh thời gian gần đây.",
       "source": "CafeF Tài Chính Ngân Hàng",
@@ -924,7 +946,7 @@
       "published_date": "Fri, 09 Oct 26 14:48:00 +0700"
     },
     {
-      "title": "Một tiến sĩ vừa bị miễn nhiệm",
+      "title": "Một Phó tổng giám đốc vừa bị miễn nhiệm",
       "description": "Vị này bị miễn nhiệm sau khi giữ chức vụ Phó Tổng Giám đốc trong 1 năm.",
       "source": "CafeF Thị Trường",
       "symbols": [],
@@ -1151,26 +1173,6 @@
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/trung-quoc-mua-vang-manh-nhat-trong-3-nam-chuyen-gi-dang-xay-ra-188261008223346924.chn",
-      "published_date": "Fri, 09 Oct 26 00:03:00 +0700"
-    },
-    {
-      "title": "VinFast bất ngờ “đắt hàng” tại quốc gia đông dân nhất thế giới",
-      "description": "Theo SSI, VinFast đang đi đúng lộ trình để hoàn thành mục tiêu bán 300.000 ô tô điện trong cả năm 2026.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "SSI",
-        "VIC"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/vinfast-bat-ngo-dat-hang-tai-quoc-gia-dong-dan-nhat-the-gioi-188261008220208428.chn",
       "published_date": "Fri, 09 Oct 26 00:03:00 +0700"
     }
   ]
