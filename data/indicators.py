@@ -44,13 +44,23 @@ class TechnicalFeatureEngineer:
         df["sma_150"] = close.rolling(150).mean()
         df["sma_200"] = close.rolling(200).mean()
         df["ema_12"] = close.ewm(span=12, adjust=False).mean()
+        df["ema_20"] = close.ewm(span=20, adjust=False).mean()
         df["ema_26"] = close.ewm(span=26, adjust=False).mean()
 
         # Trend Divergences (%)
         df["dist_sma20"] = (close - df["sma_20"]) / (df["sma_20"] + 1e-9)
+        df["dist_ema20"] = (close - df["ema_20"]) / (df["ema_20"] + 1e-9)
         df["dist_sma50"] = (close - df["sma_50"]) / (df["sma_50"] + 1e-9)
         df["dist_sma200"] = (close - df["sma_200"]) / (df["sma_200"] + 1e-9)
         
+        # Dual Moving Average (50/200) Golden Cross & Trend Slope
+        df["sma_50_slope_10"] = (df["sma_50"] - df["sma_50"].shift(10)) / (df["sma_50"].shift(10) + 1e-9)
+        df["dual_ma_uptrend"] = (
+            (close > df["sma_200"]) &
+            (df["sma_50"] > df["sma_200"]) &
+            (df["sma_50_slope_10"] > 0)
+        ).astype(int)
+
         # Bullish moving average alignment (Thế trận rồng bay)
         df["bullish_alignment"] = (
             (close > df["sma_20"]) &
@@ -134,6 +144,20 @@ class TechnicalFeatureEngineer:
         # MACD & RSI Acceleration Slopes
         df["macd_hist_slope"] = df["macd_hist"].diff().fillna(0.0)
         df["rsi_slope_5d"] = df["rsi_14"].diff(5).fillna(0.0)
+
+        # 7B. Dual MA (50/200) Pullback to EMA 20 with Volume Confirmation
+        open_price = df["open"] if "open" in df.columns else close.shift(1)
+        touched_pullback_zone = (low <= df["ema_20"]) | ((low <= df["sma_20"]) & (low >= df["sma_50"] * 0.98))
+        bullish_candle = (close > df["ema_20"]) & (close > open_price)
+        vol_confirmed = (df["vol_ratio"] >= 1.20) | (volume > volume.shift(1))
+        df["volume_dry_up"] = (df["vol_ratio"] <= 0.65).astype(int)
+        
+        df["pullback_ema20_signal"] = (
+            (df["dual_ma_uptrend"] == 1) &
+            touched_pullback_zone &
+            bullish_candle &
+            vol_confirmed
+        ).astype(int)
 
         # 8. Relative Strength (RS Rating) vs Benchmark (VN-Index)
         if benchmark_df is not None and not benchmark_df.empty:
