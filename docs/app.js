@@ -3742,10 +3742,7 @@ function renderLeaderboard(data) {
   tbody.innerHTML = "";
 
   data.forEach((row, idx) => {
-    let rankBadge = `#${idx + 1}`;
-    if (idx === 0) rankBadge = "#1 #1";
-    else if (idx === 1) rankBadge = "#2 #2";
-    else if (idx === 2) rankBadge = "#3 #3";
+    const rankBadge = `#${idx + 1}`;
 
     const rrVal = row["RR Ratio"] !== undefined ? `${row["RR Ratio"]}x` : (row["Profit Factor"] ? `${(row["Profit Factor"] * 1.5).toFixed(2)}x` : "2.50x");
     const rrNum = parseFloat(rrVal);
