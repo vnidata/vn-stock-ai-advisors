@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-  <title>BullChill AI 🐂✨ | Đầu Tư Chill Chill · Gồng Lãi Chắc Tay · Chuẩn Quant Không Quạu</title>
-  <meta name="description" content="BullChill AI - Nền tảng cố vấn đầu tư chứng khoán vui nhộn, trẻ trung chuẩn Quant. Tự động tiến hóa, quản trị rủi ro bất đối xứng và cập nhật danh mục hàng ngày.">
+  <title>AlphaQuant AI | Institutional Quant Trading &amp; Risk Terminal</title>
+  <meta name="description" content="AlphaQuant AI - Nền tảng phân tích định lượng, giao dịch thuật toán và quản trị rủi ro bất đối xứng chuyên nghiệp.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,19 +17,19 @@
   <header class="navbar">
     <div class="nav-container">
       <div class="brand-group">
-        <div class="brand-logo fun-bounce">
-          <span class="logo-mark">🐂✨</span>
+        <div class="brand-logo">
+          <span class="logo-mark">AQ</span>
         </div>
         <div class="brand-text">
-          <div class="brand-title">BULLCHILL <span class="brand-accent">AI</span> 🚀</div>
-          <div class="brand-sub">Đầu tư chill chill · Gồng lãi chắc tay · Chuẩn Quant không quạu 💸</div>
+          <div class="brand-title">ALPHAQUANT <span class="brand-accent">PRO</span></div>
+          <div class="brand-sub">Hệ Thống Phân Tích Định Lượng &amp; Quản Trị Rủi Ro Thời Gian Thực</div>
         </div>
       </div>
 
       <!-- Nav Quick Shortcut to Leaderboard -->
       <div class="nav-leaderboard-shortcut" id="nav-leaderboard-shortcut">
         <a href="#leaderboard-section" class="btn-nav-leaderboard" title="Xem Bảng Xếp Hạng Cổ Phiếu Mạnh">
-          <span class="lookup-btn-icon">🏆</span> <span class="lookup-btn-text">BXH Cổ Phiếu Mạnh</span>
+          <span class="lookup-btn-icon">▲</span> <span class="lookup-btn-text">Bảng Xếp Hạng Cổ Phiếu Mạnh</span>
         </a>
       </div>
 
@@ -37,7 +37,7 @@
         <!-- Next Scan Countdown Widget (6 Daily Sessions: 09h, 10h, 11h30, 13h30, 14h, 15h) -->
         <div class="scan-countdown-widget" id="scan-countdown-widget" title="Lịch quét tự động 6 phiên/ngày: 09:00 • 10:00 • 11:30 • 13:30 • 14:00 • 15:00 (Giờ VN)">
           <div class="countdown-badge">
-            <span class="scan-radar-icon">📡</span>
+            <span class="scan-radar-icon">●</span>
             <div class="countdown-text-group">
               <span class="countdown-label">QUÉT KẾ TIẾP: <strong id="next-scan-slot">14:00</strong></span>
               <span class="countdown-timer" id="next-scan-timer">--:--:--</span>
@@ -53,12 +53,12 @@
           </div>
         </div>
         <div class="live-clock-badge" id="live-clock" title="Thời gian giao dịch theo múi giờ">
-          <span class="clock-icon">🕒</span>
+          <span class="clock-icon">⏱</span>
           <span id="clock-time">--:--:--</span>
-          <span class="clock-zone" id="clock-zone">HÀ NỘI</span>
+          <span class="clock-zone" id="clock-zone">ICT</span>
         </div>
         <button class="btn-quick-refresh" id="btn-refresh-data" title="Làm mới toàn bộ dữ liệu từ máy chủ">
-          <span class="refresh-icon" id="refresh-icon">🔄</span> <span class="refresh-text">Làm Mới</span>
+          <span class="refresh-icon" id="refresh-icon">↻</span> <span class="refresh-text">Đồng Bộ</span>
         </button>
         <div class="system-status">
           <div class="status-indicator">
@@ -76,16 +76,16 @@
     <!-- Market Selection Ribbon -->
     <div class="market-selector-bar">
       <div class="market-selector-left">
-        <span class="selector-icon">🎮</span>
-        <span class="selector-title">SÀN THỰC CHIẾN &amp; CHIẾN LƯỢC:</span>
+        <span class="selector-icon">◈</span>
+        <span class="selector-title">Không Gian Thị Trường &amp; Danh Mục:</span>
       </div>
       <div class="market-selector-tabs">
         <button class="market-btn active" data-market="vn" id="btn-market-vn">
-          <span class="market-flag">🇻🇳</span> Sàn Việt Nam (VN30 / VN-Index)
+          <span class="market-flag">VN</span> Thị Trường Việt Nam (VN30 / VN-Index)
         </button>
         <button class="market-btn" data-market="us" id="btn-market-us">
-          <span class="market-flag">🌐</span> Sàn Quốc Tế (US Mega-Caps &amp; S&amp;P 500)
-          <span class="rr-chip">RR ~ 3.0x - 4.0x 🚀</span>
+          <span class="market-flag">US</span> Quốc Tế (US Mega-Caps &amp; S&amp;P 500)
+          <span class="rr-chip">Asymmetric R:R 2.76x</span>
         </button>
       </div>
     </div>
@@ -93,13 +93,13 @@
     <!-- AI Real-Time Scan Feed & Status Ticker -->
     <div class="ai-scan-ticker-bar" id="ai-scan-ticker">
       <div class="ticker-left">
-        <span class="ticker-tag"><span class="pulse-dot"></span> 🐂 RADAR BÒ CHILL</span>
+        <span class="ticker-tag"><span class="pulse-dot"></span> RADAR QUANT LIVE</span>
         <div class="ticker-text-wrapper">
           <span class="ticker-headline" id="ticker-headline">● [15:00 ATC] Đã quét 15 mã VN30 &amp; 160 tin tức tài chính. Hệ thống duy trì 100% tiền mặt phòng thủ bảo toàn vốn trong thị trường gấu.</span>
         </div>
       </div>
       <div class="ticker-schedule-tag" title="Hệ thống quét 6 lần/ngày theo giờ giao dịch Việt Nam">
-        <span class="schedule-clock-icon">⏱️</span> 6 Phiên Quét: <strong>09h · 10h · 11h30 · 13h30 · 14h · 15h ⚡</strong>
+        <span class="schedule-clock-icon">●</span> 6 Phiên Quét Hàng Ngày: <strong>09h · 10h · 11h30 · 13h30 · 14h · 15h</strong>
       </div>
     </div>
 
@@ -109,20 +109,20 @@
         <div class="leaderboard-header">
           <div class="leaderboard-header-left">
             <div class="leaderboard-badge">
-              <span class="pulse-dot"></span> 🏆 BẢNG XẾP HẠNG CỔ PHIẾU MẠNH · QUANT LEADERBOARD
+              <span class="pulse-dot"></span> TOP SỨC MẠNH GIÁ &amp; DÒNG TIỀN · QUANT LEADERBOARD
             </div>
             <h2 class="leaderboard-title">
-              Top Cổ Phiếu Dẫn Sóng Thị Trường · Sức Mạnh Giá (RS 1-99) &amp; Dòng Tiền Đột Biến 🚀
+              Bảng Xếp Hạng Cổ Phiếu Dẫn Sóng Thị Trường
             </h2>
             <div class="leaderboard-sub">
-              Sàng lọc cơ học theo: Sức mạnh giá tương đối (RS Rating), Dòng tiền tổ chức (Vol Ratio ≥ 1.2x), Xu hướng Super-Trend (Golden Cross MA20/MA50) &amp; Kênh Donchian Breakout S2.
+              Sàng lọc đa tầng theo: Sức mạnh giá tương đối (RS Rating 1-99), Tỷ lệ dòng tiền đột biến (Vol Ratio ≥ 1.2x), Xu hướng Super-Trend (Golden Cross MA20/MA50) &amp; Kênh Donchian Breakout 55 phiên.
             </div>
           </div>
           <div class="leaderboard-realtime-status" id="leaderboard-realtime-status" title="Kết nối dữ liệu luồng trực tuyến theo thời gian thực">
             <span class="live-stream-dot"></span>
             <div class="live-stream-text-group">
               <span class="live-stream-label">LUỒNG TRỰC TUYẾN:</span>
-              <span class="live-stream-val" id="live-stream-text">RADAR REAL-TIME 🟢</span>
+              <span class="live-stream-val" id="live-stream-text">RADAR REAL-TIME ●</span>
             </div>
           </div>
         </div>
@@ -130,15 +130,15 @@
         <!-- Leaderboard Controls: Sort & Filter -->
         <div class="leaderboard-toolbar">
           <div class="leaderboard-sort-group" id="leaderboard-sort-group">
-            <span class="toolbar-label">⚡ Xếp hạng theo:</span>
-            <button class="btn-lb-sort active" data-sort="rs">🥇 Top RS Cao Nhất</button>
-            <button class="btn-lb-sort" data-sort="vol">🚀 Dòng Tiền Đột Biến (Vol)</button>
-            <button class="btn-lb-sort" data-sort="change">📈 % Tăng Giá</button>
-            <button class="btn-lb-sort" data-sort="donchian">🐢 Gần Đỉnh 55 Phiên</button>
-            <button class="btn-lb-sort" data-sort="rsi">⚡ Động Lượng RSI</button>
+            <span class="toolbar-label">Xếp hạng theo:</span>
+            <button class="btn-lb-sort active" data-sort="rs">Top RS Cao Nhất</button>
+            <button class="btn-lb-sort" data-sort="vol">Dòng Tiền Đột Biến (Vol)</button>
+            <button class="btn-lb-sort" data-sort="change">% Tăng Giá</button>
+            <button class="btn-lb-sort" data-sort="donchian">Gần Đỉnh 55 Phiên</button>
+            <button class="btn-lb-sort" data-sort="rsi">Động Lượng RSI</button>
           </div>
           <div class="leaderboard-filter-group">
-            <span class="toolbar-label">🏷️ Nhóm ngành:</span>
+            <span class="toolbar-label">Nhóm ngành:</span>
             <select id="leaderboard-sector-filter" class="leaderboard-sector-select">
               <option value="all">Tất Cả Các Ngành</option>
               <option value="Technology">Công Nghệ &amp; Bán Dẫn</option>
@@ -190,7 +190,7 @@
         <div class="stat-change text-green" id="vnindex-change">+0.34% (+5,88 điểm)</div>
         <div class="stat-breadth" id="market-breadth">Độ rộng HoSE: <span class="text-green">127 tăng</span> · <span class="text-red">177 giảm</span> · <span>64 tham chiếu</span></div>
         <div class="stat-breadth-sub" id="watchlist-breadth" style="cursor: pointer;" title="Nhấn để cuộn xuống xem chi tiết 15 mã trong Rổ Theo Dõi">
-          Rổ theo dõi (15 mã): <span class="text-green">10 tăng</span> · <span class="text-red">4 giảm</span> · <span>1 đứng giá</span> <span class="badge-link">🔍 Xem Rổ Mã ➔</span>
+          Rổ theo dõi (15 mã): <span class="text-green">10 tăng</span> · <span class="text-red">4 giảm</span> · <span>1 đứng giá</span> <span class="badge-link">■ Xem Rổ Mã →</span>
         </div>
       </div>
       <div class="market-stat-card">
@@ -216,43 +216,43 @@
         <!-- 2 Primary Recommendation Tabs -->
         <div class="primary-tabs-group" style="display: flex; gap: 8px;">
           <button class="tab-btn active primary-tab" data-tab="tab-buy-signals" data-shortcut="1" title="Phím tắt: 1">
-            <span class="tab-icon">🥑</span>
-            <span class="tab-text">Mua Mới (Múc Liền)</span>
+            <span class="tab-icon">▲</span>
+            <span class="tab-text">Tín Hiệu Mua Mới</span>
             <span class="tab-badge badge-green" id="tab-badge-buy">0</span>
           </button>
           <button class="tab-btn primary-tab" data-tab="tab-sell-signals" data-shortcut="2" title="Phím tắt: 2">
-            <span class="tab-icon">🔴</span>
-            <span class="tab-text">Bán &amp; Chốt Lời (Không Tham)</span>
+            <span class="tab-icon">▼</span>
+            <span class="tab-text">Bán &amp; Bảo Vệ Vốn</span>
             <span class="tab-badge badge-red" id="tab-badge-sell">0</span>
           </button>
         </div>
-        <div class="tabs-divider" style="width: 1px; height: 26px; background: rgba(255, 255, 255, 0.15); margin: 0 4px; align-self: center;"></div>
+        <div class="tabs-divider" style="width: 1px; height: 26px; background: rgba(255, 255, 255, 0.12); margin: 0 4px; align-self: center;"></div>
         <!-- Secondary Analytical & Audit Tabs -->
         <div class="secondary-tabs-group" style="display: flex; gap: 6px;">
           <button class="tab-btn" data-tab="tab-trades" data-shortcut="3" title="Phím tắt: 3">
-            <span class="tab-icon">📜</span>
-            <span class="tab-text">Sổ Lệnh &amp; Soi Mã</span>
+            <span class="tab-icon">■</span>
+            <span class="tab-text">Sổ Lệnh Lịch Sử</span>
             <span class="tab-badge badge-blue" id="tab-badge-trades">0</span>
           </button>
           <button class="tab-btn" data-tab="tab-performance" data-shortcut="4" title="Phím tắt: 4">
-            <span class="tab-icon">🏆</span>
-            <span class="tab-text">Bảng Vàng &amp; Flex Lãi</span>
+            <span class="tab-icon">◆</span>
+            <span class="tab-text">Hiệu Suất Advisors</span>
             <span class="tab-badge badge-purple" id="tab-badge-perf">5 AI</span>
           </button>
           <button class="tab-btn" data-tab="tab-news-actions" data-shortcut="5" title="Phím tắt: 5">
-            <span class="tab-icon">📰</span>
-            <span class="tab-text">Hóng Biến Radar</span>
+            <span class="tab-icon">●</span>
+            <span class="tab-text">Radar Tin Tức</span>
             <span class="tab-badge badge-amber" id="tab-badge-news">0</span>
           </button>
           <button class="tab-btn" data-tab="tab-evolution" data-shortcut="6" title="Phím tắt: 6">
-            <span class="tab-icon">🧬</span>
-            <span class="tab-text">Phòng Lab AI Gen 2</span>
+            <span class="tab-icon">◈</span>
+            <span class="tab-text">Phòng Lab Tối Ưu GA</span>
             <span class="tab-badge badge-gold" id="tab-badge-evo">Gen 2</span>
           </button>
         </div>
       </div>
       <div class="tabs-quick-hint">
-        <span class="kbd-hint">⌨️ Phím [1-6] nhảy tab vèo vèo</span>
+        <span class="kbd-hint">Phím [1-6] chuyển tab nhanh</span>
       </div>
     </nav>
 
@@ -302,8 +302,8 @@
             <button class="sig-filter-btn" data-buy-filter="Mean_Reversion">Đảo Chiều (20D)</button>
           </div>
           <div class="view-toggle-group">
-            <button class="view-toggle-btn active" id="btn-view-buy-cards">🗂️ Thẻ Khuyến Nghị (SaaS)</button>
-            <button class="view-toggle-btn" id="btn-view-buy-table">📋 Bảng Dữ Liệu</button>
+            <button class="view-toggle-btn active" id="btn-view-buy-cards">■ Thẻ Khuyến Nghị</button>
+            <button class="view-toggle-btn" id="btn-view-buy-table">☰ Bảng Dữ Liệu</button>
           </div>
         </div>
 
@@ -381,15 +381,15 @@
         <div class="signals-filter-bar">
           <div class="signals-filter-buttons" id="sell-filter-buttons">
             <button class="sig-filter-btn active" data-sell-filter="all">Tất Cả Lệnh Bán</button>
-            <button class="sig-filter-btn" data-sell-filter="profit">🟡 Chốt Lời Kỳ Vọng</button>
-            <button class="sig-filter-btn" data-sell-filter="trailing">🟢 Khóa Lãi Trailing Stop</button>
-            <button class="sig-filter-btn" data-sell-filter="stop">🔴 Cắt Lỗ Bảo Vệ Vốn</button>
+            <button class="sig-filter-btn" data-sell-filter="profit">▲ Chốt Lời Kỳ Vọng</button>
+            <button class="sig-filter-btn" data-sell-filter="trailing">◆ Khóa Lãi Trailing Stop</button>
+            <button class="sig-filter-btn" data-sell-filter="stop">▼ Cắt Lỗ Bảo Vệ Vốn</button>
             <button class="sig-filter-btn" data-sell-filter="rebalance">⏱️ Tái Cơ Cấu (Time-Stop)</button>
             <button class="sig-filter-btn" data-sell-filter="warning">⚠️ Cảnh Báo Sát Stop Loss</button>
           </div>
           <div class="view-toggle-group">
-            <button class="view-toggle-btn active" id="btn-view-sell-cards">🗂️ Thẻ Khuyến Nghị (SaaS)</button>
-            <button class="view-toggle-btn" id="btn-view-sell-table">📋 Bảng Dữ Liệu</button>
+            <button class="view-toggle-btn active" id="btn-view-sell-cards">■ Thẻ Khuyến Nghị</button>
+            <button class="view-toggle-btn" id="btn-view-sell-table">☰ Bảng Dữ Liệu</button>
           </div>
         </div>
 
@@ -430,7 +430,7 @@
           <div class="section-header">
             <div>
               <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                <span style="font-size: 1.5rem;">💼</span>
+                <span style="font-size: 1.2rem; color: #38bdf8;">■</span>
                 <h3 class="section-title" style="font-size: 1.25rem;">Danh Mục Vị Thế Đang Nắm Giữ (Live Open Positions)</h3>
                 <span class="badge badge-info" id="sell-tab-holdings-count-badge">14 Vị Thế Đang Nắm Giữ</span>
               </div>
@@ -525,8 +525,8 @@
             <button class="holdings-chip" data-advisor="AI_Advisor_Mean_Reversion">Đảo Chiều (20D)</button>
           </div>
           <div class="view-toggle-group">
-            <button class="view-toggle-btn active" id="btn-view-table">📋 Bảng Tổng Hợp Vị Thế</button>
-            <button class="view-toggle-btn" id="btn-view-cards">🗂️ Thẻ Khuyến Nghị (Top 5)</button>
+            <button class="view-toggle-btn active" id="btn-view-table">☰ Bảng Tổng Hợp Vị Thế</button>
+            <button class="view-toggle-btn" id="btn-view-cards">■ Thẻ Khuyến Nghị (Top 5)</button>
           </div>
         </div>
 
@@ -534,7 +534,7 @@
         <div class="defense-banner-card" id="holdings-defense-banner" style="display: none;">
           <div class="defense-banner-header">
             <div style="display: flex; align-items: center; gap: 12px;">
-              <span style="font-size: 2rem;">🛡️</span>
+              <span style="font-size: 1.8rem; color: #f59e0b;">◆</span>
               <div>
                 <h3 style="margin: 0; font-size: 1.15rem; color: #fbbf24; font-weight: 700;">
                   TRẠNG THÁI: PHÒNG THỦ BẢO TOÀN VỐN (100% TIỀN MẶT - CASH DEFENSE)
@@ -552,7 +552,7 @@
           <div class="defense-grid">
             <div class="defense-reason-item">
               <div class="defense-reason-title">
-                <span>📉</span> 1. Xu Hướng Thị Trường Chung (Regime)
+                <span>01.</span> Xu Hướng Thị Trường Chung (Regime)
               </div>
               <div class="defense-reason-desc" id="defense-reason-1">
                 Chỉ số VN-Index (1.759,08 điểm) nằm dưới đường trung bình MA20 (1.790,21 điểm) và MA50 (1.775,98 điểm). Hệ thống nhận diện thị trường bước vào giai đoạn rủi ro cao (BEAR REGIME).
@@ -561,7 +561,7 @@
 
             <div class="defense-reason-item">
               <div class="defense-reason-title">
-                <span>🎯</span> 2. Bộ Lọc Kỷ Luật Khắt Khe (Conviction Gate)
+                <span>02.</span> Bộ Lọc Kỷ Luật Khắt Khe (Conviction Gate)
               </div>
               <div class="defense-reason-desc" id="defense-reason-2">
                 Trong thị trường gấu, quy tắc định lượng chỉ cho phép mua mã siêu dẫn dắt (RS &gt; 75 &amp; Giá &gt; MA50). Hiện 15/15 cổ phiếu trong rổ VN30 đều có RS &le; 52.9, không đủ điều kiện an toàn.
@@ -579,7 +579,7 @@
 
             <div class="defense-reason-item">
               <div class="defense-reason-title">
-                <span>📰</span> 4. Rà Soát Tin Tức &amp; Cảnh Báo Bất Thường
+                <span>04.</span> Rà Soát Tin Tức &amp; Cảnh Báo Bất Thường
               </div>
               <div class="defense-reason-desc" id="defense-reason-4">
                 Hệ thống News Scanner phát hiện tín hiệu cảnh báo rủi ro (1 mã rủi ro bất thường / thanh tra kiểm toán), tự động kích hoạt quyền Phủ Quyết (Veto) giải ngân toàn hệ thống.
@@ -588,7 +588,7 @@
           </div>
 
           <div style="margin-top: 14px; padding: 10px 14px; background: rgba(245, 158, 11, 0.08); border-radius: 6px; font-size: 0.84rem; color: #fbbf24; display: flex; align-items: center; gap: 8px;">
-            <span>💡</span>
+            <span>◆</span>
             <strong>Hành Động Đề Xuất Của AI:</strong>
             <span>Kiên nhẫn đứng ngoài thị trường, bảo toàn vốn và sức mua 100%, tuyệt đối không bắt đáy dao rơi. Chờ đợi thị trường xác nhận phiên bùng nổ theo đà (Follow-Through Day).</span>
           </div>
@@ -632,7 +632,7 @@
           <div class="section-header" style="margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border-color);">
             <div>
               <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                <span style="font-size: 1.5rem;">🔭</span>
+                <span style="font-size: 1.2rem; color: #6366f1;">◈</span>
                 <h3 class="section-title" style="font-size: 1.25rem;">Rổ 15 Siêu Cổ Phiếu Theo Dõi Sát (Alpha Watchlist Universe)</h3>
                 <span class="badge badge-info" id="watchlist-count-badge">15 Cổ Phiếu Tuyển Chọn</span>
               </div>
@@ -662,7 +662,7 @@
             </div>
 
             <div class="watchlist-search-box">
-              <span class="search-icon">🔍</span>
+              <span class="search-icon">⌕</span>
               <input type="text" id="watchlist-search-input" placeholder="Tìm nhanh mã hoặc lý do..." />
             </div>
           </div>
@@ -735,7 +735,7 @@
           <!-- Box 1: Catalysts -->
           <div class="action-box border-catalyst">
             <div class="action-box-header">
-              <span class="action-box-icon">🔥</span>
+              <span class="action-box-icon">▲</span>
               <div>
                 <h3 class="action-box-title text-green">NHÓM ƯU TIÊN MUA ĐÓN SÓNG (CATALYST BOOST)</h3>
                 <span class="action-box-sub">Hệ số thưởng điểm +15% đến +20% (1.20x) nhờ KQKD vượt trội & vĩ mô hỗ trợ</span>
@@ -765,7 +765,7 @@
         <div class="news-matrix-card">
           <div class="matrix-header">
             <div>
-              <h3 class="matrix-title">📊 Ma Trận Đánh Giá Lại Danh Mục Theo Tin Tức (Symbol Re-evaluation Matrix)</h3>
+              <h3 class="matrix-title">■ Ma Trận Đánh Giá Lại Danh Mục Theo Tin Tức (Symbol Re-evaluation Matrix)</h3>
               <span class="matrix-hint">Tự động liên kết tin tức thời gian thực với từng mã cổ phiếu để điều chỉnh tỷ trọng hoặc loại bỏ</span>
             </div>
           </div>
@@ -793,14 +793,14 @@
         <div class="news-feed-card">
           <div class="feed-header">
             <div>
-              <h3 class="matrix-title">📰 Dòng Tin Tức & Công Bố Thông Tin Trực Tuyến</h3>
+              <h3 class="matrix-title">● Dòng Tin Tức & Công Bố Thông Tin Trực Tuyến</h3>
               <p class="feed-subtitle">Cập nhật tự động từ các kênh truyền thông tài chính chính thống và cổng thông tin doanh nghiệp</p>
             </div>
             <div class="feed-filters">
               <button class="news-filter-btn active" data-filter="all">Tất Cả</button>
-              <button class="news-filter-btn" data-filter="catalyst">🔥 Catalyst Tích Cực</button>
+              <button class="news-filter-btn" data-filter="catalyst">▲ Catalyst Tích Cực</button>
               <button class="news-filter-btn" data-filter="redflag">⚠️ Cảnh Báo Bất Thường</button>
-              <button class="news-filter-btn" data-filter="cbtt">📋 Doanh Nghiệp (CBTT)</button>
+              <button class="news-filter-btn" data-filter="cbtt">■ Doanh Nghiệp (CBTT)</button>
             </div>
           </div>
           <div class="news-articles-list" id="news-articles-container">
@@ -834,11 +834,11 @@
               <span class="phase-count" id="count-phase-live">(103 lệnh)</span>
             </button>
             <button class="phase-btn" data-phase="backtest" id="btn-phase-backtest">
-              <span>🏛️</span> Kiểm Định Backtest Chuẩn 15 Năm (2010 – 2025)
+              <span>◆</span> Kiểm Định Backtest Chuẩn 15 Năm (2010 – 2025)
               <span class="phase-count" id="count-phase-backtest">(1.765 lệnh)</span>
             </button>
             <button class="phase-btn" data-phase="all" id="btn-phase-all">
-              <span>🌐</span> Toàn Bộ Lịch Sử (2010 – Nay)
+              <span>■</span> Toàn Bộ Lịch Sử (2010 – Nay)
               <span class="phase-count" id="count-phase-all">(1.868 lệnh)</span>
             </button>
           </div>
@@ -887,7 +887,7 @@
         <div class="symbol-analytics-card">
           <div class="symbol-analytics-header">
             <div>
-              <h3 class="matrix-title">📊 Bảng Tổng Hợp Hiệu Suất Theo Từng Mã Chứng Khoán</h3>
+              <h3 class="matrix-title">■ Bảng Tổng Hợp Hiệu Suất Theo Từng Mã Chứng Khoán</h3>
               <span class="matrix-hint">Thống kê toàn diện Win Rate, Lãi/Lỗ và Số ngày nắm giữ của từng cổ phiếu — Nhấp vào mã để tra cứu chi tiết lịch sử lệnh</span>
             </div>
             <div class="symbol-search-box">
@@ -938,9 +938,9 @@
         <!-- Filter & Search Control Panel -->
         <div class="filter-panel-card">
           <div class="filter-row-header">
-            <span class="filter-title">🔍 BỘ LỌC &amp; TRA CỨU THEO THỜI GIAN VÀ CHUYÊN GIA</span>
+            <span class="filter-title">■ BỘ LỌC &amp; TRA CỨU THEO THỜI GIAN VÀ CHUYÊN GIA</span>
             <div class="filter-actions-group">
-              <button class="btn-export-csv" id="btn-export-trades-csv" title="Tải xuống tệp CSV các lệnh đang lọc">📥 Xuất File CSV</button>
+              <button class="btn-export-csv" id="btn-export-trades-csv" title="Tải xuống tệp CSV các lệnh đang lọc">⤓ Xuất File CSV</button>
               <button class="btn-reset-filter" id="btn-reset-filters">Đặt Lại Bộ Lọc</button>
             </div>
           </div>
@@ -948,8 +948,8 @@
           <!-- Quick Time Range Pills -->
           <div class="quick-range-group">
             <span class="range-label">Khoảng thời gian:</span>
-            <button class="range-pill active" data-range="2026">🔴 Thực Chiến 2026 (YTD)</button>
-            <button class="range-pill" data-range="15y">🏛️ Kiểm Định (2010 - 2025)</button>
+            <button class="range-pill active" data-range="2026">● Thực Chiến 2026 (YTD)</button>
+            <button class="range-pill" data-range="15y">◆ Kiểm Định (2010 - 2025)</button>
             <button class="range-pill" data-range="all">Tất Cả (2010 - 2026)</button>
             <button class="range-pill" data-range="1m">1 Tháng</button>
             <button class="range-pill" data-range="3m">3 Tháng</button>
@@ -1171,13 +1171,13 @@
               <span class="step-num">GIAI ĐOẠN 2</span>
               <h4 class="step-title">Hội Đồng Darwinian Phê Duyệt & Công Bố</h4>
               <p class="step-desc">Khám nghiệm tử thi loại bỏ chuyên gia yếu kém (Mean Reversion MDD -33.9%). Lai ghép tạo ra các chuyên gia tối ưu (CANSLIM Breakout, Bền Bỉ 3M). Chính thức công bố và cấp vốn vận hành.</p>
-              <div class="step-status text-gold">📜 Công bố chính thức: 01/01/2026</div>
+              <div class="step-status text-gold">■ Công bố chính thức: 01/01/2026</div>
             </div>
             <div class="protocol-step highlight">
               <span class="step-num text-green">GIAI ĐOẠN 3 (HIỆN HỮU)</span>
               <h4 class="step-title">Giao Dịch Thực Chiến Thời Gian Thực (2026 – Nay)</h4>
               <p class="step-desc">Chiến lược được đưa vào vận hành thực tế: Tự động quét dữ liệu EOD hàng ngày từ Vnstock, liên kết tin tức tài chính, sinh tín hiệu Mua/Bán và quản trị danh mục thực tế theo thời gian thực.</p>
-              <div class="step-status text-green">🔴 Đang vận hành trực tiếp (103 lệnh YTD)</div>
+              <div class="step-status text-green">● Đang vận hành trực tiếp (103 lệnh YTD)</div>
             </div>
           </div>
         </div>
@@ -1218,11 +1218,11 @@
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-left">
-        <p><strong>BullChill AI Lab 🐂✨ (AlphaQuant AI)</strong> — Nền Tảng Cố Vấn Đầu Tư Chứng Khoán Vui Nhộn, Trẻ Trung &amp; Chuẩn Quant</p>
-        <p class="footer-sub">Đầu tư chill chill · Gồng lãi chắc tay · Chuẩn Quant không quạu 🚀💸 | Cập nhật tự động qua GitHub Actions CI/CD.</p>
+        <p><strong>BullChill AI Lab ✨ (AlphaQuant AI)</strong> — Nền Tảng Cố Vấn Đầu Tư Chứng Khoán Vui Nhộn, Trẻ Trung &amp; Chuẩn Quant</p>
+        <p class="footer-sub">Mô hình Định lượng Đa chiến lược (Dual MA 20/50, Donchian Turtle S2, GA Fitness) · Quản trị rủi ro Asymmetric R:R · Dữ liệu thời gian thực | Tự động hóa GitHub Actions CI/CD.</p>
       </div>
       <div class="footer-right">
-        <span class="badge-source">📊 Dữ liệu: Vnstock &amp; Yahoo Finance</span>
+        <span class="badge-source">■ Dữ liệu: Vnstock &amp; Yahoo Finance</span>
         <span class="badge-source">⚡ Cơ chế: Asymmetric RR Payoff Engine</span>
         <span class="badge-source">⏱️ Chu kỳ: T+1 (US) &amp; T+2.5 (VN)</span>
       </div>
@@ -1239,7 +1239,7 @@
     <div class="modal-card stock-diagnosis-card">
       <div class="modal-header">
         <div class="modal-title-group">
-          <span class="modal-icon">🔎</span>
+          <span class="modal-icon">⌕</span>
           <div>
             <h3 class="modal-title" id="diag-modal-title">Hồ Sơ Định Lượng &amp; Khuyến Nghị AI</h3>
             <span class="modal-subtitle">Chẩn đoán đa chiều: Trạng thái kỹ thuật, Vị thế danh mục, Rủi ro tin tức &amp; Hành động</span>
@@ -1254,7 +1254,7 @@
 
       <div class="modal-footer diagnosis-footer" id="stock-diagnosis-footer">
         <button class="btn-modal-cancel" id="btn-close-diag-footer">Đóng</button>
-        <button class="btn-diag-view-trades" id="btn-diag-view-trades">📜 Xem Sổ Lệnh</button>
+        <button class="btn-diag-view-trades" id="btn-diag-view-trades">■ Xem Sổ Lệnh</button>
         <button class="btn-modal-confirm" id="btn-diag-quick-trade">⚡ Đặt Lệnh Nhanh</button>
       </div>
     </div>
@@ -1350,27 +1350,27 @@
   <!-- Mobile Bottom Navigation Bar (5 Standard Thumb-Friendly Tabs) -->
   <nav class="mobile-bottom-nav" id="mobile-bottom-nav">
     <button class="mobile-nav-btn active" data-tab="tab-buy-signals">
-      <span class="mobile-nav-icon">🥑</span>
-      <span class="mobile-nav-text">Múc Liền</span>
+      <span class="mobile-nav-icon">▲</span>
+      <span class="mobile-nav-text">Mua Mới</span>
       <span class="mobile-nav-badge badge-green" id="mob-badge-buy">0</span>
     </button>
     <button class="mobile-nav-btn" data-tab="tab-sell-signals">
-      <span class="mobile-nav-icon">🔴</span>
-      <span class="mobile-nav-text">Chốt Lời</span>
+      <span class="mobile-nav-icon">▼</span>
+      <span class="mobile-nav-text">Bán Ra</span>
       <span class="mobile-nav-badge badge-red" id="mob-badge-sell">0</span>
     </button>
     <button class="mobile-nav-btn" data-tab="tab-trades">
-      <span class="mobile-nav-icon">📜</span>
+      <span class="mobile-nav-icon">■</span>
       <span class="mobile-nav-text">Sổ Lệnh</span>
       <span class="mobile-nav-badge badge-blue" id="mob-badge-trades">0</span>
     </button>
     <button class="mobile-nav-btn" data-tab="tab-performance">
-      <span class="mobile-nav-icon">🏆</span>
-      <span class="mobile-nav-text">Flex Lãi</span>
+      <span class="mobile-nav-icon">◆</span>
+      <span class="mobile-nav-text">Hiệu Suất</span>
     </button>
     <button class="mobile-nav-btn" data-tab="tab-news-actions">
-      <span class="mobile-nav-icon">📰</span>
-      <span class="mobile-nav-text">Hóng Biến</span>
+      <span class="mobile-nav-icon">●</span>
+      <span class="mobile-nav-text">Tin Tức</span>
       <span class="mobile-nav-badge badge-amber" id="mob-badge-news">0</span>
     </button>
   </nav>

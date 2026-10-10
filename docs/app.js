@@ -268,12 +268,12 @@ function startAiScanTicker() {
   if (!tickerHeadline) return;
 
   const feeds = [
-    "🐂 [15:00 ATC] Đã quét sạch 15 mã VN30 & 160 tin tức. Hệ thống duy trì 100% tiền mặt phòng thủ bảo toàn vốn trong thị trường gấu — Không nôn nóng! ✨",
-    "⚡ [14:00 Cao Điểm] Radar rà soát RSI & Xung lực dòng tiền MA20. Chưa mã nào đủ độ chín, kiên nhẫn là chìa khóa vàng! 🧘‍♂️",
-    "🌊 [13:30 Mở Chiều] Hấp thụ hàng T+2.5 về tài khoản. Giữ kỷ luật thép, chỉ xuống tiền khi tỷ lệ R:R tối thiểu 3.0x 🚀",
-    "🥪 [11:30 Chốt Trưa] VN-Index 1.759,08 điểm dưới MA20/MA50. 5 AI Advisors đồng thuận kỷ luật giữ 100% tiền mặt chill chill! 💸",
-    "🚨 [10:00 Giữa Sáng] Hóng biến radar: Kích hoạt Red Flag Veto đối với 2 mã dính tin tức bất lợi, bảo vệ túi tiền của bạn 🛡️",
-    "☕ [09:00 Mở Phiên] Pha cà phê ngắm bảng! Khởi động radar 6 phiên/ngày từ vnstock API & Yahoo Finance 📈"
+    "● [15:00 ATC] Đã quét 15 mã VN30 & 160 tin tức tài chính. Hệ thống duy trì 100% tiền mặt phòng thủ bảo toàn vốn trong Bear Regime.",
+    "● [14:00 Cao Điểm] Radar rà soát RSI & Xung lực dòng tiền MA20. Chưa phát hiện điểm breakout đạt chuẩn, duy trì trạng thái chờ.",
+    "● [13:30 Mở Chiều] Theo dõi hấp thụ cung cầu T+2.5. Tuân thủ kỷ luật Asymmetric Risk/Reward tối thiểu 3.0x.",
+    "● [11:30 Chốt Trưa] VN-Index 1.759,08 điểm dưới MA20 & MA50. 5 AI Advisors đồng thuận kỷ luật bảo toàn vốn 100%.",
+    "● [10:00 Giữa Sáng] Bộ lọc tin tức: Kích hoạt Red Flag Veto đối với 2 mã dính tin tức bất lợi, ngăn ngừa rủi ro tiềm ẩn.",
+    "● [09:00 Mở Phiên] Khởi động radar 6 phiên/ngày từ vnstock API & Yahoo Finance. Đồng bộ hóa sổ lệnh & chỉ báo kỹ thuật."
   ];
 
   let feedIdx = 0;
@@ -672,13 +672,13 @@ function initRealtimeStreamIndicator() {
     const isAtc = isWeekday && (ictHours === 14 && ictMinutes > 45 && ictMinutes <= 59);
 
     if (isMorningSession || isAfternoonSession) {
-      streamEl.innerText = "WSS STREAMING 🟢 (Phiên Trực Tuyến)";
+      streamEl.innerText = "WSS STREAMING ● (Phiên Trực Tuyến)";
       streamEl.style.color = "#10b981";
     } else if (isAtc) {
-      streamEl.innerText = "ATC CLOSING 🟡 (Định Giá Đóng Cửa)";
+      streamEl.innerText = "ATC CLOSING ● (Định Giá Đóng Cửa)";
       streamEl.style.color = "#f59e0b";
     } else {
-      streamEl.innerText = "RADAR REAL-TIME 🟢 (Chốt Phiên ATC)";
+      streamEl.innerText = "RADAR REAL-TIME ● (Chốt Phiên ATC)";
       streamEl.style.color = "#38bdf8";
     }
   };
@@ -719,16 +719,16 @@ function renderStrongStocksLeaderboard(data, sortKey = 'rs', sectorFilter = 'all
   if (podiumGrid) {
     const top3 = filtered.slice(0, 3);
     const medals = [
-      { rank: 1, medal: "🥇", label: "QUÁN QUÂN RS", class: "rank-1", badge: "badge-bull" },
-      { rank: 2, medal: "🥈", label: "Á QUÂN DÒNG TIỀN", class: "rank-2", badge: "badge-cyan" },
-      { rank: 3, medal: "🥉", label: "TOP 3 BỨT PHÁ", class: "rank-3", badge: "tag-yellow" }
+      { rank: 1, medal: "#1", label: "QUÁN QUÂN RS", class: "rank-1", badge: "badge-bull" },
+      { rank: 2, medal: "#2", label: "Á QUÂN DÒNG TIỀN", class: "rank-2", badge: "badge-cyan" },
+      { rank: 3, medal: "#3", label: "TOP 3 BỨT PHÁ", class: "rank-3", badge: "tag-yellow" }
     ];
 
     if (top3.length === 0) {
       podiumGrid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-dim); padding: 12px;">Không có cổ phiếu trong bộ lọc ngành này.</div>`;
     } else {
       podiumGrid.innerHTML = top3.map((it, idx) => {
-        const m = medals[idx] || { rank: idx + 1, medal: "🏅", label: `TOP ${idx + 1}`, class: "rank-3", badge: "badge-cyan" };
+        const m = medals[idx] || { rank: idx + 1, medal: "#", label: `TOP ${idx + 1}`, class: "rank-3", badge: "badge-cyan" };
         const chg = it.daily_change_pct || 0;
         const chgSign = chg > 0 ? "+" : "";
         const chgClass = chg > 0 ? "text-green" : (chg < 0 ? "text-red" : "text-muted");
@@ -764,7 +764,7 @@ function renderStrongStocksLeaderboard(data, sortKey = 'rs', sectorFilter = 'all
               </div>
             </div>
             <div class="podium-verdict" style="background: rgba(255, 255, 255, 0.04); color: #cbd5e1;">
-              <span>⚡ ${it.vol_ratio >= 1.2 ? '🔥 Dòng tiền gom mạnh' : (it.rs_rating >= 60 ? '🏆 Dẫn dắt thị trường' : '🛡️ Tích lũy chờ bùng nổ')}</span>
+              <span>⚡ ${it.vol_ratio >= 1.2 ? '▲ Dòng tiền gom mạnh' : (it.rs_rating >= 60 ? '◆ Dẫn dắt thị trường' : '■ Tích lũy chờ bùng nổ')}</span>
             </div>
           </div>
         `;
@@ -784,9 +784,9 @@ function renderStrongStocksLeaderboard(data, sortKey = 'rs', sectorFilter = 'all
   tbody.innerHTML = filtered.map((it, idx) => {
     const rank = idx + 1;
     let rankBadge = `<span class="lb-rank-num">#${rank}</span>`;
-    if (rank === 1) rankBadge = `<span class="lb-rank-num" style="font-size: 1.15rem;">🥇</span>`;
-    else if (rank === 2) rankBadge = `<span class="lb-rank-num" style="font-size: 1.15rem;">🥈</span>`;
-    else if (rank === 3) rankBadge = `<span class="lb-rank-num" style="font-size: 1.15rem;">🥉</span>`;
+    if (rank === 1) rankBadge = `<span class="lb-rank-num" style="font-size: 1.15rem;">#1</span>`;
+    else if (rank === 2) rankBadge = `<span class="lb-rank-num" style="font-size: 1.15rem;">#2</span>`;
+    else if (rank === 3) rankBadge = `<span class="lb-rank-num" style="font-size: 1.15rem;">#3</span>`;
 
     const chg = it.daily_change_pct || 0;
     const chgSign = chg > 0 ? "+" : "";
@@ -807,24 +807,24 @@ function renderStrongStocksLeaderboard(data, sortKey = 'rs', sectorFilter = 'all
 
     const isAboveSma20 = it.dist_sma20_pct !== undefined ? it.dist_sma20_pct >= 0 : (it.current_price >= (it.sma_20 || it.current_price));
     const isAboveSma50 = it.dist_sma50_pct !== undefined ? it.dist_sma50_pct >= 0 : (it.current_price >= (it.sma_50 || it.current_price));
-    const superTrendText = (isAboveSma20 && isAboveSma50) ? `<span class="text-green font-bold">🟢 Golden Cross</span>` : 
-                           (isAboveSma20 ? `<span class="text-cyan">🟡 Bám MA20</span>` : `<span class="text-red">🛡️ Dưới MA20/50</span>`);
+    const superTrendText = (isAboveSma20 && isAboveSma50) ? `<span class="text-green font-bold">▲ Golden Cross</span>` : 
+                           (isAboveSma20 ? `<span class="text-cyan">◆ Bám MA20</span>` : `<span class="text-red">▼ Dưới MA20/50</span>`);
 
     const donchianHigh = it.donchian_high_55 || (it.current_price * 1.055);
     const distHighPct = Number(((it.current_price - donchianHigh) / donchianHigh * 100).toFixed(1));
     const donchianBadge = distHighPct >= 0 ? 
-      `<span class="badge badge-bull" style="font-size: 0.70rem;">🚀 VƯỢT ĐỈNH</span>` : 
+      `<span class="badge badge-bull" style="font-size: 0.70rem;">▲ VƯỢT ĐỈNH</span>` : 
       `<span class="font-mono text-muted" style="font-size: 0.74rem;">Cách đỉnh: ${distHighPct}%</span>`;
 
     let aiVerdict = `<span class="badge badge-cyan" style="font-size: 0.70rem;">⚪ THEO DÕI</span>`;
     if (it.vol_ratio >= 1.5 && it.rs_rating >= 50) {
-      aiVerdict = `<span class="badge badge-bull" style="font-size: 0.70rem;">🔥 TIỀN VÀO MẠNH</span>`;
+      aiVerdict = `<span class="badge badge-bull" style="font-size: 0.70rem;">▲ TIỀN VÀO MẠNH</span>`;
     } else if (it.rs_rating >= 65) {
-      aiVerdict = `<span class="badge badge-bull" style="font-size: 0.70rem;">🏆 SIÊU CỔ DẪN SÓNG</span>`;
+      aiVerdict = `<span class="badge badge-bull" style="font-size: 0.70rem;">◆ SIÊU CỔ DẪN SÓNG</span>`;
     } else if (isAboveSma20 && isAboveSma50) {
-      aiVerdict = `<span class="badge badge-cyan" style="font-size: 0.70rem;">📈 KÊNH TRÊN KHỎE</span>`;
+      aiVerdict = `<span class="badge badge-cyan" style="font-size: 0.70rem;">▲ KÊNH TRÊN KHỎE</span>`;
     } else {
-      aiVerdict = `<span class="badge tag-yellow" style="font-size: 0.70rem;">🛡️ CHỜ FTD BẢO VỆ</span>`;
+      aiVerdict = `<span class="badge tag-yellow" style="font-size: 0.70rem;">■ CHỜ FTD BẢO VỆ</span>`;
     }
 
     return `
@@ -853,7 +853,7 @@ function renderStrongStocksLeaderboard(data, sortKey = 'rs', sectorFilter = 'all
         </td>
         <td>
           <div class="font-mono" style="font-weight: 700; color: ${it.vol_ratio >= 1.2 ? '#34d399' : '#e2e8f0'};">
-            ${volRatio}x MA20 ${it.vol_ratio >= 1.2 ? '🔥' : ''}
+            ${volRatio}x MA20 ${it.vol_ratio >= 1.2 ? '▲' : ''}
           </div>
           <div class="font-mono text-muted" style="font-size: 0.72rem;">${volFmt} CP</div>
         </td>
@@ -862,7 +862,7 @@ function renderStrongStocksLeaderboard(data, sortKey = 'rs', sectorFilter = 'all
         <td>${aiVerdict}</td>
         <td style="text-align: right;">
           <button class="btn-lb-action" data-sym="${it.symbol}" onclick="event.stopPropagation(); performStockLookup('${it.symbol}');">
-            🔎 Soi Kèo
+            Chẩn Đoán Quant
           </button>
         </td>
       </tr>
@@ -978,7 +978,7 @@ function performStockLookup(inputSymbol) {
     actionType = "sell";
     actionTagClass = "sell";
     actionBannerClass = "sell";
-    actionBadgeText = "🔴 KHUYẾN NGHỊ BÁN (SELL / TAKE-PROFIT)";
+    actionBadgeText = "KHUYẾN NGHỊ BÁN (SELL / TAKE-PROFIT)";
     actionTitleText = `Kích hoạt lệnh Bán từ chuyên gia ${sellSignal.advisor || 'AlphaQuant AI'}`;
     actionDescText = `Cảnh báo kỷ luật: Giá chạm ngưỡng quản trị rủi ro hoặc bảo toàn lợi nhuận. Lý do: ${sellSignal.reason || 'Bảo toàn lợi nhuận vị thế'}. Giá khuyến nghị thoát vị thế: ${Number(sellSignal.exit_price || currentPrice).toFixed(2)}${currencySymbol}.`;
   } else if (holdingItems.length > 0) {
@@ -986,21 +986,21 @@ function performStockLookup(inputSymbol) {
     actionTagClass = "hold";
     actionBannerClass = "hold";
     const primaryHold = holdingItems[0];
-    actionBadgeText = "🟡 TIẾP TỤC NẮM GIỮ (HOLD)";
+    actionBadgeText = "TIẾP TỤC NẮM GIỮ (HOLD)";
     actionTitleText = `Đang nắm giữ bởi ${holdingItems.map(h => h.advisor_name || h.advisor).join(", ")}`;
     actionDescText = `Vị thế đang được bảo vệ tự động bằng trailing stop ATR. Hiệu suất hiện tại: ${primaryHold.current_return_pct >= 0 ? '+' : ''}${primaryHold.current_return_pct}%. Mức cắt lỗ quản trị rủi ro tại ${Number(primaryHold.stop_loss || stopLoss).toFixed(2)}${currencySymbol} | Mục tiêu kỳ vọng: ${Number(primaryHold.target_price || targetPrice).toFixed(2)}${currencySymbol}. Tiếp tục giữ vị thế.`;
   } else if (buySignal) {
     actionType = "buy";
     actionTagClass = "buy";
     actionBannerClass = "buy";
-    actionBadgeText = "🟢 KHUYẾN NGHỊ MUA MỚI (BUY)";
+    actionBadgeText = "KHUYẾN NGHỊ MUA MỚI (BUY)";
     actionTitleText = `Điểm mua chuẩn từ chuyên gia ${buySignal.advisor || 'AlphaQuant AI'}`;
     actionDescText = `${buySignal.reason || 'Cổ phiếu bứt phá vùng tích lũy với thanh khoản lớn'}. Điểm vào lệnh đề xuất: ${Number(buySignal.suggested_price || currentPrice).toFixed(2)}${currencySymbol}, Cắt lỗ: ${stopLoss}${currencySymbol}, Chốt lời: ${targetPrice}${currencySymbol} (Tỷ lệ R:R: ${rrRatio}).`;
   } else if (marketRegime === "BEAR") {
     actionType = "defend";
     actionTagClass = "defend";
     actionBannerClass = "defend";
-    actionBadgeText = "🛡️ 100% TIỀN MẶT PHÒNG THỦ (CASH DEFENSE)";
+    actionBadgeText = "100% TIỀN MẶT PHÒNG THỦ (CASH DEFENSE)";
     actionTitleText = "Thị Trường Gấu (Bear Regime): Kỷ Luật Bảo Toàn Vốn 100%";
     if (wlItem && wlItem.ai_radar_action) {
       actionDescText = wlItem.ai_radar_action;
@@ -1148,7 +1148,7 @@ function renderStockDiagnosisModal(d) {
     portfolioHtml = `
       <div class="diag-portfolio-box">
         <div class="diag-portfolio-title">
-          <span>💼 <strong>VỊ THẾ ĐANG NẮM GIỮ TRONG DANH MỤC THỰC CHIẾN</strong></span>
+          <span>■ <strong>VỊ THẾ ĐANG NẮM GIỮ TRONG DANH MỤC THỰC CHIẾN</strong></span>
           <span class="badge badge-green" style="font-size: 0.72rem;">Đang Nắm Giữ (${d.holdingItems.length} Vị Thế)</span>
         </div>
         ${d.holdingItems.map(h => {
@@ -1189,7 +1189,7 @@ function renderStockDiagnosisModal(d) {
     newsHtml = `
       <div class="diag-card-panel">
         <div class="diag-panel-title">
-          <span>📰 Tin Tức &amp; Xung Lực Thị Trường</span>
+          <span>● Tin Tức &amp; Xung Lực Thị Trường</span>
           <span class="badge ${badgeClass}" style="font-size: 0.68rem;">${firstNews.sentiment === 'positive' ? 'Tích Cực' : (firstNews.sentiment === 'negative' ? 'Tiêu Cực' : 'Trung Lập')}</span>
         </div>
         <div class="diag-panel-body">
@@ -1202,7 +1202,7 @@ function renderStockDiagnosisModal(d) {
     newsHtml = `
       <div class="diag-card-panel">
         <div class="diag-panel-title">
-          <span>📰 Tin Tức &amp; Xung Lực Thị Trường</span>
+          <span>● Tin Tức &amp; Xung Lực Thị Trường</span>
           <span class="badge badge-cyan" style="font-size: 0.68rem;">An Toàn</span>
         </div>
         <div class="diag-panel-body">
@@ -1221,7 +1221,7 @@ function renderStockDiagnosisModal(d) {
   const trackRecordHtml = d.totalTrades > 0 ? `
     <div class="diag-card-panel">
       <div class="diag-panel-title">
-        <span>🏆 Lịch Sử Khuyến Nghị Thực Chiến (2010 - 2026)</span>
+        <span>◆ Lịch Sử Khuyến Nghị Thực Chiến (2010 - 2026)</span>
         <span class="badge badge-bull" style="font-size: 0.68rem;">Win Rate ${d.winRate}%</span>
       </div>
       <div class="diag-panel-body">
@@ -1237,7 +1237,7 @@ function renderStockDiagnosisModal(d) {
   ` : `
     <div class="diag-card-panel">
       <div class="diag-panel-title">
-        <span>🏆 Lịch Sử Khuyến Nghị Thực Chiến (2010 - 2026)</span>
+        <span>◆ Lịch Sử Khuyến Nghị Thực Chiến (2010 - 2026)</span>
         <span class="badge badge-cyan" style="font-size: 0.68rem;">Mã Thị Trường Mở Rộng</span>
       </div>
       <div class="diag-panel-body">
@@ -1261,7 +1261,7 @@ function renderStockDiagnosisModal(d) {
           <span class="diag-sym-badge">${d.sym}</span>
           <span class="badge ${rsClass}" style="font-size: 0.72rem;">RS ${Number(d.rsRating).toFixed(0)}</span>
           <span class="badge ${d.isCoreUniverse ? 'badge-bull' : 'badge-cyan'}" style="font-size: 0.70rem;">
-            ${d.isCoreUniverse ? '💎 Rổ 15 VN30 Cốt Lõi' : `🌐 Sàn ${d.exchange || 'HOSE'} · Thị Trường Mở Rộng`}
+            ${d.isCoreUniverse ? '■ Rổ 15 VN30 Cốt Lõi' : `● Sàn ${d.exchange || 'HOSE'} · Thị Trường Mở Rộng`}
           </span>
         </div>
         <div class="diag-company-name">${d.companyName}</div>
@@ -1324,12 +1324,12 @@ function renderStockDiagnosisModal(d) {
 
     <!-- HOSE Quantitative Strategy Audit Section -->
     <div class="diag-quant-section-title" style="margin-top: 14px;">
-      <span>🇻🇳 CHIẾN LƯỢC ĐỊNH LƯỢNG TỐI ƯU HOSE: DUAL MA (20/50) + PULLBACK EMA15 &amp; VOL ≥ 1.5X</span>
+      <span>■ CHIẾN LƯỢC ĐỊNH LƯỢNG TỐI ƯU HOSE: DUAL MA (20/50) + PULLBACK EMA15 &amp; VOL ≥ 1.5X</span>
     </div>
     <div class="diag-hose-strategy-box">
       <div class="diag-hose-header">
         <div class="diag-hose-title">
-          <span>🎯 Khung Giao Dịch Trung Hạn (Holding 10–30 Phiên)</span>
+          <span>◆ Khung Giao Dịch Trung Hạn (Holding 10–30 Phiên)</span>
         </div>
         <span class="badge ${d.isDualMaUptrend && d.isPullbackZone && d.isVolConfirmed ? 'badge-bull' : (d.isDualMaUptrend && d.isPullbackZone ? 'badge-cyan' : (d.isDualMaUptrend ? 'badge-green' : 'tag-yellow'))}" style="font-size: 0.72rem;">
           ${d.isDualMaUptrend && d.isPullbackZone && d.isVolConfirmed ? 'ĐẠT ĐIỂM VÀO LỆNH (BUY)' : (d.isDualMaUptrend && d.isPullbackZone ? 'PULLBACK CHỜ VOL ≥ 1.5X' : (d.isDualMaUptrend ? 'XU HƯỚNG TĂNG MA20/50' : 'CHƯA ĐẠT CHUẨN'))}
@@ -1369,12 +1369,12 @@ function renderStockDiagnosisModal(d) {
 
     <!-- Turtle Donchian S2 & Genetic Algorithm Calibration Section -->
     <div class="diag-quant-section-title" style="margin-top: 14px;">
-      <span>🐢 HỆ THỐNG DONCHIAN BREAKOUT (TURTLE S2) &amp; TỐI ƯU HÓA GENETIC ALGORITHM (GA)</span>
+      <span>■ HỆ THỐNG DONCHIAN BREAKOUT (TURTLE S2) &amp; TỐI ƯU HÓA GENETIC ALGORITHM (GA)</span>
     </div>
     <div class="diag-turtle-strategy-box">
       <div class="diag-turtle-header">
         <div class="diag-turtle-title">
-          <span>🎯 Khung Giao Dịch Trend-Following Trung Hạn (Holding 20–60 Phiên · 6–7 Lệnh/Năm)</span>
+          <span>◆ Khung Giao Dịch Trend-Following Trung Hạn (Holding 20–60 Phiên · 6–7 Lệnh/Năm)</span>
         </div>
         <span class="badge ${isCeiling ? 'badge-red' : (turtleBreakout ? 'badge-bull' : (turtleExit ? 'badge-red' : 'badge-cyan'))}" style="font-size: 0.72rem;">
           ${isCeiling ? 'CẢNH BÁO GIÁ TRẦN (+7%) - KHÔNG MUA' : (turtleBreakout ? 'ĐẠT ĐIỂM BREAKOUT S2 (BUY)' : (turtleExit ? 'THỦNG ĐÁY 20D - THOÁT VỊ THẾ' : 'TÍCH LŨY TRONG HỘP DONCHIAN'))}
@@ -1432,7 +1432,7 @@ function setupMarketSwitcher() {
     btnUs.classList.remove("active");
     selectedSymbol = null;
     currentTradePage = 1;
-    showToast("Đã kích hoạt không gian: 🇻🇳 Thị Trường Việt Nam (VN30)", "info");
+    showToast("Đã kích hoạt không gian: Thị Trường Việt Nam (VN30)", "info");
     await loadDashboardData();
   });
 
@@ -1443,7 +1443,7 @@ function setupMarketSwitcher() {
     btnVn.classList.remove("active");
     selectedSymbol = null;
     currentTradePage = 1;
-    showToast("Đã kích hoạt không gian: 🌐 Quốc Tế (US Mega-Caps & S&P 500)", "info");
+    showToast("Đã kích hoạt không gian: Quốc Tế (US Mega-Caps & S&P 500)", "info");
     await loadDashboardData();
   });
 }
@@ -1942,7 +1942,7 @@ function renderDailySummary(data) {
       rowsHtml = `
         <tr>
           <td colspan="10" class="text-center" style="padding: 26px 16px;">
-            <div style="color: #fbbf24; font-weight: 700; font-size: 0.95rem;">🛡️ Trạng Thái: 100% Tiền Mặt (Phòng Thủ Thị Trường Gấu)</div>
+            <div style="color: #fbbf24; font-weight: 700; font-size: 0.95rem;">Trạng Thái: 100% Tiền Mặt (Phòng Thủ Thị Trường Gấu)</div>
             <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 6px; line-height: 1.5;">
               Toàn bộ cổ phiếu vi phạm quy tắc an toàn (gãy MA20/MA50 hoặc RS &lt; 55). Chuyên gia ${s.name.replace("AI_Advisor_", "")} giữ nguyên 100% tiền mặt bảo toàn vốn, chờ đợi thị trường bùng nổ theo đà.
             </div>
@@ -2122,7 +2122,7 @@ function renderHoldingsTable(data) {
         <tr>
           <td colspan="13" class="text-center" style="padding: 40px 20px;">
             <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
-              <span style="font-size: 2.4rem;">🛡️</span>
+              <span style="font-size: 2.4rem;">◆</span>
               <strong style="color: #fbbf24; font-size: 1.15rem; letter-spacing: 0.5px;">HỆ THỐNG ĐANG Ở TRẠNG THÁI PHÒNG THỦ TUYỆT ĐỐI (100% TIỀN MẶT - CASH DEFENSE)</strong>
               <p style="color: var(--text-muted); font-size: 0.88rem; max-width: 720px; margin: 0; line-height: 1.6;">
                 Thị trường VN-Index đang trong trạng thái <strong>BEAR REGIME</strong> (đóng cửa dưới MA20 &amp; MA50). Toàn bộ 15 cổ phiếu trong rổ VN30 đều vi phạm tiêu chuẩn an toàn định lượng (RS &lt; 55 hoặc gãy hỗ trợ kỹ thuật). AI kiên quyết giữ 100% tiền mặt bảo toàn vốn và không bắt đáy dao rơi.
@@ -2369,7 +2369,7 @@ function renderWatchlistTable(data) {
         </td>
         <td>
           <div class="${radarBoxClass}">
-            <span>🎯 <strong>Khuyến nghị Radar:</strong></span>
+            <span>◆ <strong>Khuyến nghị Radar:</strong></span>
             <div>${it.ai_radar_action || 'Theo dõi sát diễn biến dòng tiền'}</div>
           </div>
         </td>
@@ -2453,7 +2453,7 @@ function renderBuySignals(data) {
           <tr>
             <td colspan="13" class="text-center" style="padding: 40px 20px;">
               <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
-                <span style="font-size: 2.2rem;">🛡️</span>
+                <span style="font-size: 2.2rem;">◆</span>
                 <strong style="color: #fbbf24; font-size: 1.1rem; letter-spacing: 0.5px;">TẠM DỪNG MỞ VỊ THẾ MUA MỚI (100% TIỀN MẶT - CASH DEFENSE)</strong>
                 <p style="color: var(--text-muted); font-size: 0.88rem; max-width: 680px; margin: 0; line-height: 1.6;">
                   Thị trường VN-Index đang trong trạng thái <strong>BEAR REGIME</strong>. 5 AI Advisors đồng thuận giữ 100% tiền mặt, bảo toàn sức mua và kiên nhẫn chờ tín hiệu bùng nổ theo đà (Follow-Through Day).
@@ -2483,13 +2483,13 @@ function renderBuySignals(data) {
         <div class="signal-action-card" style="grid-column: 1 / -1; background: #121620; border: 1px solid rgba(251, 191, 36, 0.35); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
           <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
             <div style="display: flex; align-items: center; gap: 12px;">
-              <span style="font-size: 2rem;">🛡️</span>
+              <span style="font-size: 2rem;">◆</span>
               <div>
                 <h4 style="margin: 0; color: #fbbf24; font-size: 1.15rem; font-weight: 700;">HỆ THỐNG PHÒNG THỦ: 100% TIỀN MẶT (CHƯA PHÁT TÍN HIỆU MUA MỚI)</h4>
                 <span style="font-size: 0.8rem; color: var(--text-muted);">Thị trường chung suy yếu (BEAR REGIME) · Bảo vệ vốn tối đa · Quét tự động 6 phiên/ngày</span>
               </div>
             </div>
-            <span class="signal-action-badge action-hold">🛡️ CASH DEFENSE</span>
+            <span class="signal-action-badge action-hold">◆ CASH DEFENSE</span>
           </div>
 
           <p style="color: var(--text-main); font-size: 0.9rem; line-height: 1.6; margin-bottom: 14px;">
@@ -2506,7 +2506,7 @@ function renderBuySignals(data) {
 
           <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.08); flex-wrap: wrap; gap: 10px;">
             <span class="signal-validity-tag">⏱️ Phiên quét hiện hành: Còn hiệu lực trong phiên</span>
-            <span class="badge tag-yellow" style="padding: 6px 14px; font-weight: 600; font-size: 0.8rem;">🛡️ Đang ở chế độ bảo vệ vốn — Khóa vị thế mua mới</span>
+            <span class="badge tag-yellow" style="padding: 6px 14px; font-weight: 600; font-size: 0.8rem;">◆ Đang ở chế độ bảo vệ vốn — Khóa vị thế mua mới</span>
           </div>
         </div>
       `;
@@ -2719,7 +2719,7 @@ function renderSellSignals(data) {
         <tr>
           <td colspan="12" class="text-center" style="padding: 40px 20px;">
             <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
-              <span style="font-size: 2.2rem;">🛡️</span>
+              <span style="font-size: 2.2rem;">◆</span>
               <strong style="color: #34d399; font-size: 1.1rem; letter-spacing: 0.5px;">DANH MỤC AN TOÀN — CHƯA CÓ LỆNH BÁN PHÁT SINH</strong>
               <p style="color: var(--text-muted); font-size: 0.88rem; max-width: 650px; margin: 0; line-height: 1.6;">
                 Tất cả các vị thế đang nắm giữ đều vận động trong ngưỡng an toàn, chưa vi phạm quy tắc cắt lỗ (-4.5%) hoặc đạt điểm chốt lời kỳ vọng (+15%).
@@ -2732,7 +2732,7 @@ function renderSellSignals(data) {
     if (cardsContainer) {
       cardsContainer.innerHTML = `
         <div class="signal-action-card" style="grid-column: 1 / -1; background: #121620; border: 1px solid rgba(16, 185, 129, 0.35); text-align: center; padding: 36px 20px;">
-          <span style="font-size: 2.4rem;">🛡️</span>
+          <span style="font-size: 2.4rem;">◆</span>
           <h4 style="margin: 10px 0 6px 0; color: #34d399; font-size: 1.15rem;">KHÔNG CÓ LỆNH BÁN CẦN XỬ LÝ</h4>
           <p style="color: var(--text-muted); font-size: 0.88rem; max-width: 600px; margin: 0 auto; line-height: 1.6;">
             Hệ thống quản trị rủi ro tự động quét liên tục: nếu cổ phiếu giảm quá -4.5%, hệ thống sẽ lập tức gửi cảnh báo và sinh lệnh Bán Cắt Lỗ để triệt tiêu Max Drawdown.
@@ -2778,7 +2778,7 @@ function renderSellSignals(data) {
           <td style="font-size: 0.82rem; color: var(--text-muted); max-width: 280px;">${sig.advisor_rationale}</td>
           <td class="text-center">
             <button class="btn-quick-trade" style="padding: 4px 10px; font-size: 0.76rem; background: rgba(239, 68, 68, 0.2); border-color: rgba(239, 68, 68, 0.4); color: #f87171;" onclick="openQuickTradeModal('${sig.symbol}', '${sig.signal_type}', ${sig.signal_price}, ${sig.stop_loss}, ${sig.target_price}, 'Thực Hiện Bán', '${sectorVi}', 90)">
-              <span>🔔 Bán</span>
+              <span>Bán</span>
             </button>
           </td>
         </tr>
@@ -2819,7 +2819,7 @@ function renderSellSignals(data) {
               <span class="signal-sector">${sectorVi}</span>
             </div>
             <span class="${actionBadgeClass}">
-              🔔 ${sig.signal_type}
+              ${sig.signal_type}
             </span>
           </div>
 
@@ -2857,7 +2857,7 @@ function renderSellSignals(data) {
           <div class="signal-card-footer">
             <span class="signal-validity-tag">⏱️ Siết kỷ luật dừng lỗ</span>
             <button class="btn-quick-trade" style="background: rgba(239, 68, 68, 0.2); border-color: rgba(239, 68, 68, 0.5); color: #f87171;" onclick="openQuickTradeModal('${sig.symbol}', '${sig.signal_type}', ${sig.signal_price}, ${sig.stop_loss}, ${sig.target_price}, 'Bán Khẩn Cấp', '${sectorVi}', 90)">
-              <span>🔔 Xác Nhận Bán</span>
+              <span>Xác Nhận Bán</span>
             </button>
           </div>
         </div>
@@ -2896,7 +2896,7 @@ function renderNewsActionRecommendations(data) {
             </div>
             <div class="action-stock-headline">${item.latest_headline}</div>
             <div>
-              <span class="action-stock-advice advice-boost">🎯 Khuyến nghị: ${item.action_desc}</span>
+              <span class="action-stock-advice advice-boost">▲ Khuyến nghị: ${item.action_desc}</span>
             </div>
           </div>
         `;
@@ -2935,7 +2935,7 @@ function renderNewsActionRecommendations(data) {
             </div>
             <div class="action-stock-headline text-red">${item.latest_headline}</div>
             <div>
-              <span class="action-stock-advice advice-veto">🛑 Phủ Quyết: ${item.action_desc}</span>
+              <span class="action-stock-advice advice-veto">▼ Phủ Quyết: ${item.action_desc}</span>
             </div>
           </div>
         `;
@@ -3640,7 +3640,7 @@ function renderTradesTable() {
     
     const phaseBadge = t.is_live ? 
       `<span class="badge tag-red" style="font-size: 0.72rem; display: inline-flex; align-items: center; gap: 4px;"><span class="pulse-dot" style="width: 5px; height: 5px;"></span> THỰC CHIẾN</span>` : 
-      `<span class="badge badge-info" style="font-size: 0.72rem;">🏛️ KIỂM ĐỊNH</span>`;
+      `<span class="badge badge-info" style="font-size: 0.72rem;">◆ KIỂM ĐỊNH</span>`;
 
     const entryFormatted = t.entry_price ? `${currSym}${Number(t.entry_price).toFixed(2)}` : '-';
     const exitFormatted = t.exit_price ? `${currSym}${Number(t.exit_price).toFixed(2)}` : '-';
@@ -3743,9 +3743,9 @@ function renderLeaderboard(data) {
 
   data.forEach((row, idx) => {
     let rankBadge = `#${idx + 1}`;
-    if (idx === 0) rankBadge = "🥇 #1";
-    else if (idx === 1) rankBadge = "🥈 #2";
-    else if (idx === 2) rankBadge = "🥉 #3";
+    if (idx === 0) rankBadge = "#1 #1";
+    else if (idx === 1) rankBadge = "#2 #2";
+    else if (idx === 2) rankBadge = "#3 #3";
 
     const rrVal = row["RR Ratio"] !== undefined ? `${row["RR Ratio"]}x` : (row["Profit Factor"] ? `${(row["Profit Factor"] * 1.5).toFixed(2)}x` : "2.50x");
     const rrNum = parseFloat(rrVal);
