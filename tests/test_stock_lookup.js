@@ -66,6 +66,8 @@ function createLookupContext(initialMarket = 'vn') {
   // Pre-seed known elements
   const knownIds = [
     'stock-diagnosis-content', 'modal-stock-diagnosis',
+    'leaderboard-section', 'leaderboard-podium-grid', 'leaderboard-table-body',
+    'leaderboard-sector-filter', 'live-stream-text', 'nav-leaderboard-shortcut',
     'main-stock-lookup-input', 'nav-stock-lookup-input',
     'btn-main-stock-lookup', 'btn-nav-stock-lookup', 'btn-clear-lookup-input',
     'lookup-quick-chips', 'btn-close-stock-diagnosis', 'btn-close-diag-footer',
@@ -97,6 +99,10 @@ function createLookupContext(initialMarket = 'vn') {
       innerWidth: 1200
     },
     console: console,
+    setInterval: (fn, ms) => 1,
+    clearInterval: (id) => {},
+    setTimeout: (fn, ms) => 1,
+    clearTimeout: (id) => {},
     _initData: initialMarket === 'us' ? JSON.parse(JSON.stringify(dailyUs)) : JSON.parse(JSON.stringify(dailyVn)),
     _initTrades: initialMarket === 'us' ? tradesUs.trades : tradesVn.trades,
     _initMarket: initialMarket,
@@ -134,6 +140,14 @@ function createLookupContext(initialMarket = 'vn') {
     },
     getGlobalDailyData: () => {
       return vm.runInContext('globalDailyData', sandbox);
+    },
+    renderLeaderboard: (sortKey = 'rs', sectorFilter = 'all') => {
+      sandbox._sortKey = sortKey;
+      sandbox._sectorFilter = sectorFilter;
+      return vm.runInContext('renderStrongStocksLeaderboard(globalDailyData, _sortKey, _sectorFilter)', sandbox);
+    },
+    initRealtimeStream: () => {
+      return vm.runInContext('initRealtimeStreamIndicator()', sandbox);
     }
   };
 }
@@ -425,8 +439,72 @@ it("Modal Action 'Đặt Lệnh Nhanh': Invokes openQuickTradeModal with accurat
 });
 
 // -----------------------------------------------------------------------------
+// TEST GROUP 8: STRONG STOCKS LEADERBOARD & REALTIME INDICATOR
+// -----------------------------------------------------------------------------
+console.log("\n[TEST GROUP 8: Strong Stocks Leaderboard & Realtime Streaming]");
+
+it("Leaderboard Rendering: Renders Top 3 Podium Highlights and Table Rows", () => {
+  const env = createLookupContext('vn');
+  env.renderLeaderboard('rs', 'all');
+
+  const podiumHtml = env.getEl('leaderboard-podium-grid').innerHTML;
+  const tableHtml = env.getEl('leaderboard-table-body').innerHTML;
+
+  assert.ok(podiumHtml.includes('QUÁN QUÂN RS'));
+  assert.ok(podiumHtml.includes('Á QUÂN DÒNG TIỀN'));
+  assert.ok(podiumHtml.includes('TOP 3 BỨT PHÁ'));
+  assert.ok(podiumHtml.includes('podium-card rank-1'));
+  assert.ok(tableHtml.includes('lb-clickable-sym'));
+  assert.ok(tableHtml.includes('#1') || tableHtml.includes('🥇'));
+  assert.ok(tableHtml.includes('RS'));
+});
+
+it("Leaderboard Sorting: Sorts by Volume Ratio and % Price Change accurately", () => {
+  const env = createLookupContext('vn');
+  
+  // Sort by 'vol'
+  env.renderLeaderboard('vol', 'all');
+  const tableVolHtml = env.getEl('leaderboard-table-body').innerHTML;
+  assert.ok(tableVolHtml.includes('MA20'));
+
+  // Sort by 'change'
+  env.renderLeaderboard('change', 'all');
+  const tableChgHtml = env.getEl('leaderboard-table-body').innerHTML;
+  assert.ok(tableChgHtml.includes('%'));
+});
+
+it("Leaderboard Sector Filtering: Correctly filters by industry sector", () => {
+  const env = createLookupContext('vn');
+  env.renderLeaderboard('rs', 'Banking');
+  
+  const tableHtml = env.getEl('leaderboard-table-body').innerHTML;
+  assert.ok(tableHtml.includes('Ngân Hàng') || tableHtml.includes('Banking') || tableHtml.includes('TCB') || tableHtml.includes('MBB'));
+});
+
+it("Realtime Stream Indicator: Sets active stream status badge text", () => {
+  const env = createLookupContext('vn');
+  env.initRealtimeStream();
+  
+  const streamText = env.getEl('live-stream-text').innerText;
+  assert.ok(streamText && (streamText.includes('STREAMING') || streamText.includes('RADAR REAL-TIME') || streamText.includes('ATC CLOSING')));
+});
+
+it("Leaderboard Inspection: Clicking any stock card/row opens Stock Diagnosis Modal", () => {
+  const env = createLookupContext('vn');
+  env.renderLeaderboard('rs', 'all');
+
+  // Trigger performStockLookup as fired by .lb-clickable-sym click
+  env.performLookup('FPT');
+  const modal = env.getEl('modal-stock-diagnosis');
+  assert.strictEqual(modal.style.display, 'flex');
+  const diagData = env.getCurrentDiagnosisData();
+  assert.strictEqual(diagData.symbol, 'FPT');
+});
+
+// -----------------------------------------------------------------------------
 // SUMMARY
 // -----------------------------------------------------------------------------
 console.log("\n================================================================================");
 console.log(`   STOCK LOOKUP QA AUDIT: ${passedTests} / ${totalTests} TESTS PASSED (100% SUCCESS)`);
 console.log("================================================================================\n");
+

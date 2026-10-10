@@ -70,23 +70,22 @@ class TestDOMArchitecture:
         assert html_soup.find(id="next-scan-slot") is not None
         assert html_soup.find(id="next-scan-timer") is not None
 
-    def test_stock_lookup_elements(self, html_soup):
-        # 1. Navbar Search Box
-        assert html_soup.find(id="nav-stock-lookup-box") is not None
-        assert html_soup.find(id="nav-stock-lookup-input") is not None
-        assert html_soup.find(id="btn-nav-stock-lookup") is not None
+    def test_strong_stocks_leaderboard_elements(self, html_soup):
+        # 1. Nav Shortcut to Leaderboard
+        assert html_soup.find(id="nav-leaderboard-shortcut") is not None
+        assert html_soup.select_one("#nav-leaderboard-shortcut a") is not None
 
-        # 2. Main Ribbon Search Box
-        assert html_soup.find(id="ticker-lookup-ribbon") is not None
-        assert html_soup.find(id="main-stock-lookup-input") is not None
-        assert html_soup.find(id="btn-main-stock-lookup") is not None
-        assert html_soup.find(id="btn-clear-lookup-input") is not None
-        assert html_soup.find(id="lookup-quick-chips") is not None
+        # 2. Main Leaderboard Container & Controls
+        assert html_soup.find(id="leaderboard-section") is not None
+        assert html_soup.find(id="leaderboard-podium-grid") is not None
+        assert html_soup.find(id="leaderboard-table-body") is not None
+        assert html_soup.find(id="leaderboard-sector-filter") is not None
+        assert html_soup.find(id="live-stream-text") is not None
 
-        # Quick chips must include core liquid symbols
-        chips = [btn.get("data-sym") for btn in html_soup.select("#lookup-quick-chips .chip-sym-btn")]
-        for core_sym in ["HPG", "FPT", "TCB", "MBB", "SSI", "VHM", "MSN"]:
-            assert core_sym in chips, f"Core symbol {core_sym} missing from quick chips"
+        # 3. Sort buttons present
+        sort_btns = [btn.get("data-sort") for btn in html_soup.select(".btn-lb-sort")]
+        for sort_key in ["rs", "vol", "change", "donchian", "rsi"]:
+            assert sort_key in sort_btns, f"Sort option {sort_key} missing from leaderboard"
 
     def test_market_selector_and_ticker(self, html_soup):
         assert html_soup.find(id="btn-market-vn") is not None
@@ -386,6 +385,9 @@ class TestStockLookupFeature:
         with open(STYLE_CSS, "r", encoding="utf-8") as f:
             css = f.read()
         expected_classes = [
+            ".leaderboard-section",
+            ".leaderboard-podium-grid",
+            ".leaderboard-table",
             ".stock-diagnosis-card",
             ".diag-hero-banner",
             ".diag-action-banner",
@@ -397,6 +399,16 @@ class TestStockLookupFeature:
         ]
         for cls in expected_classes:
             assert cls in css, f"Required CSS class '{cls}' not found in style.css"
+
+    def test_realtime_stream_client_engine(self):
+        from data.realtime_stream_client import RealtimeStreamClient
+        client = RealtimeStreamClient()
+        assert client.connect() is True
+        ticks = client.simulate_ticks(count=5)
+        assert len(ticks) == 5
+        lb = client.engine.get_leaderboard(sort_by="rs", limit=5)
+        assert len(lb) > 0
+        assert lb[0]["rs_rating"] >= lb[-1]["rs_rating"]
 
     def test_lookup_js_execution_via_node(self):
         import subprocess

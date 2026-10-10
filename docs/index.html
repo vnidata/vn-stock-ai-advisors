@@ -26,16 +26,11 @@
         </div>
       </div>
 
-      <!-- Nav Quick Search & Stock Lookup -->
-      <div class="nav-lookup-box" id="nav-stock-lookup-box">
-        <div class="nav-lookup-input-wrapper">
-          <span class="nav-lookup-icon">🔍</span>
-          <input type="text" id="nav-stock-lookup-input" class="nav-stock-lookup-input" placeholder="Tra cứu mã (VD: HPG, FPT...)" autocomplete="off" spellcheck="false" maxlength="10">
-          <kbd class="nav-lookup-kbd" title="Phím tắt: nhấn / hoặc Ctrl+K">/</kbd>
-        </div>
-        <button class="btn-stock-lookup" id="btn-nav-stock-lookup" title="Tra cứu thông tin &amp; khuyến nghị AI">
-          <span class="lookup-btn-icon">⚡</span> <span class="lookup-btn-text">Tra Cứu</span>
-        </button>
+      <!-- Nav Quick Shortcut to Leaderboard -->
+      <div class="nav-leaderboard-shortcut" id="nav-leaderboard-shortcut">
+        <a href="#leaderboard-section" class="btn-nav-leaderboard" title="Xem Bảng Xếp Hạng Cổ Phiếu Mạnh">
+          <span class="lookup-btn-icon">🏆</span> <span class="lookup-btn-text">BXH Cổ Phiếu Mạnh</span>
+        </a>
       </div>
 
       <div class="nav-right-controls">
@@ -108,36 +103,81 @@
       </div>
     </div>
 
-    <!-- Dedicated Stock Lookup & AI Diagnosis Bar -->
-    <section class="ticker-lookup-ribbon" id="ticker-lookup-ribbon">
-      <div class="lookup-ribbon-container">
-        <div class="lookup-ribbon-left">
-          <div class="lookup-ribbon-badge"><span class="pulse-dot"></span> ⚡ TRA CỨU CỔ PHIẾU · SOI KÈO CHILL</div>
-          <div class="lookup-ribbon-title">Gõ mã bất kỳ để Bò Chill AI bóc tách điểm mua, cắt lỗ và độ uy tín tức thì:</div>
-        </div>
-        <div class="lookup-ribbon-search-row">
-          <div class="lookup-search-field">
-            <span class="search-lens-icon">🔍</span>
-            <input type="text" id="main-stock-lookup-input" class="main-stock-lookup-input" placeholder="Nhập mã CP (VD: HPG, FPT, TCB, VHM, SSI, NVDA...)" autocomplete="off" spellcheck="false" maxlength="10">
-            <button class="btn-clear-lookup" id="btn-clear-lookup-input" style="display:none;" title="Xóa">✕</button>
+    <!-- BẢNG XẾP HẠNG CỔ PHIẾU MẠNH (QUANT MOMENTUM & RELATIVE STRENGTH LEADERBOARD) -->
+    <section class="leaderboard-section" id="leaderboard-section">
+      <div class="leaderboard-container">
+        <div class="leaderboard-header">
+          <div class="leaderboard-header-left">
+            <div class="leaderboard-badge">
+              <span class="pulse-dot"></span> 🏆 BẢNG XẾP HẠNG CỔ PHIẾU MẠNH · QUANT LEADERBOARD
+            </div>
+            <h2 class="leaderboard-title">
+              Top Cổ Phiếu Dẫn Sóng Thị Trường · Sức Mạnh Giá (RS 1-99) &amp; Dòng Tiền Đột Biến 🚀
+            </h2>
+            <div class="leaderboard-sub">
+              Sàng lọc cơ học theo: Sức mạnh giá tương đối (RS Rating), Dòng tiền tổ chức (Vol Ratio ≥ 1.2x), Xu hướng Super-Trend (Golden Cross MA20/MA50) &amp; Kênh Donchian Breakout S2.
+            </div>
           </div>
-          <button class="btn-main-lookup-action" id="btn-main-stock-lookup">
-            <span class="action-icon">🎯</span> <span class="action-text">Tra Cứu Khuyến Nghị</span>
-          </button>
+          <div class="leaderboard-realtime-status" id="leaderboard-realtime-status" title="Kết nối dữ liệu luồng trực tuyến theo thời gian thực">
+            <span class="live-stream-dot"></span>
+            <div class="live-stream-text-group">
+              <span class="live-stream-label">LUỒNG TRỰC TUYẾN:</span>
+              <span class="live-stream-val" id="live-stream-text">RADAR REAL-TIME 🟢</span>
+            </div>
+          </div>
         </div>
-        <div class="lookup-quick-chips" id="lookup-quick-chips">
-          <span class="chips-label">Hot Pick:</span>
-          <button class="chip-sym-btn" data-sym="HPG">🔥 HPG</button>
-          <button class="chip-sym-btn" data-sym="FPT">💻 FPT</button>
-          <button class="chip-sym-btn" data-sym="TCB">🏦 TCB</button>
-          <button class="chip-sym-btn" data-sym="MBB">🛡️ MBB</button>
-          <button class="chip-sym-btn" data-sym="SSI">📈 SSI</button>
-          <button class="chip-sym-btn" data-sym="VHM">🏰 VHM</button>
-          <button class="chip-sym-btn" data-sym="MWG">📱 MWG</button>
-          <button class="chip-sym-btn" data-sym="MSN">🍜 MSN</button>
-          <button class="chip-sym-btn" data-sym="DGC">⚗️ DGC</button>
-          <button class="chip-sym-btn" data-sym="VNM">🥛 VNM</button>
-          <button class="chip-sym-btn" data-sym="NVDA">🤖 NVDA</button>
+
+        <!-- Leaderboard Controls: Sort & Filter -->
+        <div class="leaderboard-toolbar">
+          <div class="leaderboard-sort-group" id="leaderboard-sort-group">
+            <span class="toolbar-label">⚡ Xếp hạng theo:</span>
+            <button class="btn-lb-sort active" data-sort="rs">🥇 Top RS Cao Nhất</button>
+            <button class="btn-lb-sort" data-sort="vol">🚀 Dòng Tiền Đột Biến (Vol)</button>
+            <button class="btn-lb-sort" data-sort="change">📈 % Tăng Giá</button>
+            <button class="btn-lb-sort" data-sort="donchian">🐢 Gần Đỉnh 55 Phiên</button>
+            <button class="btn-lb-sort" data-sort="rsi">⚡ Động Lượng RSI</button>
+          </div>
+          <div class="leaderboard-filter-group">
+            <span class="toolbar-label">🏷️ Nhóm ngành:</span>
+            <select id="leaderboard-sector-filter" class="leaderboard-sector-select">
+              <option value="all">Tất Cả Các Ngành</option>
+              <option value="Technology">Công Nghệ &amp; Bán Dẫn</option>
+              <option value="Banking">Ngân Hàng</option>
+              <option value="Securities">Chứng Khoán</option>
+              <option value="Materials">Thép &amp; Vật Liệu</option>
+              <option value="RealEstate">Bất Động Sản</option>
+              <option value="Consumer">Tiêu Dùng &amp; Bán Lẻ</option>
+              <option value="Energy">Năng Lượng &amp; Dầu Khí</option>
+              <option value="Logistics">Cảng Biển &amp; Vận Tải</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Top 3 Podium Highlights -->
+        <div class="leaderboard-podium-grid" id="leaderboard-podium-grid">
+          <!-- Rendered dynamically by JS -->
+        </div>
+
+        <!-- Full Ranked Table -->
+        <div class="leaderboard-table-container">
+          <table class="leaderboard-table">
+            <thead>
+              <tr>
+                <th style="width: 55px; text-align: center;">Hạng</th>
+                <th>Mã CP / Doanh Nghiệp</th>
+                <th>Giá &amp; Thay Đổi</th>
+                <th>Sức Mạnh RS (1-99)</th>
+                <th>Dòng Tiền vs MA20</th>
+                <th>Xu Hướng Super-Trend</th>
+                <th>Kênh Donchian 55P</th>
+                <th>Đánh Giá AI</th>
+                <th style="text-align: right;">Hành Động</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboard-table-body">
+              <!-- Rendered dynamically by JS -->
+            </tbody>
+          </table>
         </div>
       </div>
     </section>

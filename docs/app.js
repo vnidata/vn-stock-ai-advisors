@@ -557,15 +557,29 @@ const US_COMPANIES_DIR = {
 };
 
 let currentDiagnosisData = null;
+let currentLeaderboardSort = 'rs';
+let currentLeaderboardSector = 'all';
 
-function setupStockLookup() {
-  const navInput = document.getElementById("nav-stock-lookup-input");
-  const navBtn = document.getElementById("btn-nav-stock-lookup");
-  const mainInput = document.getElementById("main-stock-lookup-input");
-  const mainBtn = document.getElementById("btn-main-stock-lookup");
-  const clearBtn = document.getElementById("btn-clear-lookup-input");
-  const quickChips = document.querySelectorAll(".chip-sym-btn");
+function setupLeaderboard() {
+  const sortBtns = document.querySelectorAll(".btn-lb-sort");
+  sortBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      sortBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      currentLeaderboardSort = btn.getAttribute("data-sort") || 'rs';
+      renderStrongStocksLeaderboard(globalDailyData, currentLeaderboardSort, currentLeaderboardSector);
+    });
+  });
 
+  const sectorFilter = document.getElementById("leaderboard-sector-filter");
+  if (sectorFilter) {
+    sectorFilter.addEventListener("change", (e) => {
+      currentLeaderboardSector = e.target.value;
+      renderStrongStocksLeaderboard(globalDailyData, currentLeaderboardSort, currentLeaderboardSector);
+    });
+  }
+
+  // Diagnosis Modal close events
   const modal = document.getElementById("modal-stock-diagnosis");
   const btnClose = document.getElementById("btn-close-stock-diagnosis");
   const btnCloseFooter = document.getElementById("btn-close-diag-footer");
@@ -584,105 +598,9 @@ function setupStockLookup() {
     });
   }
 
-  // Sync inputs
-  if (navInput && mainInput) {
-    navInput.addEventListener("input", () => {
-      mainInput.value = navInput.value;
-      if (clearBtn) clearBtn.style.display = navInput.value ? "block" : "none";
-    });
-    mainInput.addEventListener("input", () => {
-      navInput.value = mainInput.value;
-      if (clearBtn) clearBtn.style.display = mainInput.value ? "block" : "none";
-    });
-  }
-
-  if (clearBtn) {
-    clearBtn.addEventListener("click", () => {
-      if (navInput) navInput.value = "";
-      if (mainInput) mainInput.value = "";
-      clearBtn.style.display = "none";
-      if (mainInput) mainInput.focus();
-    });
-  }
-
-  // Trigger search on button click & enter
-  if (navBtn) {
-    navBtn.addEventListener("click", () => {
-      const sym = (navInput ? navInput.value : "").trim();
-      performStockLookup(sym);
-    });
-  }
-  if (navInput) {
-    navInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        performStockLookup(navInput.value);
-      }
-    });
-  }
-
-  if (mainBtn) {
-    mainBtn.addEventListener("click", () => {
-      const sym = (mainInput ? mainInput.value : "").trim();
-      performStockLookup(sym);
-    });
-  }
-  if (mainInput) {
-    mainInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        performStockLookup(mainInput.value);
-      }
-    });
-  }
-
-  // Quick Chips
-  quickChips.forEach(chip => {
-    chip.addEventListener("click", () => {
-      const sym = chip.getAttribute("data-sym");
-      if (sym) {
-        if (navInput) navInput.value = sym;
-        if (mainInput) mainInput.value = sym;
-        if (clearBtn) clearBtn.style.display = "block";
-        performStockLookup(sym);
-      }
-    });
-  });
-
-  // Global Keyboard Shortcuts: '/' or 'Ctrl+K' to focus lookup input; 'Escape' to close modal
   window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      if (modal && modal.style.display === "flex") {
-        closeModal();
-        return;
-      }
-    }
-
-    const activeTag = document.activeElement?.tagName;
-    if (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeTag)) return;
-
-    if (e.key === "/" || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k")) {
-      e.preventDefault();
-      const targetInput = (window.innerWidth <= 768) ? mainInput : (navInput || mainInput);
-      if (targetInput) {
-        targetInput.focus();
-        targetInput.select();
-        showToast("🔍 Nhập mã cổ phiếu để tra cứu khuyến nghị AI", "info");
-      }
-    }
-  });
-
-  // Global delegation for any ticker pill clicked anywhere
-  document.body.addEventListener("click", (e) => {
-    const pill = e.target.closest(".ticker-pill");
-    if (pill) {
-      const sym = pill.innerText.trim();
-      if (sym && sym.length >= 2 && sym.length <= 10) {
-        if (navInput) navInput.value = sym;
-        if (mainInput) mainInput.value = sym;
-        if (clearBtn) clearBtn.style.display = "block";
-        performStockLookup(sym);
-      }
+    if (e.key === "Escape" && modal && modal.style.display === "flex") {
+      closeModal();
     }
   });
 
@@ -717,6 +635,239 @@ function setupStockLookup() {
       showToast(`Đã lọc danh sách sổ lệnh cho mã ${sym}`, "info");
     });
   }
+
+  // Global delegation for any ticker pill or leaderboard row clicked
+  document.body.addEventListener("click", (e) => {
+    const pill = e.target.closest(".ticker-pill") || e.target.closest(".lb-clickable-sym");
+    if (pill) {
+      const sym = (pill.getAttribute("data-sym") || pill.innerText).trim().toUpperCase();
+      if (sym && sym.length >= 2 && sym.length <= 10) {
+        performStockLookup(sym);
+      }
+    }
+  });
+
+  initRealtimeStreamIndicator();
+}
+
+// Backwards-compatible alias
+function setupStockLookup() {
+  setupLeaderboard();
+}
+
+function initRealtimeStreamIndicator() {
+  const streamEl = document.getElementById("live-stream-text");
+  if (!streamEl) return;
+
+  const updateStreamStatus = () => {
+    const now = new Date();
+    const utcHours = now.getUTCHours();
+    const ictHours = (utcHours + 7) % 24;
+    const ictMinutes = now.getUTCMinutes();
+    const day = now.getUTCDay();
+
+    const isWeekday = day >= 1 && day <= 5;
+    const isMorningSession = isWeekday && ((ictHours === 9) || (ictHours === 10) || (ictHours === 11 && ictMinutes <= 30));
+    const isAfternoonSession = isWeekday && ((ictHours === 13) || (ictHours === 14 && ictMinutes <= 45));
+    const isAtc = isWeekday && (ictHours === 14 && ictMinutes > 45 && ictMinutes <= 59);
+
+    if (isMorningSession || isAfternoonSession) {
+      streamEl.innerText = "WSS STREAMING 🟢 (Phiên Trực Tuyến)";
+      streamEl.style.color = "#10b981";
+    } else if (isAtc) {
+      streamEl.innerText = "ATC CLOSING 🟡 (Định Giá Đóng Cửa)";
+      streamEl.style.color = "#f59e0b";
+    } else {
+      streamEl.innerText = "RADAR REAL-TIME 🟢 (Chốt Phiên ATC)";
+      streamEl.style.color = "#38bdf8";
+    }
+  };
+
+  updateStreamStatus();
+  setInterval(updateStreamStatus, 30000);
+}
+
+function renderStrongStocksLeaderboard(data, sortKey = 'rs', sectorFilter = 'all') {
+  if (!data) return;
+  const items = (data.watchlist_items || []).slice();
+  const isUs = currentMarket === 'us' || data.market === "US_EQUITIES";
+
+  // Filter by Sector if requested
+  let filtered = items;
+  if (sectorFilter && sectorFilter !== 'all') {
+    filtered = filtered.filter(it => it.sector === sectorFilter);
+  }
+
+  // Sort items according to sortKey
+  filtered.sort((a, b) => {
+    if (sortKey === 'vol') {
+      return (b.vol_ratio || 0) - (a.vol_ratio || 0);
+    } else if (sortKey === 'change') {
+      return (b.daily_change_pct || 0) - (a.daily_change_pct || 0);
+    } else if (sortKey === 'donchian') {
+      const distA = a.dist_sma20_pct !== undefined ? a.dist_sma20_pct : 0;
+      const distB = b.dist_sma20_pct !== undefined ? b.dist_sma20_pct : 0;
+      return distB - distA;
+    } else if (sortKey === 'rsi') {
+      return (b.rsi_14 || 0) - (a.rsi_14 || 0);
+    }
+    return (b.rs_rating || 0) - (a.rs_rating || 0);
+  });
+
+  // Render Top 3 Podium Highlights
+  const podiumGrid = document.getElementById("leaderboard-podium-grid");
+  if (podiumGrid) {
+    const top3 = filtered.slice(0, 3);
+    const medals = [
+      { rank: 1, medal: "🥇", label: "QUÁN QUÂN RS", class: "rank-1", badge: "badge-bull" },
+      { rank: 2, medal: "🥈", label: "Á QUÂN DÒNG TIỀN", class: "rank-2", badge: "badge-cyan" },
+      { rank: 3, medal: "🥉", label: "TOP 3 BỨT PHÁ", class: "rank-3", badge: "tag-yellow" }
+    ];
+
+    if (top3.length === 0) {
+      podiumGrid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-dim); padding: 12px;">Không có cổ phiếu trong bộ lọc ngành này.</div>`;
+    } else {
+      podiumGrid.innerHTML = top3.map((it, idx) => {
+        const m = medals[idx] || { rank: idx + 1, medal: "🏅", label: `TOP ${idx + 1}`, class: "rank-3", badge: "badge-cyan" };
+        const chg = it.daily_change_pct || 0;
+        const chgSign = chg > 0 ? "+" : "";
+        const chgClass = chg > 0 ? "text-green" : (chg < 0 ? "text-red" : "text-muted");
+        const priceFmt = isUs ? `$${Number(it.current_price).toFixed(2)}` : `${Number(it.current_price).toFixed(2)} ₫`;
+        const rsVal = Number(it.rs_rating || 50).toFixed(0);
+        const volRatio = Number(it.vol_ratio || 1.0).toFixed(1);
+
+        let barColor = "linear-gradient(90deg, #10b981, #06b6d4)";
+        if (it.rs_rating >= 75) barColor = "linear-gradient(90deg, #10b981, #34d399)";
+        else if (it.rs_rating < 50) barColor = "linear-gradient(90deg, #f59e0b, #ef4444)";
+
+        return `
+          <div class="podium-card ${m.class} lb-clickable-sym" data-sym="${it.symbol}">
+            <div class="podium-top-row">
+              <span class="podium-medal">${m.medal} <span style="font-size: 0.72rem; font-weight: 800; color: #94a3b8; letter-spacing: 0.5px;">${m.label}</span></span>
+              <span class="badge ${m.badge}">RS ${rsVal}/99</span>
+            </div>
+            <div style="display: flex; align-items: baseline; gap: 8px;">
+              <span class="podium-sym">${it.symbol}</span>
+              <span class="podium-company">${it.name || it.symbol}</span>
+            </div>
+            <div class="podium-price-row">
+              <span class="podium-price">${priceFmt}</span>
+              <span class="podium-change ${chgClass}">${chgSign}${Number(chg).toFixed(2)}%</span>
+            </div>
+            <div class="podium-bar-wrapper">
+              <div class="podium-bar-labels">
+                <span>Sức Mạnh Giá (RS)</span>
+                <span>Thanh khoản: <strong>${volRatio}x MA20</strong></span>
+              </div>
+              <div class="podium-progress-track">
+                <div class="podium-progress-fill" style="width: ${Math.min(100, Math.max(5, it.rs_rating || 50))}%; background: ${barColor};"></div>
+              </div>
+            </div>
+            <div class="podium-verdict" style="background: rgba(255, 255, 255, 0.04); color: #cbd5e1;">
+              <span>⚡ ${it.vol_ratio >= 1.2 ? '🔥 Dòng tiền gom mạnh' : (it.rs_rating >= 60 ? '🏆 Dẫn dắt thị trường' : '🛡️ Tích lũy chờ bùng nổ')}</span>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+  }
+
+  // Render Full Table Body
+  const tbody = document.getElementById("leaderboard-table-body");
+  if (!tbody) return;
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="9" class="text-center text-muted" style="padding: 24px;">Không tìm thấy cổ phiếu phù hợp với bộ lọc ngành đã chọn.</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = filtered.map((it, idx) => {
+    const rank = idx + 1;
+    let rankBadge = `<span class="lb-rank-num">#${rank}</span>`;
+    if (rank === 1) rankBadge = `<span class="lb-rank-num" style="font-size: 1.15rem;">🥇</span>`;
+    else if (rank === 2) rankBadge = `<span class="lb-rank-num" style="font-size: 1.15rem;">🥈</span>`;
+    else if (rank === 3) rankBadge = `<span class="lb-rank-num" style="font-size: 1.15rem;">🥉</span>`;
+
+    const chg = it.daily_change_pct || 0;
+    const chgSign = chg > 0 ? "+" : "";
+    const chgClass = chg > 0 ? "text-green" : (chg < 0 ? "text-red" : "text-muted");
+    const ptsSign = (it.daily_change_pts || 0) >= 0 ? "+" : "";
+    const ptsText = it.daily_change_pts !== undefined ? ` (${ptsSign}${Number(it.daily_change_pts).toFixed(2)})` : "";
+    const priceFmt = isUs ? `$${Number(it.current_price).toFixed(2)}` : `${Number(it.current_price).toFixed(2)} ₫`;
+    const volFmt = (it.volume || 0).toLocaleString('vi-VN');
+    const volRatio = Number(it.vol_ratio || 1.0).toFixed(1);
+    const rsVal = Number(it.rs_rating || 50).toFixed(1);
+
+    let barColor = "#38bdf8";
+    let rsBadgeClass = "badge-cyan";
+    if (it.rs_rating >= 75) { barColor = "#10b981"; rsBadgeClass = "badge-bull"; }
+    else if (it.rs_rating >= 50) { barColor = "#06b6d4"; rsBadgeClass = "badge-cyan"; }
+    else if (it.rs_rating < 35) { barColor = "#f43f5e"; rsBadgeClass = "badge-red"; }
+    else { barColor = "#f59e0b"; rsBadgeClass = "tag-yellow"; }
+
+    const isAboveSma20 = it.dist_sma20_pct !== undefined ? it.dist_sma20_pct >= 0 : (it.current_price >= (it.sma_20 || it.current_price));
+    const isAboveSma50 = it.dist_sma50_pct !== undefined ? it.dist_sma50_pct >= 0 : (it.current_price >= (it.sma_50 || it.current_price));
+    const superTrendText = (isAboveSma20 && isAboveSma50) ? `<span class="text-green font-bold">🟢 Golden Cross</span>` : 
+                           (isAboveSma20 ? `<span class="text-cyan">🟡 Bám MA20</span>` : `<span class="text-red">🛡️ Dưới MA20/50</span>`);
+
+    const donchianHigh = it.donchian_high_55 || (it.current_price * 1.055);
+    const distHighPct = Number(((it.current_price - donchianHigh) / donchianHigh * 100).toFixed(1));
+    const donchianBadge = distHighPct >= 0 ? 
+      `<span class="badge badge-bull" style="font-size: 0.70rem;">🚀 VƯỢT ĐỈNH</span>` : 
+      `<span class="font-mono text-muted" style="font-size: 0.74rem;">Cách đỉnh: ${distHighPct}%</span>`;
+
+    let aiVerdict = `<span class="badge badge-cyan" style="font-size: 0.70rem;">⚪ THEO DÕI</span>`;
+    if (it.vol_ratio >= 1.5 && it.rs_rating >= 50) {
+      aiVerdict = `<span class="badge badge-bull" style="font-size: 0.70rem;">🔥 TIỀN VÀO MẠNH</span>`;
+    } else if (it.rs_rating >= 65) {
+      aiVerdict = `<span class="badge badge-bull" style="font-size: 0.70rem;">🏆 SIÊU CỔ DẪN SÓNG</span>`;
+    } else if (isAboveSma20 && isAboveSma50) {
+      aiVerdict = `<span class="badge badge-cyan" style="font-size: 0.70rem;">📈 KÊNH TRÊN KHỎE</span>`;
+    } else {
+      aiVerdict = `<span class="badge tag-yellow" style="font-size: 0.70rem;">🛡️ CHỜ FTD BẢO VỆ</span>`;
+    }
+
+    return `
+      <tr class="lb-clickable-sym" data-sym="${it.symbol}">
+        <td style="text-align: center;">${rankBadge}</td>
+        <td>
+          <div class="lb-sym-group">
+            <span class="lb-sym-name">${it.symbol}</span>
+            <div>
+              <div style="font-weight: 600; color: #e2e8f0; font-size: 0.8rem;">${it.name || it.symbol}</div>
+              <div class="lb-company-sub">${it.sector_vi || getSectorVi(it.sector)} · ${it.market_cap_tier || 'Cổ Phiếu HOSE'}</div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="font-mono" style="font-weight: 700; color: #fff;">${priceFmt}</div>
+          <div class="font-mono ${chgClass}" style="font-size: 0.75rem;">${chgSign}${Number(chg).toFixed(2)}%${ptsText}</div>
+        </td>
+        <td>
+          <div class="lb-rs-meter">
+            <span class="badge ${rsBadgeClass}" style="min-width: 48px; text-align: center;">RS ${rsVal}</span>
+            <div class="lb-progress-bar">
+              <div class="lb-progress-fill" style="width: ${Math.min(100, Math.max(5, it.rs_rating || 50))}%; background: ${barColor};"></div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="font-mono" style="font-weight: 700; color: ${it.vol_ratio >= 1.2 ? '#34d399' : '#e2e8f0'};">
+            ${volRatio}x MA20 ${it.vol_ratio >= 1.2 ? '🔥' : ''}
+          </div>
+          <div class="font-mono text-muted" style="font-size: 0.72rem;">${volFmt} CP</div>
+        </td>
+        <td>${superTrendText}</td>
+        <td>${donchianBadge}</td>
+        <td>${aiVerdict}</td>
+        <td style="text-align: right;">
+          <button class="btn-lb-action" data-sym="${it.symbol}" onclick="event.stopPropagation(); performStockLookup('${it.symbol}');">
+            🔎 Soi Kèo
+          </button>
+        </td>
+      </tr>
+    `;
+  }).join("");
 }
 
 function performStockLookup(inputSymbol) {
@@ -1574,6 +1725,7 @@ async function loadDashboardData() {
     renderDailySummary(globalDailyData);
     renderHoldingsTable(globalDailyData);
     renderWatchlistTable(globalDailyData);
+    renderStrongStocksLeaderboard(globalDailyData, currentLeaderboardSort, currentLeaderboardSector);
     renderBuySignals(globalDailyData);
     renderSellSignals(globalDailyData);
     renderNewsActionRecommendations(globalDailyData);
