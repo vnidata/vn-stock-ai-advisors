@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-12 16:40:38",
+  "last_updated": "2026-10-12 17:06:06",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 0,
@@ -623,6 +623,23 @@
       "published_date": "Sun, 11 Oct 26 07:42:00 +0700"
     },
     {
+      "title": "Việt Nam bước vào giai đoạn nhu cầu vốn tăng mạnh nhất nhiều năm, chuyên gia chỉ tên kênh dẫn vốn quan trọng thời gian tới",
+      "description": "S&I Ratings cho rằng kinh tế Việt Nam nhiều khả năng tiếp tục duy trì đà tăng trưởng quý 4 tích cực nhờ ba động lực chính gồm công nghiệp chế biến chế tạo, đầu tư công và xuất khẩu.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/viet-nam-buoc-vao-giai-doan-nhu-cau-von-tang-manh-nhat-nhieu-nam-chuyen-gia-chi-ten-kenh-dan-von-quan-trong-thoi-gian-toi-188261012220340841.chn",
+      "published_date": "Tue, 13 Oct 26 00:01:00 +0700"
+    },
+    {
       "title": "Doanh nghiệp bất động sản hút hơn 170.000 tỷ đồng trái phiếu sau 9 tháng, lãi suất lên tới 14,5%/năm",
       "description": "Trong 9 tháng đầu năm, nhóm bất động sản huy động hơn 170.000 tỷ đồng nguồn vốn từ kênh trái phiếu doanh nghiệp, đứng thứ hai trên thị trường chỉ sau nhóm ngân hàng. Đáng chú ý, có lô trái phiếu lãi suất lên tới 14,5%/năm, trong khi áp lực đáo hạn trong những tháng cuối năm vẫn ở mức đáng chú ý.",
       "source": "CafeF Thị Trường",
@@ -1097,25 +1114,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/gia-vang-mieng-sang-nay-co-dien-bien-la-188261012095744573.chn",
       "published_date": "Mon, 12 Oct 26 09:58:00 +0700"
-    },
-    {
-      "title": "Quỹ đầu tư VCAM bán sạch cổ phiếu VCI",
-      "description": "Tạm tính theo thị giá đóng cửa, quỹ thu về khoảng 11 tỷ đồng với giao dịch bán ra trên.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "VCI"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/quy-dau-tu-vcam-ban-sach-co-phieu-vci-188261012094316929.chn",
-      "published_date": "Mon, 12 Oct 26 09:43:00 +0700"
     }
   ]
 }
