@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-12 08:38:17 (UTC+7)",
+  "last_updated": "2026-10-12 10:13:49 (UTC+7)",
   "trading_date": "2026-10-12",
   "vnindex": {
     "close": 1720.98,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 0,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-12 08:38:15"
+    "last_scanned": "2026-10-12 10:13:47"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -633,7 +633,7 @@
         "status_badge": "neutral",
         "latest_headline": "Giá cao su sát đỉnh 13 năm, một 'ông lớn' Việt Nam lại chuyển đất trồng thành khu công nghiệp",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 6,
+        "news_count": 5,
         "re_eval_note": ""
       },
       {

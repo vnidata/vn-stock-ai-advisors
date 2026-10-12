@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-12 08:38:15",
+  "last_updated": "2026-10-12 10:13:47",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 0,
@@ -62,7 +62,7 @@
     },
     "VCB": {
       "symbol": "VCB",
-      "news_count": 6,
+      "news_count": 5,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
@@ -361,6 +361,26 @@
   },
   "recent_articles": [
     {
+      "title": "Thi hành lệnh bắt tạm giam cựu nhân viên ngân hàng Trần Văn Trạng 47 tuổi",
+      "description": "Trần Văn Trạng 47 tuổi bị bắt để làm rõ hành vi lừa đảo chiếm đoạt tài sản.",
+      "source": "CafeF Tài Chính Ngân Hàng",
+      "symbols": [],
+      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
+      "sentiment_score": -1.0,
+      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
+      "sentiment_badge": "neg-danger",
+      "is_red_flag": true,
+      "is_catalyst": false,
+      "triggers_found": [
+        "bắt tạm giam",
+        "bị bắt"
+      ],
+      "re_eval_action": "VETO_REJECT",
+      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
+      "link": "https://cafef.vn/thi-hanh-lenh-bat-tam-giam-cuu-nhan-vien-ngan-hang-tran-van-trang-47-tuoi-18826101215210998.chn",
+      "published_date": "Mon, 12 Oct 26 16:10:00 +0700"
+    },
+    {
       "title": "Nguyên kế toán ban quản lý dự án làm giả hồ sơ, chiếm đoạt hơn 30 tỷ đồng",
       "description": "Công an tỉnh Lào Cai vừa khởi tố, bắt tạm giam Đặng Thị Lý, nguyên kế toán Ban quản lý dự án đầu tư xây dựng huyện Bát Xát, tỉnh Lào Cai (trước sáp nhập) để điều tra về hành vi tham ô tài sản.",
       "source": "CafeF Tài Chính Ngân Hàng",
@@ -418,6 +438,25 @@
       "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
       "link": "https://cafef.vn/mot-ngan-hang-dong-cua-hang-tram-diem-giao-dich-chi-con-hien-dien-tai-7-tinh-thanh-188261011151510642.chn",
       "published_date": "Sun, 11 Oct 26 15:14:00 +0700"
+    },
+    {
+      "title": "Truy tố Shark Thủy cùng bà Tống Thị Kim Liên trong vụ chiếm đoạt 8.459 tỷ đồng",
+      "description": "TPO - Sau 2 lần điều tra, Viện KSND Tối cao đã truy tố Shark Thủy cùng bà Tống Thị Kim Liên (Chủ tịch Công ty Trần Nhất) về các hành vi lừa đảo chiếm đoạt tài sản, đưa hối lộ và nhận hối lộ; 25 bị can là cấp dưới của ông Thủy cũng bị cáo buộc tham gia lừa đảo hơn 10.000 nhà đầu tư.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
+      "sentiment_score": -0.7,
+      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
+      "sentiment_badge": "neg-danger",
+      "is_red_flag": true,
+      "is_catalyst": false,
+      "triggers_found": [
+        "điều tra"
+      ],
+      "re_eval_action": "EMERGENCY_SELL",
+      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
+      "link": "https://cafef.vn/truy-to-shark-thuy-va-dong-pham-vi-chiem-doat-gan-8500-ty-dong-18826101215215661.chn",
+      "published_date": "Mon, 12 Oct 26 15:55:00 +0700"
     },
     {
       "title": "Tuần này, cổ đông doanh nghiệp nào nhận cổ tức cao nhất?",
@@ -481,49 +520,6 @@
       "published_date": "Sun, 11 Oct 26 18:17:00 +0700"
     },
     {
-      "title": "Lịch chốt quyền cổ tức tuần 12-16/10: Ba công ty cùng trả cổ tức tiền mặt 15%",
-      "description": "Tuần này có gần 9 doanh nghiệp trả cổ tức bằng tiền mặt, mức cao nhất là 15% và thấp nhất là 1%.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
-      "sentiment_score": 0.7,
-      "sentiment_label": "TÍCH CỰC MẠNH",
-      "sentiment_badge": "pos",
-      "is_red_flag": false,
-      "is_catalyst": true,
-      "triggers_found": [
-        "trả cổ tức tiền mặt",
-        "cổ tức tiền mặt",
-        "chốt quyền cổ tức"
-      ],
-      "re_eval_action": "STRONG_BUY_CATALYST",
-      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
-      "link": "https://cafef.vn/lich-chot-quyen-co-tuc-tuan-12-16-10-ba-cong-ty-cung-tra-co-tuc-tien-mat-15-18826101021082776.chn",
-      "published_date": "Sun, 11 Oct 26 00:03:00 +0700"
-    },
-    {
-      "title": "Thêm lãnh đạo SHB muốn mua lượng lớn cổ phiếu để đầu tư",
-      "description": "Ông Nguyễn Huy Tài, Phó Tổng Giám đốc SHB, đăng ký mua 2 triệu cổ phiếu SHB để đầu tư cá nhân. Trước đó, một lãnh đạo khác của ngân hàng cũng đăng ký mua lượng cổ phiếu tương tự, nâng tổng số cổ phiếu hai lãnh đạo dự kiến mua lên 4 triệu đơn vị.",
-      "source": "CafeF Tài Chính Ngân Hàng",
-      "symbols": [
-        "HAI",
-        "SHB"
-      ],
-      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
-      "sentiment_score": 0.7,
-      "sentiment_label": "TÍCH CỰC MẠNH",
-      "sentiment_badge": "pos",
-      "is_red_flag": false,
-      "is_catalyst": true,
-      "triggers_found": [
-        "đăng ký mua"
-      ],
-      "re_eval_action": "STRONG_BUY_CATALYST",
-      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
-      "link": "https://cafef.vn/them-lanh-dao-shb-muon-mua-luong-lon-co-phieu-de-dau-tu-188261009180503942.chn",
-      "published_date": "Fri, 09 Oct 26 18:03:00 +0700"
-    },
-    {
       "title": "Hai lãnh đạo SHB muốn 'bắt đáy' cổ phiếu",
       "description": "Sau khi thị giá SHB giảm khoảng 43% trong một năm qua, hai Phó tổng giám đốc Nguyễn Hữu Tài và Đinh Ngọc Dũng đăng ký mua tổng cộng 4 triệu cổ phiếu.",
       "source": "VnExpress Kinh Doanh",
@@ -541,27 +537,6 @@
       "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
       "link": "https://vnexpress.net/hai-lanh-dao-shb-muon-bat-day-co-phieu-5130526.html",
       "published_date": "Fri, 09 Oct 2026 19:03:05 +0700"
-    },
-    {
-      "title": "Em dâu Chủ tịch Kosy muốn 'bắt đáy' cổ phiếu",
-      "description": "Em dâu Chủ tịch HĐQT Kosy Nguyễn Việt Cường đăng ký mua 8 triệu cổ phiếu KOS khi thị giá xuống thấp kỷ lục sau chuỗi giảm sàn 14 phiên liên tiếp.",
-      "source": "VnExpress Kinh Doanh",
-      "symbols": [
-        "KOS"
-      ],
-      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
-      "sentiment_score": 0.7,
-      "sentiment_label": "TÍCH CỰC MẠNH",
-      "sentiment_badge": "pos",
-      "is_red_flag": false,
-      "is_catalyst": true,
-      "triggers_found": [
-        "đăng ký mua"
-      ],
-      "re_eval_action": "STRONG_BUY_CATALYST",
-      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
-      "link": "https://vnexpress.net/em-dau-chu-tich-kosy-muon-bat-day-co-phieu-5130184.html",
-      "published_date": "Fri, 09 Oct 2026 08:14:53 +0700"
     },
     {
       "title": "Nam Việt chia cổ tức bằng tiền mặt tỷ lệ 10%",
@@ -583,23 +558,23 @@
       "published_date": "Sun, 11 Oct 26 11:23:00 +0700"
     },
     {
-      "title": "Dây cáp điện LION hợp tác Citek triển khai SAP Cloud ERP, nâng tầm quản trị",
-      "description": "Ngày 06/10/2026, Công ty Cổ phần Dây cáp điện LION và Công ty Cổ phần Công nghệ Citek chính thức ký kết hợp tác, khởi động dự án chuyển đổi số quản trị tổng thể doanh nghiệp trên nền tảng SAP Cloud ERP (SAP S/4HANA Public Cloud).",
-      "source": "CafeF Doanh Nghiệp (CBTT)",
+      "title": "F88 khai trương cửa hàng thứ 1.000 tại Hà Nội",
+      "description": "F88 đưa vào hoạt động cửa hàng thứ 1.000 tại Hà Nội, đồng thời đặt mục tiêu mở rộng mạng lưới lên 1.500-2.000 điểm vào năm 2030.",
+      "source": "VnExpress Kinh Doanh",
       "symbols": [],
       "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
-      "sentiment_score": 0.5,
+      "sentiment_score": 0.6,
       "sentiment_label": "TÍCH CỰC MẠNH",
       "sentiment_badge": "pos",
       "is_red_flag": false,
       "is_catalyst": true,
       "triggers_found": [
-        "ký kết hợp tác"
+        "mở rộng mạng lưới"
       ],
-      "re_eval_action": "POSITIVE_BOOST",
-      "action_desc": "Cộng điểm khuyến nghị (+15% Conviction)",
-      "link": "https://cafef.vn/day-cap-dien-lion-hop-tac-citek-trien-khai-sap-cloud-erp-nang-tam-quan-tri-18826101011523836.chn",
-      "published_date": "Sat, 10 Oct 26 13:30:00 +0700"
+      "re_eval_action": "STRONG_BUY_CATALYST",
+      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
+      "link": "https://vnexpress.net/f88-khai-truong-cua-hang-thu-1-000-tai-ha-noi-5131363.html",
+      "published_date": "Mon, 12 Oct 2026 15:45:00 +0700"
     },
     {
       "title": "SGI Capital: Một chỉ báo cần đặc biệt lưu ý trong BCTC quý 3, ngân hàng và BĐS có thể không còn \"dẫn sóng\" 5–10 năm tới",
@@ -636,6 +611,110 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/kinh-te-viet-nam-9-thang-dau-nam-va-du-bao-ca-nam-2026-188261011074228101.chn",
       "published_date": "Sun, 11 Oct 26 07:42:00 +0700"
+    },
+    {
+      "title": "DNSE được vinh danh top 10 thị phần môi giới VNX, cán mốc 2 triệu tài khoản",
+      "description": "DNSE vừa được vinh danh trong Top 10 thành viên giao dịch có thị phần môi giới lớn nhất VNX năm 2025-2026, đồng thời cán mốc 2 triệu tài khoản khách hàng, đánh dấu bước tiến mới về quy mô và vị thế trên thị trường chứng khoán.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/dnse-duoc-vinh-danh-top-10-thi-phan-moi-gioi-vnx-can-moc-2-trieu-tai-khoan-188261012165445772.chn",
+      "published_date": "Mon, 12 Oct 26 17:00:00 +0700"
+    },
+    {
+      "title": "Xử phạt TTC Land",
+      "description": "TTC Land bị xử phạt hành chính do có hành vi thực hiện đăng ký, lưu ký trái phiếu chào bán, phát hành riêng lẻ không đúng thời hạn theo quy định.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/xu-phat-ttc-land-188261012164322599.chn",
+      "published_date": "Mon, 12 Oct 26 16:43:00 +0700"
+    },
+    {
+      "title": "Cổ phiếu thép bất ngờ tăng bứt phá trong phiên đầu tuần, VN-Index “bốc hơi” hơn 14 điểm",
+      "description": "Sau chuỗi phiên giao dịch ảm đạm, nhóm cổ phiếu thép bất ngờ tăng mạnh trong phiên 12/10, với nhiều mã tăng từ 3% đến gần 8%. Tuy nhiên, áp lực bán tại nhóm bất động sản, dầu khí và phân bón khiến VN-Index giảm hơn 14 điểm.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/co-phieu-thep-bat-ngo-tang-but-pha-trong-phien-dau-tuan-vn-index-boc-hoi-hon-14-diem-188261012162109275.chn",
+      "published_date": "Mon, 12 Oct 26 16:28:00 +0700"
+    },
+    {
+      "title": "Công ty bất động sản của Tiến sĩ Nguyễn Việt Cường “bốc hơi” hơn 5.000 tỷ vốn hóa chỉ sau 1 tháng",
+      "description": "Công ty mất khoảng 5.113 tỷ đồng giá trị thị trường, tương ứng mức giảm hơn 71% của giá cổ phiếu chỉ sau khoảng 1 tháng.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/cong-ty-bat-dong-san-cua-tien-si-nguyen-viet-cuong-boc-hoi-hon-5000-ty-von-hoa-chi-sau-1-thang-188261012162144996.chn",
+      "published_date": "Mon, 12 Oct 26 16:21:00 +0700"
+    },
+    {
+      "title": "Phiên 12/10: Khối ngoại tiếp đà bán ròng, ngược chiều \"tung\" hơn trăm tỷ gom một cổ phiếu bluechip",
+      "description": "Giao dịch của khối ngoại là điểm trừ khi bán ròng khoảng 615 tỷ đồng cổ phiếu trên toàn thị trường.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/phien-12-10-khoi-ngoai-tiep-da-ban-rong-nguoc-chieu-tung-hon-tram-ty-gom-mot-co-phieu-bluechip-188261012155205396.chn",
+      "published_date": "Mon, 12 Oct 26 15:53:00 +0700"
+    },
+    {
+      "title": "Buồn của cổ đông PNJ",
+      "description": "Sau nhịp hồi ngắn ngủi, cổ phiếu PNJ lại quay về giá sàn trong phiên 12/10. Áp lực càng đáng chú ý khi khối ngoại tiếp tục bán ròng mạnh, trong lúc nhiều cổ đông lớn nước ngoài liên tiếp hạ tỷ lệ sở hữu.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "PNJ"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/buon-cua-co-dong-pnj-188261012154301868.chn",
+      "published_date": "Mon, 12 Oct 26 15:46:00 +0700"
     },
     {
       "title": "Cổ phiếu tiếp tục giảm sàn, Kosy giải trình gì?",
@@ -1006,95 +1085,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/hang-chuc-nghin-nguoi-mang-thong-diep-dac-biet-do-ve-sieu-du-an-500000-ty-cua-ong-pham-nhat-vuong-tai-ha-long-188261011142757974.chn",
       "published_date": "Sun, 11 Oct 26 14:27:00 +0700"
-    },
-    {
-      "title": "SCIC tiếp tục bán đấu giá lô cổ phiếu của Seaprodex với giá khởi điểm hơn 8.500 tỷ đồng",
-      "description": "HNX vừa thông báo tổ chức bán đấu giá theo lô hơn 79,2 triệu cổ phiếu SEA do SCIC sở hữu, với giá khởi điểm hơn 8.509 tỷ đồng.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "SEA"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/scic-tiep-tuc-ban-dau-gia-lo-co-phieu-cua-seaprodex-voi-gia-khoi-diem-hon-8500-ty-dong-188261011112204071.chn",
-      "published_date": "Sun, 11 Oct 26 11:59:00 +0700"
-    },
-    {
-      "title": "Người nhà Chủ tịch Cao Thị Ngọc Dung bị bán giải chấp gần 3 triệu cổ phiếu PNJ",
-      "description": "Bà Trần Phương Ngọc Giao - con gái Chủ tịch Cao Thị Ngọc Dung, bị bán giải chấp 2,94 triệu cổ phiếu PNJ trong phiên 8/10.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "PNJ"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/nguoi-nha-chu-tich-cao-thi-ngoc-dung-bi-ban-giai-chap-gan-3-trieu-co-phieu-pnj-18826101109042398.chn",
-      "published_date": "Sun, 11 Oct 26 09:59:00 +0700"
-    },
-    {
-      "title": "Chứng khoán tuần qua: VN-Index chật vật tìm lực đỡ",
-      "description": "Mặc dù thanh khoản có sự cải thiện, thị trường chứng khoán Việt Nam tuần qua vẫn chưa thể tìm thấy ánh sáng phục hồi rõ nét. Tâm điểm đổ dồn vào đợt xả hàng kỷ lục gần 14.000 tỷ đồng của khối ngoại, tạo áp lực đè nặng lên các chỉ số.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/chung-khoan-tuan-qua-vn-index-chat-vat-tim-luc-do-188261011091332142.chn",
-      "published_date": "Sun, 11 Oct 26 09:13:00 +0700"
-    },
-    {
-      "title": "Lợi nhuận doanh nghiệp nào có thể tăng vượt dự báo?",
-      "description": "Maybank Investment Bank (MSVN) dự báo tăng trưởng lợi nhuận toàn thị trường trong quý III/2026 có khả năng vượt mức 20,6% so với cùng kỳ, nhờ triển vọng tích cực của các ngành năng lượng, bán lẻ, thực phẩm và đồ uống.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/loi-nhuan-doanh-nghiep-nao-co-the-tang-vuot-du-bao-188261011091229928.chn",
-      "published_date": "Sun, 11 Oct 26 09:12:00 +0700"
-    },
-    {
-      "title": "Gỡ nút thắt cho doanh nghiệp FDI lên sàn",
-      "description": "Dòng vốn đầu tư trực tiếp nước ngoài (FDI) tiếp tục mở rộng, nhưng số doanh nghiệp FDI hiện diện trên sàn chứng khoán gần như không tăng suốt nhiều năm qua. Khi cánh cửa IPO - niêm yết đã rộng hơn, việc xử lý các nghĩa vụ đầu tư hình thành từ trước đang trở thành nút thắt cần tiếp tục tháo gỡ.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/go-nut-that-cho-doanh-nghiep-fdi-len-san-18826101109111977.chn",
-      "published_date": "Sun, 11 Oct 26 09:11:00 +0700"
     }
   ]
 }
