@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-12 10:13:49 (UTC+7)",
+  "last_updated": "2026-10-12 12:15:34 (UTC+7)",
   "trading_date": "2026-10-12",
   "vnindex": {
     "close": 1720.98,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 0,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-12 10:13:47"
+    "last_scanned": "2026-10-12 12:15:31"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -621,7 +621,7 @@
         "status_badge": "neutral",
         "latest_headline": "Hơn 20 năm làm bất động sản, tỷ phú Trần Đình Long có 7 khu công nghiệp rộng hơn 2.200 ha, đang làm thêm 9.000 căn nhà ở xã hội",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 3,
+        "news_count": 4,
         "re_eval_note": ""
       },
       {
@@ -655,9 +655,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Điểm danh các ngân hàng có kế hoạch phát hành cổ phiếu riêng lẻ: VPBank, HDBank, MB, Vietcombank, BIDV, Techcombank",
+        "latest_headline": "Công ty chứng khoán 'đua' tăng vốn",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 4,
+        "news_count": 5,
         "re_eval_note": ""
       },
       {
@@ -677,11 +677,11 @@
         "sector": "Securities",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN BÌNH ỔN",
+        "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Không có thông tin bất thường gần đây",
-        "action_desc": "Duy trì khuyến nghị định lượng gốc",
-        "news_count": 0,
+        "latest_headline": "Công ty chứng khoán 'đua' tăng vốn",
+        "action_desc": "Duy trì tỷ trọng khuyến nghị",
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -926,7 +926,7 @@
       "quant_criteria": "Tỷ lệ an toàn vốn CAR cao nhất ngành (>15%), biên lãi thuần NIM phục hồi, giao dịch sôi động.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Điểm danh các ngân hàng có kế hoạch phát hành cổ phiếu riêng lẻ: VPBank, HDBank, MB, Vietcombank, BIDV, Techcombank"
+      "latest_headline": "Công ty chứng khoán 'đua' tăng vốn"
     },
     {
       "symbol": "ACB",
@@ -980,9 +980,9 @@
       "ai_radar_action": "Quan sát tín hiệu tích lũy cạn cung; Đưa vào Radar chờ phiên bùng nổ FTD",
       "selection_reason": "Công ty chứng khoán có quy mô vốn điều lệ và thị phần hàng đầu thị trường. Là thước đo phong vũ biểu cho thanh khoản VN-Index và hưởng lợi trực tiếp từ hệ thống KRX cũng như câu chuyện nâng hạng thị trường FTSE.",
       "quant_criteria": "Hệ số Beta cao (1.4x), thanh khoản cực mạnh, biên lợi nhuận cho vay margin và tự doanh mở rộng.",
-      "news_status": "THÔNG TIN BÌNH ỔN",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Không có thông tin bất thường gần đây"
+      "latest_headline": "Công ty chứng khoán 'đua' tăng vốn"
     },
     {
       "symbol": "VND",
@@ -1244,7 +1244,7 @@
           "technical_signal": "POCKET PIVOT | Dòng tiền tổ chức gom hàng (Pocket Pivot) | Vol 1.3x vượt đỉnh vol giảm 10D | Giữ MA20",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Điểm danh các ngân hàng có kế hoạch phát hành cổ phiếu riêng lẻ: VPBank, HDBank, MB, Vietcombank, BIDV, Techcombank",
+          "news_headline": "Công ty chứng khoán 'đua' tăng vốn",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
@@ -1338,7 +1338,7 @@
           "technical_signal": "POCKET PIVOT | Dòng tiền tổ chức gom hàng (Pocket Pivot) | Vol 1.3x vượt đỉnh vol giảm 10D | Giữ MA20",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Điểm danh các ngân hàng có kế hoạch phát hành cổ phiếu riêng lẻ: VPBank, HDBank, MB, Vietcombank, BIDV, Techcombank",
+          "news_headline": "Công ty chứng khoán 'đua' tăng vốn",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
@@ -1444,7 +1444,7 @@
           "technical_signal": "POCKET PIVOT | Dòng tiền tổ chức gom hàng (Pocket Pivot) | Vol 1.3x vượt đỉnh vol giảm 10D | Giữ MA20",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Điểm danh các ngân hàng có kế hoạch phát hành cổ phiếu riêng lẻ: VPBank, HDBank, MB, Vietcombank, BIDV, Techcombank",
+          "news_headline": "Công ty chứng khoán 'đua' tăng vốn",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
