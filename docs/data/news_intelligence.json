@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-12 12:15:31",
+  "last_updated": "2026-10-12 16:00:01",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 0,
@@ -92,6 +92,15 @@
           "link": "https://cafef.vn/gia-cao-su-sat-dinh-13-nam-mot-ong-lon-viet-nam-lai-chuyen-dat-trong-thanh-khu-cong-nghiep-188261011195806206.chn"
         },
         {
+          "title": "Lãi suất ngày 12/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+          "date": "Mon, 12 Oct 26 21:38:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/lai-suat-ngay-12-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261012203235982.chn"
+        },
+        {
           "title": "Điểm danh các ngân hàng có kế hoạch phát hành cổ phiếu riêng lẻ: VPBank, HDBank, MB, Vietcombank, BIDV, Techcombank",
           "date": "Mon, 12 Oct 26 15:17:00 +0700",
           "source": "CafeF Tài Chính Ngân Hàng",
@@ -117,15 +126,6 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/lai-suat-ngan-hang-10-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261010170126542.chn"
-        },
-        {
-          "title": "Lãi suất ngân hàng 9/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
-          "date": "Fri, 09 Oct 26 20:18:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
-          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/lai-suat-ngan-hang-9-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261009202048176.chn"
         }
       ]
     },
@@ -165,6 +165,15 @@
           "link": "https://cafef.vn/cong-ty-chung-khoan-dua-tang-von-188261012184942478.chn"
         },
         {
+          "title": "Lãi suất ngày 12/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+          "date": "Mon, 12 Oct 26 21:38:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/lai-suat-ngay-12-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261012203235982.chn"
+        },
+        {
           "title": "Điểm danh các ngân hàng có kế hoạch phát hành cổ phiếu riêng lẻ: VPBank, HDBank, MB, Vietcombank, BIDV, Techcombank",
           "date": "Mon, 12 Oct 26 15:17:00 +0700",
           "source": "CafeF Tài Chính Ngân Hàng",
@@ -190,15 +199,6 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/lai-suat-ngan-hang-10-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261010170126542.chn"
-        },
-        {
-          "title": "Lãi suất ngân hàng 9/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
-          "date": "Fri, 09 Oct 26 20:18:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
-          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/lai-suat-ngan-hang-9-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261009202048176.chn"
         }
       ]
     },
@@ -621,6 +621,23 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/kinh-te-viet-nam-9-thang-dau-nam-va-du-bao-ca-nam-2026-188261011074228101.chn",
       "published_date": "Sun, 11 Oct 26 07:42:00 +0700"
+    },
+    {
+      "title": "Doanh nghiệp bất động sản hút hơn 170.000 tỷ đồng trái phiếu sau 9 tháng, lãi suất lên tới 14,5%/năm",
+      "description": "Trong 9 tháng đầu năm, nhóm bất động sản huy động hơn 170.000 tỷ đồng nguồn vốn từ kênh trái phiếu doanh nghiệp, đứng thứ hai trên thị trường chỉ sau nhóm ngân hàng. Đáng chú ý, có lô trái phiếu lãi suất lên tới 14,5%/năm, trong khi áp lực đáo hạn trong những tháng cuối năm vẫn ở mức đáng chú ý.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/doanh-nghiep-bat-dong-san-hut-hon-170000-ty-dong-trai-phieu-sau-9-thang-lai-suat-len-toi-145-nam-188261012203750764.chn",
+      "published_date": "Mon, 12 Oct 26 20:37:00 +0700"
     },
     {
       "title": "Cựu Phó Thủ tướng Đức được đề cử thành viên HĐQT một công ty chứng khoán chuẩn bị IPO",
@@ -1099,23 +1116,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/quy-dau-tu-vcam-ban-sach-co-phieu-vci-188261012094316929.chn",
       "published_date": "Mon, 12 Oct 26 09:43:00 +0700"
-    },
-    {
-      "title": "Lịch chốt quyền trả cổ tức trong tuần từ ngày 12/10-16/10, tỷ lệ cao nhất 15%",
-      "description": "Trong tuần từ ngày 12/10/2026 đến ngày 16/10/2026, trên các sàn chứng khoán, có khoảng 12 doanh nghiệp và ngân hàng dự kiến trả cổ tức với tỷ lệ cao nhất là 15%.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/lich-chot-quyen-tra-co-tuc-trong-tuan-tu-ngay-12-10-16-10-ty-le-cao-nhat-15-188261012092206423.chn",
-      "published_date": "Mon, 12 Oct 26 09:21:00 +0700"
     }
   ]
 }
