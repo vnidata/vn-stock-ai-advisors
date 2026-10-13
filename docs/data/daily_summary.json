@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-13 10:06:27 (UTC+7)",
+  "last_updated": "2026-10-13 11:59:00 (UTC+7)",
   "trading_date": "2026-10-13",
   "vnindex": {
     "close": 1719.42,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 0,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-13 10:06:25"
+    "last_scanned": "2026-10-13 11:58:57"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -525,7 +525,7 @@
         "status_badge": "neutral",
         "latest_headline": "Nhân sự FPT xấp xỉ 90.000 người, tăng 3.682 người trong 9 tháng",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
+        "news_count": 2,
         "re_eval_note": ""
       },
       {
@@ -605,11 +605,11 @@
         "sector": "Securities",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN ỔN ĐỊNH",
+        "status": "THÔNG TIN BÌNH ỔN",
         "status_badge": "neutral",
-        "latest_headline": "'Định giá chứng khoán hấp dẫn, nhưng chưa đủ để dòng tiền quay lại'",
-        "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
+        "latest_headline": "Không có thông tin bất thường gần đây",
+        "action_desc": "Duy trì khuyến nghị định lượng gốc",
+        "news_count": 0,
         "re_eval_note": ""
       },
       {
@@ -924,9 +924,9 @@
       "ai_radar_action": "Chưa kích hoạt điểm mua an toàn; Tuân thủ kỷ luật 100% tiền mặt phòng thủ",
       "selection_reason": "Độ nhạy cực cao với tâm lý nhà đầu tư cá nhân và chu kỳ thanh khoản thị trường. Định giá P/B chiết khấu sâu sau các nhịp thanh lọc tài chính, tạo tiềm năng bứt phá mạnh khi thị trường bước vào pha tăng mới.",
       "quant_criteria": "Biên độ dao động giá lớn, nhạy bén với các thông tin thanh khoản thị trường và chu kỳ tiền rẻ.",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
-      "latest_headline": "'Định giá chứng khoán hấp dẫn, nhưng chưa đủ để dòng tiền quay lại'"
+      "latest_headline": "Không có thông tin bất thường gần đây"
     },
     {
       "symbol": "VHM",

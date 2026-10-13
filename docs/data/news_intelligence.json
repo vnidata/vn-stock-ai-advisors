@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-13 10:06:25",
+  "last_updated": "2026-10-13 11:58:57",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 0,
@@ -7,7 +7,7 @@
   "symbols_sentiment": {
     "FPT": {
       "symbol": "FPT",
-      "news_count": 1,
+      "news_count": 2,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
@@ -26,6 +26,15 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/nhan-su-fpt-xap-xi-90000-nguoi-tang-3682-nguoi-trong-9-thang-188261013134651451.chn"
+        },
+        {
+          "title": "Cổ phiếu ngân hàng bất ngờ giảm sàn",
+          "date": "Tue, 13 Oct 26 17:44:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/co-phieu-ngan-hang-bat-ngo-giam-san-188261013170437788.chn"
         }
       ]
     },
@@ -254,27 +263,16 @@
     },
     "VND": {
       "symbol": "VND",
-      "news_count": 1,
+      "news_count": 0,
       "net_sentiment": 0.0,
-      "status": "THÔNG TIN ỔN ĐỊNH",
+      "status": "THÔNG TIN BÌNH ỔN",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "'Định giá chứng khoán hấp dẫn, nhưng chưa đủ để dòng tiền quay lại'",
+      "latest_headline": "Không có thông tin bất thường gần đây",
       "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Duy trì tỷ trọng khuyến nghị",
-      "sentiment_multiplier": 1.0,
-      "related_news": [
-        {
-          "title": "'Định giá chứng khoán hấp dẫn, nhưng chưa đủ để dòng tiền quay lại'",
-          "date": "Sat, 10 Oct 2026 06:00:00 +0700",
-          "source": "VnExpress Kinh Doanh",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://vnexpress.net/dinh-gia-chung-khoan-hap-dan-nhung-chua-du-de-dong-tien-quay-lai-5130147.html"
-        }
-      ]
+      "action_desc": "Duy trì khuyến nghị định lượng gốc",
+      "sentiment_multiplier": 1.0
     },
     "VHM": {
       "symbol": "VHM",
@@ -390,6 +388,25 @@
   },
   "recent_articles": [
     {
+      "title": "Ông Dương Sơn Bá bị bắt, doanh nghiệp chốt ngày họp đại hội bất thường",
+      "description": "Động thái này diễn ra trong bối cảnh bộ máy lãnh đạo Nhiệt điện Hải Phòng liên tiếp có những biến động đáng chú ý.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
+      "sentiment_score": -1.0,
+      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
+      "sentiment_badge": "neg-danger",
+      "is_red_flag": true,
+      "is_catalyst": false,
+      "triggers_found": [
+        "bị bắt"
+      ],
+      "re_eval_action": "VETO_REJECT",
+      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
+      "link": "https://cafef.vn/ong-duong-son-ba-bi-bat-doanh-nghiep-chot-ngay-hop-dai-hoi-bat-thuong-188261013165048368.chn",
+      "published_date": "Tue, 13 Oct 26 18:30:00 +0700"
+    },
+    {
       "title": "Triệt phá đường dây lừa đảo đầu tư vàng ảo qua ứng dụng Phantom",
       "description": "Công an TP. Cần Thơ đã khởi tố 24 bị can liên quan đến đường dây lừa đảo đầu tư vàng trên mạng thông qua ứng dụng Phantom, với số tiền chiếm đoạt bước đầu xác định hơn 26 tỷ đồng. Các đối tượng đặt bộ máy hoạt động tại Campuchia.",
       "source": "CafeF Thị Trường",
@@ -448,25 +465,6 @@
       "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
       "link": "https://cafef.vn/nguyen-ke-toan-ban-quan-ly-du-an-lam-gia-ho-so-chiem-doat-hon-30-ty-dong-188261011152605849.chn",
       "published_date": "Sun, 11 Oct 26 15:37:00 +0700"
-    },
-    {
-      "title": "Một ngân hàng đóng cửa hàng trăm điểm giao dịch, chỉ còn hiện diện tại 7 tỉnh thành",
-      "description": "Từ quy mô gần 240 điểm giao dịch trước khi bị đưa vào diện kiểm soát đặc biệt, ngân hàng này hiện chỉ còn 12 điểm giao dịch tại 7 địa phương.",
-      "source": "CafeF Tài Chính Ngân Hàng",
-      "symbols": [],
-      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
-      "sentiment_score": -0.8,
-      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
-      "sentiment_badge": "neg-danger",
-      "is_red_flag": true,
-      "is_catalyst": false,
-      "triggers_found": [
-        "vào diện kiểm soát"
-      ],
-      "re_eval_action": "VETO_REJECT",
-      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
-      "link": "https://cafef.vn/mot-ngan-hang-dong-cua-hang-tram-diem-giao-dich-chi-con-hien-dien-tai-7-tinh-thanh-188261011151510642.chn",
-      "published_date": "Sun, 11 Oct 26 15:14:00 +0700"
     },
     {
       "title": "HFIC bán bất thành quyền mua trái phiếu chuyển đổi của CII",
@@ -583,6 +581,42 @@
       "action_desc": "Đưa vào diện giám sát chặt chẽ / Hạ tỷ trọng",
       "link": "https://cafef.vn/mot-doanh-nghiep-bi-xu-phat-do-khong-to-chuc-hop-dhdcd-188261013153959806.chn",
       "published_date": "Tue, 13 Oct 26 16:14:00 +0700"
+    },
+    {
+      "title": "Cổ phiếu PNJ bất ngờ tăng cận trần giữa phiên chứng khoán “đỏ lửa”",
+      "description": "Giữa áp lực bán lan rộng trên thị trường chứng khoán ngày 13/10, cổ phiếu PNJ của Vàng bạc Đá quý Phú Nhuận bất ngờ tăng cận trần, thu hút dòng tiền lớn với hơn 13,7 triệu đơn vị được khớp lệnh.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "PNJ"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/co-phieu-pnj-bat-ngo-tang-can-tran-giua-phien-chung-khoan-do-lua-188261013174443729.chn",
+      "published_date": "Tue, 13 Oct 26 17:44:00 +0700"
+    },
+    {
+      "title": "F88 đạt 1.087 tỷ đồng lợi nhuận trước thuế sau 9 tháng",
+      "description": "Riêng quý III/2026, F88 ghi nhận lợi nhuận trước thuế 401 tỷ đồng, tăng 42,1% so với cùng kỳ. Với tăng trưởng từ hoạt động cho vay, phân phối bảo hiểm và hiệu quả vận hành cải thiện, Ban lãnh đạo kỳ vọng lợi nhuận trước thuế cả năm đạt 1.500 tỷ đồng, vượt khoảng 32% kế hoạch được Đại hội đồng cổ đông thông qua.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/f88-dat-1087-ty-dong-loi-nhuan-truoc-thue-sau-9-thang-188261013161402977.chn",
+      "published_date": "Tue, 13 Oct 26 17:30:00 +0700"
     },
     {
       "title": "Một cổ phiếu ngân hàng được tự doanh CTCK \"gom\" ròng gần 200 tỷ đồng phiên 13/10",
@@ -1079,40 +1113,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/viet-nam-buoc-vao-giai-doan-nhu-cau-von-tang-manh-nhat-nhieu-nam-chuyen-gia-chi-ten-kenh-dan-von-quan-trong-thoi-gian-toi-188261012220340841.chn",
       "published_date": "Tue, 13 Oct 26 00:01:00 +0700"
-    },
-    {
-      "title": "Doanh nghiệp bất động sản hút hơn 170.000 tỷ đồng trái phiếu sau 9 tháng, lãi suất lên tới 14,5%/năm",
-      "description": "Trong 9 tháng đầu năm, nhóm bất động sản huy động hơn 170.000 tỷ đồng nguồn vốn từ kênh trái phiếu doanh nghiệp, đứng thứ hai trên thị trường chỉ sau nhóm ngân hàng. Đáng chú ý, có lô trái phiếu lãi suất lên tới 14,5%/năm, trong khi áp lực đáo hạn trong những tháng cuối năm vẫn ở mức đáng chú ý.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/doanh-nghiep-bat-dong-san-hut-hon-170000-ty-dong-trai-phieu-sau-9-thang-lai-suat-len-toi-145-nam-188261012203750764.chn",
-      "published_date": "Mon, 12 Oct 26 20:37:00 +0700"
-    },
-    {
-      "title": "Cựu Phó Thủ tướng Đức được đề cử thành viên HĐQT một công ty chứng khoán chuẩn bị IPO",
-      "description": "Theo kế hoạch được công bố, CTCK này dự kiến chào bán gần 121,8 triệu cổ phiếu trong quý 4/2026, tương đương khoảng 11,11% lượng cổ phiếu đang lưu hành.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/cuu-pho-thu-tuong-duc-duoc-de-cu-thanh-vien-hdqt-mot-cong-ty-chung-khoan-chuan-bi-ipo-188261012185750274.chn",
-      "published_date": "Mon, 12 Oct 26 19:06:00 +0700"
     }
   ]
 }
