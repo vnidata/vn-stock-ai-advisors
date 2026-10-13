@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-13 11:59:00 (UTC+7)",
+  "last_updated": "2026-10-13 14:32:34 (UTC+7)",
   "trading_date": "2026-10-13",
   "vnindex": {
     "close": 1719.42,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 0,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-13 11:58:57"
+    "last_scanned": "2026-10-13 14:32:31"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -525,19 +525,19 @@
         "status_badge": "neutral",
         "latest_headline": "Nhân sự FPT xấp xỉ 90.000 người, tăng 3.682 người trong 9 tháng",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 2,
+        "news_count": 3,
         "re_eval_note": ""
       },
       {
         "symbol": "HPG",
         "sector": "Materials",
-        "net_sentiment": -0.2,
+        "net_sentiment": -0.4,
         "sentiment_multiplier": 0.7,
         "status": "THÔNG TIN TIÊU CỰC",
         "status_badge": "neg-light",
         "latest_headline": "Một doanh nghiệp bị xử phạt do không tổ chức họp ĐHĐCĐ",
         "action_desc": "Hạ tỷ trọng / Theo dõi chặt chẽ",
-        "news_count": 2,
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -547,9 +547,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Lãi suất ngày 12/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+        "latest_headline": "Lãi suất ngày 13/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 3,
+        "news_count": 4,
         "re_eval_note": ""
       },
       {
@@ -597,7 +597,7 @@
         "status_badge": "neutral",
         "latest_headline": "Khi những đại công trường đồng loạt sáng đèn, SSI gọi tên hai nhóm ngành sáng cửa, có thể tạo \"sóng\" năm sau",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 2,
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -786,7 +786,7 @@
       "quant_criteria": "Vốn hóa số 1, trụ đỡ tâm lý điều tiết thị trường, sức khỏe tài chính chuẩn mực Basel III.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Lãi suất ngày 12/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,..."
+      "latest_headline": "Lãi suất ngày 13/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,..."
     },
     {
       "symbol": "MBB",
@@ -1508,7 +1508,7 @@
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 0.4x | RS 45",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Lãi suất ngày 12/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+          "news_headline": "Lãi suất ngày 13/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
