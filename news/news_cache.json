@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-13 08:57:54",
+  "last_updated": "2026-10-13 10:06:25",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 0,
@@ -7,26 +7,17 @@
   "symbols_sentiment": {
     "FPT": {
       "symbol": "FPT",
-      "news_count": 3,
+      "news_count": 1,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "FPT Play, TV360 cùng loạt doanh nghiệp truyền hình trả tiền vừa bị xử phạt",
+      "latest_headline": "Nhân sự FPT xấp xỉ 90.000 người, tăng 3.682 người trong 9 tháng",
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Duy trì tỷ trọng khuyến nghị",
       "sentiment_multiplier": 1.0,
       "related_news": [
-        {
-          "title": "FPT Play, TV360 cùng loạt doanh nghiệp truyền hình trả tiền vừa bị xử phạt",
-          "date": "Tue, 13 Oct 26 14:29:00 +0700",
-          "source": "CafeF Thị Trường",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/fpt-play-tv360-cung-loat-doanh-nghiep-truyen-hinh-tra-tien-vua-bi-xu-phat-188261013142912586.chn"
-        },
         {
           "title": "Nhân sự FPT xấp xỉ 90.000 người, tăng 3.682 người trong 9 tháng",
           "date": "Tue, 13 Oct 26 13:46:00 +0700",
@@ -35,31 +26,31 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/nhan-su-fpt-xap-xi-90000-nguoi-tang-3682-nguoi-trong-9-thang-188261013134651451.chn"
-        },
-        {
-          "title": "FPT Play, TV360, MyTV, HTVC, Onlive TV, MangoPlus vi phạm quy định bảo vệ người tiêu dùng",
-          "date": "Tue, 13 Oct 26 14:49:00 +0700",
-          "source": "CafeF Doanh Nghiệp (CBTT)",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/fpt-play-tv360-mytv-htvc-onlive-tv-mangoplus-vi-pham-quy-dinh-bao-ve-nguoi-tieu-dung-188261013145009654.chn"
         }
       ]
     },
     "HPG": {
       "symbol": "HPG",
-      "news_count": 1,
-      "net_sentiment": 0.0,
-      "status": "THÔNG TIN ỔN ĐỊNH",
-      "status_badge": "neutral",
+      "news_count": 2,
+      "net_sentiment": -0.2,
+      "status": "THÔNG TIN TIÊU CỰC",
+      "status_badge": "neg-light",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Cổ phiếu thép bất ngờ nổi sóng, hơn 31 triệu cổ phiếu Hòa Phát được sang tay, Nam Kim tăng sát trần: Chuyện gì đang xảy ra?",
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Duy trì tỷ trọng khuyến nghị",
-      "sentiment_multiplier": 1.0,
+      "latest_headline": "Một doanh nghiệp bị xử phạt do không tổ chức họp ĐHĐCĐ",
+      "re_eval_action": "MONITOR_CAUTION",
+      "action_desc": "Hạ tỷ trọng / Theo dõi chặt chẽ",
+      "sentiment_multiplier": 0.7,
       "related_news": [
+        {
+          "title": "Một doanh nghiệp bị xử phạt do không tổ chức họp ĐHĐCĐ",
+          "date": "Tue, 13 Oct 26 16:14:00 +0700",
+          "source": "CafeF Thị Trường",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "sentiment_score": -0.4,
+          "sentiment_label": "TIÊU CỰC",
+          "link": "https://cafef.vn/mot-doanh-nghiep-bi-xu-phat-do-khong-to-chuc-hop-dhdcd-188261013153959806.chn"
+        },
         {
           "title": "Cổ phiếu thép bất ngờ nổi sóng, hơn 31 triệu cổ phiếu Hòa Phát được sang tay, Nam Kim tăng sát trần: Chuyện gì đang xảy ra?",
           "date": "Mon, 12 Oct 26 18:12:00 +0700",
@@ -128,7 +119,7 @@
     },
     "TCB": {
       "symbol": "TCB",
-      "news_count": 5,
+      "news_count": 6,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
@@ -158,6 +149,15 @@
           "link": "https://cafef.vn/cong-ty-chung-khoan-dua-tang-von-188261012184942478.chn"
         },
         {
+          "title": "Techcombank được Ngân hàng Nhà nước chấp thuận tăng vốn thêm hơn 35.700 tỷ đồng, sẽ trở thành ngân hàng có vốn điều lệ cao nhất hệ thống",
+          "date": "Tue, 13 Oct 26 16:44:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/techcombank-duoc-ngan-hang-nha-nuoc-chap-thuan-tang-von-them-hon-35700-ty-dong-se-tro-thanh-ngan-hang-co-von-dieu-le-cao-nhat-he-thong-18826101316330396.chn"
+        },
+        {
           "title": "Lãi suất ngày 12/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
           "date": "Mon, 12 Oct 26 21:38:00 +0700",
           "source": "CafeF Tài Chính Ngân Hàng",
@@ -174,15 +174,6 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/diem-danh-cac-ngan-hang-co-ke-hoach-phat-hanh-co-phieu-rieng-le-vpbank-hdbank-mb-vietcombank-bidv-techcombank-188261012151831295.chn"
-        },
-        {
-          "title": "So sánh lãi suất 11/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
-          "date": "Sun, 11 Oct 26 20:29:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
-          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/so-sanh-lai-suat-11-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261011153528098.chn"
         }
       ]
     },
@@ -287,27 +278,16 @@
     },
     "VHM": {
       "symbol": "VHM",
-      "news_count": 1,
+      "news_count": 0,
       "net_sentiment": 0.0,
-      "status": "THÔNG TIN ỔN ĐỊNH",
+      "status": "THÔNG TIN BÌNH ỔN",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Vì sao Vinhomes bán lô lớn cho chủ đầu tư khác thay vì tự bán từng căn?",
+      "latest_headline": "Không có thông tin bất thường gần đây",
       "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Duy trì tỷ trọng khuyến nghị",
-      "sentiment_multiplier": 1.0,
-      "related_news": [
-        {
-          "title": "Vì sao Vinhomes bán lô lớn cho chủ đầu tư khác thay vì tự bán từng căn?",
-          "date": "Sat, 10 Oct 2026 03:00:40 +0700",
-          "source": "VnExpress Kinh Doanh",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://vnexpress.net/vi-sao-vinhomes-ban-lo-lon-cho-chu-dau-tu-khac-thay-vi-tu-ban-tung-can-5130302.html"
-        }
-      ]
+      "action_desc": "Duy trì khuyến nghị định lượng gốc",
+      "sentiment_multiplier": 1.0
     },
     "MWG": {
       "symbol": "MWG",
@@ -357,27 +337,16 @@
     },
     "VNM": {
       "symbol": "VNM",
-      "news_count": 1,
+      "news_count": 0,
       "net_sentiment": 0.0,
-      "status": "THÔNG TIN ỔN ĐỊNH",
+      "status": "THÔNG TIN BÌNH ỔN",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Chiến lược đổi mới giúp Vinamilk giữ niềm tin người dùng",
+      "latest_headline": "Không có thông tin bất thường gần đây",
       "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Duy trì tỷ trọng khuyến nghị",
-      "sentiment_multiplier": 1.0,
-      "related_news": [
-        {
-          "title": "Chiến lược đổi mới giúp Vinamilk giữ niềm tin người dùng",
-          "date": "Sat, 10 Oct 2026 10:00:00 +0700",
-          "source": "VnExpress Kinh Doanh",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://vnexpress.net/chien-luoc-doi-moi-giup-vinamilk-giu-niem-tin-nguoi-dung-5130622.html"
-        }
-      ]
+      "action_desc": "Duy trì khuyến nghị định lượng gốc",
+      "sentiment_multiplier": 1.0
     },
     "DGC": {
       "symbol": "DGC",
@@ -595,6 +564,95 @@
       "published_date": "Mon, 12 Oct 2026 15:45:00 +0700"
     },
     {
+      "title": "Một doanh nghiệp bị xử phạt do không tổ chức họp ĐHĐCĐ",
+      "description": "In sách giáo khoa Hòa Phát bị phạt tiền 125 triệu đồng do không tổ chức họp ĐHĐCĐ thường niên năm 2026 trong thời hạn 6 tháng kể từ ngày kết thúc năm tài chính năm 2025.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "HPG"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": -0.4,
+      "sentiment_label": "TIÊU CỰC",
+      "sentiment_badge": "neg-light",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [
+        "phạt tiền"
+      ],
+      "re_eval_action": "MONITOR_CAUTION",
+      "action_desc": "Đưa vào diện giám sát chặt chẽ / Hạ tỷ trọng",
+      "link": "https://cafef.vn/mot-doanh-nghiep-bi-xu-phat-do-khong-to-chuc-hop-dhdcd-188261013153959806.chn",
+      "published_date": "Tue, 13 Oct 26 16:14:00 +0700"
+    },
+    {
+      "title": "Một cổ phiếu ngân hàng được tự doanh CTCK \"gom\" ròng gần 200 tỷ đồng phiên 13/10",
+      "description": "Tự doanh CTCK mua ròng nhẹ 13 tỷ đồng trên HOSE.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/mot-co-phieu-ngan-hang-duoc-tu-doanh-ctck-gom-rong-gan-200-ty-dong-phien-13-10-188261013170120808.chn",
+      "published_date": "Tue, 13 Oct 26 17:01:00 +0700"
+    },
+    {
+      "title": "Nóng: Getty Images nộp đơn phá sản, gánh khoản nợ 2,1 tỷ USD",
+      "description": "Getty Images nợ 2,1 tỷ USD, vốn hóa chỉ còn hơn 20 triệu USD.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/nong-getty-images-nop-don-pha-san-ganh-khoan-no-21-ty-usd-188261013163827972.chn",
+      "published_date": "Tue, 13 Oct 26 16:38:00 +0700"
+    },
+    {
+      "title": "Bà Nguyễn Thị Như Loan trở lại ghế Tổng Giám đốc Quốc Cường Gia Lai",
+      "description": "Sau hơn 2 năm rời vị trí điều hành, bà Nguyễn Thị Như Loan sẽ trở lại giữ chức Tổng Giám đốc Quốc Cường Gia Lai, thay ông Nguyễn Quốc Cường.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/ba-nguyen-thi-nhu-loan-tro-lai-ghe-tong-giam-doc-quoc-cuong-gia-lai-188261013163817853.chn",
+      "published_date": "Tue, 13 Oct 26 16:38:00 +0700"
+    },
+    {
+      "title": "Bức tranh thị trường trái phiếu doanh nghiệp quý 3/2026: Áp lực nợ chậm trả đè nặng các \"ông lớn\" bất động sản",
+      "description": "Dù thị trường trái phiếu doanh nghiệp ghi nhận đà phục hồi nhẹ nhờ nhóm ngân hàng và một số doanh nghiệp lớn, áp lực tài chính vẫn chưa nguôi ngoai đối với hàng loạt doanh nghiệp bất động sản.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/buc-tranh-thi-truong-trai-phieu-doanh-nghiep-quy-3-2026-ap-luc-no-cham-tra-de-nang-cac-ong-lon-bat-dong-san-188261013152816858.chn",
+      "published_date": "Tue, 13 Oct 26 16:05:00 +0700"
+    },
+    {
       "title": "Phiên 13/10: Khối ngoại tiếp đà bán ròng gần 500 tỷ đồng, \"xả\" mạnh một mã Bluechips",
       "description": "Ở chiều mua ròng, HDB dẫn đầu với giá trị khoảng 44 tỷ đồng.",
       "source": "CafeF Thị Trường",
@@ -665,25 +723,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/con-hoang-loan-chua-co-hoi-ket-35-cong-ty-bi-chat-ban-gia-san-nguoi-mua-gan-nhu-bien-mat-188261013145950718.chn",
       "published_date": "Tue, 13 Oct 26 14:59:00 +0700"
-    },
-    {
-      "title": "FPT Play, TV360 cùng loạt doanh nghiệp truyền hình trả tiền vừa bị xử phạt",
-      "description": "VCC vừa ban hành các quyết định xử phạt hành chính đối với 6 doanh nghiệp truyền hình trả tiền gồm Onlive TV, MangoPlus, FPT Play, TV360, MyTv, HTVC do các vi phạm về quyền lợi người dùng,",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "FPT"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/fpt-play-tv360-cung-loat-doanh-nghiep-truyen-hinh-tra-tien-vua-bi-xu-phat-188261013142912586.chn",
-      "published_date": "Tue, 13 Oct 26 14:29:00 +0700"
     },
     {
       "title": "SHS phát hành liên tiếp 2 lô trái phiếu trong 3 ngày",
@@ -1074,78 +1113,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/cuu-pho-thu-tuong-duc-duoc-de-cu-thanh-vien-hdqt-mot-cong-ty-chung-khoan-chuan-bi-ipo-188261012185750274.chn",
       "published_date": "Mon, 12 Oct 26 19:06:00 +0700"
-    },
-    {
-      "title": "Dragon Capital bị giả mạo",
-      "description": "Dragon Capital Việt Nam cảnh báo tình trạng các đối tượng xấu sử dụng hình ảnh, logo, giấy phép kinh doanh và tên các quỹ đầu tư để lập fanpage, website giả mạo, lôi kéo nhà đầu tư tham gia các hội nhóm nhằm mục đích lừa đảo.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/dragon-capital-bi-gia-mao-188261012190047388.chn",
-      "published_date": "Mon, 12 Oct 26 19:00:00 +0700"
-    },
-    {
-      "title": "Chứng khoán 'đỏ lửa' đầu tuần, VN-Index mất hơn 14 điểm",
-      "description": "Thị trường chứng khoán ngày 12/10 phân hóa mạnh. Dù nhiều cổ phiếu ngân hàng, thép và xây dựng giữ được sắc xanh, áp lực bán tại nhóm bất động sản vốn hóa lớn khiến VN-Index giảm hơn 14 điểm, lùi về 1.720,9 điểm.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/chung-khoan-do-lua-dau-tuan-vn-index-mat-hon-14-diem-188261012185040649.chn",
-      "published_date": "Mon, 12 Oct 26 18:50:00 +0700"
-    },
-    {
-      "title": "Công ty chứng khoán 'đua' tăng vốn",
-      "description": "Chỉ trong hơn một tháng, vị trí dẫn đầu về vốn điều lệ ngành chứng khoán liên tục đổi chủ giữa SSI và TCBS. Cùng với VPS, VIX và HSC, các công ty chứng khoán đang tăng tốc mở rộng quy mô vốn, trong cuộc cạnh tranh ngày càng quyết liệt về cho vay ký quỹ và thị phần môi giới.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "HCM",
-        "SSI",
-        "TCB"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/cong-ty-chung-khoan-dua-tang-von-188261012184942478.chn",
-      "published_date": "Mon, 12 Oct 26 18:49:00 +0700"
-    },
-    {
-      "title": "Một cổ phiếu ngân hàng bất ngờ được tự doanh CTCK \"gom\" ròng hơn 200 tỷ đồng phiên đầu tuần",
-      "description": "Tự doanh CTCK mua ròng 145 tỷ đồng trên HOSE.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/mot-co-phieu-ngan-hang-bat-ngo-duoc-tu-doanh-ctck-gom-rong-hon-200-ty-dong-phien-dau-tuan-188261012173321884.chn",
-      "published_date": "Mon, 12 Oct 26 17:33:00 +0700"
     }
   ]
 }
