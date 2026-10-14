@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-14 12:49:36",
+  "last_updated": "2026-10-14 13:09:59",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 1,
@@ -310,7 +310,7 @@
           "link": "https://cafef.vn/sau-hon-mot-thap-ky-dau-tu-msr-bat-dau-dong-gop-nguon-tien-lon-cho-masan-188261013151241142.chn"
         },
         {
-          "title": "Reuters hé lộ thương vụ bí mật quanh mỏ vonfram lớn nhất Việt Nam",
+          "title": "Reuters hé lộ thương vụ bí mật quanh mỏ vonfram lớn nhất Việt Nam, có thể bán tiếp cho cổ đông ngoại",
           "date": "Wed, 14 Oct 26 15:11:00 +0700",
           "source": "CafeF Doanh Nghiệp (CBTT)",
           "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
@@ -540,6 +540,25 @@
       "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
       "link": "https://cafef.vn/don-94-trieu-luot-khach-acv-uoc-thu-hon-20300-ty-dong-loi-nhuan-vuot-ke-hoach-ca-nam-chi-sau-9-thang-188261014075116287.chn",
       "published_date": "Wed, 14 Oct 26 07:53:00 +0700"
+    },
+    {
+      "title": "Mekophar và Geleximco cùng bị phạt 92,5 triệu đồng vì vi phạm công bố thông tin",
+      "description": "Thanh tra Chứng khoán Nhà nước vừa xử phạt CTCP Hóa - Dược phẩm Mekophar và Tập đoàn Geleximco – CTCP, mỗi doanh nghiệp 92,5 triệu đồng do vi phạm nghĩa vụ công bố thông tin. Trong đó, Mekophar chậm công bố nhiều báo cáo tài chính, còn Geleximco không gửi hoặc gửi chậm hàng loạt tài liệu liên quan đến trái phiếu.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
+      "sentiment_score": -0.7,
+      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
+      "sentiment_badge": "neg-danger",
+      "is_red_flag": true,
+      "is_catalyst": false,
+      "triggers_found": [
+        "thanh tra"
+      ],
+      "re_eval_action": "EMERGENCY_SELL",
+      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
+      "link": "https://cafef.vn/mekophar-va-geleximco-cung-bi-phat-925-trieu-dong-vi-vi-pham-cong-bo-thong-tin-188261014195635165.chn",
+      "published_date": "Wed, 14 Oct 26 19:56:00 +0700"
     },
     {
       "title": "TCBS chào bán 1.500 tỷ đồng trái phiếu ra công chúng",
@@ -1115,25 +1134,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/sau-hon-mot-thap-ky-dau-tu-msr-bat-dau-dong-gop-nguon-tien-lon-cho-masan-188261013151241142.chn",
       "published_date": "Wed, 14 Oct 26 08:00:00 +0700"
-    },
-    {
-      "title": "Một gia đình Việt có hai chị em đều là tỷ phú USD",
-      "description": "Cả hai nữ tỷ phú đều gắn bó với Vingroup từ những ngày đầu thành lập.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "VIC"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/mot-gia-dinh-viet-co-hai-chi-em-deu-la-ty-phu-usd-188261012164917978.chn",
-      "published_date": "Wed, 14 Oct 26 00:05:00 +0700"
     }
   ]
 }
