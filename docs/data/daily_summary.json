@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-14 08:24:08 (UTC+7)",
+  "last_updated": "2026-10-14 09:38:41 (UTC+7)",
   "trading_date": "2026-10-14",
   "vnindex": {
     "close": 1704.87,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 0,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-14 08:24:05"
+    "last_scanned": "2026-10-14 09:38:38"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -591,7 +591,7 @@
         "status_badge": "neutral",
         "latest_headline": "Lãi suất ngày 13/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 3,
+        "news_count": 2,
         "re_eval_note": ""
       },
       {
@@ -609,11 +609,11 @@
       {
         "symbol": "TCB",
         "sector": "Banking",
-        "net_sentiment": 0.0,
+        "net_sentiment": 0.02,
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Lãi suất ngày 13/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+        "latest_headline": "Techcombank tăng vốn \"khủng\": Mở rộng dư địa tăng trưởng",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
         "news_count": 5,
         "re_eval_note": ""
@@ -627,7 +627,7 @@
         "status_badge": "neutral",
         "latest_headline": "Loạt thay đổi liên quan đến các bộ chỉ số quan trọng của chứng khoán Việt Nam",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 4,
+        "news_count": 5,
         "re_eval_note": ""
       },
       {
@@ -884,7 +884,7 @@
       "quant_criteria": "Tỷ lệ an toàn vốn CAR cao nhất ngành (>15%), biên lãi thuần NIM phục hồi, giao dịch sôi động.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Lãi suất ngày 13/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,..."
+      "latest_headline": "Techcombank tăng vốn \"khủng\": Mở rộng dư địa tăng trưởng"
     },
     {
       "symbol": "ACB",
@@ -1202,9 +1202,9 @@
           "technical_signal": "POCKET PIVOT | Dòng tiền tổ chức gom hàng (Pocket Pivot) | Vol 1.0x vượt đỉnh vol giảm 10D | Giữ MA20",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Lãi suất ngày 13/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+          "news_headline": "Techcombank tăng vốn \"khủng\": Mở rộng dư địa tăng trưởng",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
-          "news_score": 0.0
+          "news_score": 0.02
         },
         {
           "symbol": "MSN",
@@ -1296,9 +1296,9 @@
           "technical_signal": "POCKET PIVOT | Dòng tiền tổ chức gom hàng (Pocket Pivot) | Vol 1.0x vượt đỉnh vol giảm 10D | Giữ MA20",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Lãi suất ngày 13/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+          "news_headline": "Techcombank tăng vốn \"khủng\": Mở rộng dư địa tăng trưởng",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
-          "news_score": 0.0
+          "news_score": 0.02
         },
         {
           "symbol": "MSN",
@@ -1402,9 +1402,9 @@
           "technical_signal": "POCKET PIVOT | Dòng tiền tổ chức gom hàng (Pocket Pivot) | Vol 1.0x vượt đỉnh vol giảm 10D | Giữ MA20",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Lãi suất ngày 13/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+          "news_headline": "Techcombank tăng vốn \"khủng\": Mở rộng dư địa tăng trưởng",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
-          "news_score": 0.0
+          "news_score": 0.02
         },
         {
           "symbol": "MSN",

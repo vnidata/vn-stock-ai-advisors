@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-14 08:24:05",
+  "last_updated": "2026-10-14 09:38:38",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 0,
@@ -82,7 +82,7 @@
     },
     "VCB": {
       "symbol": "VCB",
-      "news_count": 3,
+      "news_count": 2,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
@@ -110,15 +110,6 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/lai-suat-ngay-12-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261012203235982.chn"
-        },
-        {
-          "title": "Điểm danh các ngân hàng có kế hoạch phát hành cổ phiếu riêng lẻ: VPBank, HDBank, MB, Vietcombank, BIDV, Techcombank",
-          "date": "Mon, 12 Oct 26 15:17:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/diem-danh-cac-ngan-hang-co-ke-hoach-phat-hanh-co-phieu-rieng-le-vpbank-hdbank-mb-vietcombank-bidv-techcombank-188261012151831295.chn"
         }
       ]
     },
@@ -138,16 +129,25 @@
     "TCB": {
       "symbol": "TCB",
       "news_count": 5,
-      "net_sentiment": 0.0,
+      "net_sentiment": 0.02,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Lãi suất ngày 13/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+      "latest_headline": "Techcombank tăng vốn \"khủng\": Mở rộng dư địa tăng trưởng",
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Duy trì tỷ trọng khuyến nghị",
       "sentiment_multiplier": 1.0,
       "related_news": [
+        {
+          "title": "Techcombank tăng vốn \"khủng\": Mở rộng dư địa tăng trưởng",
+          "date": "Wed, 14 Oct 26 16:05:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+          "sentiment_score": 0.1,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/techcombank-tang-von-khung-mo-rong-du-dia-tang-truong-188261014160544014.chn"
+        },
         {
           "title": "Lãi suất ngày 13/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
           "date": "Tue, 13 Oct 26 19:30:00 +0700",
@@ -176,15 +176,6 @@
           "link": "https://cafef.vn/lai-suat-ngay-12-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261012203235982.chn"
         },
         {
-          "title": "Điểm danh các ngân hàng có kế hoạch phát hành cổ phiếu riêng lẻ: VPBank, HDBank, MB, Vietcombank, BIDV, Techcombank",
-          "date": "Mon, 12 Oct 26 15:17:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/diem-danh-cac-ngan-hang-co-ke-hoach-phat-hanh-co-phieu-rieng-le-vpbank-hdbank-mb-vietcombank-bidv-techcombank-188261012151831295.chn"
-        },
-        {
           "title": "Techcombank được chấp thuận tăng vốn điều lệ lên hơn 106.000 tỷ đồng",
           "date": "Wed, 14 Oct 2026 14:00:00 +0700",
           "source": "VnExpress Kinh Doanh",
@@ -197,7 +188,7 @@
     },
     "ACB": {
       "symbol": "ACB",
-      "news_count": 4,
+      "news_count": 5,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
@@ -225,6 +216,15 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/co-phieu-cua-ty-phu-nguyen-thi-phuong-thao-lap-dinh-lich-su-von-hoa-vuot-sacombank-acb-va-lpbank-188261014143915461.chn"
+        },
+        {
+          "title": "Từ gần 200 hồ sơ dự giải, ACB chinh phục hạng mục kép tại Thương hiệu Vàng TP.HCM 2026",
+          "date": "Wed, 14 Oct 26 16:22:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/tu-gan-200-ho-so-du-giai-acb-chinh-phuc-hang-muc-kep-tai-thuong-hieu-vang-tphcm-2026-188261014162246186.chn"
         },
         {
           "title": "Không chỉ có chiếc thẻ “gây sốt”, ACB đang làm gì để chinh phục khách hàng ưu tiên?",
@@ -473,6 +473,25 @@
       "published_date": "Tue, 13 Oct 26 18:30:00 +0700"
     },
     {
+      "title": "Phó Tổng giám đốc một doanh nghiệp trên sàn bị khởi tố vì trộm cắp tài sản",
+      "description": "Ông Lê Thế Việt được bổ nhiệm làm Phó Tổng giám đốc của công ty từ tháng 7/2020.",
+      "source": "CafeF Doanh Nghiệp (CBTT)",
+      "symbols": [],
+      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
+      "sentiment_score": -1.0,
+      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
+      "sentiment_badge": "neg-danger",
+      "is_red_flag": true,
+      "is_catalyst": false,
+      "triggers_found": [
+        "khởi tố"
+      ],
+      "re_eval_action": "VETO_REJECT",
+      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
+      "link": "https://cafef.vn/pho-tong-giam-doc-mot-doanh-nghiep-tren-san-bi-khoi-to-vi-trom-cap-tai-san-188261014154223291.chn",
+      "published_date": "Wed, 14 Oct 26 15:40:00 +0700"
+    },
+    {
       "title": "Chủ tịch qua đời, Tổng giám đốc bị bắt, doanh nghiệp điện có tài sản hơn 7.500 tỷ đồng triệu tập ĐHĐCĐ bất thường",
       "description": "Nhiệt điện Hải Phòng dự kiến họp cổ đông ngày 4/12 để kiện toàn HĐQT và ban kiểm soát, sau khi Chủ tịch qua đời và bộ máy điều hành nhiều lần thay đổi nhân sự.",
       "source": "CafeF Doanh Nghiệp (CBTT)",
@@ -648,6 +667,25 @@
       "published_date": "Tue, 13 Oct 26 16:14:00 +0700"
     },
     {
+      "title": "Techcombank tăng vốn \"khủng\": Mở rộng dư địa tăng trưởng",
+      "description": "Ngân hàng Nhà nước (NHNN) vừa chính thức chấp thuận cho Techcombank tăng vốn điều lệ thêm tối đa gần 35.731 tỷ đồng, lên mức 106.593 tỷ đồng, đưa ngân hàng này trở thành tổ chức tín dụng có quy mô vốn lớn nhất hệ thống. Nguồn lực tài chính mới kết hợp với các cơ chế chính sách từ Thông tư 50/2026/TT-NHNN được kỳ vọng sẽ tạo dư địa mở rộng hoạt động kinh doanh và nâng cao định giá cổ phiếu TCB.",
+      "source": "CafeF Tài Chính Ngân Hàng",
+      "symbols": [
+        "TCB"
+      ],
+      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+      "sentiment_score": 0.1,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/techcombank-tang-von-khung-mo-rong-du-dia-tang-truong-188261014160544014.chn",
+      "published_date": "Wed, 14 Oct 26 16:05:00 +0700"
+    },
+    {
       "title": "Lãi suất neo cao, nguồn vốn thắt chặt: Chuyên gia cảnh báo tín nhiệm ngân hàng, doanh nghiệp suy yếu",
       "description": "Chi phí hoạt động gia tăng, tăng trưởng tín dụng tiếp tục cao hơn tăng trưởng huy động tiền gửi và lãi suất cho vay được dự báo duy trì ở mức cao sẽ gây sức ép lên khả năng trả nợ. VIS Rating nhận định các doanh nghiệp bất động sản nhà ở gặp khó khăn là một trong những nhóm rủi ro nhất.",
       "source": "CafeF Tài Chính Ngân Hàng",
@@ -680,6 +718,23 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://vnexpress.net/uob-nang-du-bao-tang-truong-viet-nam-len-9-2-5131875.html",
       "published_date": "Tue, 13 Oct 2026 18:59:55 +0700"
+    },
+    {
+      "title": "Hai cổ phiếu \"hot\" bị khối ngoại xả hơn 300 tỷ trong phiên 14/10",
+      "description": "Giao dịch của khối ngoại là điểm trừ khi bán ròng khoảng 782 tỷ đồng cổ phiếu trên toàn thị trường.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/hai-co-phieu-hot-bi-khoi-ngoai-xa-hon-300-ty-trong-phien-14-10-188261014152910441.chn",
+      "published_date": "Wed, 14 Oct 26 15:45:00 +0700"
     },
     {
       "title": "Chuyện gì đây: Chủ tịch 75 tuổi cùng loạt lãnh đạo cấp cao đồng loạt thoái vốn ngay trước thềm cổ phiếu lên sàn HoSE",
@@ -1091,57 +1146,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/vietcap-du-bao-bat-ngo-ve-loi-nhuan-pnj-trong-7-nam-toi-188261013221225447.chn",
       "published_date": "Wed, 14 Oct 26 00:02:00 +0700"
-    },
-    {
-      "title": "Đằng sau “cú sốc” thổi bay 22.000 tỷ đồng vốn hoá của PNJ",
-      "description": "Chuỗi giảm diễn ra trong bối cảnh hàng loạt thông tin liên quan đến pháp lý, kết quả kinh doanh, phương án huy động vốn và giao dịch của người liên quan liên tiếp xuất hiện.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/dang-sau-cu-soc-thoi-bay-22000-ty-dong-von-hoa-cua-pnj-188261013170047924.chn",
-      "published_date": "Tue, 13 Oct 26 20:12:00 +0700"
-    },
-    {
-      "title": "Mẹ trở lại ghế tổng giám đốc, Cường 'đô la' có động thái gây chú ý",
-      "description": "Vừa chấp hành xong hình phạt trong vụ án chuyển nhượng trái pháp luật khu đất vàng rộng 6.000 m2 tại số 39-39B Bến Vân Đồn, bà Nguyễn Thị Như Loan được Công ty CP Quốc Cường Gia Lai giới thiệu là Tổng Giám đốc QCG. Trên trang cá nhân, Cường \"đô la\" vừa chia sẻ nhiều điều trong hành trình 2 năm thay mẹ điều hành công ty.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/me-tro-lai-ghe-tong-giam-doc-cuong-do-la-co-dong-thai-gay-chu-y-188261013194259161.chn",
-      "published_date": "Tue, 13 Oct 26 19:42:00 +0700"
-    },
-    {
-      "title": "Lời chia tay của Cường Đô La",
-      "description": "Ông thừa nhận kết quả đạt được trong hai năm điều hành vẫn chưa đáp ứng đầy đủ kỳ vọng của cổ đông.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/loi-chia-tay-cua-cuong-do-la-18826101319285318.chn",
-      "published_date": "Tue, 13 Oct 26 19:28:00 +0700"
     }
   ]
 }
