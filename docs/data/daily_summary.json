@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-14 09:38:41 (UTC+7)",
+  "last_updated": "2026-10-14 12:17:56 (UTC+7)",
   "trading_date": "2026-10-14",
   "vnindex": {
     "close": 1704.87,
@@ -33,9 +33,9 @@
   "news_radar": {
     "total_news_scanned": 160,
     "red_flags_detected": 0,
-    "catalysts_detected": 0,
+    "catalysts_detected": 1,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-14 09:38:38"
+    "last_scanned": "2026-10-14 12:17:53"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -66,8 +66,8 @@
       "status_badge": "pos",
       "action_advice": "Tiếp tục nắm giữ theo xu hướng tăng",
       "technical_signal": "POCKET PIVOT | Dòng tiền tổ chức gom hàng (Pocket Pivot) | Vol 1.0x vượt đỉnh vol giảm 10D | Giữ MA20",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
-      "news_badge": "neutral",
+      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
+      "news_badge": "pos",
       "volume": 18952500
     },
     {
@@ -138,8 +138,8 @@
       "status_badge": "pos",
       "action_advice": "Tiếp tục nắm giữ theo xu hướng tăng",
       "technical_signal": "POCKET PIVOT | Dòng tiền tổ chức gom hàng (Pocket Pivot) | Vol 1.0x vượt đỉnh vol giảm 10D | Giữ MA20",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
-      "news_badge": "neutral",
+      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
+      "news_badge": "pos",
       "volume": 18952500
     },
     {
@@ -210,8 +210,8 @@
       "status_badge": "pos",
       "action_advice": "Tiếp tục nắm giữ theo xu hướng tăng",
       "technical_signal": "POCKET PIVOT | Dòng tiền tổ chức gom hàng (Pocket Pivot) | Vol 1.0x vượt đỉnh vol giảm 10D | Giữ MA20",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
-      "news_badge": "neutral",
+      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
+      "news_badge": "pos",
       "volume": 18952500
     },
     {
@@ -555,7 +555,20 @@
     }
   },
   "news_action_recommendations": {
-    "catalysts": [],
+    "catalysts": [
+      {
+        "symbol": "TCB",
+        "sector": "Banking",
+        "net_sentiment": 0.13,
+        "sentiment_multiplier": 1.2,
+        "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
+        "status_badge": "pos",
+        "latest_headline": "TCBS chào bán 1.500 tỷ đồng trái phiếu ra công chúng",
+        "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
+        "news_count": 6,
+        "re_eval_note": ""
+      }
+    ],
     "red_flags": [],
     "cautions": [
       {
@@ -573,13 +586,13 @@
       {
         "symbol": "HPG",
         "sector": "Materials",
-        "net_sentiment": -0.4,
-        "sentiment_multiplier": 0.7,
-        "status": "THÔNG TIN TIÊU CỰC",
-        "status_badge": "neg-light",
-        "latest_headline": "Một doanh nghiệp bị xử phạt do không tổ chức họp ĐHĐCĐ",
-        "action_desc": "Hạ tỷ trọng / Theo dõi chặt chẽ",
-        "news_count": 1,
+        "net_sentiment": 0.0,
+        "sentiment_multiplier": 1.0,
+        "status": "THÔNG TIN BÌNH ỔN",
+        "status_badge": "neutral",
+        "latest_headline": "Không có thông tin bất thường gần đây",
+        "action_desc": "Duy trì khuyến nghị định lượng gốc",
+        "news_count": 0,
         "re_eval_note": ""
       },
       {
@@ -604,18 +617,6 @@
         "latest_headline": "Không có thông tin bất thường gần đây",
         "action_desc": "Duy trì khuyến nghị định lượng gốc",
         "news_count": 0,
-        "re_eval_note": ""
-      },
-      {
-        "symbol": "TCB",
-        "sector": "Banking",
-        "net_sentiment": 0.02,
-        "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN ỔN ĐỊNH",
-        "status_badge": "neutral",
-        "latest_headline": "Techcombank tăng vốn \"khủng\": Mở rộng dư địa tăng trưởng",
-        "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 5,
         "re_eval_note": ""
       },
       {
@@ -740,9 +741,9 @@
       }
     ],
     "summary": {
-      "total_catalysts": 0,
+      "total_catalysts": 1,
       "total_red_flags": 0,
-      "total_cautions": 15
+      "total_cautions": 14
     }
   },
   "watchlist_items": [
@@ -798,9 +799,9 @@
       "ai_radar_action": "Quan sát tín hiệu tích lũy cạn cung; Đưa vào Radar chờ phiên bùng nổ FTD",
       "selection_reason": "Doanh nghiệp sản xuất thép số 1 Đông Nam Á, thanh khoản cao nhất toàn thị trường (thường xuyên >15-30M cp/phiên). Hưởng lợi từ chu kỳ giải ngân đầu tư công hạ tầng và đại dự án Dung Quất 2. Dòng tiền ngoại và tổ chức quan tâm đặc biệt.",
       "quant_criteria": "Thanh khoản top 1 VN30, Beta cao theo sóng hồi, biên lợi nhuận cải thiện theo chu kỳ phục hồi giá thép HRC.",
-      "news_status": "THÔNG TIN TIÊU CỰC",
-      "news_badge": "neg-light",
-      "latest_headline": "Một doanh nghiệp bị xử phạt do không tổ chức họp ĐHĐCĐ"
+      "news_status": "THÔNG TIN BÌNH ỔN",
+      "news_badge": "neutral",
+      "latest_headline": "Không có thông tin bất thường gần đây"
     },
     {
       "symbol": "VCB",
@@ -882,9 +883,9 @@
       "ai_radar_action": "Quan sát tín hiệu tích lũy cạn cung; Đưa vào Radar chờ phiên bùng nổ FTD",
       "selection_reason": "Ngân hàng tư nhân dẫn đầu về năng lực vốn và quản trị tài sản cá nhân giàu có. Hưởng lợi từ sự phục hồi của thị trường bất động sản, trái phiếu doanh nghiệp và hệ sinh thái khách hàng cao cấp.",
       "quant_criteria": "Tỷ lệ an toàn vốn CAR cao nhất ngành (>15%), biên lãi thuần NIM phục hồi, giao dịch sôi động.",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
-      "news_badge": "neutral",
-      "latest_headline": "Techcombank tăng vốn \"khủng\": Mở rộng dư địa tăng trưởng"
+      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
+      "news_badge": "pos",
+      "latest_headline": "TCBS chào bán 1.500 tỷ đồng trái phiếu ra công chúng"
     },
     {
       "symbol": "ACB",
@@ -1182,7 +1183,7 @@
         {
           "symbol": "TCB",
           "weight_pct": 28.6,
-          "score": 0.3002,
+          "score": 0.3602,
           "confidence_score": 75,
           "sector": "Banking",
           "entry_price": 32.4,
@@ -1200,11 +1201,11 @@
           "action_advice": "Tiếp tục nắm giữ theo xu hướng tăng",
           "volume": 18952500,
           "technical_signal": "POCKET PIVOT | Dòng tiền tổ chức gom hàng (Pocket Pivot) | Vol 1.0x vượt đỉnh vol giảm 10D | Giữ MA20",
-          "news_status": "THÔNG TIN ỔN ĐỊNH",
-          "news_badge": "neutral",
-          "news_headline": "Techcombank tăng vốn \"khủng\": Mở rộng dư địa tăng trưởng",
-          "news_action": "Duy trì tỷ trọng khuyến nghị",
-          "news_score": 0.02
+          "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
+          "news_badge": "pos",
+          "news_headline": "TCBS chào bán 1.500 tỷ đồng trái phiếu ra công chúng",
+          "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
+          "news_score": 0.13
         },
         {
           "symbol": "MSN",
@@ -1261,7 +1262,9 @@
           "news_score": 0.0
         }
       ],
-      "news_notes": {}
+      "news_notes": {
+        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
+      }
     },
     "AI_Advisor_NhipNhang_1M": {
       "name": "AI_Advisor_NhipNhang_1M",
@@ -1276,7 +1279,7 @@
         {
           "symbol": "TCB",
           "weight_pct": 28.6,
-          "score": 0.3503,
+          "score": 0.4204,
           "confidence_score": 75,
           "sector": "Banking",
           "entry_price": 32.39,
@@ -1294,11 +1297,11 @@
           "action_advice": "Tiếp tục nắm giữ theo xu hướng tăng",
           "volume": 18952500,
           "technical_signal": "POCKET PIVOT | Dòng tiền tổ chức gom hàng (Pocket Pivot) | Vol 1.0x vượt đỉnh vol giảm 10D | Giữ MA20",
-          "news_status": "THÔNG TIN ỔN ĐỊNH",
-          "news_badge": "neutral",
-          "news_headline": "Techcombank tăng vốn \"khủng\": Mở rộng dư địa tăng trưởng",
-          "news_action": "Duy trì tỷ trọng khuyến nghị",
-          "news_score": 0.02
+          "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
+          "news_badge": "pos",
+          "news_headline": "TCBS chào bán 1.500 tỷ đồng trái phiếu ra công chúng",
+          "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
+          "news_score": 0.13
         },
         {
           "symbol": "MSN",
@@ -1355,7 +1358,9 @@
           "news_score": 0.0
         }
       ],
-      "news_notes": {}
+      "news_notes": {
+        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
+      }
     },
     "AI_Advisor_BenBi_3M": {
       "name": "AI_Advisor_BenBi_3M",
@@ -1367,7 +1372,9 @@
       "total_picks": 0,
       "cash_ratio_pct": 100.0,
       "top5": [],
-      "news_notes": {}
+      "news_notes": {
+        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
+      }
     },
     "AI_Advisor_CANSLIM_Breakout": {
       "name": "AI_Advisor_CANSLIM_Breakout",
@@ -1382,7 +1389,7 @@
         {
           "symbol": "TCB",
           "weight_pct": 28.6,
-          "score": 0.3202,
+          "score": 0.3842,
           "confidence_score": 75,
           "sector": "Banking",
           "entry_price": 32.39,
@@ -1400,11 +1407,11 @@
           "action_advice": "Tiếp tục nắm giữ theo xu hướng tăng",
           "volume": 18952500,
           "technical_signal": "POCKET PIVOT | Dòng tiền tổ chức gom hàng (Pocket Pivot) | Vol 1.0x vượt đỉnh vol giảm 10D | Giữ MA20",
-          "news_status": "THÔNG TIN ỔN ĐỊNH",
-          "news_badge": "neutral",
-          "news_headline": "Techcombank tăng vốn \"khủng\": Mở rộng dư địa tăng trưởng",
-          "news_action": "Duy trì tỷ trọng khuyến nghị",
-          "news_score": 0.02
+          "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
+          "news_badge": "pos",
+          "news_headline": "TCBS chào bán 1.500 tỷ đồng trái phiếu ra công chúng",
+          "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
+          "news_score": 0.13
         },
         {
           "symbol": "MSN",
@@ -1461,7 +1468,9 @@
           "news_score": 0.0
         }
       ],
-      "news_notes": {}
+      "news_notes": {
+        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
+      }
     },
     "AI_Advisor_Mean_Reversion": {
       "name": "AI_Advisor_Mean_Reversion",
@@ -1610,7 +1619,7 @@
         }
       ],
       "news_notes": {
-        "HPG": "ĐIỀU CHỈNH TIN TỨC: Hệ số 0.70x (THÔNG TIN TIÊU CỰC)"
+        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
       }
     },
     "AI_Advisor_Turtle_Donchian": {
@@ -1623,7 +1632,9 @@
       "total_picks": 0,
       "cash_ratio_pct": 100.0,
       "top5": [],
-      "news_notes": {}
+      "news_notes": {
+        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
+      }
     }
   }
 }

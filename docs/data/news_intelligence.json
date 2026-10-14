@@ -1,8 +1,8 @@
 {
-  "last_updated": "2026-10-14 09:38:38",
+  "last_updated": "2026-10-14 12:17:53",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
-  "catalysts_detected": 0,
+  "catalysts_detected": 1,
   "system_verdict": "AN TOÀN",
   "symbols_sentiment": {
     "FPT": {
@@ -58,27 +58,16 @@
     },
     "HPG": {
       "symbol": "HPG",
-      "news_count": 1,
-      "net_sentiment": -0.4,
-      "status": "THÔNG TIN TIÊU CỰC",
-      "status_badge": "neg-light",
+      "news_count": 0,
+      "net_sentiment": 0.0,
+      "status": "THÔNG TIN BÌNH ỔN",
+      "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Một doanh nghiệp bị xử phạt do không tổ chức họp ĐHĐCĐ",
-      "re_eval_action": "MONITOR_CAUTION",
-      "action_desc": "Hạ tỷ trọng / Theo dõi chặt chẽ",
-      "sentiment_multiplier": 0.7,
-      "related_news": [
-        {
-          "title": "Một doanh nghiệp bị xử phạt do không tổ chức họp ĐHĐCĐ",
-          "date": "Tue, 13 Oct 26 16:14:00 +0700",
-          "source": "CafeF Thị Trường",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": -0.4,
-          "sentiment_label": "TIÊU CỰC",
-          "link": "https://cafef.vn/mot-doanh-nghiep-bi-xu-phat-do-khong-to-chuc-hop-dhdcd-188261013153959806.chn"
-        }
-      ]
+      "latest_headline": "Không có thông tin bất thường gần đây",
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Duy trì khuyến nghị định lượng gốc",
+      "sentiment_multiplier": 1.0
     },
     "VCB": {
       "symbol": "VCB",
@@ -128,17 +117,26 @@
     },
     "TCB": {
       "symbol": "TCB",
-      "news_count": 5,
-      "net_sentiment": 0.02,
-      "status": "THÔNG TIN ỔN ĐỊNH",
-      "status_badge": "neutral",
+      "news_count": 6,
+      "net_sentiment": 0.13,
+      "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
+      "status_badge": "pos",
       "has_red_flag": false,
-      "has_catalyst": false,
-      "latest_headline": "Techcombank tăng vốn \"khủng\": Mở rộng dư địa tăng trưởng",
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Duy trì tỷ trọng khuyến nghị",
-      "sentiment_multiplier": 1.0,
+      "has_catalyst": true,
+      "latest_headline": "TCBS chào bán 1.500 tỷ đồng trái phiếu ra công chúng",
+      "re_eval_action": "STRONG_BUY_CATALYST",
+      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
+      "sentiment_multiplier": 1.2,
       "related_news": [
+        {
+          "title": "TCBS chào bán 1.500 tỷ đồng trái phiếu ra công chúng",
+          "date": "Wed, 14 Oct 26 18:45:00 +0700",
+          "source": "CafeF Thị Trường",
+          "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
+          "sentiment_score": 0.7,
+          "sentiment_label": "TÍCH CỰC MẠNH",
+          "link": "https://cafef.vn/tcbs-chao-ban-1500-ty-dong-trai-phieu-ra-cong-chung-188261014184539006.chn"
+        },
         {
           "title": "Techcombank tăng vốn \"khủng\": Mở rộng dư địa tăng trưởng",
           "date": "Wed, 14 Oct 26 16:05:00 +0700",
@@ -174,15 +172,6 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/lai-suat-ngay-12-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261012203235982.chn"
-        },
-        {
-          "title": "Techcombank được chấp thuận tăng vốn điều lệ lên hơn 106.000 tỷ đồng",
-          "date": "Wed, 14 Oct 2026 14:00:00 +0700",
-          "source": "VnExpress Kinh Doanh",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://vnexpress.net/techcombank-duoc-chap-thuan-tang-von-dieu-le-len-hon-106-000-ty-dong-5132236.html"
         }
       ]
     },
@@ -321,7 +310,7 @@
           "link": "https://cafef.vn/sau-hon-mot-thap-ky-dau-tu-msr-bat-dau-dong-gop-nguon-tien-lon-cho-masan-188261013151241142.chn"
         },
         {
-          "title": "Reuters hé lộ thương vụ bí mật quanh mỏ vonfram lớn nhất Việt Nam: Nhóm Australia – Mỹ – Canada từng muốn mua quyền chi phối nhưng không thành",
+          "title": "Reuters hé lộ thương vụ bí mật quanh mỏ vonfram lớn nhất Việt Nam",
           "date": "Wed, 14 Oct 26 15:11:00 +0700",
           "source": "CafeF Doanh Nghiệp (CBTT)",
           "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
@@ -473,6 +462,29 @@
       "published_date": "Tue, 13 Oct 26 18:30:00 +0700"
     },
     {
+      "title": "Bắt tạm giam Tổng Giám đốc và Kế toán trưởng công ty may ở Hưng Yên",
+      "description": "Cơ quan CSĐT Công an tỉnh Hưng Yên vừa khởi tố, bắt tạm giam Tổng Giám đốc và Kế toán trưởng Công ty CP may Hưng Long II (địa chỉ tại phường Sơn Nam, tỉnh Hưng Yên) để điều tra hành vi buôn lậu.",
+      "source": "CafeF Doanh Nghiệp (CBTT)",
+      "symbols": [
+        "MAY"
+      ],
+      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
+      "sentiment_score": -1.0,
+      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
+      "sentiment_badge": "neg-danger",
+      "is_red_flag": true,
+      "is_catalyst": false,
+      "triggers_found": [
+        "khởi tố",
+        "bắt tạm giam",
+        "điều tra"
+      ],
+      "re_eval_action": "VETO_REJECT",
+      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
+      "link": "https://cafef.vn/bat-tam-giam-tong-giam-doc-va-ke-toan-truong-cong-ty-may-o-hung-yen-188261014181918732.chn",
+      "published_date": "Wed, 14 Oct 26 18:19:00 +0700"
+    },
+    {
       "title": "Phó Tổng giám đốc một doanh nghiệp trên sàn bị khởi tố vì trộm cắp tài sản",
       "description": "Ông Lê Thế Việt được bổ nhiệm làm Phó Tổng giám đốc của công ty từ tháng 7/2020.",
       "source": "CafeF Doanh Nghiệp (CBTT)",
@@ -511,26 +523,6 @@
       "published_date": "Tue, 13 Oct 26 20:59:00 +0700"
     },
     {
-      "title": "Thi hành lệnh bắt tạm giam cựu nhân viên ngân hàng Trần Văn Trạng 47 tuổi",
-      "description": "Trần Văn Trạng 47 tuổi bị bắt để làm rõ hành vi lừa đảo chiếm đoạt tài sản.",
-      "source": "CafeF Tài Chính Ngân Hàng",
-      "symbols": [],
-      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
-      "sentiment_score": -1.0,
-      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
-      "sentiment_badge": "neg-danger",
-      "is_red_flag": true,
-      "is_catalyst": false,
-      "triggers_found": [
-        "bắt tạm giam",
-        "bị bắt"
-      ],
-      "re_eval_action": "VETO_REJECT",
-      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
-      "link": "https://cafef.vn/thi-hanh-lenh-bat-tam-giam-cuu-nhan-vien-ngan-hang-tran-van-trang-47-tuoi-18826101215210998.chn",
-      "published_date": "Mon, 12 Oct 26 16:10:00 +0700"
-    },
-    {
       "title": "Đón 94 triệu lượt khách, ACV ước thu hơn 20.300 tỷ đồng, lợi nhuận vượt kế hoạch cả năm chỉ sau 9 tháng",
       "description": "Ngày 13/10, Tổng công ty Cảng hàng không Việt Nam – CTCP (UPCoM: ACV) tổ chức hội nghị sơ kết hoạt động sản xuất kinh doanh 9 tháng đầu năm 2026 tại Cảng hàng không quốc tế Nội Bài.",
       "source": "CafeF Doanh Nghiệp (CBTT)",
@@ -548,6 +540,27 @@
       "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
       "link": "https://cafef.vn/don-94-trieu-luot-khach-acv-uoc-thu-hon-20300-ty-dong-loi-nhuan-vuot-ke-hoach-ca-nam-chi-sau-9-thang-188261014075116287.chn",
       "published_date": "Wed, 14 Oct 26 07:53:00 +0700"
+    },
+    {
+      "title": "TCBS chào bán 1.500 tỷ đồng trái phiếu ra công chúng",
+      "description": "TCBS dự kiến huy động 1.500 tỷ đồng thông qua chào bán 10 triệu trái phiếu không chuyển đổi, không kèm chứng quyền và không có bảo đảm. Thời gian nhận đăng ký mua từ 15/10/2026 đến 4/11/2026.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "TCB"
+      ],
+      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
+      "sentiment_score": 0.7,
+      "sentiment_label": "TÍCH CỰC MẠNH",
+      "sentiment_badge": "pos",
+      "is_red_flag": false,
+      "is_catalyst": true,
+      "triggers_found": [
+        "đăng ký mua"
+      ],
+      "re_eval_action": "STRONG_BUY_CATALYST",
+      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
+      "link": "https://cafef.vn/tcbs-chao-ban-1500-ty-dong-trai-phieu-ra-cong-chung-188261014184539006.chn",
+      "published_date": "Wed, 14 Oct 26 18:45:00 +0700"
     },
     {
       "title": "Hai lãnh đạo đăng ký mua cổ phiếu riêng lẻ của Yeah1",
@@ -646,27 +659,6 @@
       "published_date": "Tue, 13 Oct 26 22:29:00 +0700"
     },
     {
-      "title": "Một doanh nghiệp bị xử phạt do không tổ chức họp ĐHĐCĐ",
-      "description": "In sách giáo khoa Hòa Phát bị phạt tiền 125 triệu đồng do không tổ chức họp ĐHĐCĐ thường niên năm 2026 trong thời hạn 6 tháng kể từ ngày kết thúc năm tài chính năm 2025.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "HPG"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": -0.4,
-      "sentiment_label": "TIÊU CỰC",
-      "sentiment_badge": "neg-light",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [
-        "phạt tiền"
-      ],
-      "re_eval_action": "MONITOR_CAUTION",
-      "action_desc": "Đưa vào diện giám sát chặt chẽ / Hạ tỷ trọng",
-      "link": "https://cafef.vn/mot-doanh-nghiep-bi-xu-phat-do-khong-to-chuc-hop-dhdcd-188261013153959806.chn",
-      "published_date": "Tue, 13 Oct 26 16:14:00 +0700"
-    },
-    {
       "title": "Techcombank tăng vốn \"khủng\": Mở rộng dư địa tăng trưởng",
       "description": "Ngân hàng Nhà nước (NHNN) vừa chính thức chấp thuận cho Techcombank tăng vốn điều lệ thêm tối đa gần 35.731 tỷ đồng, lên mức 106.593 tỷ đồng, đưa ngân hàng này trở thành tổ chức tín dụng có quy mô vốn lớn nhất hệ thống. Nguồn lực tài chính mới kết hợp với các cơ chế chính sách từ Thông tư 50/2026/TT-NHNN được kỳ vọng sẽ tạo dư địa mở rộng hoạt động kinh doanh và nâng cao định giá cổ phiếu TCB.",
       "source": "CafeF Tài Chính Ngân Hàng",
@@ -718,6 +710,76 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://vnexpress.net/uob-nang-du-bao-tang-truong-viet-nam-len-9-2-5131875.html",
       "published_date": "Tue, 13 Oct 2026 18:59:55 +0700"
+    },
+    {
+      "title": "Người phụ nữ 66 tuổi có thêm 65 tỷ trong một ngày",
+      "description": "Vừa trở lại ghế Tổng Giám đốc Quốc Cường Gia Lai sau hơn 2 năm vắng bóng, bà Nguyễn Thị Như Loan đón tin vui khi cổ phiếu QCG tăng kịch trần.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "QCG"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/nguoi-phu-nu-66-tuoi-co-them-65-ty-trong-mot-ngay-188261014150915186.chn",
+      "published_date": "Wed, 14 Oct 26 19:06:00 +0700"
+    },
+    {
+      "title": "Đề xuất dừng trích Quỹ bình ổn giá xăng dầu từ năm 2027",
+      "description": "Giá xăng dầu mới phải được công bố trước ít nhất 30 phút, không được tăng sớm hoặc chậm giảm giá. Ngoài ra, Bộ Công Thương đề xuất dừng trích lập, chi sử dụng Quỹ bình ổn từ đầu năm 2027, có ngoại lệ để hoàn trả tiền tạm ứng ngân sách.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/de-xuat-dung-trich-quy-binh-on-gia-xang-dau-tu-nam-2027-188261014184419658.chn",
+      "published_date": "Wed, 14 Oct 26 18:44:00 +0700"
+    },
+    {
+      "title": "VN-Index tiếp tục giảm, bất ngờ nhóm cổ phiếu đi ngược thị trường",
+      "description": "VN-Index mất gần 15 điểm trong phiên giao dịch ngày 14/10, lùi về 1.704,87 điểm khi áp lực bán tập trung ở nhóm cổ phiếu vốn hóa lớn. Trong khi đó, một số mã thép, phân bón và công nghệ vẫn tăng giá.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/vn-index-tiep-tuc-giam-bat-ngo-nhom-co-phieu-di-nguoc-thi-truong-188261014180031189.chn",
+      "published_date": "Wed, 14 Oct 26 18:17:00 +0700"
+    },
+    {
+      "title": "Một cổ phiếu ngân hàng được tự doanh CTCK mua ròng liên tục hàng trăm tỷ",
+      "description": "Tự doanh CTCK mua ròng 424 tỷ đồng trên HoSE.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/mot-co-phieu-ngan-hang-duoc-tu-doanh-ctck-mua-rong-lien-tuc-hang-tram-ty-188261014180243056.chn",
+      "published_date": "Wed, 14 Oct 26 18:02:00 +0700"
     },
     {
       "title": "Hai cổ phiếu \"hot\" bị khối ngoại xả hơn 300 tỷ trong phiên 14/10",
@@ -1072,80 +1134,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/mot-gia-dinh-viet-co-hai-chi-em-deu-la-ty-phu-usd-188261012164917978.chn",
       "published_date": "Wed, 14 Oct 26 00:05:00 +0700"
-    },
-    {
-      "title": "Đón sóng KQKD quý 3, CTCK chỉ ra loạt nhóm cổ phiếu đang được định giá rẻ bất ngờ",
-      "description": "Dù kết quả kinh doanh cải thiện, định giá của nhiều nhóm cổ phiếu vẫn đang ở mức thấp so với trung bình lịch sử. Đây được TPS xem là một trong những yếu tố tạo cơ hội lựa chọn cổ phiếu khi thị trường bước vào mùa công bố báo cáo tài chính quý 3.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "KHI"
-      ],
-      "category": "CÔNG BỐ THÔNG TIN ĐỊNH KỲ",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/don-song-kqkd-quy-3-ctck-chi-ra-loat-nhom-co-phieu-dang-duoc-dinh-gia-re-bat-ngo-188261013163022714.chn",
-      "published_date": "Wed, 14 Oct 26 00:04:00 +0700"
-    },
-    {
-      "title": "Một quỹ đầu tư bất ngờ bán sạch cổ phiếu tỷ trọng lớn nhất danh mục trong tháng 9",
-      "description": "Động thái đứa tỷ trọng tiền mặt của quỹ tăng gấp đôi so với bình quân hàng tháng.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/mot-quy-dau-tu-bat-ngo-ban-sach-co-phieu-ty-trong-lon-nhat-danh-muc-trong-thang-9-188261013224247368.chn",
-      "published_date": "Wed, 14 Oct 26 00:03:00 +0700"
-    },
-    {
-      "title": "Cơn bĩ cực của cổ đông FPT: 3 tuần không thấy màu \"xanh\", cổ phiếu rơi xuống vùng đáy 3 năm",
-      "description": "Từng là một trong những cổ phiếu công nghệ được săn đón trên thị trường, FPT đang trải qua chuỗi ngày khó khăn hiếm thấy, gần 20.000 tỷ đồng vốn hóa bốc hơi chỉ sau 3 tuần.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "FPT"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/con-bi-cuc-cua-co-dong-fpt-3-tuan-khong-thay-mau-xanh-co-phieu-roi-xuong-vung-day-3-nam-188261013233853065.chn",
-      "published_date": "Wed, 14 Oct 26 00:02:00 +0700"
-    },
-    {
-      "title": "Vietcap dự báo bất ngờ về lợi nhuận PNJ trong 7 năm tới",
-      "description": "Vietcap cảnh báo rủi ro giảm tới 54% tổng dự báo lợi nhuận PNJ giai đoạn 2026–2032, đồng thời đưa ra kịch bản giá trị sổ sách cuối năm nay có thể chỉ còn hơn 12.600 đồng/cổ phiếu.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "VCI"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/vietcap-du-bao-bat-ngo-ve-loi-nhuan-pnj-trong-7-nam-toi-188261013221225447.chn",
-      "published_date": "Wed, 14 Oct 26 00:02:00 +0700"
     }
   ]
 }
