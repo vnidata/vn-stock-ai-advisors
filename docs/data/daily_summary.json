@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-15 11:59:54 (UTC+7)",
+  "last_updated": "2026-10-15 12:36:29 (UTC+7)",
   "trading_date": "2026-10-15",
   "vnindex": {
     "close": 1698.35,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 2,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-15 11:59:51"
+    "last_scanned": "2026-10-15 12:36:27"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -760,7 +760,7 @@
         "status_badge": "neutral",
         "latest_headline": "FPT bất ngờ mở văn phòng tại \"thành phố nghìn ngọn tháp\", hé lộ kế hoạch tuyển hơn 500 kỹ sư",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 3,
+        "news_count": 2,
         "re_eval_note": ""
       },
       {
@@ -842,9 +842,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Vinhomes – SGC ký hợp đồng gần 900.000 tỷ xây 5 tuyến metro ở Hà Nội: Huy động hơn 100 dây chuyền thi công hầm metro hiện đại nhất thế giới",
+        "latest_headline": "Vinhomes - SGC đầu tư gần 900.000 tỷ đồng xây dựng 5 tuyến Metro Hà Nội theo hình thức chìa khóa trao tay",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
+        "news_count": 2,
         "re_eval_note": ""
       },
       {
@@ -1165,7 +1165,7 @@
       "quant_criteria": "Vốn hóa trụ cột Top 3 VN-Index, quỹ đất hàng nghìn ha, đóng góp lớn vào biến động điểm số chỉ số.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Vinhomes – SGC ký hợp đồng gần 900.000 tỷ xây 5 tuyến metro ở Hà Nội: Huy động hơn 100 dây chuyền thi công hầm metro hiện đại nhất thế giới"
+      "latest_headline": "Vinhomes - SGC đầu tư gần 900.000 tỷ đồng xây dựng 5 tuyến Metro Hà Nội theo hình thức chìa khóa trao tay"
     },
     {
       "symbol": "MWG",

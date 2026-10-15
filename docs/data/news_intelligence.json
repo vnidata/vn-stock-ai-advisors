@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-15 11:59:51",
+  "last_updated": "2026-10-15 12:36:27",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 2,
@@ -7,7 +7,7 @@
   "symbols_sentiment": {
     "FPT": {
       "symbol": "FPT",
-      "news_count": 3,
+      "news_count": 2,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
@@ -35,15 +35,6 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/fpt-tai-sinh-hay-tinh-sai-188261014233213759.chn"
-        },
-        {
-          "title": "Cổ phiếu ngân hàng bất ngờ giảm sàn",
-          "date": "Tue, 13 Oct 26 17:44:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/co-phieu-ngan-hang-bat-ngo-giam-san-188261013170437788.chn"
         }
       ]
     },
@@ -296,17 +287,26 @@
     },
     "VHM": {
       "symbol": "VHM",
-      "news_count": 1,
+      "news_count": 2,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Vinhomes – SGC ký hợp đồng gần 900.000 tỷ xây 5 tuyến metro ở Hà Nội: Huy động hơn 100 dây chuyền thi công hầm metro hiện đại nhất thế giới",
+      "latest_headline": "Vinhomes - SGC đầu tư gần 900.000 tỷ đồng xây dựng 5 tuyến Metro Hà Nội theo hình thức chìa khóa trao tay",
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Duy trì tỷ trọng khuyến nghị",
       "sentiment_multiplier": 1.0,
       "related_news": [
+        {
+          "title": "Vinhomes - SGC đầu tư gần 900.000 tỷ đồng xây dựng 5 tuyến Metro Hà Nội theo hình thức chìa khóa trao tay",
+          "date": "Thu, 15 Oct 26 19:01:00 +0700",
+          "source": "CafeF Thị Trường",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/vinhomes-sgc-dau-tu-hon-900000-ty-dong-xay-dung-5-tuyen-metro-ha-noi-theo-hinh-thuc-chia-khoa-trao-tay-188261015190111662.chn"
+        },
         {
           "title": "Vinhomes – SGC ký hợp đồng gần 900.000 tỷ xây 5 tuyến metro ở Hà Nội: Huy động hơn 100 dây chuyền thi công hầm metro hiện đại nhất thế giới",
           "date": "Thu, 15 Oct 26 18:35:00 +0700",
@@ -511,25 +511,6 @@
       "published_date": "Wed, 14 Oct 26 18:19:00 +0700"
     },
     {
-      "title": "Phó Tổng giám đốc một doanh nghiệp trên sàn bị khởi tố vì trộm cắp tài sản",
-      "description": "Ông Lê Thế Việt được bổ nhiệm làm Phó Tổng giám đốc của công ty từ tháng 7/2020.",
-      "source": "CafeF Doanh Nghiệp (CBTT)",
-      "symbols": [],
-      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
-      "sentiment_score": -1.0,
-      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
-      "sentiment_badge": "neg-danger",
-      "is_red_flag": true,
-      "is_catalyst": false,
-      "triggers_found": [
-        "khởi tố"
-      ],
-      "re_eval_action": "VETO_REJECT",
-      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
-      "link": "https://cafef.vn/pho-tong-giam-doc-mot-doanh-nghiep-tren-san-bi-khoi-to-vi-trom-cap-tai-san-188261014154223291.chn",
-      "published_date": "Wed, 14 Oct 26 15:40:00 +0700"
-    },
-    {
       "title": "Một Giám đốc phòng giao dịch ngân hàng bị bắt: Công an đề nghị những ai là người bị hại liên hệ ngay",
       "description": "Giám đốc phòng giao dịch một ngân hàng tại An Giang bị khởi tố, tạm giam để điều tra hành vi lừa đảo chiếm đoạt tài sản.",
       "source": "CafeF Tài Chính Ngân Hàng",
@@ -650,25 +631,6 @@
       "published_date": "Thu, 15 Oct 26 08:55:00 +0700"
     },
     {
-      "title": "Doanh nghiệp thép công bố thông tin quan trọng",
-      "description": "Công ty đã công bố báo cáo tài chính quý 3 với nhiều chỉ tiêu tăng trưởng mạnh.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
-      "sentiment_score": 0.6,
-      "sentiment_label": "TÍCH CỰC MẠNH",
-      "sentiment_badge": "pos",
-      "is_red_flag": false,
-      "is_catalyst": true,
-      "triggers_found": [
-        "tăng trưởng mạnh"
-      ],
-      "re_eval_action": "STRONG_BUY_CATALYST",
-      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
-      "link": "https://cafef.vn/ong-nguyen-duy-dung-bi-bat-doanh-nghiep-cong-bo-thong-tin-quan-trong-188261014110133188.chn",
-      "published_date": "Wed, 14 Oct 26 11:03:00 +0700"
-    },
-    {
       "title": "Vĩnh Hiệp khởi công nhà máy cà phê tại TP.HCM VSIP III, công suất 300.000 tấn/năm",
       "description": "Sáng 14/10/2026, Công ty TNHH Vĩnh Hiệp tổ chức lễ động thổ Nhà máy Cà phê Vĩnh Hiệp tại Khu công nghiệp Việt Nam – Singapore III (VSIP III), phường Tân Uyên, TP.HCM.",
       "source": "CafeF Doanh Nghiệp (CBTT)",
@@ -760,6 +722,42 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://vnexpress.net/uob-nang-du-bao-tang-truong-viet-nam-len-9-2-5131875.html",
       "published_date": "Tue, 13 Oct 2026 18:59:55 +0700"
+    },
+    {
+      "title": "Thấy gì về thương vụ tăng vốn trăm nghìn tỷ của các ngân hàng?",
+      "description": "Nhiều ngân hàng tăng vốn điều lệ lên trên 100.000 tỷ đồng, mở ra dư địa củng cố năng lực tài chính, mở rộng tín dụng và đầu tư công nghệ. Chuyên gia cho rằng, quy mô vốn ngày càng lớn cũng đặt ra bài toán về hiệu quả sử dụng vốn, chất lượng tài sản và khả năng kiểm soát rủi ro.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/thay-gi-ve-thuong-vu-tang-von-tram-nghin-ty-cua-cac-ngan-hang-188261015183314129.chn",
+      "published_date": "Thu, 15 Oct 26 19:11:00 +0700"
+    },
+    {
+      "title": "Vinhomes - SGC đầu tư gần 900.000 tỷ đồng xây dựng 5 tuyến Metro Hà Nội theo hình thức chìa khóa trao tay",
+      "description": "Dự kiến, năm 2030, 5 tuyến đường sắt đô thị số 1, 2, 8, 10 và 14 sẽ đi vào vận hành, kết nối các đầu mối giao thông, trung tâm kinh tế và khu đô thị lớn của Hà Nội.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "VHM"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/vinhomes-sgc-dau-tu-hon-900000-ty-dong-xay-dung-5-tuyen-metro-ha-noi-theo-hinh-thuc-chia-khoa-trao-tay-188261015190111662.chn",
+      "published_date": "Thu, 15 Oct 26 19:01:00 +0700"
     },
     {
       "title": "Giải ngân tới 17.300 tỷ đồng chỉ trong 9 tháng, lãnh đạo F88 nói gì?",
