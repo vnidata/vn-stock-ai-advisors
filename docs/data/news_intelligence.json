@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-15 12:36:27",
+  "last_updated": "2026-10-15 12:56:50",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 2,
@@ -530,6 +530,25 @@
       "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
       "link": "https://cafef.vn/mot-giam-doc-phong-giao-dich-ngan-hang-bi-bat-cong-an-de-nghi-nhung-ai-la-nguoi-bi-hai-lien-he-ngay-188261015142023823.chn",
       "published_date": "Thu, 15 Oct 26 14:20:00 +0700"
+    },
+    {
+      "title": "Khách sạn 5 sao Pullman Saigon Centre đính chính thông tin sai sự thật về việc chuyển nhượng hoặc ngừng hoạt động",
+      "description": "Pullman Saigon Centre khẳng định không có kế hoạch sang nhượng, rao bán hay thay đổi chủ sở hữu dưới bất kỳ hình thức nào.",
+      "source": "CafeF Doanh Nghiệp (CBTT)",
+      "symbols": [],
+      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
+      "sentiment_score": -0.8,
+      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
+      "sentiment_badge": "neg-danger",
+      "is_red_flag": true,
+      "is_catalyst": false,
+      "triggers_found": [
+        "ngừng hoạt động"
+      ],
+      "re_eval_action": "VETO_REJECT",
+      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
+      "link": "https://cafef.vn/khach-san-5-sao-pullman-saigon-centre-dinh-chinh-thong-tin-sai-su-that-ve-viec-chuyen-nhuong-hoac-ngung-hoat-dong-188261015193624071.chn",
+      "published_date": "Thu, 15 Oct 26 19:36:00 +0700"
     },
     {
       "title": "Vụ tham ô hơn 20 tỷ đồng tại PNJ Aeon Mall Long Biên: Tòa yêu cầu làm rõ trách nhiệm của nhiều người liên quan",
@@ -1164,25 +1183,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/tu-vu-tiktoker-dang-tai-thong-tin-xuyen-tac-ve-hoat-dong-cho-vay-margin-ubcknn-khuyen-cao-nha-dau-tu-188261014202317316.chn",
       "published_date": "Wed, 14 Oct 26 20:23:00 +0700"
-    },
-    {
-      "title": "Người phụ nữ 66 tuổi có thêm 65 tỷ trong một ngày",
-      "description": "Vừa trở lại ghế Tổng Giám đốc Quốc Cường Gia Lai sau hơn 2 năm vắng bóng, bà Nguyễn Thị Như Loan đón tin vui khi cổ phiếu QCG tăng kịch trần.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "QCG"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/nguoi-phu-nu-66-tuoi-co-them-65-ty-trong-mot-ngay-188261014150915186.chn",
-      "published_date": "Wed, 14 Oct 26 19:06:00 +0700"
     }
   ]
 }
