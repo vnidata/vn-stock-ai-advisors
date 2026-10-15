@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-15 08:00:24 (UTC+7)",
+  "last_updated": "2026-10-15 09:16:36 (UTC+7)",
   "trading_date": "2026-10-15",
   "vnindex": {
     "close": 1698.35,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 1,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-15 08:00:21"
+    "last_scanned": "2026-10-15 09:16:34"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -354,7 +354,7 @@
       "status_badge": "pos",
       "action_advice": "Tiếp tục nắm giữ theo xu hướng tăng",
       "technical_signal": "POCKET PIVOT | Dòng tiền tổ chức gom hàng (Pocket Pivot) | Vol 2.7x vượt đỉnh vol giảm 10D | Giữ MA20",
-      "news_status": "THÔNG TIN BÌNH ỔN",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
       "volume": 32621600
     },
@@ -508,7 +508,7 @@
       "technical_reason": "Vị thế đang có lãi +4.08%, lực tăng duy trì tốt trên MA20",
       "advisor_rationale": "Nâng chặn lãi Trailing Stop lên 19.5 (+2.0% trên giá vốn) để bảo toàn thành quả",
       "action_advice": "Duy trì vị thế, đặt lệnh dừng lãi Trailing Stop tự động",
-      "news_status": "THÔNG TIN BÌNH ỔN",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral"
     }
   ],
@@ -636,7 +636,7 @@
       "technical_reason": "Vị thế đang có lãi +4.08%, lực tăng duy trì tốt trên MA20",
       "advisor_rationale": "Nâng chặn lãi Trailing Stop lên 19.5 (+2.0% trên giá vốn) để bảo toàn thành quả",
       "action_advice": "Duy trì vị thế, đặt lệnh dừng lãi Trailing Stop tự động",
-      "news_status": "THÔNG TIN BÌNH ỔN",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral"
     }
   ],
@@ -780,11 +780,11 @@
         "sector": "Banking",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN BÌNH ỔN",
+        "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Không có thông tin bất thường gần đây",
-        "action_desc": "Duy trì khuyến nghị định lượng gốc",
-        "news_count": 0,
+        "latest_headline": "Phiên 15/10: Khối ngoại mạnh tay bán ròng hơn 700 tỷ đồng, tập trung 2 cổ phiếu VN30",
+        "action_desc": "Duy trì tỷ trọng khuyến nghị",
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -794,9 +794,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Loạt thay đổi liên quan đến các bộ chỉ số quan trọng của chứng khoán Việt Nam",
+        "latest_headline": "Cổ phiếu của tỷ phú Nguyễn Thị Phương Thảo lập đỉnh lịch sử, vốn hóa vượt Sacombank, ACB và LPBank",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 5,
+        "news_count": 4,
         "re_eval_note": ""
       },
       {
@@ -1023,9 +1023,9 @@
       "ai_radar_action": "Quan sát tín hiệu tích lũy cạn cung; Đưa vào Radar chờ phiên bùng nổ FTD",
       "selection_reason": "Ngân hàng thương mại cổ phần dẫn đầu về tốc độ số hóa và tỷ lệ tiền gửi không kỳ hạn (CASA > 40%). Hiệu quả sinh lời ROE > 20%, định giá P/B ở vùng chiết khấu sâu thu hút dòng tiền định chế.",
       "quant_criteria": "CASA top 1, tăng trưởng tín dụng vượt trội ngành, thanh khoản trung bình >15M cp/phiên.",
-      "news_status": "THÔNG TIN BÌNH ỔN",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Không có thông tin bất thường gần đây"
+      "latest_headline": "Phiên 15/10: Khối ngoại mạnh tay bán ròng hơn 700 tỷ đồng, tập trung 2 cổ phiếu VN30"
     },
     {
       "symbol": "TCB",
@@ -1081,7 +1081,7 @@
       "quant_criteria": "ROE ổn định 22-25%, hồ sơ rủi ro tín dụng sạch, cổ tức tiền mặt và cổ phiếu đều đặn hàng năm.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Loạt thay đổi liên quan đến các bộ chỉ số quan trọng của chứng khoán Việt Nam"
+      "latest_headline": "Cổ phiếu của tỷ phú Nguyễn Thị Phương Thảo lập đỉnh lịch sử, vốn hóa vượt Sacombank, ACB và LPBank"
     },
     {
       "symbol": "SSI",
@@ -1752,10 +1752,10 @@
           "action_advice": "Tiếp tục nắm giữ theo xu hướng tăng",
           "volume": 32621600,
           "technical_signal": "POCKET PIVOT | Dòng tiền tổ chức gom hàng (Pocket Pivot) | Vol 2.7x vượt đỉnh vol giảm 10D | Giữ MA20",
-          "news_status": "THÔNG TIN BÌNH ỔN",
+          "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Không có thông tin bất thường gần đây",
-          "news_action": "Duy trì khuyến nghị định lượng gốc",
+          "news_headline": "Phiên 15/10: Khối ngoại mạnh tay bán ròng hơn 700 tỷ đồng, tập trung 2 cổ phiếu VN30",
+          "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
         {
@@ -1781,7 +1781,7 @@
           "technical_signal": "PULLBACK MA20 | Test thành công hỗ trợ MA20/Nền 20D (+2.2% từ đáy) | Tỷ lệ R:R tối ưu",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Loạt thay đổi liên quan đến các bộ chỉ số quan trọng của chứng khoán Việt Nam",
+          "news_headline": "Cổ phiếu của tỷ phú Nguyễn Thị Phương Thảo lập đỉnh lịch sử, vốn hóa vượt Sacombank, ACB và LPBank",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         }

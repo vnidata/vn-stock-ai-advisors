@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-15 08:00:21",
+  "last_updated": "2026-10-15 09:16:34",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 1,
@@ -124,16 +124,27 @@
     },
     "MBB": {
       "symbol": "MBB",
-      "news_count": 0,
+      "news_count": 1,
       "net_sentiment": 0.0,
-      "status": "THÔNG TIN BÌNH ỔN",
+      "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Không có thông tin bất thường gần đây",
+      "latest_headline": "Phiên 15/10: Khối ngoại mạnh tay bán ròng hơn 700 tỷ đồng, tập trung 2 cổ phiếu VN30",
       "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Duy trì khuyến nghị định lượng gốc",
-      "sentiment_multiplier": 1.0
+      "action_desc": "Duy trì tỷ trọng khuyến nghị",
+      "sentiment_multiplier": 1.0,
+      "related_news": [
+        {
+          "title": "Phiên 15/10: Khối ngoại mạnh tay bán ròng hơn 700 tỷ đồng, tập trung 2 cổ phiếu VN30",
+          "date": "Thu, 15 Oct 26 15:45:00 +0700",
+          "source": "CafeF Thị Trường",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/phien-15-10-khoi-ngoai-manh-tay-ban-rong-hon-700-ty-dong-tap-trung-2-co-phieu-vn30-188261015152438067.chn"
+        }
+      ]
     },
     "TCB": {
       "symbol": "TCB",
@@ -197,26 +208,17 @@
     },
     "ACB": {
       "symbol": "ACB",
-      "news_count": 5,
+      "news_count": 4,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Loạt thay đổi liên quan đến các bộ chỉ số quan trọng của chứng khoán Việt Nam",
+      "latest_headline": "Cổ phiếu của tỷ phú Nguyễn Thị Phương Thảo lập đỉnh lịch sử, vốn hóa vượt Sacombank, ACB và LPBank",
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Duy trì tỷ trọng khuyến nghị",
       "sentiment_multiplier": 1.0,
       "related_news": [
-        {
-          "title": "Loạt thay đổi liên quan đến các bộ chỉ số quan trọng của chứng khoán Việt Nam",
-          "date": "Wed, 14 Oct 26 10:25:00 +0700",
-          "source": "CafeF Thị Trường",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/loat-thay-doi-lien-quan-den-cac-bo-chi-so-quan-trong-cua-chung-khoan-viet-nam-18826101410254375.chn"
-        },
         {
           "title": "Cổ phiếu của tỷ phú Nguyễn Thị Phương Thảo lập đỉnh lịch sử, vốn hóa vượt Sacombank, ACB và LPBank",
           "date": "Wed, 14 Oct 26 14:42:00 +0700",
@@ -606,6 +608,27 @@
       "published_date": "Wed, 14 Oct 26 18:45:00 +0700"
     },
     {
+      "title": "Cập nhật BCTC quý 3/2026 chiều ngày 15/10: Xuất hiện thêm công ty lãi nghìn tỷ trong 9 tháng đầu năm",
+      "description": "Becamex UDJ (UDJ) ghi nhận lợi nhuận trước thuế quý 3/2026 đạt 32 tỷ đồng, tăng 1.262% so với cùng kỳ. Lũy kế 9 tháng đầu năm 2026, doanh nghiệp báo lãi trước thuế 26 tỷ đồng, tăng 1.296%.",
+      "source": "CafeF Doanh Nghiệp (CBTT)",
+      "symbols": [
+        "UDJ"
+      ],
+      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
+      "sentiment_score": 0.7,
+      "sentiment_label": "TÍCH CỰC MẠNH",
+      "sentiment_badge": "pos",
+      "is_red_flag": false,
+      "is_catalyst": true,
+      "triggers_found": [
+        "lãi nghìn tỷ"
+      ],
+      "re_eval_action": "STRONG_BUY_CATALYST",
+      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
+      "link": "https://cafef.vn/cap-nhat-bctc-quy-3-2026-ngay-15-10-mot-doanh-nghiep-bds-lai-gap-14-lan-cung-ky-them-2-cong-ty-bao-lo-188261014235953716.chn",
+      "published_date": "Thu, 15 Oct 26 15:30:00 +0700"
+    },
+    {
       "title": "Công an tìm người liên quan Phó Giám đốc công ty Zesttrip Đặng Thị Hà Lý",
       "description": "Quá trình điều tra xác định, thời gian từ khi công ty Zesttrip được thành lập, Đặng Thị Hà Lý - Phó Giám đốc là đối tượng điều hành hoạt động thực tế của công ty.",
       "source": "CafeF Doanh Nghiệp (CBTT)",
@@ -733,6 +756,61 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://vnexpress.net/uob-nang-du-bao-tang-truong-viet-nam-len-9-2-5131875.html",
       "published_date": "Tue, 13 Oct 2026 18:59:55 +0700"
+    },
+    {
+      "title": "Cận cảnh “cỗ máy khổng lồ” sắp xuất hiện tại siêu tổ hợp thép của tỷ phú Phạm Nhật Vượng",
+      "description": "Danieli sẽ đảm nhiệm thiết kế, chế tạo, cung cấp và chạy thử các thiết bị lõi cho dây chuyền cán thép ray và thép hình với công suất lên tới hơn 700.000 tấn/năm tại Tổ hợp Gang thép VinMetal Hà Tĩnh.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "VIC"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/can-canh-co-may-khong-lo-sap-xuat-hien-tai-sieu-to-hop-thep-cua-ty-phu-pham-nhat-vuong-188261015153359914.chn",
+      "published_date": "Thu, 15 Oct 26 15:46:00 +0700"
+    },
+    {
+      "title": "Cổ phiếu chứng khoán bất ngờ bùng nổ, hàng loạt mã đua nhau \"xanh, tím\"",
+      "description": "Dù đang ghi nhận nhịp tăng đáng chú ý trên thị trường, nhóm cổ phiếu chứng khoán vẫn đứng trước nhiều yếu tố cần theo dõi.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/co-phieu-chung-khoan-bat-ngo-bung-no-hang-loat-ma-dua-nhau-xanh-tim-188261015151503295.chn",
+      "published_date": "Thu, 15 Oct 26 15:46:00 +0700"
+    },
+    {
+      "title": "Phiên 15/10: Khối ngoại mạnh tay bán ròng hơn 700 tỷ đồng, tập trung 2 cổ phiếu VN30",
+      "description": "Ở chiều ngược lại, MBB dẫn đầu danh sách được mua ròng với giá trị 101 tỷ đồng.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "MBB"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/phien-15-10-khoi-ngoai-manh-tay-ban-rong-hon-700-ty-dong-tap-trung-2-co-phieu-vn30-188261015152438067.chn",
+      "published_date": "Thu, 15 Oct 26 15:45:00 +0700"
     },
     {
       "title": "Bất động sản An Gia đón cổ đông lớn mới",
@@ -1103,74 +1181,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/vn-index-tiep-tuc-giam-bat-ngo-nhom-co-phieu-di-nguoc-thi-truong-188261014180031189.chn",
       "published_date": "Wed, 14 Oct 26 18:17:00 +0700"
-    },
-    {
-      "title": "Một cổ phiếu ngân hàng được tự doanh CTCK mua ròng liên tục hàng trăm tỷ",
-      "description": "Tự doanh CTCK mua ròng 424 tỷ đồng trên HoSE.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/mot-co-phieu-ngan-hang-duoc-tu-doanh-ctck-mua-rong-lien-tuc-hang-tram-ty-188261014180243056.chn",
-      "published_date": "Wed, 14 Oct 26 18:02:00 +0700"
-    },
-    {
-      "title": "Hai cổ phiếu \"hot\" bị khối ngoại xả hơn 300 tỷ trong phiên 14/10",
-      "description": "Giao dịch của khối ngoại là điểm trừ khi bán ròng khoảng 782 tỷ đồng cổ phiếu trên toàn thị trường.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/hai-co-phieu-hot-bi-khoi-ngoai-xa-hon-300-ty-trong-phien-14-10-188261014152910441.chn",
-      "published_date": "Wed, 14 Oct 26 15:45:00 +0700"
-    },
-    {
-      "title": "Doanh nghiệp khu công nghiệp phát thông báo quan trọng",
-      "description": "Doanh nghiệp phát đi thông báo quan trọng sau những biến động nhân sự cách đây không lâu.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/ba-dang-le-bich-phuong-bi-bat-doanh-nghiep-phat-thong-bao-quan-trong-188261014144711762.chn",
-      "published_date": "Wed, 14 Oct 26 14:56:00 +0700"
-    },
-    {
-      "title": "Chuyện gì đây: Chủ tịch 75 tuổi cùng loạt lãnh đạo cấp cao đồng loạt thoái vốn ngay trước thềm cổ phiếu lên sàn HoSE",
-      "description": "Các lãnh đạo đăng ký bán tổng cộng 9% vốn điều lệ doanh nghiệp.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/chuyen-gi-day-chu-tich-75-tuoi-cung-loat-lanh-dao-cap-cao-dong-loat-thoai-von-ngay-truoc-them-co-phieu-len-san-hose-188261014145549569.chn",
-      "published_date": "Wed, 14 Oct 26 14:55:00 +0700"
     }
   ]
 }
