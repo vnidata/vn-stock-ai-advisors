@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-15 09:16:36 (UTC+7)",
+  "last_updated": "2026-10-15 11:59:54 (UTC+7)",
   "trading_date": "2026-10-15",
   "vnindex": {
     "close": 1698.35,
@@ -33,9 +33,9 @@
   "news_radar": {
     "total_news_scanned": 160,
     "red_flags_detected": 0,
-    "catalysts_detected": 1,
+    "catalysts_detected": 2,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-15 09:16:34"
+    "last_scanned": "2026-10-15 11:59:51"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -306,8 +306,8 @@
       "status_badge": "neg",
       "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
       "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 1.0x | RS 51",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
-      "news_badge": "neutral",
+      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
+      "news_badge": "pos",
       "volume": 2763200
     },
     {
@@ -487,8 +487,8 @@
       "technical_reason": "Hiệu suất suy giảm -5.43%, chạm ngưỡng kỷ luật dừng lỗ",
       "advisor_rationale": "Cắt lỗ dứt khoát -4.5% để triệt tiêu nguy cơ sụt giảm tài sản lớn (Max Drawdown)",
       "action_advice": "Bán toàn bộ vị thế, thu hồi 100% tiền mặt phòng thủ",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
-      "news_badge": "neutral"
+      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
+      "news_badge": "pos"
     },
     {
       "id": "SIG-SELL-06",
@@ -615,8 +615,8 @@
       "technical_reason": "Hiệu suất suy giảm -5.43%, chạm ngưỡng kỷ luật dừng lỗ",
       "advisor_rationale": "Cắt lỗ dứt khoát -4.5% để triệt tiêu nguy cơ sụt giảm tài sản lớn (Max Drawdown)",
       "action_advice": "Bán toàn bộ vị thế, thu hồi 100% tiền mặt phòng thủ",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
-      "news_badge": "neutral"
+      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
+      "news_badge": "pos"
     },
     {
       "id": "SIG-SELL-06",
@@ -727,13 +727,25 @@
       {
         "symbol": "TCB",
         "sector": "Banking",
-        "net_sentiment": 0.11,
+        "net_sentiment": 0.1,
         "sentiment_multiplier": 1.2,
         "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
         "status_badge": "pos",
         "latest_headline": "TCBS chào bán 1.500 tỷ đồng trái phiếu ra công chúng",
         "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
-        "news_count": 7,
+        "news_count": 8,
+        "re_eval_note": ""
+      },
+      {
+        "symbol": "MWG",
+        "sector": "Retail",
+        "net_sentiment": 0.17,
+        "sentiment_multiplier": 1.2,
+        "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
+        "status_badge": "pos",
+        "latest_headline": "Karofi tiếp tục mở rộng hợp tác chiến lược cùng Điện Máy Xanh",
+        "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
+        "news_count": 3,
         "re_eval_note": ""
       }
     ],
@@ -770,9 +782,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Lãi suất ngày 14/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+        "latest_headline": "So sánh lãi suất ngày 15/10 tại MB, VPBank, Techcombank, Sacombank, HDBank, Agribank, Vietcombank, BIDV, VietinBank,...",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 2,
+        "news_count": 3,
         "re_eval_note": ""
       },
       {
@@ -794,9 +806,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Cổ phiếu của tỷ phú Nguyễn Thị Phương Thảo lập đỉnh lịch sử, vốn hóa vượt Sacombank, ACB và LPBank",
+        "latest_headline": "Chia nhỏ khoản chi lớn cùng thẻ ACB, nhận đến 200.000 điểm thưởng khi trả góp lần đầu",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 4,
+        "news_count": 3,
         "re_eval_note": ""
       },
       {
@@ -828,21 +840,9 @@
         "sector": "RealEstate",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN BÌNH ỔN",
-        "status_badge": "neutral",
-        "latest_headline": "Không có thông tin bất thường gần đây",
-        "action_desc": "Duy trì khuyến nghị định lượng gốc",
-        "news_count": 0,
-        "re_eval_note": ""
-      },
-      {
-        "symbol": "MWG",
-        "sector": "Retail",
-        "net_sentiment": 0.0,
-        "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Mua trước trả sau đang mang về gần 40% doanh thu cho Điện Máy Xanh",
+        "latest_headline": "Vinhomes – SGC ký hợp đồng gần 900.000 tỷ xây 5 tuyến metro ở Hà Nội: Huy động hơn 100 dây chuyền thi công hầm metro hiện đại nhất thế giới",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
         "news_count": 1,
         "re_eval_note": ""
@@ -854,9 +854,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Reuters hé lộ thương vụ bí mật quanh mỏ vonfram lớn nhất Việt Nam, có thể bán tiếp cho cổ đông ngoại",
+        "latest_headline": "Masan đẩy mạnh hợp tác nhằm tham gia sâu chuỗi cung ứng vonfram",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 2,
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -892,7 +892,7 @@
         "status_badge": "neutral",
         "latest_headline": "Giá dầu có thể giảm về 70 USD/thùng trong năm 2027, lợi nhuận các \"ông lớn\" dầu khí Việt Nam sẽ ra sao?",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 3,
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -909,9 +909,9 @@
       }
     ],
     "summary": {
-      "total_catalysts": 1,
+      "total_catalysts": 2,
       "total_red_flags": 0,
-      "total_cautions": 14
+      "total_cautions": 13
     }
   },
   "watchlist_items": [
@@ -997,7 +997,7 @@
       "quant_criteria": "Vốn hóa số 1, trụ đỡ tâm lý điều tiết thị trường, sức khỏe tài chính chuẩn mực Basel III.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Lãi suất ngày 14/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,..."
+      "latest_headline": "So sánh lãi suất ngày 15/10 tại MB, VPBank, Techcombank, Sacombank, HDBank, Agribank, Vietcombank, BIDV, VietinBank,..."
     },
     {
       "symbol": "MBB",
@@ -1081,7 +1081,7 @@
       "quant_criteria": "ROE ổn định 22-25%, hồ sơ rủi ro tín dụng sạch, cổ tức tiền mặt và cổ phiếu đều đặn hàng năm.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Cổ phiếu của tỷ phú Nguyễn Thị Phương Thảo lập đỉnh lịch sử, vốn hóa vượt Sacombank, ACB và LPBank"
+      "latest_headline": "Chia nhỏ khoản chi lớn cùng thẻ ACB, nhận đến 200.000 điểm thưởng khi trả góp lần đầu"
     },
     {
       "symbol": "SSI",
@@ -1163,9 +1163,9 @@
       "ai_radar_action": "Chưa kích hoạt điểm mua an toàn; Tuân thủ kỷ luật 100% tiền mặt phòng thủ",
       "selection_reason": "Nhà phát triển bất động sản quy mô số 1 Việt Nam với quỹ đất sạch lớn nhất cả nước. Khả năng triển khai đại đô thị và tạo lập dòng tiền bàn giao dự án áp đảo thị trường, chi phối mạnh chỉ số VN-Index.",
       "quant_criteria": "Vốn hóa trụ cột Top 3 VN-Index, quỹ đất hàng nghìn ha, đóng góp lớn vào biến động điểm số chỉ số.",
-      "news_status": "THÔNG TIN BÌNH ỔN",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Không có thông tin bất thường gần đây"
+      "latest_headline": "Vinhomes – SGC ký hợp đồng gần 900.000 tỷ xây 5 tuyến metro ở Hà Nội: Huy động hơn 100 dây chuyền thi công hầm metro hiện đại nhất thế giới"
     },
     {
       "symbol": "MWG",
@@ -1191,9 +1191,9 @@
       "ai_radar_action": "Chưa kích hoạt điểm mua an toàn; Tuân thủ kỷ luật 100% tiền mặt phòng thủ",
       "selection_reason": "Chuỗi bán lẻ đa ngành số 1 Việt Nam (Thế Giới Di Động, Điện Máy Xanh, Bách Hóa Xanh, An Khang). Tái cấu trúc thành công chuỗi Bách Hóa Xanh đạt điểm hòa vốn và bước vào chu kỳ đóng góp lợi nhuận ròng tăng tốc.",
       "quant_criteria": "Doanh thu tăng trưởng sau tái cấu trúc, dòng tiền FCF mạnh, cổ phiếu phục hồi chu kỳ tiêu dùng.",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
-      "news_badge": "neutral",
-      "latest_headline": "Mua trước trả sau đang mang về gần 40% doanh thu cho Điện Máy Xanh"
+      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
+      "news_badge": "pos",
+      "latest_headline": "Karofi tiếp tục mở rộng hợp tác chiến lược cùng Điện Máy Xanh"
     },
     {
       "symbol": "MSN",
@@ -1221,7 +1221,7 @@
       "quant_criteria": "Mô hình phòng thủ tiêu dùng thiết yếu kết hợp tăng trưởng bán lẻ hiện đại, dòng tiền hoạt động lớn.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Reuters hé lộ thương vụ bí mật quanh mỏ vonfram lớn nhất Việt Nam, có thể bán tiếp cho cổ đông ngoại"
+      "latest_headline": "Masan đẩy mạnh hợp tác nhằm tham gia sâu chuỗi cung ứng vonfram"
     },
     {
       "symbol": "VNM",
@@ -1373,7 +1373,7 @@
           "news_badge": "pos",
           "news_headline": "TCBS chào bán 1.500 tỷ đồng trái phiếu ra công chúng",
           "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
-          "news_score": 0.11
+          "news_score": 0.1
         },
         {
           "symbol": "MSN",
@@ -1398,7 +1398,7 @@
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 0.7x | RS 54",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Reuters hé lộ thương vụ bí mật quanh mỏ vonfram lớn nhất Việt Nam, có thể bán tiếp cho cổ đông ngoại",
+          "news_headline": "Masan đẩy mạnh hợp tác nhằm tham gia sâu chuỗi cung ứng vonfram",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
@@ -1431,7 +1431,8 @@
         }
       ],
       "news_notes": {
-        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
+        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))",
+        "MWG": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
       }
     },
     "AI_Advisor_NhipNhang_1M": {
@@ -1469,7 +1470,7 @@
           "news_badge": "pos",
           "news_headline": "TCBS chào bán 1.500 tỷ đồng trái phiếu ra công chúng",
           "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
-          "news_score": 0.11
+          "news_score": 0.1
         },
         {
           "symbol": "MSN",
@@ -1494,7 +1495,7 @@
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 0.7x | RS 54",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Reuters hé lộ thương vụ bí mật quanh mỏ vonfram lớn nhất Việt Nam, có thể bán tiếp cho cổ đông ngoại",
+          "news_headline": "Masan đẩy mạnh hợp tác nhằm tham gia sâu chuỗi cung ứng vonfram",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
@@ -1527,7 +1528,8 @@
         }
       ],
       "news_notes": {
-        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
+        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))",
+        "MWG": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
       }
     },
     "AI_Advisor_BenBi_3M": {
@@ -1541,7 +1543,8 @@
       "cash_ratio_pct": 100.0,
       "top5": [],
       "news_notes": {
-        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
+        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))",
+        "MWG": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
       }
     },
     "AI_Advisor_CANSLIM_Breakout": {
@@ -1579,7 +1582,7 @@
           "news_badge": "pos",
           "news_headline": "TCBS chào bán 1.500 tỷ đồng trái phiếu ra công chúng",
           "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
-          "news_score": 0.11
+          "news_score": 0.1
         },
         {
           "symbol": "MSN",
@@ -1604,7 +1607,7 @@
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 0.7x | RS 54",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Reuters hé lộ thương vụ bí mật quanh mỏ vonfram lớn nhất Việt Nam, có thể bán tiếp cho cổ đông ngoại",
+          "news_headline": "Masan đẩy mạnh hợp tác nhằm tham gia sâu chuỗi cung ứng vonfram",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
@@ -1637,7 +1640,8 @@
         }
       ],
       "news_notes": {
-        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
+        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))",
+        "MWG": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
       }
     },
     "AI_Advisor_Mean_Reversion": {
@@ -1673,14 +1677,14 @@
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 0.7x | RS 54",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Reuters hé lộ thương vụ bí mật quanh mỏ vonfram lớn nhất Việt Nam, có thể bán tiếp cho cổ đông ngoại",
+          "news_headline": "Masan đẩy mạnh hợp tác nhằm tham gia sâu chuỗi cung ứng vonfram",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
         {
           "symbol": "MWG",
           "weight_pct": 19.5,
-          "score": 0.3369,
+          "score": 0.4043,
           "confidence_score": 60,
           "sector": "Retail",
           "entry_price": 76.98,
@@ -1698,11 +1702,11 @@
           "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
           "volume": 2763200,
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 1.0x | RS 51",
-          "news_status": "THÔNG TIN ỔN ĐỊNH",
-          "news_badge": "neutral",
-          "news_headline": "Mua trước trả sau đang mang về gần 40% doanh thu cho Điện Máy Xanh",
-          "news_action": "Duy trì tỷ trọng khuyến nghị",
-          "news_score": 0.0
+          "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
+          "news_badge": "pos",
+          "news_headline": "Karofi tiếp tục mở rộng hợp tác chiến lược cùng Điện Máy Xanh",
+          "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
+          "news_score": 0.17
         },
         {
           "symbol": "VCB",
@@ -1727,7 +1731,7 @@
           "technical_signal": "PULLBACK MA20 | Test thành công hỗ trợ MA20/Nền 20D (+0.9% từ đáy) | Tỷ lệ R:R tối ưu",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Lãi suất ngày 14/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
+          "news_headline": "So sánh lãi suất ngày 15/10 tại MB, VPBank, Techcombank, Sacombank, HDBank, Agribank, Vietcombank, BIDV, VietinBank,...",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
@@ -1781,13 +1785,14 @@
           "technical_signal": "PULLBACK MA20 | Test thành công hỗ trợ MA20/Nền 20D (+2.2% từ đáy) | Tỷ lệ R:R tối ưu",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Cổ phiếu của tỷ phú Nguyễn Thị Phương Thảo lập đỉnh lịch sử, vốn hóa vượt Sacombank, ACB và LPBank",
+          "news_headline": "Chia nhỏ khoản chi lớn cùng thẻ ACB, nhận đến 200.000 điểm thưởng khi trả góp lần đầu",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         }
       ],
       "news_notes": {
-        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
+        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))",
+        "MWG": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
       }
     },
     "AI_Advisor_Turtle_Donchian": {
@@ -1801,7 +1806,8 @@
       "cash_ratio_pct": 100.0,
       "top5": [],
       "news_notes": {
-        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
+        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))",
+        "MWG": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
       }
     }
   }
