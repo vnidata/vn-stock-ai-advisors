@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-15 06:58:51",
+  "last_updated": "2026-10-15 08:00:21",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 1,
@@ -49,17 +49,26 @@
     },
     "HPG": {
       "symbol": "HPG",
-      "news_count": 2,
+      "news_count": 3,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Tỷ phú Trần Đình Long bán 151.000 con heo, 87 triệu quả trứng gà trong quý 3",
+      "latest_headline": "Người thân lãnh đạo Hòa Phát bán thành công cổ phiếu như đăng ký",
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Duy trì tỷ trọng khuyến nghị",
       "sentiment_multiplier": 1.0,
       "related_news": [
+        {
+          "title": "Người thân lãnh đạo Hòa Phát bán thành công cổ phiếu như đăng ký",
+          "date": "Thu, 15 Oct 26 14:53:00 +0700",
+          "source": "CafeF Thị Trường",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/nguoi-than-lanh-dao-hoa-phat-ban-thanh-cong-co-phieu-nhu-dang-ky-188261015141024258.chn"
+        },
         {
           "title": "Tỷ phú Trần Đình Long bán 151.000 con heo, 87 triệu quả trứng gà trong quý 3",
           "date": "Thu, 15 Oct 26 08:49:00 +0700",
@@ -517,6 +526,27 @@
       "published_date": "Wed, 14 Oct 26 15:40:00 +0700"
     },
     {
+      "title": "Một Giám đốc phòng giao dịch ngân hàng bị bắt: Công an đề nghị những ai là người bị hại liên hệ ngay",
+      "description": "Giám đốc phòng giao dịch một ngân hàng tại An Giang bị khởi tố, tạm giam để điều tra hành vi lừa đảo chiếm đoạt tài sản.",
+      "source": "CafeF Tài Chính Ngân Hàng",
+      "symbols": [],
+      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
+      "sentiment_score": -1.0,
+      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
+      "sentiment_badge": "neg-danger",
+      "is_red_flag": true,
+      "is_catalyst": false,
+      "triggers_found": [
+        "khởi tố",
+        "bị bắt",
+        "điều tra"
+      ],
+      "re_eval_action": "VETO_REJECT",
+      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
+      "link": "https://cafef.vn/mot-giam-doc-phong-giao-dich-ngan-hang-bi-bat-cong-an-de-nghi-nhung-ai-la-nguoi-bi-hai-lien-he-ngay-188261015142023823.chn",
+      "published_date": "Thu, 15 Oct 26 14:20:00 +0700"
+    },
+    {
       "title": "Vụ tham ô hơn 20 tỷ đồng tại PNJ Aeon Mall Long Biên: Tòa yêu cầu làm rõ trách nhiệm của nhiều người liên quan",
       "description": "TAND TP Hà Nội vừa quyết định trả hồ sơ vụ tham ô hơn 20 tỷ đồng tại cửa hàng PNJ Aeon Mall Long Biên để điều tra bổ sung, làm rõ trách nhiệm của những người liên quan.",
       "source": "CafeF Thị Trường",
@@ -703,6 +733,59 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://vnexpress.net/uob-nang-du-bao-tang-truong-viet-nam-len-9-2-5131875.html",
       "published_date": "Tue, 13 Oct 2026 18:59:55 +0700"
+    },
+    {
+      "title": "Bất động sản An Gia đón cổ đông lớn mới",
+      "description": "Bà Nguyễn Thị Ngọc Lợi và Nguyễn Thị Nhờ nâng sở hữu lên 10,58 triệu cổ phiếu, tương đương 5,92% vốn và trở thành cổ đông lớn của Bất động sản An Gia.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/bat-dong-san-an-gia-don-co-dong-lon-moi-188261015141137883.chn",
+      "published_date": "Thu, 15 Oct 26 14:53:00 +0700"
+    },
+    {
+      "title": "Người thân lãnh đạo Hòa Phát bán thành công cổ phiếu như đăng ký",
+      "description": "Bà Doãn Thị Bích Ngọc, chị ruột ông Doãn Gia Cường- Phó Chủ tịch HĐQT của Hòa Phát đã bán ra 350.000 cổ phiếu HPG như đăng ký.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "HPG"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/nguoi-than-lanh-dao-hoa-phat-ban-thanh-cong-co-phieu-nhu-dang-ky-188261015141024258.chn",
+      "published_date": "Thu, 15 Oct 26 14:53:00 +0700"
+    },
+    {
+      "title": "Quý 3 lập kỷ lục, doanh thu Digiworld vượt 1 tỷ USD sau 9 tháng",
+      "description": "Tính riêng trong quý 3, doanh thu của Digiworld ước đạt 10.757 tỷ đồng, tăng 46% so với cùng kỳ năm trước và là mức cao kỷ lục trong một quý.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/quy-3-lap-ky-luc-doanh-thu-digiworld-vuot-1-ty-usd-sau-9-thang-18826101514244975.chn",
+      "published_date": "Thu, 15 Oct 26 14:24:00 +0700"
     },
     {
       "title": "Giá bạc lao dốc, quỹ bạc lớn nhất thế giới tranh thủ \"gom\" hàng chục tấn",
@@ -1088,76 +1171,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/chuyen-gi-day-chu-tich-75-tuoi-cung-loat-lanh-dao-cap-cao-dong-loat-thoai-von-ngay-truoc-them-co-phieu-len-san-hose-188261014145549569.chn",
       "published_date": "Wed, 14 Oct 26 14:55:00 +0700"
-    },
-    {
-      "title": "Loạt nhân sự cấp cao xin nghỉ, CTCK triệu tập bất thường",
-      "description": "Theo kế hoạch, đại hội bất thường sẽ thảo luận, thông qua miễn nhiệm 2 Thành viên HĐQT dựa trên đơn từ nhiệm.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "CÔNG BỐ THÔNG TIN ĐỊNH KỲ",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/loat-nhan-su-cap-cao-xin-nghi-ctck-trieu-tap-bat-thuong-188261014145128559.chn",
-      "published_date": "Wed, 14 Oct 26 14:53:00 +0700"
-    },
-    {
-      "title": "Giá vàng bạc 14/10 giằng co \"kịch liệt\": Phú Quý, Doji, SJC cập nhật mới nhất ra sao?",
-      "description": "Mở cửa phiên giao dịch ngày 14/10, thị trường kim loại quý trong nước và quốc tế ghi nhận những diễn biến đầy bất ngờ.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/gia-vang-bac-14-10-giang-co-kich-liet-phu-quy-doji-sjc-cap-nhat-moi-nhat-ra-sao-188261014125016699.chn",
-      "published_date": "Wed, 14 Oct 26 12:50:00 +0700"
-    },
-    {
-      "title": "Một “đại gia” có 7777 cửa hàng thu hơn 540 tỷ mỗi ngày",
-      "description": "Đây là một trong những hệ thống bán lẻ lớn nhất Việt Nam.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/mot-dai-gia-co-7777-cua-hang-thu-hon-540-ty-moi-ngay-188261014111111189.chn",
-      "published_date": "Wed, 14 Oct 26 11:10:00 +0700"
-    },
-    {
-      "title": "Hơn 149 triệu cổ phiếu GDA của Tôn Đông Á được chấp thuận niêm yết trên HoSE",
-      "description": "HoSE vừa có quyết định chấp thuận gần 149,1 triệu cổ phiếu GDA của Tôn Đông Á, tổng giá trị tính theo mệnh giá gần 1.491 tỷ đồng.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "GDA"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/hon-149-trieu-co-phieu-gda-cua-ton-dong-a-duoc-chap-thuan-niem-yet-tren-hose-188261014103220002.chn",
-      "published_date": "Wed, 14 Oct 26 10:59:00 +0700"
     }
   ]
 }
