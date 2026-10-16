@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-16 06:45:32",
+  "last_updated": "2026-10-16 07:54:30",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 1,
@@ -7,7 +7,7 @@
   "symbols_sentiment": {
     "FPT": {
       "symbol": "FPT",
-      "news_count": 2,
+      "news_count": 1,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
@@ -26,15 +26,6 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/fpt-bat-ngo-mo-van-phong-tai-thanh-pho-nghin-ngon-thap-he-lo-ke-hoach-tuyen-hon-500-ky-su-188261015101440719.chn"
-        },
-        {
-          "title": "FPT: Tái sinh hay tính sai?",
-          "date": "Thu, 15 Oct 26 00:01:00 +0700",
-          "source": "CafeF Thị Trường",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/fpt-tai-sinh-hay-tinh-sai-188261014233213759.chn"
         }
       ]
     },
@@ -130,8 +121,8 @@
     },
     "TCB": {
       "symbol": "TCB",
-      "news_count": 5,
-      "net_sentiment": 0.02,
+      "news_count": 4,
+      "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
@@ -167,15 +158,6 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/lai-suat-ngay-14-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261014203236857.chn"
-        },
-        {
-          "title": "Techcombank tăng vốn \"khủng\": Mở rộng dư địa tăng trưởng",
-          "date": "Wed, 14 Oct 26 16:05:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
-          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-          "sentiment_score": 0.1,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/techcombank-tang-von-khung-mo-rong-du-dia-tang-truong-188261014160544014.chn"
         },
         {
           "title": "Ba nhà băng tư nhân tăng vốn lên hơn 100.000 tỷ đồng",
@@ -478,25 +460,6 @@
       "published_date": "Fri, 16 Oct 26 09:52:00 +0700"
     },
     {
-      "title": "Ông Dương Sơn Bá bị bắt, doanh nghiệp phát thông báo quan trọng về nhân sự",
-      "description": "Doanh nghiệp phát đi thông báo quan trọng về biến động nhân sự.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
-      "sentiment_score": -1.0,
-      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
-      "sentiment_badge": "neg-danger",
-      "is_red_flag": true,
-      "is_catalyst": false,
-      "triggers_found": [
-        "bị bắt"
-      ],
-      "re_eval_action": "VETO_REJECT",
-      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
-      "link": "https://cafef.vn/ong-duong-son-ba-bi-bat-doanh-nghiep-phat-thong-bao-quan-trong-ve-nhan-su-188261014224003217.chn",
-      "published_date": "Thu, 15 Oct 26 00:02:00 +0700"
-    },
-    {
       "title": "Công an khám xét khẩn cấp 5 công ty, 8 người đã bị bắt",
       "description": "Công an Bắc Ninh cho biết đã khởi tố 5 vụ án, 10 bị can về tội “Giả mạo trong công tác”.",
       "source": "CafeF Doanh Nghiệp (CBTT)",
@@ -698,14 +661,12 @@
       "published_date": "Fri, 16 Oct 26 00:03:00 +0700"
     },
     {
-      "title": "Techcombank tăng vốn \"khủng\": Mở rộng dư địa tăng trưởng",
-      "description": "Ngân hàng Nhà nước (NHNN) vừa chính thức chấp thuận cho Techcombank tăng vốn điều lệ thêm tối đa gần 35.731 tỷ đồng, lên mức 106.593 tỷ đồng, đưa ngân hàng này trở thành tổ chức tín dụng có quy mô vốn lớn nhất hệ thống. Nguồn lực tài chính mới kết hợp với các cơ chế chính sách từ Thông tư 50/2026/TT-NHNN được kỳ vọng sẽ tạo dư địa mở rộng hoạt động kinh doanh và nâng cao định giá cổ phiếu TCB.",
-      "source": "CafeF Tài Chính Ngân Hàng",
-      "symbols": [
-        "TCB"
-      ],
-      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-      "sentiment_score": 0.1,
+      "title": "Giá vàng nhẫn SJC hôm nay 16/10 thế nào?",
+      "description": "Mở cửa phiên giao dịch sáng nay 16/10, giá vàng nhẫn SJC, vàng miếng SJC đều đi ngang so với hôm qua.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
       "sentiment_label": "TRUNG TÍNH",
       "sentiment_badge": "neutral",
       "is_red_flag": false,
@@ -713,8 +674,46 @@
       "triggers_found": [],
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/techcombank-tang-von-khung-mo-rong-du-dia-tang-truong-188261014160544014.chn",
-      "published_date": "Wed, 14 Oct 26 16:05:00 +0700"
+      "link": "https://cafef.vn/gia-vang-nhan-sjc-hom-nay-16-10-the-nao-188261016145106598.chn",
+      "published_date": "Fri, 16 Oct 26 14:50:00 +0700"
+    },
+    {
+      "title": "SMC chốt ngày chào bán gần 37 triệu cổ phiếu cho cổ đông",
+      "description": "SMC chào bán hơn 36,8 triệu cổ phiếu cho cổ đông với giá 10.000 đồng/cổ phiếu. Ngày đăng ký cuối cùng thực hiện quyền là 2/11/2026.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "CHO"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/smc-chot-ngay-chao-ban-gan-37-trieu-co-phieu-cho-co-dong-188261016142534958.chn",
+      "published_date": "Fri, 16 Oct 26 14:42:00 +0700"
+    },
+    {
+      "title": "Một doanh nghiệp báo lãi quý 3 tăng 136%, có khoản phải thu với công ty của ông Phạm Nhật Vượng",
+      "description": "Lũy kế 9 tháng đầu năm 2026, Sông Đà Cao Cường ghi nhậnlợi nhuận sau thuế đạt gần 94 tỷ đồng, gấp khoảng 2,3 lần so với 9 tháng đầu năm ngoái.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "VIC"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/mot-doanh-nghiep-bao-lai-quy-3-tang-136-co-khoan-phai-thu-voi-cong-ty-cua-ong-pham-nhat-vuong-188261016134701303.chn",
+      "published_date": "Fri, 16 Oct 26 13:46:00 +0700"
     },
     {
       "title": "Giá vàng đi ngang ngày 3 liên tiếp",
@@ -1173,23 +1172,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/cap-nhat-so-lieu-ctck-ngay-15-10-nhung-ten-tuoi-dau-tien-he-lo-kqkd-quy-3-xuat-hien-khoan-lai-tang-dot-bien-gan-300-188261015112051239.chn",
       "published_date": "Thu, 15 Oct 26 11:20:00 +0700"
-    },
-    {
-      "title": "Đại gia phố núi liên tục “cháy hàng\"",
-      "description": "Sau hai phiên bứt phá, vốn hóa thị trường của Quốc Cường Gia Lai đã vượt mốc 3.000 tỷ đồng.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/dai-gia-pho-nui-lien-tuc-chay-hang-1882610151106487.chn",
-      "published_date": "Thu, 15 Oct 26 11:10:00 +0700"
     }
   ]
 }
