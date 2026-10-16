@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-16 11:50:51",
+  "last_updated": "2026-10-16 12:15:28",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 1,
@@ -431,6 +431,25 @@
     }
   },
   "recent_articles": [
+    {
+      "title": "Ông Lê Hoàng Khánh Nhựt bị khởi tố, hé lộ khoản thu nhập trong nửa đầu năm",
+      "description": "Đáng chú ý, theo báo cáo tài chính bán niên năm 2026 đã soát xét, ông Lê Hoàng Khánh Nhựt là người có thu nhập cao nhất trong ban lãnh đạo Cao su Đà Nẵng.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
+      "sentiment_score": -1.0,
+      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
+      "sentiment_badge": "neg-danger",
+      "is_red_flag": true,
+      "is_catalyst": false,
+      "triggers_found": [
+        "khởi tố"
+      ],
+      "re_eval_action": "VETO_REJECT",
+      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
+      "link": "https://cafef.vn/ong-le-hoang-khanh-nhut-bi-khoi-to-he-lo-khoan-thu-nhap-trong-nua-dau-nam-188261016184745245.chn",
+      "published_date": "Fri, 16 Oct 26 19:01:00 +0700"
+    },
     {
       "title": "Ông Eric Vương bị bắt, công ty đối diện nguy cơ mất trắng hơn trăm tỷ đồng",
       "description": "Trong trường hợp bất lợi nhất, nếu toàn bộ các khoản nêu trên không thể thu hồi, giá trị tối đa bị ảnh hưởng sẽ là 147 tỷ đồng.",
@@ -1146,23 +1165,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/mien-nhiem-ong-nguyen-tien-hung-188261015214617067.chn",
       "published_date": "Thu, 15 Oct 26 23:08:00 +0700"
-    },
-    {
-      "title": "Thấy gì về thương vụ tăng vốn trăm nghìn tỷ của các ngân hàng?",
-      "description": "Nhiều ngân hàng tăng vốn điều lệ lên trên 100.000 tỷ đồng, mở ra dư địa củng cố năng lực tài chính, mở rộng tín dụng và đầu tư công nghệ. Chuyên gia cho rằng, quy mô vốn ngày càng lớn cũng đặt ra bài toán về hiệu quả sử dụng vốn, chất lượng tài sản và khả năng kiểm soát rủi ro.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/thay-gi-ve-thuong-vu-tang-von-tram-nghin-ty-cua-cac-ngan-hang-188261015183314129.chn",
-      "published_date": "Thu, 15 Oct 26 19:11:00 +0700"
     }
   ]
 }
