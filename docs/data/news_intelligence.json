@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-16 09:09:10",
+  "last_updated": "2026-10-16 11:50:51",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 1,
@@ -64,7 +64,7 @@
     },
     "VCB": {
       "symbol": "VCB",
-      "news_count": 3,
+      "news_count": 2,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
@@ -92,15 +92,6 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/lai-suat-ngay-15-10-tai-mb-vpbank-techcombank-sacombank-hdbank-agribank-vietcombank-bidv-vietinbank-188261015171636533.chn"
-        },
-        {
-          "title": "Lãi suất ngày 14/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
-          "date": "Wed, 14 Oct 26 20:30:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
-          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/lai-suat-ngay-14-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261014203236857.chn"
         }
       ]
     },
@@ -130,7 +121,7 @@
     },
     "TCB": {
       "symbol": "TCB",
-      "news_count": 4,
+      "news_count": 3,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
@@ -158,15 +149,6 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/quet-qr-dung-voucher-va-u-point-ngay-khi-thanh-toan-cung-co-hoi-nhan-iphone-18-pro-moi-ngay-tu-techcombank-188261015171324098.chn"
-        },
-        {
-          "title": "Lãi suất ngày 14/10 tại Agribank, Vietcombank, BIDV, VietinBank, VPBank, MB, Techcombank, Sacombank, HDBank,...",
-          "date": "Wed, 14 Oct 26 20:30:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
-          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/lai-suat-ngay-14-10-tai-agribank-vietcombank-bidv-vietinbank-vpbank-mb-techcombank-sacombank-hdbank-188261014203236857.chn"
         },
         {
           "title": "Ba nhà băng tư nhân tăng vốn lên hơn 100.000 tỷ đồng",
@@ -289,7 +271,7 @@
     },
     "VHM": {
       "symbol": "VHM",
-      "news_count": 3,
+      "news_count": 4,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
@@ -326,6 +308,15 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/vinhomes-sgc-ky-hop-dong-gan-900000-ty-xay-5-tuyen-metro-o-ha-noi-huy-dong-hon-100-day-chuyen-thi-cong-ham-metro-hien-dai-nhat-the-gioi-18826101518370703.chn"
+        },
+        {
+          "title": "Vingroup giảm nửa tiền thuê đất, mở rộng nhà cung cấp trong nước",
+          "date": "Fri, 16 Oct 2026 16:50:27 +0700",
+          "source": "VnExpress Kinh Doanh",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://vnexpress.net/vingroup-giam-nua-tien-thue-dat-mo-rong-nha-cung-cap-trong-nuoc-5133181.html"
         }
       ]
     },
@@ -460,6 +451,25 @@
       "published_date": "Fri, 16 Oct 26 09:52:00 +0700"
     },
     {
+      "title": "Nóng: Tổng Giám đốc Cao su Đà Nẵng bị khởi tố",
+      "description": "Cao su Đà Nẵng vừa công bố quyết định khởi tố Tổng Giám đốc Lê Hoàng Khánh Nhựt",
+      "source": "CafeF Doanh Nghiệp (CBTT)",
+      "symbols": [],
+      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
+      "sentiment_score": -1.0,
+      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
+      "sentiment_badge": "neg-danger",
+      "is_red_flag": true,
+      "is_catalyst": false,
+      "triggers_found": [
+        "khởi tố"
+      ],
+      "re_eval_action": "VETO_REJECT",
+      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
+      "link": "https://cafef.vn/nong-tong-giam-doc-cao-su-da-nang-bi-khoi-to-18826101617485748.chn",
+      "published_date": "Fri, 16 Oct 26 17:47:00 +0700"
+    },
+    {
       "title": "Công an khám xét khẩn cấp 5 công ty, 8 người đã bị bắt",
       "description": "Công an Bắc Ninh cho biết đã khởi tố 5 vụ án, 10 bị can về tội “Giả mạo trong công tác”.",
       "source": "CafeF Doanh Nghiệp (CBTT)",
@@ -499,6 +509,25 @@
       "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
       "link": "https://cafef.vn/mot-giam-doc-phong-giao-dich-ngan-hang-bi-bat-cong-an-de-nghi-nhung-ai-la-nguoi-bi-hai-lien-he-ngay-188261015142023823.chn",
       "published_date": "Thu, 15 Oct 26 14:20:00 +0700"
+    },
+    {
+      "title": "Công ty 'đứng sau' sàn tiền số ONUS bị nghi ngờ khả năng hoạt động liên tục",
+      "description": "Trong báo cáo bán niên, kiểm toán nghi ngờ về khả năng hoạt động liên tục của HVA Group - đối tác chiến lược của sàn tiền số ONUS.",
+      "source": "VnExpress Kinh Doanh",
+      "symbols": [],
+      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
+      "sentiment_score": -0.9,
+      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
+      "sentiment_badge": "neg-danger",
+      "is_red_flag": true,
+      "is_catalyst": false,
+      "triggers_found": [
+        "nghi ngờ khả năng hoạt động liên tục"
+      ],
+      "re_eval_action": "VETO_REJECT",
+      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
+      "link": "https://vnexpress.net/cong-ty-dung-sau-san-tien-so-onus-bi-nghi-ngo-kha-nang-hoat-dong-lien-tuc-5133175.html",
+      "published_date": "Fri, 16 Oct 2026 16:56:23 +0700"
     },
     {
       "title": "Khách sạn 5 sao Pullman Saigon Centre đính chính thông tin sai sự thật về việc chuyển nhượng hoặc ngừng hoạt động",
@@ -678,6 +707,42 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/8-ngan-hang-ruc-rich-huy-dong-54-ty-usd-cuoc-dua-moi-cua-nhung-ong-lon-ngan-hang-viet-nam-188261015214637743.chn",
       "published_date": "Fri, 16 Oct 26 00:03:00 +0700"
+    },
+    {
+      "title": "Phó Tổng Giám đốc một doanh nghiệp trên HoSE vừa bị miễn nhiệm",
+      "description": "Đáng chú ý, ông Nguyễn Đại Nam được bổ nhiệm giữ chức Phó Tổng Giám đốc từ ngày 20/1/2026. Như vậy, ông Nam rời vị trí này sau chưa đầy 9 tháng đảm nhiệm.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "CÔNG BỐ THÔNG TIN ĐỊNH KỲ",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/pho-tong-giam-doc-mot-doanh-nghiep-tren-hose-vua-bi-mien-nhiem-188261016145210168.chn",
+      "published_date": "Fri, 16 Oct 26 18:46:00 +0700"
+    },
+    {
+      "title": "Vingroup tung “chiêu” hút nhà cung ứng: Giảm 50% tiền thuê đất trong 3 năm đầu, chia sẻ hạ tầng logistics và cam kết đầu ra ổn định",
+      "description": "Vingroup vừa công bố loạt chính sách hỗ trợ nhà cung cấp, từ chia sẻ hạ tầng logistics, dự báo sản lượng trước 12-24 tháng đến kết nối cơ hội cung ứng cho các nhà máy VinFast ở nước ngoài.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "VIC"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/vingroup-tung-chieu-hut-nha-cung-ung-giam-50-tien-thue-dat-trong-3-nam-dau-chia-se-ha-tang-logistics-va-cam-ket-dau-ra-on-dinh-188261016160236972.chn",
+      "published_date": "Fri, 16 Oct 26 17:44:00 +0700"
     },
     {
       "title": "MSCI cảnh báo nóng, chứng khoán Indonesia rơi mạnh nhất trong gần 30 năm",
@@ -1098,78 +1163,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/thay-gi-ve-thuong-vu-tang-von-tram-nghin-ty-cua-cac-ngan-hang-188261015183314129.chn",
       "published_date": "Thu, 15 Oct 26 19:11:00 +0700"
-    },
-    {
-      "title": "Vinhomes - SGC đầu tư gần 900.000 tỷ đồng xây dựng 5 tuyến Metro Hà Nội theo hình thức chìa khóa trao tay",
-      "description": "Dự kiến, năm 2030, 5 tuyến đường sắt đô thị số 1, 2, 8, 10 và 14 sẽ đi vào vận hành, kết nối các đầu mối giao thông, trung tâm kinh tế và khu đô thị lớn của Hà Nội.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "VHM"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/vinhomes-sgc-dau-tu-hon-900000-ty-dong-xay-dung-5-tuyen-metro-ha-noi-theo-hinh-thuc-chia-khoa-trao-tay-188261015190111662.chn",
-      "published_date": "Thu, 15 Oct 26 19:01:00 +0700"
-    },
-    {
-      "title": "Giải ngân tới 17.300 tỷ đồng chỉ trong 9 tháng, lãnh đạo F88 nói gì?",
-      "description": "Trong 9 tháng đầu năm 2026, F88 giải ngân hơn 17.300 tỷ đồng, tăng 51% so với cùng kỳ, tương đương bình quân hơn 60 tỷ đồng mỗi ngày.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/giai-ngan-toi-17300-ty-dong-chi-trong-9-thang-lanh-dao-f88-noi-gi-188261015173948144.chn",
-      "published_date": "Thu, 15 Oct 26 17:50:00 +0700"
-    },
-    {
-      "title": "Doanh nghiệp Việt sở hữu 12.000 “tháp sắt” đặc biệt thu hơn 50 tỷ mỗi ngày",
-      "description": "Đây là TowerCo số 1 Việt Nam.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/doanh-nghiep-viet-so-huu-12000-thap-sat-dac-biet-thu-hon-50-ty-moi-ngay-188261015165523292.chn",
-      "published_date": "Thu, 15 Oct 26 16:55:00 +0700"
-    },
-    {
-      "title": "Cận cảnh “cỗ máy khổng lồ” sắp xuất hiện tại siêu tổ hợp thép của tỷ phú Phạm Nhật Vượng",
-      "description": "Danieli sẽ đảm nhiệm thiết kế, chế tạo, cung cấp và chạy thử các thiết bị lõi cho dây chuyền cán thép ray và thép hình với công suất lên tới hơn 700.000 tấn/năm tại Tổ hợp Gang thép VinMetal Hà Tĩnh.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "VIC"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/can-canh-co-may-khong-lo-sap-xuat-hien-tai-sieu-to-hop-thep-cua-ty-phu-pham-nhat-vuong-188261015153359914.chn",
-      "published_date": "Thu, 15 Oct 26 15:46:00 +0700"
     }
   ]
 }

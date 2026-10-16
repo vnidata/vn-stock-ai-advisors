@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-16 09:09:13 (UTC+7)",
+  "last_updated": "2026-10-16 11:50:53 (UTC+7)",
   "trading_date": "2026-10-16",
   "vnindex": {
     "close": 1705.91,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 1,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-16 09:09:10"
+    "last_scanned": "2026-10-16 11:50:51"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -772,7 +772,7 @@
         "status_badge": "neutral",
         "latest_headline": "Một quỹ đầu tư kịp thoát hàng khi PNJ lao dốc 58%, vẫn tin yêu FPT dù cổ phiếu liên tục dò đáy",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 3,
+        "news_count": 2,
         "re_eval_note": ""
       },
       {
@@ -796,7 +796,7 @@
         "status_badge": "neutral",
         "latest_headline": "Lãi suất ngày 15/10 tại MB, VPBank, Techcombank, Sacombank, HDBank, Agribank, Vietcombank, BIDV, VietinBank,...",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 4,
+        "news_count": 3,
         "re_eval_note": ""
       },
       {
@@ -844,7 +844,7 @@
         "status_badge": "neutral",
         "latest_headline": "Vinhomes - SGC đầu tư gần 900.000 tỷ đồng xây dựng 5 tuyến Metro Hà Nội theo hình thức chìa khóa trao tay",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 3,
+        "news_count": 4,
         "re_eval_note": ""
       },
       {
