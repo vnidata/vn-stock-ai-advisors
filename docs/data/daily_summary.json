@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-16 07:54:32 (UTC+7)",
+  "last_updated": "2026-10-16 09:09:13 (UTC+7)",
   "trading_date": "2026-10-16",
   "vnindex": {
     "close": 1705.91,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 1,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-16 07:54:30"
+    "last_scanned": "2026-10-16 09:09:10"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -114,7 +114,7 @@
       "status_badge": "neg",
       "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
       "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 0.7x | RS 52",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
       "volume": 822300
     },
@@ -186,7 +186,7 @@
       "status_badge": "neg",
       "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
       "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 0.7x | RS 52",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
       "volume": 822300
     },
@@ -258,7 +258,7 @@
       "status_badge": "neg",
       "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
       "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 0.7x | RS 52",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
       "volume": 822300
     },
@@ -403,7 +403,7 @@
       "technical_reason": "Hiệu suất âm -3.52%, áp lực cung gia tăng sát ngưỡng cắt lỗ",
       "advisor_rationale": "Đưa vào danh sách giám sát đặc biệt; Tuyệt đối không trung bình giá xuống",
       "action_advice": "Quan sát hỗ trợ MA20/MA50; Sẵn sàng cắt lỗ nếu gãy nền",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral"
     },
     {
@@ -424,7 +424,7 @@
       "technical_reason": "Hiệu suất âm -3.52%, áp lực cung gia tăng sát ngưỡng cắt lỗ",
       "advisor_rationale": "Đưa vào danh sách giám sát đặc biệt; Tuyệt đối không trung bình giá xuống",
       "action_advice": "Quan sát hỗ trợ MA20/MA50; Sẵn sàng cắt lỗ nếu gãy nền",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral"
     },
     {
@@ -445,7 +445,7 @@
       "technical_reason": "Hiệu suất âm -3.52%, áp lực cung gia tăng sát ngưỡng cắt lỗ",
       "advisor_rationale": "Đưa vào danh sách giám sát đặc biệt; Tuyệt đối không trung bình giá xuống",
       "action_advice": "Quan sát hỗ trợ MA20/MA50; Sẵn sàng cắt lỗ nếu gãy nền",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral"
     },
     {
@@ -531,7 +531,7 @@
       "technical_reason": "Hiệu suất âm -3.52%, áp lực cung gia tăng sát ngưỡng cắt lỗ",
       "advisor_rationale": "Đưa vào danh sách giám sát đặc biệt; Tuyệt đối không trung bình giá xuống",
       "action_advice": "Quan sát hỗ trợ MA20/MA50; Sẵn sàng cắt lỗ nếu gãy nền",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral"
     },
     {
@@ -552,7 +552,7 @@
       "technical_reason": "Hiệu suất âm -3.52%, áp lực cung gia tăng sát ngưỡng cắt lỗ",
       "advisor_rationale": "Đưa vào danh sách giám sát đặc biệt; Tuyệt đối không trung bình giá xuống",
       "action_advice": "Quan sát hỗ trợ MA20/MA50; Sẵn sàng cắt lỗ nếu gãy nền",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral"
     },
     {
@@ -573,7 +573,7 @@
       "technical_reason": "Hiệu suất âm -3.52%, áp lực cung gia tăng sát ngưỡng cắt lỗ",
       "advisor_rationale": "Đưa vào danh sách giám sát đặc biệt; Tuyệt đối không trung bình giá xuống",
       "action_advice": "Quan sát hỗ trợ MA20/MA50; Sẵn sàng cắt lỗ nếu gãy nền",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral"
     },
     {
@@ -746,7 +746,7 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "FPT bất ngờ mở văn phòng tại \"thành phố nghìn ngọn tháp\", hé lộ kế hoạch tuyển hơn 500 kỹ sư",
+        "latest_headline": "Một quỹ đầu tư kịp thoát hàng khi PNJ lao dốc 58%, vẫn tin yêu FPT dù cổ phiếu liên tục dò đáy",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
         "news_count": 1,
         "re_eval_note": ""
@@ -770,9 +770,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Lãi suất ngày 15/10 tại MB, VPBank, Techcombank, Sacombank, HDBank, Agribank, Vietcombank, BIDV, VietinBank,...",
+        "latest_headline": "Một quỹ đầu tư kịp thoát hàng khi PNJ lao dốc 58%, vẫn tin yêu FPT dù cổ phiếu liên tục dò đáy",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 2,
+        "news_count": 3,
         "re_eval_note": ""
       },
       {
@@ -808,7 +808,7 @@
         "status_badge": "neutral",
         "latest_headline": "Nâng hạng chứng khoán, vì sao cổ phiếu định giá rẻ vẫn chưa đủ hấp dẫn?",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 5,
+        "news_count": 4,
         "re_eval_note": ""
       },
       {
@@ -818,7 +818,7 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "8 ngân hàng rục rịch huy động 5,4 tỷ USD: Cuộc đua mới của những \"ông lớn\" ngân hàng Việt Nam",
+        "latest_headline": "Lộ diện 8 ngân hàng muốn huy động 5,4 tỷ USD",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
         "news_count": 2,
         "re_eval_note": ""
@@ -828,11 +828,11 @@
         "sector": "Securities",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN BÌNH ỔN",
+        "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Không có thông tin bất thường gần đây",
-        "action_desc": "Duy trì khuyến nghị định lượng gốc",
-        "news_count": 0,
+        "latest_headline": "Một quỹ đầu tư kịp thoát hàng khi PNJ lao dốc 58%, vẫn tin yêu FPT dù cổ phiếu liên tục dò đáy",
+        "action_desc": "Duy trì tỷ trọng khuyến nghị",
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -888,11 +888,11 @@
         "sector": "Energy",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN ỔN ĐỊNH",
+        "status": "THÔNG TIN BÌNH ỔN",
         "status_badge": "neutral",
-        "latest_headline": "Giá dầu có thể giảm về 70 USD/thùng trong năm 2027, lợi nhuận các \"ông lớn\" dầu khí Việt Nam sẽ ra sao?",
-        "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
+        "latest_headline": "Không có thông tin bất thường gần đây",
+        "action_desc": "Duy trì khuyến nghị định lượng gốc",
+        "news_count": 0,
         "re_eval_note": ""
       },
       {
@@ -941,7 +941,7 @@
       "quant_criteria": "Tăng trưởng lợi nhuận EPS 20%+ bền vững 5 năm, tỷ lệ nợ vay thấp, dòng tiền thuần dồi dào.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "FPT bất ngờ mở văn phòng tại \"thành phố nghìn ngọn tháp\", hé lộ kế hoạch tuyển hơn 500 kỹ sư"
+      "latest_headline": "Một quỹ đầu tư kịp thoát hàng khi PNJ lao dốc 58%, vẫn tin yêu FPT dù cổ phiếu liên tục dò đáy"
     },
     {
       "symbol": "HPG",
@@ -997,7 +997,7 @@
       "quant_criteria": "Vốn hóa số 1, trụ đỡ tâm lý điều tiết thị trường, sức khỏe tài chính chuẩn mực Basel III.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Lãi suất ngày 15/10 tại MB, VPBank, Techcombank, Sacombank, HDBank, Agribank, Vietcombank, BIDV, VietinBank,..."
+      "latest_headline": "Một quỹ đầu tư kịp thoát hàng khi PNJ lao dốc 58%, vẫn tin yêu FPT dù cổ phiếu liên tục dò đáy"
     },
     {
       "symbol": "MBB",
@@ -1109,7 +1109,7 @@
       "quant_criteria": "Hệ số Beta cao (1.4x), thanh khoản cực mạnh, biên lợi nhuận cho vay margin và tự doanh mở rộng.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "8 ngân hàng rục rịch huy động 5,4 tỷ USD: Cuộc đua mới của những \"ông lớn\" ngân hàng Việt Nam"
+      "latest_headline": "Lộ diện 8 ngân hàng muốn huy động 5,4 tỷ USD"
     },
     {
       "symbol": "VND",
@@ -1135,9 +1135,9 @@
       "ai_radar_action": "Theo dõi chặt chẽ ngưỡng hỗ trợ kỹ thuật; Chờ dòng tiền lớn kích hoạt",
       "selection_reason": "Độ nhạy cực cao với tâm lý nhà đầu tư cá nhân và chu kỳ thanh khoản thị trường. Định giá P/B chiết khấu sâu sau các nhịp thanh lọc tài chính, tạo tiềm năng bứt phá mạnh khi thị trường bước vào pha tăng mới.",
       "quant_criteria": "Biên độ dao động giá lớn, nhạy bén với các thông tin thanh khoản thị trường và chu kỳ tiền rẻ.",
-      "news_status": "THÔNG TIN BÌNH ỔN",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Không có thông tin bất thường gần đây"
+      "latest_headline": "Một quỹ đầu tư kịp thoát hàng khi PNJ lao dốc 58%, vẫn tin yêu FPT dù cổ phiếu liên tục dò đáy"
     },
     {
       "symbol": "VHM",
@@ -1303,9 +1303,9 @@
       "ai_radar_action": "Chưa kích hoạt điểm mua an toàn; Tuân thủ kỷ luật 100% tiền mặt phòng thủ",
       "selection_reason": "Doanh nghiệp độc quyền thu gom, vận chuyển và kinh doanh khí tự nhiên, khí hóa lỏng LNG tại Việt Nam. Vị thế tài chính cực kỳ vững mạnh, đóng vai trò trụ cột chiến lược năng lượng quốc gia và điều tiết VN-Index.",
       "quant_criteria": "Tỷ suất sinh lời cao, dự trữ tiền mặt hàng chục nghìn tỷ đồng, hưởng lợi từ Quy hoạch Điện VIII.",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
-      "latest_headline": "Giá dầu có thể giảm về 70 USD/thùng trong năm 2027, lợi nhuận các \"ông lớn\" dầu khí Việt Nam sẽ ra sao?"
+      "latest_headline": "Không có thông tin bất thường gần đây"
     },
     {
       "symbol": "GMD",
@@ -1423,10 +1423,10 @@
           "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
           "volume": 822300,
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 0.7x | RS 52",
-          "news_status": "THÔNG TIN ỔN ĐỊNH",
+          "news_status": "THÔNG TIN BÌNH ỔN",
           "news_badge": "neutral",
-          "news_headline": "Giá dầu có thể giảm về 70 USD/thùng trong năm 2027, lợi nhuận các \"ông lớn\" dầu khí Việt Nam sẽ ra sao?",
-          "news_action": "Duy trì tỷ trọng khuyến nghị",
+          "news_headline": "Không có thông tin bất thường gần đây",
+          "news_action": "Duy trì khuyến nghị định lượng gốc",
           "news_score": 0.0
         }
       ],
@@ -1519,10 +1519,10 @@
           "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
           "volume": 822300,
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 0.7x | RS 52",
-          "news_status": "THÔNG TIN ỔN ĐỊNH",
+          "news_status": "THÔNG TIN BÌNH ỔN",
           "news_badge": "neutral",
-          "news_headline": "Giá dầu có thể giảm về 70 USD/thùng trong năm 2027, lợi nhuận các \"ông lớn\" dầu khí Việt Nam sẽ ra sao?",
-          "news_action": "Duy trì tỷ trọng khuyến nghị",
+          "news_headline": "Không có thông tin bất thường gần đây",
+          "news_action": "Duy trì khuyến nghị định lượng gốc",
           "news_score": 0.0
         }
       ],
@@ -1629,10 +1629,10 @@
           "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
           "volume": 822300,
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 0.7x | RS 52",
-          "news_status": "THÔNG TIN ỔN ĐỊNH",
+          "news_status": "THÔNG TIN BÌNH ỔN",
           "news_badge": "neutral",
-          "news_headline": "Giá dầu có thể giảm về 70 USD/thùng trong năm 2027, lợi nhuận các \"ông lớn\" dầu khí Việt Nam sẽ ra sao?",
-          "news_action": "Duy trì tỷ trọng khuyến nghị",
+          "news_headline": "Không có thông tin bất thường gần đây",
+          "news_action": "Duy trì khuyến nghị định lượng gốc",
           "news_score": 0.0
         }
       ],
@@ -1727,7 +1727,7 @@
           "technical_signal": "PULLBACK MA20 | Test thành công hỗ trợ MA20/Nền 20D (+1.6% từ đáy) | Tỷ lệ R:R tối ưu",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Lãi suất ngày 15/10 tại MB, VPBank, Techcombank, Sacombank, HDBank, Agribank, Vietcombank, BIDV, VietinBank,...",
+          "news_headline": "Một quỹ đầu tư kịp thoát hàng khi PNJ lao dốc 58%, vẫn tin yêu FPT dù cổ phiếu liên tục dò đáy",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
