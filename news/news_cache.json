@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-19 14:34:08",
+  "last_updated": "2026-10-19 15:05:52",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 1,
@@ -45,16 +45,25 @@
     "VCB": {
       "symbol": "VCB",
       "news_count": 5,
-      "net_sentiment": 0.02,
+      "net_sentiment": 0.04,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Agribank, Vietcombank, BIDV, MB, ACB, Sacombank, LPBank, VietBank, Nam A Bank đồng loạt giảm lãi suất cho vay",
+      "latest_headline": "Cập nhật tình hình giảm lãi suất cho vay đến tối 19/10: Thêm MB, VietinBank, SHB, OCB tham gia",
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Duy trì tỷ trọng khuyến nghị",
       "sentiment_multiplier": 1.0,
       "related_news": [
+        {
+          "title": "Cập nhật tình hình giảm lãi suất cho vay đến tối 19/10: Thêm MB, VietinBank, SHB, OCB tham gia",
+          "date": "Mon, 19 Oct 26 21:52:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+          "sentiment_score": 0.1,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/cap-nhat-tinh-hinh-giam-lai-suat-cho-vay-den-toi-19-10-them-mb-vietinbank-shb-ocb-tham-gia-188261019215501635.chn"
+        },
         {
           "title": "Agribank, Vietcombank, BIDV, MB, ACB, Sacombank, LPBank, VietBank, Nam A Bank đồng loạt giảm lãi suất cho vay",
           "date": "Mon, 19 Oct 26 13:53:00 +0700",
@@ -83,15 +92,6 @@
           "link": "https://cafef.vn/chu-tich-vietcombank-ngan-hang-cam-ket-tu-nay-toi-cuoi-nam-se-giam-toi-thieu-2-lai-suat-cho-vay-188261017204001226.chn"
         },
         {
-          "title": "Lãi suất ngày 17/10 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
-          "date": "Sat, 17 Oct 26 20:16:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
-          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/lai-suat-ngay-17-10-tai-agribank-vietcombank-bidv-vietinbank-mb-vpbank-techcombank-sacombank-hdbank-188261017155351262.chn"
-        },
-        {
           "title": "Chủ tịch Vietcombank cam kết giảm tối thiểu 2% lãi suất cho vay",
           "date": "Sun, 18 Oct 2026 00:05:03 +0700",
           "source": "VnExpress Kinh Doanh",
@@ -117,8 +117,8 @@
     },
     "TCB": {
       "symbol": "TCB",
-      "news_count": 6,
-      "net_sentiment": 0.15,
+      "news_count": 5,
+      "net_sentiment": 0.18,
       "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
       "status_badge": "pos",
       "has_red_flag": false,
@@ -177,17 +177,26 @@
     },
     "ACB": {
       "symbol": "ACB",
-      "news_count": 4,
-      "net_sentiment": 0.03,
+      "news_count": 5,
+      "net_sentiment": 0.04,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Agribank, Vietcombank, BIDV, MB, ACB, Sacombank, LPBank, VietBank, Nam A Bank đồng loạt giảm lãi suất cho vay",
+      "latest_headline": "Cập nhật tình hình giảm lãi suất cho vay đến tối 19/10: Thêm MB, VietinBank, SHB, OCB tham gia",
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Duy trì tỷ trọng khuyến nghị",
       "sentiment_multiplier": 1.0,
       "related_news": [
+        {
+          "title": "Cập nhật tình hình giảm lãi suất cho vay đến tối 19/10: Thêm MB, VietinBank, SHB, OCB tham gia",
+          "date": "Mon, 19 Oct 26 21:52:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+          "sentiment_score": 0.1,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/cap-nhat-tinh-hinh-giam-lai-suat-cho-vay-den-toi-19-10-them-mb-vietinbank-shb-ocb-tham-gia-188261019215501635.chn"
+        },
         {
           "title": "Agribank, Vietcombank, BIDV, MB, ACB, Sacombank, LPBank, VietBank, Nam A Bank đồng loạt giảm lãi suất cho vay",
           "date": "Mon, 19 Oct 26 13:53:00 +0700",
@@ -669,6 +678,28 @@
       "published_date": "Sun, 18 Oct 2026 04:06:17 +0700"
     },
     {
+      "title": "Cập nhật tình hình giảm lãi suất cho vay đến tối 19/10: Thêm MB, VietinBank, SHB, OCB tham gia",
+      "description": "Nhiều ngân hàng như SHB, MB, VietinBank và OCB vừa công bố giảm lãi suất cho vay, nối tiếp Agribank, Vietcombank, BIDV, ACB, LPBank và VietBank. Mức giảm phổ biến từ 1,5-2%/năm, riêng OCB ưu đãi tới 2,25%/năm đối với một số khoản vay trung, dài hạn.",
+      "source": "CafeF Tài Chính Ngân Hàng",
+      "symbols": [
+        "ACB",
+        "BID",
+        "CTG",
+        "VCB"
+      ],
+      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+      "sentiment_score": 0.1,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/cap-nhat-tinh-hinh-giam-lai-suat-cho-vay-den-toi-19-10-them-mb-vietinbank-shb-ocb-tham-gia-188261019215501635.chn",
+      "published_date": "Mon, 19 Oct 26 21:52:00 +0700"
+    },
+    {
       "title": "SHB công bố giảm lãi suất cho vay tới 2%/năm, triển khai gói tín dụng mới với lãi suất chỉ từ 5%/năm",
       "description": "Hưởng ứng định hướng của Chính phủ và Ngân hàng Nhà nước về giảm mặt bằng lãi suất cho vay, SHB vừa công bố gói tín dụng ưu đãi dành cho khách hàng hoạt động sản xuất kinh doanh bao gồm hộ kinh doanh, doanh nghiệp... với mức lãi suất cho vay giảm 1,5–2%/năm, chỉ từ 5%/năm.",
       "source": "CafeF Tài Chính Ngân Hàng",
@@ -1107,23 +1138,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/mot-co-phieu-ngan-hang-bat-ngo-duoc-tu-doanh-ctck-mua-rong-gan-300-ty-dong-phien-dau-tuan-18826101917203357.chn",
       "published_date": "Mon, 19 Oct 26 17:20:00 +0700"
-    },
-    {
-      "title": "Thị trường vốn làm sao san sẻ gánh nặng với ngân hàng?",
-      "description": "Mục tiêu tăng trưởng cao đòi hỏi nguồn vốn đầu tư lớn. Phát triển thị trường chứng khoán, trái phiếu doanh nghiệp và các kênh vốn dài hạn là hướng đi cần thiết để giảm phụ thuộc vào tín dụng ngân hàng, mở rộng nguồn lực cho nền kinh tế.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/thi-truong-von-lam-sao-san-se-ganh-nang-voi-ngan-hang-188261019155208353.chn",
-      "published_date": "Mon, 19 Oct 26 15:54:00 +0700"
     }
   ]
 }

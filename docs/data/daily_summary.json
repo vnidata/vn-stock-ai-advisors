@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-19 14:34:10 (UTC+7)",
+  "last_updated": "2026-10-19 15:05:55 (UTC+7)",
   "trading_date": "2026-10-19",
   "vnindex": {
     "close": 1689.84,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 1,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-19 14:34:08"
+    "last_scanned": "2026-10-19 15:05:52"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -601,13 +601,13 @@
       {
         "symbol": "TCB",
         "sector": "Banking",
-        "net_sentiment": 0.15,
+        "net_sentiment": 0.18,
         "sentiment_multiplier": 1.2,
         "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
         "status_badge": "pos",
         "latest_headline": "Cập nhật số liệu CTCK chiều 19/10: TCBS lãi kỷ lục, nhiều công ty báo lãi quý 3 “đi lùi\", thậm chí thua lỗ",
         "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
-        "news_count": 6,
+        "news_count": 5,
         "re_eval_note": ""
       }
     ],
@@ -640,11 +640,11 @@
       {
         "symbol": "VCB",
         "sector": "Banking",
-        "net_sentiment": 0.02,
+        "net_sentiment": 0.04,
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Agribank, Vietcombank, BIDV, MB, ACB, Sacombank, LPBank, VietBank, Nam A Bank đồng loạt giảm lãi suất cho vay",
+        "latest_headline": "Cập nhật tình hình giảm lãi suất cho vay đến tối 19/10: Thêm MB, VietinBank, SHB, OCB tham gia",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
         "news_count": 5,
         "re_eval_note": ""
@@ -664,13 +664,13 @@
       {
         "symbol": "ACB",
         "sector": "Banking",
-        "net_sentiment": 0.03,
+        "net_sentiment": 0.04,
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Agribank, Vietcombank, BIDV, MB, ACB, Sacombank, LPBank, VietBank, Nam A Bank đồng loạt giảm lãi suất cho vay",
+        "latest_headline": "Cập nhật tình hình giảm lãi suất cho vay đến tối 19/10: Thêm MB, VietinBank, SHB, OCB tham gia",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 4,
+        "news_count": 5,
         "re_eval_note": ""
       },
       {
@@ -871,7 +871,7 @@
       "quant_criteria": "Vốn hóa số 1, trụ đỡ tâm lý điều tiết thị trường, sức khỏe tài chính chuẩn mực Basel III.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Agribank, Vietcombank, BIDV, MB, ACB, Sacombank, LPBank, VietBank, Nam A Bank đồng loạt giảm lãi suất cho vay"
+      "latest_headline": "Cập nhật tình hình giảm lãi suất cho vay đến tối 19/10: Thêm MB, VietinBank, SHB, OCB tham gia"
     },
     {
       "symbol": "MBB",
@@ -955,7 +955,7 @@
       "quant_criteria": "ROE ổn định 22-25%, hồ sơ rủi ro tín dụng sạch, cổ tức tiền mặt và cổ phiếu đều đặn hàng năm.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Agribank, Vietcombank, BIDV, MB, ACB, Sacombank, LPBank, VietBank, Nam A Bank đồng loạt giảm lãi suất cho vay"
+      "latest_headline": "Cập nhật tình hình giảm lãi suất cho vay đến tối 19/10: Thêm MB, VietinBank, SHB, OCB tham gia"
     },
     {
       "symbol": "SSI",
@@ -1247,7 +1247,7 @@
           "news_badge": "pos",
           "news_headline": "Cập nhật số liệu CTCK chiều 19/10: TCBS lãi kỷ lục, nhiều công ty báo lãi quý 3 “đi lùi\", thậm chí thua lỗ",
           "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
-          "news_score": 0.15
+          "news_score": 0.18
         },
         {
           "symbol": "MSN",
@@ -1343,7 +1343,7 @@
           "news_badge": "pos",
           "news_headline": "Cập nhật số liệu CTCK chiều 19/10: TCBS lãi kỷ lục, nhiều công ty báo lãi quý 3 “đi lùi\", thậm chí thua lỗ",
           "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
-          "news_score": 0.15
+          "news_score": 0.18
         },
         {
           "symbol": "MSN",
@@ -1453,7 +1453,7 @@
           "news_badge": "pos",
           "news_headline": "Cập nhật số liệu CTCK chiều 19/10: TCBS lãi kỷ lục, nhiều công ty báo lãi quý 3 “đi lùi\", thậm chí thua lỗ",
           "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
-          "news_score": 0.15
+          "news_score": 0.18
         },
         {
           "symbol": "MSN",
@@ -1601,9 +1601,9 @@
           "technical_signal": "THẮT CHẶT BIÊN ĐỘ (VCP) | Biên độ co thắt Bollinger Squeeze cực hẹp | Cạn cung chờ bùng nổ | Vol 1.4x",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Agribank, Vietcombank, BIDV, MB, ACB, Sacombank, LPBank, VietBank, Nam A Bank đồng loạt giảm lãi suất cho vay",
+          "news_headline": "Cập nhật tình hình giảm lãi suất cho vay đến tối 19/10: Thêm MB, VietinBank, SHB, OCB tham gia",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
-          "news_score": 0.02
+          "news_score": 0.04
         },
         {
           "symbol": "MBB",
@@ -1655,9 +1655,9 @@
           "technical_signal": "ĐẢO CHIỀU PHÂN KỲ | Hồi phục từ vùng quá bán kỹ thuật (RSI 29) | Phân kỳ động lượng dương MACD/RSI",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Agribank, Vietcombank, BIDV, MB, ACB, Sacombank, LPBank, VietBank, Nam A Bank đồng loạt giảm lãi suất cho vay",
+          "news_headline": "Cập nhật tình hình giảm lãi suất cho vay đến tối 19/10: Thêm MB, VietinBank, SHB, OCB tham gia",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
-          "news_score": 0.03
+          "news_score": 0.04
         }
       ],
       "news_notes": {
