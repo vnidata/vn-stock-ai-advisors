@@ -1,8 +1,8 @@
 {
-  "last_updated": "2026-10-19 07:20:21",
+  "last_updated": "2026-10-19 08:29:32",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
-  "catalysts_detected": 0,
+  "catalysts_detected": 1,
   "system_verdict": "AN TOÀN",
   "symbols_sentiment": {
     "FPT": {
@@ -118,16 +118,25 @@
     "TCB": {
       "symbol": "TCB",
       "news_count": 6,
-      "net_sentiment": 0.0,
-      "status": "THÔNG TIN ỔN ĐỊNH",
-      "status_badge": "neutral",
+      "net_sentiment": 0.15,
+      "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
+      "status_badge": "pos",
       "has_red_flag": false,
-      "has_catalyst": false,
-      "latest_headline": "TCBS báo lãi quý 3/2026 cao nhất lịch sử, lợi nhuận vượt 2.100 tỷ đồng",
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Duy trì tỷ trọng khuyến nghị",
-      "sentiment_multiplier": 1.0,
+      "has_catalyst": true,
+      "latest_headline": "Cập nhật số liệu CTCK chiều 19/10: TCBS lãi kỷ lục, nhiều công ty báo lãi quý 3 “đi lùi\", thậm chí thua lỗ",
+      "re_eval_action": "STRONG_BUY_CATALYST",
+      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
+      "sentiment_multiplier": 1.2,
       "related_news": [
+        {
+          "title": "Cập nhật số liệu CTCK chiều 19/10: TCBS lãi kỷ lục, nhiều công ty báo lãi quý 3 “đi lùi\", thậm chí thua lỗ",
+          "date": "Mon, 19 Oct 26 15:06:00 +0700",
+          "source": "CafeF Thị Trường",
+          "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
+          "sentiment_score": 0.9,
+          "sentiment_label": "TÍCH CỰC MẠNH",
+          "link": "https://cafef.vn/cap-nhat-so-lieu-ctck-chieu-19-10-tcbs-lai-ky-luc-nhieu-cong-ty-bao-lai-quy-3-di-lui-tham-chi-thua-lo-18826101915062409.chn"
+        },
         {
           "title": "TCBS báo lãi quý 3/2026 cao nhất lịch sử, lợi nhuận vượt 2.100 tỷ đồng",
           "date": "Mon, 19 Oct 26 08:00:00 +0700",
@@ -136,15 +145,6 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/tcbs-bao-lai-quy-3-2026-cao-nhat-lich-su-loi-nhuan-vuot-2100-ty-dong-18826101821571957.chn"
-        },
-        {
-          "title": "Cập nhật BCTC quý 3/2026 sáng ngày 19/10: VPBank lập kỷ lục, TCBS lãi hơn 2.000 tỷ đồng",
-          "date": "Mon, 19 Oct 26 09:40:00 +0700",
-          "source": "CafeF Doanh Nghiệp (CBTT)",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/cap-nhat-bctc-quy-3-2026-ngay-19-10-haxaco-lai-sau-thue-9-thang-gap-40-lan-cung-ky-nhua-binh-minh-lai-truoc-thue-gan-400-ty-dong-188261019000121302.chn"
         },
         {
           "title": "Ngày 19/10, gửi 200 triệu đồng tại ACB, MB, VPBank, Techcombank và SHB nhận bao nhiêu tiền lãi sau 12 tháng?",
@@ -408,6 +408,25 @@
   },
   "recent_articles": [
     {
+      "title": "Ông Đặng Phan Tường bị khởi tố, doanh nghiệp công bố thông tin quan trọng",
+      "description": "HĐQT trình cổ đông xem xét miễn nhiệm ông Đặng Phan Tường, đồng thời bầu bổ sung thành viên HĐQT nhiệm kỳ 2026-2031.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
+      "sentiment_score": -1.0,
+      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
+      "sentiment_badge": "neg-danger",
+      "is_red_flag": true,
+      "is_catalyst": false,
+      "triggers_found": [
+        "khởi tố"
+      ],
+      "re_eval_action": "VETO_REJECT",
+      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
+      "link": "https://cafef.vn/ong-dang-phan-tuong-bi-khoi-to-doanh-nghiep-cong-bo-thong-tin-quan-trong-188261019144019166.chn",
+      "published_date": "Mon, 19 Oct 26 14:50:00 +0700"
+    },
+    {
       "title": "Cao su Đà Nẵng thay đổi nhân sự sau khi Tổng giám đốc bị khởi tố",
       "description": "Tổng giám đốc Lê Hoàng Khánh Nhựt bị khởi tố về tội tham ô tài sản. Ngay sau đó, Cao su Đà Nẵng có sự thay đổi nhân sự.",
       "source": "CafeF Thị Trường",
@@ -463,6 +482,27 @@
       "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
       "link": "https://cafef.vn/bat-tam-giam-ton-bang-chong-cu-hang-du-muc-188261018155851677.chn",
       "published_date": "Sun, 18 Oct 26 16:14:00 +0700"
+    },
+    {
+      "title": "Cập nhật số liệu CTCK chiều 19/10: TCBS lãi kỷ lục, nhiều công ty báo lãi quý 3 “đi lùi\", thậm chí thua lỗ",
+      "description": "Mùa báo cáo tài chính quý 3/2026 của ngành chứng khoán tiếp tục nóng lên với sự xuất hiện của hàng loạt tên tuổi mới.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "TCB"
+      ],
+      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
+      "sentiment_score": 0.9,
+      "sentiment_label": "TÍCH CỰC MẠNH",
+      "sentiment_badge": "pos",
+      "is_red_flag": false,
+      "is_catalyst": true,
+      "triggers_found": [
+        "lãi kỷ lục"
+      ],
+      "re_eval_action": "STRONG_BUY_CATALYST",
+      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
+      "link": "https://cafef.vn/cap-nhat-so-lieu-ctck-chieu-19-10-tcbs-lai-ky-luc-nhieu-cong-ty-bao-lai-quy-3-di-lui-tham-chi-thua-lo-18826101915062409.chn",
+      "published_date": "Mon, 19 Oct 26 15:06:00 +0700"
     },
     {
       "title": "Sáng 19/10: Đã có 5 ngân hàng công bố lợi nhuận 9 tháng, nhà băng tư nhân lớn nhất hệ thống lãi kỷ lục",
@@ -686,6 +726,23 @@
       "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
       "link": "https://vnexpress.net/doanh-nghiep-san-xuat-oto-trong-nuoc-bao-lo-15-nam-lien-tiep-5133651.html",
       "published_date": "Sun, 18 Oct 2026 04:06:17 +0700"
+    },
+    {
+      "title": "Tổng giám đốc Nam A Bank: Yêu cầu hạ mặt bằng lãi suất là thông điệp quan trọng của NHNN về kỷ luật thị trường",
+      "description": "Ngay hôm nay 19/10, Nam A Bank thực hiện giảm lãi suất theo chỉ đạo của Chính phủ và NHNN. Theo TGĐ Nam A Bank Trần Khải Hoàn, với triết lý văn hóa trà, con người Nam A Bank Khoan, Cung, Tín, Mẫn, Huệ - luôn lấy sự chỉn chu, điềm tĩnh và chân thành làm gốc trong mọi hành xử.",
+      "source": "CafeF Tài Chính Ngân Hàng",
+      "symbols": [],
+      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+      "sentiment_score": 0.1,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/tong-giam-doc-nam-a-bank-yeu-cau-ha-mat-bang-lai-suat-la-thong-diep-quan-trong-cua-nhnn-ve-ky-luat-thi-truong-188261019150341727.chn",
+      "published_date": "Mon, 19 Oct 26 15:03:00 +0700"
     },
     {
       "title": "Agribank, Vietcombank, BIDV, ACB, Sacombank, LPBank, VietBank đồng loạt giảm lãi suất cho vay",
@@ -1005,6 +1062,23 @@
       "published_date": "Sat, 17 Oct 2026 01:30:00 +0700"
     },
     {
+      "title": "Bệnh viện TNH muốn phát hành 220 tỷ đồng trái phiếu chuyển đổi để cơ cấu nợ",
+      "description": "TNH trình cổ đông kế hoạch phát hành 220 tỷ đồng trái phiếu chuyển đổi, không kèm chứng quyền và không có tài sản bảo đảm.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/benh-vien-tnh-muon-phat-hanh-220-ty-dong-trai-phieu-chuyen-doi-de-co-cau-no-188261019150607959.chn",
+      "published_date": "Mon, 19 Oct 26 15:05:00 +0700"
+    },
+    {
       "title": "VN-Index giảm 4 tuần, dòng tiền tìm cơ hội ở đâu?",
       "description": "VN-Index kết thúc bốn tuần gần đây đều giảm điểm, trong khi thanh khoản suy yếu và khối ngoại bán ròng. Các chuyên gia chứng khoán đặt vùng 1.650 điểm vào trọng tâm theo dõi, đồng thời khuyến nghị nhà đầu tư lựa chọn cổ phiếu theo kết quả kinh doanh thay vì chạy theo sóng ngành.",
       "source": "CafeF Thị Trường",
@@ -1071,76 +1145,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/novaland-phat-thong-bao-quan-trong-188261019112902975.chn",
       "published_date": "Mon, 19 Oct 26 11:28:00 +0700"
-    },
-    {
-      "title": "Haxaco đảo chiều lợi nhuận trong quý III/2026, nợ phải trả tăng gấp đôi",
-      "description": "Haxaco báo lãi ròng gần 3,6 tỷ đồng trong quý III/2026, đảo chiều so với khoản lỗ cùng kỳ năm trước. Tuy nhiên, tính đến cuối kỳ, tổng nợ phải trả đã tăng gấp đôi so với đầu năm, lên hơn 2.293 tỷ đồng.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/haxaco-dao-chieu-loi-nhuan-trong-quy-iii-2026-no-phai-tra-tang-gap-doi-188261019111030281.chn",
-      "published_date": "Mon, 19 Oct 26 11:10:00 +0700"
-    },
-    {
-      "title": "VN-Index lao dốc 4 tuần liên tiếp, MBS chỉ ra tín hiệu đảo chiều",
-      "description": "MBS ghi nhận một số tín hiệu kỹ thuật đáng chú ý sau nhịp điều chỉnh vừa qua.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/vn-index-lao-doc-4-tuan-lien-tiep-mbs-chi-ra-tin-hieu-dao-chieu-188261019110311456.chn",
-      "published_date": "Mon, 19 Oct 26 11:08:00 +0700"
-    },
-    {
-      "title": "Giá vàng bạc 19/10: SJC, Phú Quý, Doji giữ đà, Bảo Tín Mạnh Hải bất ngờ giảm",
-      "description": "Giá vàng hôm nay tại Phú Quý và DOJI thiết lập mặt bằng mới.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/gia-vang-bac-19-10-sjc-phu-quy-doji-giu-da-bao-tin-manh-hai-bat-ngo-giam-188261019104145773.chn",
-      "published_date": "Mon, 19 Oct 26 10:41:00 +0700"
-    },
-    {
-      "title": "Sau VinFast của ông Phạm Nhật Vượng, một doanh nghiệp Việt gây bất ngờ với loạt xe điện mới, có thể đi hơn 1.000 km",
-      "description": "Bên cạnh việc bán ô tô điện Trung Quốc giá rẻ, doanh nghiệp tiếp tục mở rộng sang lĩnh vực xe tải và xe van điện.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "VIC"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/sau-vinfast-cua-ong-pham-nhat-vuong-mot-doanh-nghiep-viet-gay-bat-ngo-voi-loat-xe-dien-moi-co-the-di-hon-1000-km-188261019103543813.chn",
-      "published_date": "Mon, 19 Oct 26 10:35:00 +0700"
     }
   ]
 }
