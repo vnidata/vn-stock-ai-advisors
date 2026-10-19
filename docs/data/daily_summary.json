@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-19 10:06:38 (UTC+7)",
+  "last_updated": "2026-10-19 13:52:11 (UTC+7)",
   "trading_date": "2026-10-19",
   "vnindex": {
     "close": 1689.84,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 1,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-19 10:06:34"
+    "last_scanned": "2026-10-19 13:52:08"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -622,7 +622,7 @@
         "status_badge": "neutral",
         "latest_headline": "Phiên 19/10: Khối ngoại tiếp đà bán ròng 850 tỷ đồng, cổ phiếu nào bị \"xả\" mạnh nhất?",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 2,
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -644,7 +644,7 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Agribank, Vietcombank, BIDV, ACB, Sacombank, LPBank, VietBank đồng loạt giảm lãi suất cho vay",
+        "latest_headline": "Agribank, Vietcombank, BIDV, MB, ACB, Sacombank, LPBank, VietBank, Nam A Bank đồng loạt giảm lãi suất cho vay",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
         "news_count": 5,
         "re_eval_note": ""
@@ -668,7 +668,7 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Agribank, Vietcombank, BIDV, ACB, Sacombank, LPBank, VietBank đồng loạt giảm lãi suất cho vay",
+        "latest_headline": "Agribank, Vietcombank, BIDV, MB, ACB, Sacombank, LPBank, VietBank, Nam A Bank đồng loạt giảm lãi suất cho vay",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
         "news_count": 4,
         "re_eval_note": ""
@@ -730,7 +730,7 @@
         "status_badge": "neutral",
         "latest_headline": "Vì sao khối ngoại “bên trọng, bên khinh” hai công ty tỷ đô của tỷ phú Nguyễn Đăng Quang: Một bên mua nghìn tỷ MSR, một bên bán mạnh tay MCH?",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 2,
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -871,7 +871,7 @@
       "quant_criteria": "Vốn hóa số 1, trụ đỡ tâm lý điều tiết thị trường, sức khỏe tài chính chuẩn mực Basel III.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Agribank, Vietcombank, BIDV, ACB, Sacombank, LPBank, VietBank đồng loạt giảm lãi suất cho vay"
+      "latest_headline": "Agribank, Vietcombank, BIDV, MB, ACB, Sacombank, LPBank, VietBank, Nam A Bank đồng loạt giảm lãi suất cho vay"
     },
     {
       "symbol": "MBB",
@@ -955,7 +955,7 @@
       "quant_criteria": "ROE ổn định 22-25%, hồ sơ rủi ro tín dụng sạch, cổ tức tiền mặt và cổ phiếu đều đặn hàng năm.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Agribank, Vietcombank, BIDV, ACB, Sacombank, LPBank, VietBank đồng loạt giảm lãi suất cho vay"
+      "latest_headline": "Agribank, Vietcombank, BIDV, MB, ACB, Sacombank, LPBank, VietBank, Nam A Bank đồng loạt giảm lãi suất cho vay"
     },
     {
       "symbol": "SSI",
@@ -1601,7 +1601,7 @@
           "technical_signal": "THẮT CHẶT BIÊN ĐỘ (VCP) | Biên độ co thắt Bollinger Squeeze cực hẹp | Cạn cung chờ bùng nổ | Vol 1.4x",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Agribank, Vietcombank, BIDV, ACB, Sacombank, LPBank, VietBank đồng loạt giảm lãi suất cho vay",
+          "news_headline": "Agribank, Vietcombank, BIDV, MB, ACB, Sacombank, LPBank, VietBank, Nam A Bank đồng loạt giảm lãi suất cho vay",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.02
         },
@@ -1655,7 +1655,7 @@
           "technical_signal": "ĐẢO CHIỀU PHÂN KỲ | Hồi phục từ vùng quá bán kỹ thuật (RSI 29) | Phân kỳ động lượng dương MACD/RSI",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Agribank, Vietcombank, BIDV, ACB, Sacombank, LPBank, VietBank đồng loạt giảm lãi suất cho vay",
+          "news_headline": "Agribank, Vietcombank, BIDV, MB, ACB, Sacombank, LPBank, VietBank, Nam A Bank đồng loạt giảm lãi suất cho vay",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.03
         }
