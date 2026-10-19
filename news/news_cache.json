@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-19 08:29:32",
+  "last_updated": "2026-10-19 10:06:34",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 1,
@@ -7,17 +7,26 @@
   "symbols_sentiment": {
     "FPT": {
       "symbol": "FPT",
-      "news_count": 1,
+      "news_count": 2,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Chứng khoán tuần qua: Thị trường hồi phục phiên cuối tuần, khối ngoại vẫn miệt mài thoát hàng",
+      "latest_headline": "Phiên 19/10: Khối ngoại tiếp đà bán ròng 850 tỷ đồng, cổ phiếu nào bị \"xả\" mạnh nhất?",
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Duy trì tỷ trọng khuyến nghị",
       "sentiment_multiplier": 1.0,
       "related_news": [
+        {
+          "title": "Phiên 19/10: Khối ngoại tiếp đà bán ròng 850 tỷ đồng, cổ phiếu nào bị \"xả\" mạnh nhất?",
+          "date": "Mon, 19 Oct 26 15:45:00 +0700",
+          "source": "CafeF Thị Trường",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/phien-19-10-khoi-ngoai-tiep-da-ban-rong-850-ty-dong-co-phieu-nao-bi-xa-manh-nhat-188261019152922139.chn"
+        },
         {
           "title": "Chứng khoán tuần qua: Thị trường hồi phục phiên cuối tuần, khối ngoại vẫn miệt mài thoát hàng",
           "date": "Sun, 18 Oct 26 08:03:00 +0700",
@@ -265,27 +274,16 @@
     },
     "VHM": {
       "symbol": "VHM",
-      "news_count": 1,
+      "news_count": 0,
       "net_sentiment": 0.0,
-      "status": "THÔNG TIN ỔN ĐỊNH",
+      "status": "THÔNG TIN BÌNH ỔN",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Vingroup giảm nửa tiền thuê đất, mở rộng nhà cung cấp trong nước",
+      "latest_headline": "Không có thông tin bất thường gần đây",
       "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Duy trì tỷ trọng khuyến nghị",
-      "sentiment_multiplier": 1.0,
-      "related_news": [
-        {
-          "title": "Vingroup giảm nửa tiền thuê đất, mở rộng nhà cung cấp trong nước",
-          "date": "Fri, 16 Oct 2026 16:50:27 +0700",
-          "source": "VnExpress Kinh Doanh",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://vnexpress.net/vingroup-giam-nua-tien-thue-dat-mo-rong-nha-cung-cap-trong-nuoc-5133181.html"
-        }
-      ]
+      "action_desc": "Duy trì khuyến nghị định lượng gốc",
+      "sentiment_multiplier": 1.0
     },
     "MWG": {
       "symbol": "MWG",
@@ -427,25 +425,6 @@
       "published_date": "Mon, 19 Oct 26 14:50:00 +0700"
     },
     {
-      "title": "Cao su Đà Nẵng thay đổi nhân sự sau khi Tổng giám đốc bị khởi tố",
-      "description": "Tổng giám đốc Lê Hoàng Khánh Nhựt bị khởi tố về tội tham ô tài sản. Ngay sau đó, Cao su Đà Nẵng có sự thay đổi nhân sự.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
-      "sentiment_score": -1.0,
-      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
-      "sentiment_badge": "neg-danger",
-      "is_red_flag": true,
-      "is_catalyst": false,
-      "triggers_found": [
-        "khởi tố"
-      ],
-      "re_eval_action": "VETO_REJECT",
-      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
-      "link": "https://cafef.vn/cao-su-da-nang-thay-doi-nhan-su-sau-khi-tong-giam-doc-bi-khoi-to-188261017172522462.chn",
-      "published_date": "Sun, 18 Oct 26 00:06:00 +0700"
-    },
-    {
       "title": "Cận cảnh khám xét kho hàng khiến Tôn Bằng - chồng cũ Hằng Du Mục bị bắt",
       "description": "Khám xét kho hàng của Công ty Dịch Dương do Tôn Bằng làm người đại diện pháp luật, công an phát hiện 28.794 kg táo đỏ thương hiệu “Hằng Du Mục”.",
       "source": "CafeF Doanh Nghiệp (CBTT)",
@@ -526,25 +505,6 @@
       "published_date": "Mon, 19 Oct 26 10:03:00 +0700"
     },
     {
-      "title": "Công ty 'đứng sau' sàn tiền số ONUS bị nghi ngờ khả năng hoạt động liên tục",
-      "description": "Trong báo cáo bán niên, kiểm toán nghi ngờ về khả năng hoạt động liên tục của HVA Group - đối tác chiến lược của sàn tiền số ONUS.",
-      "source": "VnExpress Kinh Doanh",
-      "symbols": [],
-      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
-      "sentiment_score": -0.9,
-      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
-      "sentiment_badge": "neg-danger",
-      "is_red_flag": true,
-      "is_catalyst": false,
-      "triggers_found": [
-        "nghi ngờ khả năng hoạt động liên tục"
-      ],
-      "re_eval_action": "VETO_REJECT",
-      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
-      "link": "https://vnexpress.net/cong-ty-dung-sau-san-tien-so-onus-bi-nghi-ngo-kha-nang-hoat-dong-lien-tuc-5133175.html",
-      "published_date": "Fri, 16 Oct 2026 16:56:23 +0700"
-    },
-    {
       "title": "Công ty của nữ Chủ tịch sinh năm 1999 được dự báo lãi hơn 1.100 tỷ đồng năm 2026",
       "description": "Với vị thế là một trong những nhà thầu EPC lớn trong lĩnh vực xây lắp điện, Mirae Asset kỳ vọng PC1 có thể gia tăng giá trị hợp đồng trúng thầu và lượng công việc chưa thực hiện.",
       "source": "CafeF Thị Trường",
@@ -623,26 +583,6 @@
       "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
       "link": "https://cafef.vn/co-phieu-vpg-bi-chuyen-sang-dien-han-che-giao-dich-188261018151457076.chn",
       "published_date": "Sun, 18 Oct 26 15:14:00 +0700"
-    },
-    {
-      "title": "Lịch chốt quyền cổ tức tuần 19-23/10: Cổ tức tiền mặt cao nhất 30%",
-      "description": "Tuần này có 10 doanh nghiệp trả cổ tức bằng tiền mặt, mức cao nhất là 30% và thấp nhất là gần 5%.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
-      "sentiment_score": 0.7,
-      "sentiment_label": "TÍCH CỰC MẠNH",
-      "sentiment_badge": "pos",
-      "is_red_flag": false,
-      "is_catalyst": true,
-      "triggers_found": [
-        "cổ tức tiền mặt",
-        "chốt quyền cổ tức"
-      ],
-      "re_eval_action": "STRONG_BUY_CATALYST",
-      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
-      "link": "https://cafef.vn/lich-chot-quyen-co-tuc-tuan-19-23-10-co-tuc-tien-mat-cao-nhat-30-188261016155349168.chn",
-      "published_date": "Sun, 18 Oct 26 00:04:00 +0700"
     },
     {
       "title": "Một công ty chốt trả cổ tức tiền mặt 30% ngay tuần này, lợi nhuận quý 3 tăng hơn 300%",
@@ -726,6 +666,25 @@
       "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
       "link": "https://vnexpress.net/doanh-nghiep-san-xuat-oto-trong-nuoc-bao-lo-15-nam-lien-tiep-5133651.html",
       "published_date": "Sun, 18 Oct 2026 04:06:17 +0700"
+    },
+    {
+      "title": "Thêm \"ông lớn\" VietinBank giảm 2%/năm lãi suất cho vay",
+      "description": "VietinBank vừa công bố triển khai các giải pháp giảm lãi suất cho vay tới 2%/năm, tập trung hỗ trợ hoạt động sản xuất, kinh doanh và các lĩnh vực ưu tiên.",
+      "source": "CafeF Tài Chính Ngân Hàng",
+      "symbols": [
+        "CTG"
+      ],
+      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+      "sentiment_score": 0.1,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/them-ong-lon-vietinbank-giam-2-nam-lai-suat-cho-vay-188261019161841961.chn",
+      "published_date": "Mon, 19 Oct 26 16:18:00 +0700"
     },
     {
       "title": "Tổng giám đốc Nam A Bank: Yêu cầu hạ mặt bằng lãi suất là thông điệp quan trọng của NHNN về kỷ luật thị trường",
@@ -1011,6 +970,40 @@
       "published_date": "Sat, 17 Oct 26 16:15:00 +0700"
     },
     {
+      "title": "Thống đốc: 'Cần xem xét giảm lãi suất với cả khoản vay cũ'",
+      "description": "Thống đốc yêu cầu các ngân hàng ưu tiên giảm lãi suất cho vay sản xuất kinh doanh và xem xét áp dụng với cả dư nợ hiện hữu thay vì chỉ khoản vay mới.",
+      "source": "VnExpress Kinh Doanh",
+      "symbols": [],
+      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+      "sentiment_score": 0.1,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://vnexpress.net/thong-doc-can-xem-xet-giam-lai-suat-voi-ca-khoan-vay-cu-5134207.html",
+      "published_date": "Mon, 19 Oct 2026 15:09:55 +0700"
+    },
+    {
+      "title": "LPBank giảm lãi suất cho vay hỗ trợ hộ kinh doanh, SME",
+      "description": "LPBank giảm lãi suất cho vay 1,6-2% mỗi năm với các khoản giải ngân mới phục vụ sản xuất, kinh doanh ngắn hạn, đồng thời điều chỉnh giảm lãi suất huy động.",
+      "source": "VnExpress Kinh Doanh",
+      "symbols": [],
+      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+      "sentiment_score": 0.1,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://vnexpress.net/lpbank-giam-lai-suat-cho-vay-ho-tro-ho-kinh-doanh-sme-5134256.html",
+      "published_date": "Mon, 19 Oct 2026 15:30:00 +0700"
+    },
+    {
       "title": "Ngân hàng Nhà nước yêu cầu giảm ít nhất 0,5% lãi suất tiết kiệm",
       "description": "Ngân hàng Nhà nước yêu cầu các nhà băng phải giảm ít nhất 0,5% lãi suất tiền gửi kỳ hạn từ 6 tháng, nếu không sẽ bị siết chỉ tiêu tăng trưởng tín dụng.",
       "source": "VnExpress Kinh Doanh",
@@ -1062,6 +1055,78 @@
       "published_date": "Sat, 17 Oct 2026 01:30:00 +0700"
     },
     {
+      "title": "Thị trường vốn làm sao san sẻ gánh nặng với ngân hàng?",
+      "description": "Mục tiêu tăng trưởng cao đòi hỏi nguồn vốn đầu tư lớn. Phát triển thị trường chứng khoán, trái phiếu doanh nghiệp và các kênh vốn dài hạn là hướng đi cần thiết để giảm phụ thuộc vào tín dụng ngân hàng, mở rộng nguồn lực cho nền kinh tế.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/thi-truong-von-lam-sao-san-se-ganh-nang-voi-ngan-hang-188261019155208353.chn",
+      "published_date": "Mon, 19 Oct 26 15:54:00 +0700"
+    },
+    {
+      "title": "Phú Quý, Bảo Tín Mạnh Hải, Bảo Tín Minh Châu đồng loạt thông báo thay đổi cách thanh toán khi mua bán vàng",
+      "description": "Quy định mới về việc thanh toán không dùng tiền mặt với giao dịch mua - bán vàng có tổng giá trị từ 5 triệu đồng trong ngày trở lên, được áp dụng theo Nghị định số 390/2026/NĐ-CP của Chính phủ.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/phu-quy-bao-tin-manh-hai-bao-tin-minh-chau-dong-loat-thong-bao-thay-doi-cach-thanh-toan-khi-mua-ban-vang-188261019155352563.chn",
+      "published_date": "Mon, 19 Oct 26 15:53:00 +0700"
+    },
+    {
+      "title": "Phiên 19/10: Khối ngoại tiếp đà bán ròng 850 tỷ đồng, cổ phiếu nào bị \"xả\" mạnh nhất?",
+      "description": "Ở chiều mua ròng, FRT dẫn đầu với khoảng 151 tỷ đồng.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "FPT"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/phien-19-10-khoi-ngoai-tiep-da-ban-rong-850-ty-dong-co-phieu-nao-bi-xa-manh-nhat-188261019152922139.chn",
+      "published_date": "Mon, 19 Oct 26 15:45:00 +0700"
+    },
+    {
+      "title": "Novaland kéo dài thời gian chào bán hơn 800 triệu cổ phiếu cho cổ đông",
+      "description": "Novaland kéo dài thời gian chào bán hơn 800 triệu cổ phiếu cho cổ đông tới cuối tháng 11/2026, tức thêm 1 tháng so với thông báo trước đó.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "CHO"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/novaland-keo-dai-thoi-gian-chao-ban-hon-800-trieu-co-phieu-cho-co-dong-188261019144126745.chn",
+      "published_date": "Mon, 19 Oct 26 15:41:00 +0700"
+    },
+    {
       "title": "Bệnh viện TNH muốn phát hành 220 tỷ đồng trái phiếu chuyển đổi để cơ cấu nợ",
       "description": "TNH trình cổ đông kế hoạch phát hành 220 tỷ đồng trái phiếu chuyển đổi, không kèm chứng quyền và không có tài sản bảo đảm.",
       "source": "CafeF Thị Trường",
@@ -1077,74 +1142,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/benh-vien-tnh-muon-phat-hanh-220-ty-dong-trai-phieu-chuyen-doi-de-co-cau-no-188261019150607959.chn",
       "published_date": "Mon, 19 Oct 26 15:05:00 +0700"
-    },
-    {
-      "title": "VN-Index giảm 4 tuần, dòng tiền tìm cơ hội ở đâu?",
-      "description": "VN-Index kết thúc bốn tuần gần đây đều giảm điểm, trong khi thanh khoản suy yếu và khối ngoại bán ròng. Các chuyên gia chứng khoán đặt vùng 1.650 điểm vào trọng tâm theo dõi, đồng thời khuyến nghị nhà đầu tư lựa chọn cổ phiếu theo kết quả kinh doanh thay vì chạy theo sóng ngành.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/vn-index-giam-4-tuan-dong-tien-tim-co-hoi-o-dau-188261019140031316.chn",
-      "published_date": "Mon, 19 Oct 26 14:00:00 +0700"
-    },
-    {
-      "title": "Thị trường chứng khoán chờ cú hích từ hạ tầng giao dịch",
-      "description": "Bức tranh vĩ mô duy trì nhiều điểm sáng, song thị trường chứng khoán Việt Nam giai đoạn cuối năm đang đối diện hai toán lớn cần giải mã là áp lực điều hành chính sách và rủi ro thanh khoản từ đòn bẩy margin.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/thi-truong-chung-khoan-cho-cu-hich-tu-ha-tang-giao-dich-188261019135857125.chn",
-      "published_date": "Mon, 19 Oct 26 13:58:00 +0700"
-    },
-    {
-      "title": "Maybank: Lãi suất cho vay có thể đã đạt đỉnh, Việt Nam có thể giảm chi phí vay nước ngoài",
-      "description": "Trong bối cảnh lãi suất vay trên toàn cầu được dự báo duy trì ở mức cao trong thời gian dài, Maybank cho rằng Việt Nam vẫn có thể giảm chi phí vay nước ngoài một cách căn cơ thông qua việc nâng xếp hạng tín nhiệm quốc gia lên mức đầu tư (Investment Grade).",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/maybank-lai-suat-cho-vay-co-the-da-dat-dinh-viet-nam-co-the-giam-chi-phi-vay-nuoc-ngoai-18826101911155157.chn",
-      "published_date": "Mon, 19 Oct 26 11:40:00 +0700"
-    },
-    {
-      "title": "Novaland phát thông báo quan trọng",
-      "description": "Thông báo này liên quan đến các cổ đông mua cổ phiếu trong đợt chào bán của Novaland.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/novaland-phat-thong-bao-quan-trong-188261019112902975.chn",
-      "published_date": "Mon, 19 Oct 26 11:28:00 +0700"
     }
   ]
 }

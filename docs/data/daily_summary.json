@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-19 08:29:34 (UTC+7)",
+  "last_updated": "2026-10-19 10:06:38 (UTC+7)",
   "trading_date": "2026-10-19",
   "vnindex": {
     "close": 1689.84,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 1,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-19 08:29:32"
+    "last_scanned": "2026-10-19 10:06:34"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -620,9 +620,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Chứng khoán tuần qua: Thị trường hồi phục phiên cuối tuần, khối ngoại vẫn miệt mài thoát hàng",
+        "latest_headline": "Phiên 19/10: Khối ngoại tiếp đà bán ròng 850 tỷ đồng, cổ phiếu nào bị \"xả\" mạnh nhất?",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
+        "news_count": 2,
         "re_eval_note": ""
       },
       {
@@ -702,11 +702,11 @@
         "sector": "RealEstate",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN ỔN ĐỊNH",
+        "status": "THÔNG TIN BÌNH ỔN",
         "status_badge": "neutral",
-        "latest_headline": "Vingroup giảm nửa tiền thuê đất, mở rộng nhà cung cấp trong nước",
-        "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
+        "latest_headline": "Không có thông tin bất thường gần đây",
+        "action_desc": "Duy trì khuyến nghị định lượng gốc",
+        "news_count": 0,
         "re_eval_note": ""
       },
       {
@@ -815,7 +815,7 @@
       "quant_criteria": "Tăng trưởng lợi nhuận EPS 20%+ bền vững 5 năm, tỷ lệ nợ vay thấp, dòng tiền thuần dồi dào.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Chứng khoán tuần qua: Thị trường hồi phục phiên cuối tuần, khối ngoại vẫn miệt mài thoát hàng"
+      "latest_headline": "Phiên 19/10: Khối ngoại tiếp đà bán ròng 850 tỷ đồng, cổ phiếu nào bị \"xả\" mạnh nhất?"
     },
     {
       "symbol": "HPG",
@@ -1037,9 +1037,9 @@
       "ai_radar_action": "Chưa kích hoạt điểm mua an toàn; Tuân thủ kỷ luật 100% tiền mặt phòng thủ",
       "selection_reason": "Nhà phát triển bất động sản quy mô số 1 Việt Nam với quỹ đất sạch lớn nhất cả nước. Khả năng triển khai đại đô thị và tạo lập dòng tiền bàn giao dự án áp đảo thị trường, chi phối mạnh chỉ số VN-Index.",
       "quant_criteria": "Vốn hóa trụ cột Top 3 VN-Index, quỹ đất hàng nghìn ha, đóng góp lớn vào biến động điểm số chỉ số.",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
-      "latest_headline": "Vingroup giảm nửa tiền thuê đất, mở rộng nhà cung cấp trong nước"
+      "latest_headline": "Không có thông tin bất thường gần đây"
     },
     {
       "symbol": "MWG",
