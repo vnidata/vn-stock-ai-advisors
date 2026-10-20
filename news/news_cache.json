@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-20 07:11:45",
+  "last_updated": "2026-10-20 08:11:52",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 1,
@@ -304,7 +304,7 @@
     },
     "VNM": {
       "symbol": "VNM",
-      "news_count": 2,
+      "news_count": 1,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
@@ -323,15 +323,6 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/18-nam-dat-thuong-hieu-quoc-gia-va-hanh-trinh-khong-ngung-nang-chuan-cua-vinamilk-18826101912315757.chn"
-        },
-        {
-          "title": "Vinamilk 18 năm liên tục giữ danh hiệu thương hiệu quốc gia",
-          "date": "Sun, 18 Oct 2026 16:00:00 +0700",
-          "source": "VnExpress Kinh Doanh",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://vnexpress.net/vinamilk-18-nam-lien-tuc-giu-danh-hieu-thuong-hieu-quoc-gia-5133833.html"
         }
       ]
     },
@@ -477,42 +468,23 @@
       "published_date": "Mon, 19 Oct 26 10:03:00 +0700"
     },
     {
-      "title": "Công ty của nữ Chủ tịch sinh năm 1999 được dự báo lãi hơn 1.100 tỷ đồng năm 2026",
-      "description": "Với vị thế là một trong những nhà thầu EPC lớn trong lĩnh vực xây lắp điện, Mirae Asset kỳ vọng PC1 có thể gia tăng giá trị hợp đồng trúng thầu và lượng công việc chưa thực hiện.",
-      "source": "CafeF Thị Trường",
+      "title": "EVN khởi công nhà máy điện khí LNG hơn 40.000 tỷ đồng",
+      "description": "Dự án điện LNG Quảng Trạch II có công suất gần 1.613 MW, tổng mức đầu tư hơn 40.000 tỷ đồng, dự kiến bổ sung sản lượng 9,5 tỷ kWh mỗi năm.",
+      "source": "VnExpress Kinh Doanh",
       "symbols": [],
       "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
-      "sentiment_score": 0.8,
+      "sentiment_score": 0.6,
       "sentiment_label": "TÍCH CỰC MẠNH",
       "sentiment_badge": "pos",
       "is_red_flag": false,
       "is_catalyst": true,
       "triggers_found": [
-        "trúng thầu"
+        "khởi công"
       ],
       "re_eval_action": "STRONG_BUY_CATALYST",
       "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
-      "link": "https://cafef.vn/cong-ty-cua-nu-chu-tich-sinh-nam-1999-duoc-du-bao-lai-hon-1100-ty-dong-nam-2026-188261019103933105.chn",
-      "published_date": "Mon, 19 Oct 26 10:44:00 +0700"
-    },
-    {
-      "title": "Hơn 91% vốn công ty chứng khoán của bà Trương Mỹ Lan sắp được định giá",
-      "description": "Công ty chứng khoán từng được nhắc đến trong kết luận điều tra giai đoạn 2 vụ án Vạn Thịnh Phát.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
-      "sentiment_score": -0.7,
-      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
-      "sentiment_badge": "neg-danger",
-      "is_red_flag": true,
-      "is_catalyst": false,
-      "triggers_found": [
-        "điều tra"
-      ],
-      "re_eval_action": "EMERGENCY_SELL",
-      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
-      "link": "https://cafef.vn/hon-91-von-cong-ty-chung-khoan-cua-ba-truong-my-lan-sap-duoc-dinh-gia-188261019105834598.chn",
-      "published_date": "Mon, 19 Oct 26 10:58:00 +0700"
+      "link": "https://vnexpress.net/evn-khoi-cong-nha-may-dien-khi-lng-hon-40-000-ty-dong-5134576.html",
+      "published_date": "Tue, 20 Oct 2026 13:30:17 +0700"
     },
     {
       "title": "Doanh nghiệp sản xuất ôtô trong nước báo lỗ 15 năm liên tiếp",
@@ -893,6 +865,42 @@
       "published_date": "Sun, 18 Oct 2026 17:33:09 +0700"
     },
     {
+      "title": "Giá vàng miếng, vàng nhẫn sáng 20/10: Đồng loạt giảm sâu",
+      "description": "Giá vàng trong nước hôm nay đồng loạt giảm mạnh, vàng miếng SJC và vàng nhẫn giảm hơn 1 triệu đồng mỗi lượng.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/gia-vang-mieng-vang-nhan-sang-20-10-dong-loat-giam-sau-188261020144649979.chn",
+      "published_date": "Tue, 20 Oct 26 14:46:00 +0700"
+    },
+    {
+      "title": "VPBankS đạt lợi nhuận hơn 3.500 tỷ đồng sau 9 tháng, tăng 8% cùng kỳ",
+      "description": "Kết quả được ghi nhận trong bối cảnh thị trường chứng khoán diễn biến phức tạp và thanh khoản suy giảm.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "VPB"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/vpbanks-dat-loi-nhuan-hon-3500-ty-dong-sau-9-thang-tang-8-cung-ky-188261020144125119.chn",
+      "published_date": "Tue, 20 Oct 26 14:40:00 +0700"
+    },
+    {
       "title": "5 nữ doanh nhân đình đám lọt Danh sách 100 phụ nữ quyền lực nhất châu Á năm 2026 của Fortune",
       "description": "Danh sách 100 phụ nữ quyền lực nhất châu Á năm 2026 của Fortune có sự góp mặt của 5 đại diện Việt Nam là những nữ doanh nhân đình đám.",
       "source": "CafeF Thị Trường",
@@ -1080,23 +1088,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/cong-ty-vang-sjc-co-tong-giam-doc-moi-tung-la-pho-giam-doc-so-cong-thuong-tphcm-18826102010102688.chn",
       "published_date": "Tue, 20 Oct 26 10:11:00 +0700"
-    },
-    {
-      "title": "Tình trạng bán tháo \"hoảng loạn\" lan rộng trên thị trường Indonesia trước nguy cơ bị loại khỏi chỉ số MSCI",
-      "description": "Thị trường vốn Indonesia chịu sức ép nặng nề trong phiên giao dịch ngày thứ Hai 19/10, khi thị trường chứng khoán ghi nhận đợt lao dốc kỷ lục trong hai ngày liên tiếp sau cảnh báo có nguy cơ bị MSCI loại khỏi nhóm thị trường mới nổi. Động thái này khiến các nhà đầu tư hoảng sợ, gia tăng áp lực buộc Jakarta phải phản ứng trước những quan ngại kéo dài của đơn vị cung cấp chỉ số này.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/tinh-trang-ban-thao-hoang-loan-lan-rong-tren-thi-truong-indonesia-truoc-nguy-co-bi-loai-khoi-chi-so-msci-188261020094118036.chn",
-      "published_date": "Tue, 20 Oct 26 09:40:00 +0700"
     }
   ]
 }

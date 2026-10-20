@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-20 07:11:45",
+  "last_updated": "2026-10-20 08:11:53",
   "deployment_date": "2026-01-01",
   "positions": {
     "AI_Advisor_BenBi_3M": [],
@@ -9,9 +9,9 @@
         "shares": 112396600,
         "entry_price": 32.39,
         "entry_date": "2026-09-10",
-        "current_price": 33.65,
+        "current_price": 33.95,
         "holding_days": 28,
-        "current_return_pct": 3.89,
+        "current_return_pct": 4.82,
         "weight_pct": 28.6,
         "sector": "Banking"
       },
@@ -20,9 +20,9 @@
         "shares": 52003600,
         "entry_price": 70.77,
         "entry_date": "2026-10-02",
-        "current_price": 73.3,
+        "current_price": 73.6,
         "holding_days": 12,
-        "current_return_pct": 3.57,
+        "current_return_pct": 4.0,
         "weight_pct": 30.7,
         "sector": "Consumer"
       },
@@ -31,9 +31,9 @@
         "shares": 46658000,
         "entry_price": 78.88,
         "entry_date": "2026-10-02",
-        "current_price": 76.3,
+        "current_price": 76.4,
         "holding_days": 12,
-        "current_return_pct": -3.27,
+        "current_return_pct": -3.14,
         "weight_pct": 30.5,
         "sector": "Energy"
       }
@@ -44,9 +44,9 @@
         "shares": 89745100,
         "entry_price": 32.4,
         "entry_date": "2026-09-10",
-        "current_price": 33.65,
+        "current_price": 33.95,
         "holding_days": 28,
-        "current_return_pct": 3.86,
+        "current_return_pct": 4.78,
         "weight_pct": 28.6,
         "sector": "Banking"
       },
@@ -55,9 +55,9 @@
         "shares": 41601500,
         "entry_price": 70.77,
         "entry_date": "2026-10-02",
-        "current_price": 73.3,
+        "current_price": 73.6,
         "holding_days": 12,
-        "current_return_pct": 3.57,
+        "current_return_pct": 4.0,
         "weight_pct": 30.7,
         "sector": "Consumer"
       },
@@ -66,9 +66,9 @@
         "shares": 33095000,
         "entry_price": 78.88,
         "entry_date": "2026-10-02",
-        "current_price": 76.3,
+        "current_price": 76.4,
         "holding_days": 12,
-        "current_return_pct": -3.27,
+        "current_return_pct": -3.14,
         "weight_pct": 27.1,
         "sector": "Energy"
       }
@@ -79,9 +79,9 @@
         "shares": 98002300,
         "entry_price": 32.39,
         "entry_date": "2026-09-10",
-        "current_price": 33.65,
+        "current_price": 33.95,
         "holding_days": 28,
-        "current_return_pct": 3.89,
+        "current_return_pct": 4.82,
         "weight_pct": 28.6,
         "sector": "Banking"
       },
@@ -90,9 +90,9 @@
         "shares": 45341600,
         "entry_price": 70.77,
         "entry_date": "2026-10-02",
-        "current_price": 73.3,
+        "current_price": 73.6,
         "holding_days": 12,
-        "current_return_pct": 3.57,
+        "current_return_pct": 4.0,
         "weight_pct": 30.7,
         "sector": "Consumer"
       },
@@ -101,9 +101,9 @@
         "shares": 40680800,
         "entry_price": 78.88,
         "entry_date": "2026-10-02",
-        "current_price": 76.3,
+        "current_price": 76.4,
         "holding_days": 12,
-        "current_return_pct": -3.27,
+        "current_return_pct": -3.14,
         "weight_pct": 30.5,
         "sector": "Energy"
       }
@@ -114,9 +114,9 @@
         "shares": 20000200,
         "entry_price": 75.28,
         "entry_date": "2026-10-07",
-        "current_price": 73.3,
+        "current_price": 73.6,
         "holding_days": 9,
-        "current_return_pct": -2.63,
+        "current_return_pct": -2.23,
         "weight_pct": 19.6,
         "sector": "Consumer"
       },
@@ -125,9 +125,9 @@
         "shares": 19558100,
         "entry_price": 76.98,
         "entry_date": "2026-10-07",
-        "current_price": 74.2,
+        "current_price": 74.9,
         "holding_days": 9,
-        "current_return_pct": -3.61,
+        "current_return_pct": -2.7,
         "weight_pct": 19.5,
         "sector": "Retail"
       },
@@ -136,9 +136,9 @@
         "shares": 26294000,
         "entry_price": 57.26,
         "entry_date": "2026-10-07",
-        "current_price": 55.7,
+        "current_price": 55.8,
         "holding_days": 9,
-        "current_return_pct": -2.72,
+        "current_return_pct": -2.55,
         "weight_pct": 19.6,
         "sector": "Banking"
       },
@@ -147,9 +147,9 @@
         "shares": 78744500,
         "entry_price": 19.12,
         "entry_date": "2026-10-07",
-        "current_price": 19.55,
+        "current_price": 19.65,
         "holding_days": 9,
-        "current_return_pct": 2.25,
+        "current_return_pct": 2.77,
         "weight_pct": 19.6,
         "sector": "Banking"
       },
@@ -158,9 +158,9 @@
         "shares": 72833900,
         "entry_price": 20.67,
         "entry_date": "2026-10-07",
-        "current_price": 20.3,
+        "current_price": 20.25,
         "holding_days": 9,
-        "current_return_pct": -1.79,
+        "current_return_pct": -2.03,
         "weight_pct": 19.6,
         "sector": "Banking"
       }
