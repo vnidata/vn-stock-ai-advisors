@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-20 08:11:52",
+  "last_updated": "2026-10-20 09:32:56",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 1,
@@ -506,6 +506,25 @@
       "published_date": "Sun, 18 Oct 2026 04:06:17 +0700"
     },
     {
+      "title": "Một ngân hàng Big4 vừa giảm lãi suất sáng, chiều tăng trở lại",
+      "description": "VietinBank bất ngờ đưa lãi suất huy động tại quầy về mức trước điều chỉnh trong chiều 20/10, sau khi biểu lãi suất cập nhật vào buổi sáng ghi nhận mức giảm 0,5 điểm %/năm ở các kỳ hạn từ 6 tháng trở lên.",
+      "source": "CafeF Tài Chính Ngân Hàng",
+      "symbols": [
+        "CTG"
+      ],
+      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+      "sentiment_score": 0.1,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/mot-ngan-hang-big4-vua-giam-lai-suat-sang-chieu-tang-tro-lai-188261020152407888.chn",
+      "published_date": "Tue, 20 Oct 26 15:22:00 +0700"
+    },
+    {
       "title": "Ngân hàng có nhiều tiền gửi nhất hệ thống vừa giảm lãi suất tiết kiệm",
       "description": "Agribank vừa điều chỉnh giảm lãi suất tiền gửi tại quầy đối với các kỳ hạn từ 6 tháng trở lên, đưa mức lãi suất cao nhất xuống còn 5,5%/năm, giảm 0,5 điểm % so với trước đó.",
       "source": "CafeF Tài Chính Ngân Hàng",
@@ -865,6 +884,42 @@
       "published_date": "Sun, 18 Oct 2026 17:33:09 +0700"
     },
     {
+      "title": "Khối ngoại \"rót\" gần 350 tỷ gom một cổ phiếu ngân hàng phiên 20/10",
+      "description": "Giao dịch của khối ngoại là điểm trừ khi bán ròng khoảng 275 tỷ đồng cổ phiếu trên toàn thị trường.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/khoi-ngoai-rot-gan-350-ty-gom-mot-co-phieu-ngan-hang-phien-20-10-188261020153015436.chn",
+      "published_date": "Tue, 20 Oct 26 15:45:00 +0700"
+    },
+    {
+      "title": "PNJ “cháy hàng” ngay trước giờ G",
+      "description": "Giữa lúc thị trường chứng khoán chịu áp lực điều chỉnh, cổ phiếu PNJ bất ngờ bứt phá lên mức giá trần với thanh khoản tăng đột biến.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "PNJ"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/pnj-chay-hang-ngay-truoc-gio-g-188261020151121683.chn",
+      "published_date": "Tue, 20 Oct 26 15:11:00 +0700"
+    },
+    {
       "title": "Giá vàng miếng, vàng nhẫn sáng 20/10: Đồng loạt giảm sâu",
       "description": "Giá vàng trong nước hôm nay đồng loạt giảm mạnh, vàng miếng SJC và vàng nhẫn giảm hơn 1 triệu đồng mỗi lượng.",
       "source": "CafeF Thị Trường",
@@ -1035,59 +1090,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/mua-vang-bang-vi-dien-tu-luat-da-cho-phep-vi-sao-nhieu-tiem-vang-van-tu-choi-188261020094646139.chn",
       "published_date": "Tue, 20 Oct 26 10:47:00 +0700"
-    },
-    {
-      "title": "20/10 năm ngoái: Chứng khoán Việt Nam giảm 95 điểm",
-      "description": "Bối cảnh thị trường ở thời điểm hiện tại đã khác rất nhiều so với thời điểm một năm trước.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/20-10-nam-ngoai-chung-khoan-viet-nam-giam-95-diem-18826102010410618.chn",
-      "published_date": "Tue, 20 Oct 26 10:45:00 +0700"
-    },
-    {
-      "title": "Chứng khoán VIX báo lãi quý 3 giảm “sốc” 94%, dư nợ margin giảm 1.500 tỷ sau một quý",
-      "description": "Lợi nhuận sau thuế quý 3 bốc hơi mạnh trong bối cảnh doanh thu tự doanh suy giảm và chi phí đánh giá lại tài sản tài chính tăng mạnh.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/chung-khoan-vix-bao-lai-quy-3-giam-soc-94-du-no-margin-giam-1500-ty-sau-mot-quy-188261020102826921.chn",
-      "published_date": "Tue, 20 Oct 26 10:28:00 +0700"
-    },
-    {
-      "title": "Công ty vàng SJC có Tổng Giám đốc mới, từng là Phó Giám đốc Sở Công Thương TPHCM",
-      "description": "Ông Nguyễn Trường Thi, Phó Giám đốc Sở Công Thương TPHCM, được điều động, bổ nhiệm làm thành viên không chuyên trách Hội đồng thành viên kiêm Tổng Giám đốc Công ty TNHH Một thành viên Vàng bạc đá quý Sài Gòn (SJC).",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "SJC"
-      ],
-      "category": "CÔNG BỐ THÔNG TIN ĐỊNH KỲ",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/cong-ty-vang-sjc-co-tong-giam-doc-moi-tung-la-pho-giam-doc-so-cong-thuong-tphcm-18826102010102688.chn",
-      "published_date": "Tue, 20 Oct 26 10:11:00 +0700"
     }
   ]
 }
