@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-20 12:00:26",
+  "last_updated": "2026-10-20 12:40:40",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 1,
@@ -813,6 +813,23 @@
       "published_date": "Mon, 19 Oct 26 10:32:00 +0700"
     },
     {
+      "title": "MB giảm tới 2% lãi suất cho vay hỗ trợ doanh nghiệp",
+      "description": "MB giảm lãi suất cho vay 1,5% một năm với 5 lĩnh vực ưu tiên, một số trường hợp được giảm đến 2%, nhằm hỗ trợ doanh nghiệp giảm chi phí vốn trong những tháng cuối năm.",
+      "source": "VnExpress Kinh Doanh",
+      "symbols": [],
+      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+      "sentiment_score": 0.1,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://vnexpress.net/mb-giam-toi-2-lai-suat-cho-vay-ho-tro-doanh-nghiep-5134734.html",
+      "published_date": "Tue, 20 Oct 2026 19:00:00 +0700"
+    },
+    {
       "title": "Thống đốc: 'Cần xem xét giảm lãi suất với cả khoản vay cũ'",
       "description": "Thống đốc yêu cầu các ngân hàng ưu tiên giảm lãi suất cho vay sản xuất kinh doanh và xem xét áp dụng với cả dư nợ hiện hữu thay vì chỉ khoản vay mới.",
       "source": "VnExpress Kinh Doanh",
@@ -862,6 +879,43 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://vnexpress.net/ngan-hang-nha-nuoc-yeu-cau-giam-it-nhat-0-5-lai-suat-tiet-kiem-5133861.html",
       "published_date": "Sun, 18 Oct 2026 17:33:09 +0700"
+    },
+    {
+      "title": "9 tháng đầu năm, DNSE đạt hơn 1.300 tỷ đồng doanh thu hoạt động, tăng hơn 27%",
+      "description": "Lũy kế 9 tháng đầu năm 2026, Chứng khoán DNSE đạt 1.302,9 tỷ đồng doanh thu hoạt động, tăng 27,3% so với cùng kỳ. Lãi từ các khoản cho vay và phải thu tăng gần 33%, dư nợ cho vay ký quỹ cuối quý III đạt 6.445 tỷ đồng, đồng thời tiếp tục tăng trưởng về thị phần và quy mô khách hàng.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/9-thang-dau-nam-dnse-dat-hon-1300-ty-dong-doanh-thu-hoat-dong-tang-hon-27-188261020183528353.chn",
+      "published_date": "Tue, 20 Oct 26 19:30:00 +0700"
+    },
+    {
+      "title": "Chứng khoán HSC: Lợi nhuận trước thuế quý 3.2026 đạt 371 tỷ đồng, lũy kế 9 tháng tương đương cùng kỳ",
+      "description": "Công ty Cổ phần Chứng khoán TP.HCM (HSC) vừa công bố báo cáo tài chính Quý 3.2026 với doanh thu đạt 1,182 tỷ đồng và lợi nhuận trước thuế đạt 371 tỷ đồng, lần lượt giảm 15% và 33% so với mức nền kết quả kinh doanh cao của cùng kỳ năm 2025.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "HCM",
+        "HSC"
+      ],
+      "category": "CÔNG BỐ THÔNG TIN ĐỊNH KỲ",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/chung-khoan-hsc-loi-nhuan-truoc-thue-quy-32026-dat-371-ty-dong-luy-ke-9-thang-tuong-duong-cung-ky-188261020183432942.chn",
+      "published_date": "Tue, 20 Oct 26 19:30:00 +0700"
     },
     {
       "title": "CEO Tiệm vàng HanaGold cập nhật việc rút tiền của khách hàng: Đã chi trả gần 40%, không yêu cầu nạp thêm",
@@ -1061,57 +1115,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/vpbanks-dat-loi-nhuan-hon-3500-ty-dong-sau-9-thang-tang-8-cung-ky-188261020144125119.chn",
       "published_date": "Tue, 20 Oct 26 14:40:00 +0700"
-    },
-    {
-      "title": "5 nữ doanh nhân đình đám lọt Danh sách 100 phụ nữ quyền lực nhất châu Á năm 2026 của Fortune",
-      "description": "Danh sách 100 phụ nữ quyền lực nhất châu Á năm 2026 của Fortune có sự góp mặt của 5 đại diện Việt Nam là những nữ doanh nhân đình đám.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/5-nu-doanh-nhan-dinh-dam-lot-danh-sach-100-phu-nu-quyen-luc-nhat-chau-a-nam-2026-cua-fortune-188261020134149214.chn",
-      "published_date": "Tue, 20 Oct 26 13:41:00 +0700"
-    },
-    {
-      "title": "Chủ tịch Coteccons Bolat Duisenov hé lộ hướng đi mới: Mở rộng mảng xây dựng nhà ở cho khách hàng cá nhân",
-      "description": "Tại ĐHĐCĐ thường niên sáng 20/10, Coteccons (HoSE: CTD) đặt mục tiêu doanh thu 42.000 tỷ đồng và lợi nhuận sau thuế 1.050 tỷ đồng trong năm tài chính 2027. Doanh nghiệp đồng thời tính mở rộng sang lĩnh vực xây dựng nhà ở phục vụ khách hàng cá nhân, bên cạnh các mảng xây dựng dân dụng, công nghiệp và hạ tầng hiện nay.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/chu-tich-coteccons-bolat-duisenov-he-lo-huong-di-moi-mo-rong-mang-xay-dung-nha-o-cho-khach-hang-ca-nhan-188261020133524134.chn",
-      "published_date": "Tue, 20 Oct 26 13:35:00 +0700"
-    },
-    {
-      "title": "Thời hoàng kim đã qua của giới startup ĐNÁ: Lần đầu tiên kể từ năm 2018 không có thêm kỳ lân nào, cơn sốt gọi vốn giờ nguội lạnh",
-      "description": "Năm nay Đông Nam Á không xuất hiện thêm bất kỳ kỳ lân mới nào, tức những startup được định giá từ 1 tỷ USD trở lên.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/thoi-hoang-kim-da-qua-cua-gioi-startup-dna-lan-dau-tien-ke-tu-nam-2018-khong-co-them-ky-lan-nao-con-sot-goi-von-gio-nguoi-lanh-188261020133407463.chn",
-      "published_date": "Tue, 20 Oct 26 13:33:00 +0700"
     }
   ]
 }
