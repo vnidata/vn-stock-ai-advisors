@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-19 15:05:52",
+  "last_updated": "2026-10-20 07:11:45",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 1,
@@ -44,19 +44,46 @@
     },
     "VCB": {
       "symbol": "VCB",
-      "news_count": 5,
-      "net_sentiment": 0.04,
+      "news_count": 6,
+      "net_sentiment": 0.05,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Cập nhật tình hình giảm lãi suất cho vay đến tối 19/10: Thêm MB, VietinBank, SHB, OCB tham gia",
+      "latest_headline": "Từ hôm nay 20/10: Vietcombank giảm mạnh lãi suất cho vay, một số nhóm khách hàng được giảm tới 3%",
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Duy trì tỷ trọng khuyến nghị",
       "sentiment_multiplier": 1.0,
       "related_news": [
         {
-          "title": "Cập nhật tình hình giảm lãi suất cho vay đến tối 19/10: Thêm MB, VietinBank, SHB, OCB tham gia",
+          "title": "Từ hôm nay 20/10: Vietcombank giảm mạnh lãi suất cho vay, một số nhóm khách hàng được giảm tới 3%",
+          "date": "Tue, 20 Oct 26 10:58:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/tu-hom-nay-20-10-vietcombank-giam-manh-lai-suat-cho-vay-mot-so-nhom-khach-hang-duoc-giam-toi-3-18826102010580376.chn"
+        },
+        {
+          "title": "Tin vui cho người dùng Vietcombank",
+          "date": "Tue, 20 Oct 26 10:25:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/tin-vui-cho-nguoi-dung-vietcombank-188261019212644066.chn"
+        },
+        {
+          "title": "Sáng 20/10, lãi suất tiết kiệm đồng loạt giảm tại Vietcombank, VietinBank và hàng chục ngân hàng tư nhân",
+          "date": "Tue, 20 Oct 26 08:43:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+          "sentiment_score": 0.1,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/sang-20-10-lai-suat-tiet-kiem-dong-loat-giam-tai-vietcombank-vietinbank-va-hang-chuc-ngan-hang-tu-nhan-188261020084623437.chn"
+        },
+        {
+          "title": "Cập nhật tình hình giảm lãi suất cho vay đến tối 19/10: Thêm MB, VietinBank, SHB, TPBank, OCB tham gia",
           "date": "Mon, 19 Oct 26 21:52:00 +0700",
           "source": "CafeF Tài Chính Ngân Hàng",
           "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
@@ -72,33 +99,6 @@
           "sentiment_score": 0.1,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/agribank-vietcombank-bidv-mb-acb-sacombank-lpbank-vietbank-nam-a-bank-dong-loat-giam-lai-suat-cho-vay-188261019135427753.chn"
-        },
-        {
-          "title": "Lãi suất ngày 18/10 tại VPBank, Techcombank, Sacombank, HDBank, Agribank, Vietcombank, BIDV, VietinBank, MB,...",
-          "date": "Sun, 18 Oct 26 18:07:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
-          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/lai-suat-ngay-18-10-tai-vpbank-techcombank-sacombank-hdbank-agribank-vietcombank-bidv-vietinbank-mb-188261018170923832.chn"
-        },
-        {
-          "title": "Chủ tịch Vietcombank: Ngân hàng cam kết từ nay tới cuối năm sẽ giảm tối thiểu 2% lãi suất cho vay",
-          "date": "Sat, 17 Oct 26 20:39:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
-          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/chu-tich-vietcombank-ngan-hang-cam-ket-tu-nay-toi-cuoi-nam-se-giam-toi-thieu-2-lai-suat-cho-vay-188261017204001226.chn"
-        },
-        {
-          "title": "Chủ tịch Vietcombank cam kết giảm tối thiểu 2% lãi suất cho vay",
-          "date": "Sun, 18 Oct 2026 00:05:03 +0700",
-          "source": "VnExpress Kinh Doanh",
-          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://vnexpress.net/chu-tich-vietcombank-cam-ket-giam-toi-thieu-2-lai-suat-cho-vay-5133686.html"
         }
       ]
     },
@@ -117,8 +117,8 @@
     },
     "TCB": {
       "symbol": "TCB",
-      "news_count": 5,
-      "net_sentiment": 0.18,
+      "news_count": 4,
+      "net_sentiment": 0.23,
       "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
       "status_badge": "pos",
       "has_red_flag": false,
@@ -138,13 +138,13 @@
           "link": "https://cafef.vn/cap-nhat-so-lieu-ctck-chieu-19-10-tcbs-lai-ky-luc-nhieu-cong-ty-bao-lai-quy-3-di-lui-tham-chi-thua-lo-18826101915062409.chn"
         },
         {
-          "title": "TCBS báo lãi quý 3/2026 cao nhất lịch sử, lợi nhuận vượt 2.100 tỷ đồng",
-          "date": "Mon, 19 Oct 26 08:00:00 +0700",
-          "source": "CafeF Thị Trường",
-          "category": "CÔNG BỐ THÔNG TIN ĐỊNH KỲ",
+          "title": "Techcombank chốt ngày chia cổ tức tỷ lệ 50%",
+          "date": "Tue, 20 Oct 26 11:26:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/tcbs-bao-lai-quy-3-2026-cao-nhat-lich-su-loi-nhuan-vuot-2100-ty-dong-18826101821571957.chn"
+          "link": "https://cafef.vn/techcombank-chot-ngay-chia-co-tuc-ty-le-50-188261020112625617.chn"
         },
         {
           "title": "Ngày 19/10, gửi 200 triệu đồng tại ACB, MB, VPBank, Techcombank và SHB nhận bao nhiêu tiền lãi sau 12 tháng?",
@@ -156,40 +156,49 @@
           "link": "https://cafef.vn/ngay-19-10-gui-200-trieu-dong-tai-acb-mb-vpbank-techcombank-va-shb-nhan-bao-nhieu-tien-lai-sau-12-thang-188261019105027709.chn"
         },
         {
-          "title": "Lãi suất ngày 18/10 tại VPBank, Techcombank, Sacombank, HDBank, Agribank, Vietcombank, BIDV, VietinBank, MB,...",
-          "date": "Sun, 18 Oct 26 18:07:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
-          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/lai-suat-ngay-18-10-tai-vpbank-techcombank-sacombank-hdbank-agribank-vietcombank-bidv-vietinbank-mb-188261018170923832.chn"
-        },
-        {
-          "title": "Ngày 18/10, gửi 100 triệu đồng tại ACB, MB, VPBank, Techcombank và SHB sẽ nhận bao nhiêu tiền lãi sau 12 tháng?",
-          "date": "Sun, 18 Oct 26 09:49:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
+          "title": "Công ty lớn nhất ngành chứng khoán cho vay hơn 2 tỷ USD",
+          "date": "Tue, 20 Oct 2026 03:50:15 +0700",
+          "source": "VnExpress Kinh Doanh",
           "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/ngay-18-10-gui-100-trieu-dong-tai-acb-mb-vpbank-techcombank-va-shb-se-nhan-bao-nhieu-tien-lai-sau-12-thang-188261018085100205.chn"
+          "link": "https://vnexpress.net/cong-ty-lon-nhat-nganh-chung-khoan-cho-vay-hon-2-ty-usd-5134410.html"
         }
       ]
     },
     "ACB": {
       "symbol": "ACB",
-      "news_count": 5,
-      "net_sentiment": 0.04,
+      "news_count": 6,
+      "net_sentiment": 0.03,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Cập nhật tình hình giảm lãi suất cho vay đến tối 19/10: Thêm MB, VietinBank, SHB, OCB tham gia",
+      "latest_headline": "“Doanh nghiệp có thể chịu thiệt hại khi thanh toán đúng thời điểm tỷ giá biến động mạnh”",
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Duy trì tỷ trọng khuyến nghị",
       "sentiment_multiplier": 1.0,
       "related_news": [
         {
-          "title": "Cập nhật tình hình giảm lãi suất cho vay đến tối 19/10: Thêm MB, VietinBank, SHB, OCB tham gia",
+          "title": "“Doanh nghiệp có thể chịu thiệt hại khi thanh toán đúng thời điểm tỷ giá biến động mạnh”",
+          "date": "Tue, 20 Oct 26 08:10:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/doanh-nghiep-co-the-chiu-thiet-hai-khi-thanh-toan-dung-thoi-diem-ty-gia-bien-dong-manh-18826102007390747.chn"
+        },
+        {
+          "title": "Người phụ nữ \"trên cả tuyệt vời\" đối với Chủ tịch ACB Trần Hùng Huy",
+          "date": "Tue, 20 Oct 26 07:45:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/nguoi-phu-nu-tren-ca-tuyet-voi-doi-voi-chu-tich-acb-tran-hung-huy-188261020013139421.chn"
+        },
+        {
+          "title": "Cập nhật tình hình giảm lãi suất cho vay đến tối 19/10: Thêm MB, VietinBank, SHB, TPBank, OCB tham gia",
           "date": "Mon, 19 Oct 26 21:52:00 +0700",
           "source": "CafeF Tài Chính Ngân Hàng",
           "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
@@ -214,50 +223,21 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/ngay-19-10-gui-200-trieu-dong-tai-acb-mb-vpbank-techcombank-va-shb-nhan-bao-nhieu-tien-lai-sau-12-thang-188261019105027709.chn"
-        },
-        {
-          "title": "Tổng giám đốc ACB Từ Tiến Phát: Hôm nay ngân hàng sẽ giảm luôn lãi suất cho vay 1,5-2%/năm",
-          "date": "Mon, 19 Oct 26 10:39:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
-          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/tong-giam-doc-acb-tu-tien-phat-hom-nay-ngan-hang-se-giam-luon-lai-suat-cho-vay-15-2-nam-188261019103952175.chn"
-        },
-        {
-          "title": "Ngày 18/10, gửi 100 triệu đồng tại ACB, MB, VPBank, Techcombank và SHB sẽ nhận bao nhiêu tiền lãi sau 12 tháng?",
-          "date": "Sun, 18 Oct 26 09:49:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/ngay-18-10-gui-100-trieu-dong-tai-acb-mb-vpbank-techcombank-va-shb-se-nhan-bao-nhieu-tien-lai-sau-12-thang-188261018085100205.chn"
         }
       ]
     },
     "SSI": {
       "symbol": "SSI",
-      "news_count": 1,
+      "news_count": 0,
       "net_sentiment": 0.0,
-      "status": "THÔNG TIN ỔN ĐỊNH",
+      "status": "THÔNG TIN BÌNH ỔN",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "SSI mua lại hơn 800.000 cổ phiếu ESOP làm cổ phiếu quỹ",
+      "latest_headline": "Không có thông tin bất thường gần đây",
       "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Duy trì tỷ trọng khuyến nghị",
-      "sentiment_multiplier": 1.0,
-      "related_news": [
-        {
-          "title": "SSI mua lại hơn 800.000 cổ phiếu ESOP làm cổ phiếu quỹ",
-          "date": "Sun, 18 Oct 26 10:04:00 +0700",
-          "source": "CafeF Thị Trường",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/ssi-mua-lai-hon-800000-co-phieu-esop-lam-co-phieu-quy-188261018100408162.chn"
-        }
-      ]
+      "action_desc": "Duy trì khuyến nghị định lượng gốc",
+      "sentiment_multiplier": 1.0
     },
     "VND": {
       "symbol": "VND",
@@ -306,19 +286,19 @@
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Vì sao khối ngoại “bên trọng, bên khinh” hai công ty tỷ đô của tỷ phú Nguyễn Đăng Quang: Một bên mua nghìn tỷ MSR, một bên bán mạnh tay MCH?",
+      "latest_headline": "MSR mở rộng năng lực chế biến vonfram tại Việt Nam",
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Duy trì tỷ trọng khuyến nghị",
       "sentiment_multiplier": 1.0,
       "related_news": [
         {
-          "title": "Vì sao khối ngoại “bên trọng, bên khinh” hai công ty tỷ đô của tỷ phú Nguyễn Đăng Quang: Một bên mua nghìn tỷ MSR, một bên bán mạnh tay MCH?",
-          "date": "Mon, 19 Oct 26 00:02:00 +0700",
+          "title": "MSR mở rộng năng lực chế biến vonfram tại Việt Nam",
+          "date": "Tue, 20 Oct 26 08:00:00 +0700",
           "source": "CafeF Doanh Nghiệp (CBTT)",
           "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/vi-sao-khoi-ngoai-ben-trong-ben-khinh-hai-cong-ty-ty-do-cua-ty-phu-nguyen-dang-quang-mot-ben-mua-nghin-ty-msr-mot-ben-ban-manh-tay-mch-188261018231729279.chn"
+          "link": "https://cafef.vn/msr-mo-rong-nang-luc-che-bien-vonfram-tai-viet-nam-188261019162758099.chn"
         }
       ]
     },
@@ -435,8 +415,8 @@
       "published_date": "Mon, 19 Oct 26 14:50:00 +0700"
     },
     {
-      "title": "Cận cảnh khám xét kho hàng khiến Tôn Bằng - chồng cũ Hằng Du Mục bị bắt",
-      "description": "Khám xét kho hàng của Công ty Dịch Dương do Tôn Bằng làm người đại diện pháp luật, công an phát hiện 28.794 kg táo đỏ thương hiệu “Hằng Du Mục”.",
+      "title": "Khám xét chỗ ở, khởi tố Giám đốc công ty đòi nợ Bùi Thị Phương",
+      "description": "Cơ quan chức năng đã khởi tố, khám xét chỗ ở của Bùi Thị Phương điều tra về tội “Lạm dụng tín nhiệm chiếm đoạt tài sản” theo quy định tại khoản 2 Điều 175 Bộ luật Hình sự.",
       "source": "CafeF Doanh Nghiệp (CBTT)",
       "symbols": [],
       "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
@@ -446,31 +426,13 @@
       "is_red_flag": true,
       "is_catalyst": false,
       "triggers_found": [
-        "bị bắt"
+        "khởi tố",
+        "điều tra"
       ],
       "re_eval_action": "VETO_REJECT",
       "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
-      "link": "https://cafef.vn/can-canh-kham-xet-kho-hang-khien-ton-bang-chong-cu-hang-du-muc-bi-bat-188261019061645126.chn",
-      "published_date": "Mon, 19 Oct 26 08:20:00 +0700"
-    },
-    {
-      "title": "Bắt tạm giam Tôn Bằng, chồng cũ Hằng Du Mục",
-      "description": "Vụ việc liên quan đến hoạt động kinh doanh sau khi ly hôn của Tôn Bằng và quyền sử dụng một thương hiệu nổi tiếng trên TikTok.",
-      "source": "CafeF Doanh Nghiệp (CBTT)",
-      "symbols": [],
-      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
-      "sentiment_score": -1.0,
-      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
-      "sentiment_badge": "neg-danger",
-      "is_red_flag": true,
-      "is_catalyst": false,
-      "triggers_found": [
-        "bắt tạm giam"
-      ],
-      "re_eval_action": "VETO_REJECT",
-      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
-      "link": "https://cafef.vn/bat-tam-giam-ton-bang-chong-cu-hang-du-muc-188261018155851677.chn",
-      "published_date": "Sun, 18 Oct 26 16:14:00 +0700"
+      "link": "https://cafef.vn/kham-xet-cho-o-khoi-to-giam-doc-cong-ty-doi-no-bui-thi-phuong-188261020114555131.chn",
+      "published_date": "Tue, 20 Oct 26 13:50:00 +0700"
     },
     {
       "title": "Cập nhật số liệu CTCK chiều 19/10: TCBS lãi kỷ lục, nhiều công ty báo lãi quý 3 “đi lùi\", thậm chí thua lỗ",
@@ -553,112 +515,6 @@
       "published_date": "Mon, 19 Oct 26 10:58:00 +0700"
     },
     {
-      "title": "Cổ phiếu AGG rơi về vùng đáy lịch sử, chị gái Chủ tịch Nguyễn Bá Sáng đăng ký gom thêm 3 triệu cổ phiếu",
-      "description": "Trong bối cảnh cổ phiếu AGG liên tục rung lắc quanh vùng 9.000 đồng/cổ phiếu, bà Nguyễn Mai Giang - Phó Tổng Giám đốc An Gia vừa đăng ký mua thêm 3 triệu cổ phiếu, dự kiến nâng tỷ lệ sở hữu lên 3,14% vốn điều lệ.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "AGG"
-      ],
-      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
-      "sentiment_score": 0.7,
-      "sentiment_label": "TÍCH CỰC MẠNH",
-      "sentiment_badge": "pos",
-      "is_red_flag": false,
-      "is_catalyst": true,
-      "triggers_found": [
-        "đăng ký mua"
-      ],
-      "re_eval_action": "STRONG_BUY_CATALYST",
-      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
-      "link": "https://cafef.vn/co-phieu-agg-roi-ve-vung-day-lich-su-chi-gai-chu-tich-nguyen-ba-sang-dang-ky-gom-them-3-trieu-co-phieu-18826101815160176.chn",
-      "published_date": "Sun, 18 Oct 26 15:59:00 +0700"
-    },
-    {
-      "title": "Cổ phiếu VPG bị chuyển sang diện hạn chế giao dịch",
-      "description": "Cổ phiếu VPG của Xuất nhập khẩu Việt Phát bị chuyển từ diện kiểm soát sang diện hạn chế giao dịch kể từ ngày 23/10/2026.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "VPG"
-      ],
-      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
-      "sentiment_score": -0.7,
-      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
-      "sentiment_badge": "neg-danger",
-      "is_red_flag": true,
-      "is_catalyst": false,
-      "triggers_found": [
-        "hạn chế giao dịch"
-      ],
-      "re_eval_action": "EMERGENCY_SELL",
-      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
-      "link": "https://cafef.vn/co-phieu-vpg-bi-chuyen-sang-dien-han-che-giao-dich-188261018151457076.chn",
-      "published_date": "Sun, 18 Oct 26 15:14:00 +0700"
-    },
-    {
-      "title": "Một công ty chốt trả cổ tức tiền mặt 30% ngay tuần này, lợi nhuận quý 3 tăng hơn 300%",
-      "description": "CTCP Kim loại màu Thái Nguyên – Vimico (UPCoM: TMG) sẽ chi 54 tỷ đồng để tạm ứng cổ tức năm 2026. Trong đó, Tổng công ty Khoáng sản TKV – Vimico dự kiến nhận khoảng 27,5 tỷ đồng nhờ nắm giữ 51% vốn.",
-      "source": "CafeF Doanh Nghiệp (CBTT)",
-      "symbols": [
-        "KIM"
-      ],
-      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
-      "sentiment_score": 0.7,
-      "sentiment_label": "TÍCH CỰC MẠNH",
-      "sentiment_badge": "pos",
-      "is_red_flag": false,
-      "is_catalyst": true,
-      "triggers_found": [
-        "trả cổ tức tiền mặt",
-        "cổ tức tiền mặt",
-        "tạm ứng cổ tức"
-      ],
-      "re_eval_action": "STRONG_BUY_CATALYST",
-      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
-      "link": "https://cafef.vn/mot-cong-ty-chot-tra-co-tuc-tien-mat-30-ngay-tuan-nay-loi-nhuan-quy-3-tang-hon-300-188261019091114969.chn",
-      "published_date": "Mon, 19 Oct 26 09:17:00 +0700"
-    },
-    {
-      "title": "Một cổ đông của Fideco đăng ký mua 1,85 triệu cổ phiếu FDC",
-      "description": "Bà Lê Ngân Nhi- một thành viên trong nhóm cổ đông lớn của Fideco, vừa đăng ký mua vào 1,85 triệu cổ phiếu FDC nhằm mục đích đầu tư.",
-      "source": "CafeF Doanh Nghiệp (CBTT)",
-      "symbols": [
-        "FDC"
-      ],
-      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
-      "sentiment_score": 0.7,
-      "sentiment_label": "TÍCH CỰC MẠNH",
-      "sentiment_badge": "pos",
-      "is_red_flag": false,
-      "is_catalyst": true,
-      "triggers_found": [
-        "đăng ký mua vào",
-        "đăng ký mua"
-      ],
-      "re_eval_action": "STRONG_BUY_CATALYST",
-      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
-      "link": "https://cafef.vn/mot-co-dong-cua-fideco-dang-ky-mua-185-trieu-co-phieu-fdc-18826101814403151.chn",
-      "published_date": "Sun, 18 Oct 26 14:59:00 +0700"
-    },
-    {
-      "title": "5 doanh nghiệp bất động sản muốn mua lượng lớn cổ phần của một ngân hàng",
-      "description": "5 doanh nghiệp hoạt động trong lĩnh vực bất động sản đăng ký mua gần 269 triệu cổ phiếu PVcomBank, với tổng giá trị dự kiến khoảng 3.666 tỷ đồng.",
-      "source": "CafeF Tài Chính Ngân Hàng",
-      "symbols": [],
-      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
-      "sentiment_score": 0.7,
-      "sentiment_label": "TÍCH CỰC MẠNH",
-      "sentiment_badge": "pos",
-      "is_red_flag": false,
-      "is_catalyst": true,
-      "triggers_found": [
-        "đăng ký mua"
-      ],
-      "re_eval_action": "STRONG_BUY_CATALYST",
-      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
-      "link": "https://cafef.vn/5-doanh-nghiep-bat-dong-san-muon-mua-luong-lon-co-phan-cua-mot-ngan-hang-188261018164624567.chn",
-      "published_date": "Sun, 18 Oct 26 16:29:00 +0700"
-    },
-    {
       "title": "Doanh nghiệp sản xuất ôtô trong nước báo lỗ 15 năm liên tiếp",
       "description": "Ô tô Giải Phóng, doanh nghiệp sản xuất xe hơi trong nước, lỗ ròng 14,6 tỷ đồng sau 9 tháng năm nay, kéo dài chuỗi lợi nhuận âm trong suốt 15 năm.",
       "source": "VnExpress Kinh Doanh",
@@ -678,8 +534,79 @@
       "published_date": "Sun, 18 Oct 2026 04:06:17 +0700"
     },
     {
-      "title": "Cập nhật tình hình giảm lãi suất cho vay đến tối 19/10: Thêm MB, VietinBank, SHB, OCB tham gia",
-      "description": "Nhiều ngân hàng như SHB, MB, VietinBank và OCB vừa công bố giảm lãi suất cho vay, nối tiếp Agribank, Vietcombank, BIDV, ACB, LPBank và VietBank. Mức giảm phổ biến từ 1,5-2%/năm, riêng OCB ưu đãi tới 2,25%/năm đối với một số khoản vay trung, dài hạn.",
+      "title": "Ngân hàng có nhiều tiền gửi nhất hệ thống vừa giảm lãi suất tiết kiệm",
+      "description": "Agribank vừa điều chỉnh giảm lãi suất tiền gửi tại quầy đối với các kỳ hạn từ 6 tháng trở lên, đưa mức lãi suất cao nhất xuống còn 5,5%/năm, giảm 0,5 điểm % so với trước đó.",
+      "source": "CafeF Tài Chính Ngân Hàng",
+      "symbols": [],
+      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+      "sentiment_score": 0.1,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/ngan-hang-co-nhieu-tien-gui-nhat-he-thong-vua-giam-lai-suat-tiet-kiem-188261020112233724.chn",
+      "published_date": "Tue, 20 Oct 26 11:20:00 +0700"
+    },
+    {
+      "title": "HDBank triển khai gói tín dụng 10.000 tỷ đồng, giảm lãi suất 1,5%/năm hỗ trợ doanh nghiệp",
+      "description": "Ngày 20/10/2026, thực hiện chủ trương của Chính phủ và Ngân hàng Nhà nước về giảm lãi suất cho vay, hỗ trợ sản xuất, kinh doanh và các lĩnh vực ưu tiên, HDBank triển khai gói tín dụng 10.000 tỷ đồng, với lãi suất giảm 1,5%/năm so với mức ưu đãi đang áp dụng cho doanh nghiệp nhỏ và vừa tại HDBank.",
+      "source": "CafeF Tài Chính Ngân Hàng",
+      "symbols": [],
+      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+      "sentiment_score": 0.1,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/hdbank-trien-khai-goi-tin-dung-10000-ty-dong-giam-lai-suat-15-nam-ho-tro-doanh-nghiep-188261020111111455.chn",
+      "published_date": "Tue, 20 Oct 26 11:11:00 +0700"
+    },
+    {
+      "title": "Sáng 20/10, lãi suất tiết kiệm đồng loạt giảm tại Vietcombank, VietinBank và hàng chục ngân hàng tư nhân",
+      "description": "VietinBank, Vietcombank cùng khoảng 15 ngân hàng tư nhân đồng loạt giảm 0,5-0,7 điểm %/năm lãi suất tiền gửi từ kỳ hạn 6 tháng trở lên, sau chỉ đạo của Ngân hàng Nhà nước nhằm hạ mặt bằng lãi suất huy động và tạo dư địa giảm lãi suất cho vay.",
+      "source": "CafeF Tài Chính Ngân Hàng",
+      "symbols": [
+        "CTG",
+        "VCB"
+      ],
+      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+      "sentiment_score": 0.1,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/sang-20-10-lai-suat-tiet-kiem-dong-loat-giam-tai-vietcombank-vietinbank-va-hang-chuc-ngan-hang-tu-nhan-188261020084623437.chn",
+      "published_date": "Tue, 20 Oct 26 08:43:00 +0700"
+    },
+    {
+      "title": "Họp 'nóng' về giảm lãi suất, lãnh đạo các ngân hàng nói gì?",
+      "description": "Nhiều ngân hàng thương mại khẳng định sẽ tiết giảm chi phí, chia sẻ lợi nhuận để giảm lãi suất cho vay từ 1,5 - 2%, hỗ trợ doanh nghiệp và người dân. Tuy nhiên, để duy trì mặt bằng lãi suất thấp bền vững, cần tháo gỡ áp lực huy động vốn và phát triển các kênh dẫn vốn ngoài ngân hàng.",
+      "source": "CafeF Tài Chính Ngân Hàng",
+      "symbols": [],
+      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+      "sentiment_score": 0.1,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/hop-nong-ve-giam-lai-suat-lanh-dao-cac-ngan-hang-noi-gi-18826102007132476.chn",
+      "published_date": "Tue, 20 Oct 26 07:16:00 +0700"
+    },
+    {
+      "title": "Cập nhật tình hình giảm lãi suất cho vay đến tối 19/10: Thêm MB, VietinBank, SHB, TPBank, OCB tham gia",
+      "description": "Nhiều ngân hàng như SHB, MB, VietinBank, TPBank và OCB vừa công bố giảm lãi suất cho vay, nối tiếp Agribank, Vietcombank, BIDV, ACB, LPBank và VietBank. Mức giảm phổ biến từ 1,5-2%/năm, riêng OCB ưu đãi tới 2,25%/năm đối với một số khoản vay trung, dài hạn.",
       "source": "CafeF Tài Chính Ngân Hàng",
       "symbols": [
         "ACB",
@@ -915,91 +842,6 @@
       "published_date": "Mon, 19 Oct 26 08:30:00 +0700"
     },
     {
-      "title": "NHNN: Ngân hàng không tuân thủ chỉ đạo về lãi suất có thể bị giảm room tín dụng, yêu cầu tỷ lệ bảo đảm an toàn cao hơn mức quy định",
-      "description": "Từ nay đến cuối năm 2026, TCTD không thực hiện nghiêm chỉ đạo về lãi suất hoặc cạnh tranh không lành mạnh có thể bị NHNN xem xét lại chỉ tiêu tăng trưởng tín dụng còn lại của năm 2026, giao chỉ tiêu thấp năm 2027 và yêu cầu tỷ lệ bảo đảm an toàn cao hơn quy định.",
-      "source": "CafeF Tài Chính Ngân Hàng",
-      "symbols": [],
-      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-      "sentiment_score": 0.1,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/nhnn-ngan-hang-khong-tuan-thu-chi-dao-ve-lai-suat-co-the-bi-giam-room-tin-dung-yeu-cau-ty-le-bao-dam-an-toan-cao-hon-muc-quy-dinh-188261018203027449.chn",
-      "published_date": "Mon, 19 Oct 26 00:01:00 +0700"
-    },
-    {
-      "title": "Từ ngày mai 19/10, Agribank giảm 2%/năm lãi suất cho vay cho hàng loạt khách hàng",
-      "description": "Làn sóng giảm lãi suất cho vay bắt đầu lan rộng sau khi Thủ tướng Chính phủ, Ngân hàng Nhà nước có chỉ đạo mới về điều hành lãi suất hỗ trợ người dân, doanh nghiệp.",
-      "source": "CafeF Tài Chính Ngân Hàng",
-      "symbols": [],
-      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-      "sentiment_score": 0.1,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/tu-ngay-mai-19-10-agribank-giam-2-nam-lai-suat-cho-vay-cho-hang-loat-khach-hang-188261018200332375.chn",
-      "published_date": "Sun, 18 Oct 26 20:03:00 +0700"
-    },
-    {
-      "title": "NHNN đang có những hành động gì để điều hành chính sách tiền tệ chủ động, linh hoạt, khơi thông dòng vốn cho nền kinh tế?",
-      "description": "Cùng với việc giữ vững ổn định kinh tế vĩ mô, ngành Ngân hàng đang quyết liệt triển khai các giải pháp giảm lãi suất, định hướng tín dụng vào sản xuất, kinh doanh và tạo điều kiện thuận lợi hơn cho doanh nghiệp, người dân tiếp cận vốn phục vụ phát triển kinh tế.",
-      "source": "CafeF Tài Chính Ngân Hàng",
-      "symbols": [],
-      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-      "sentiment_score": 0.1,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/nhnn-dang-co-nhung-hanh-dong-gi-de-dieu-hanh-chinh-sach-tien-te-chu-dong-linh-hoat-khoi-thong-dong-von-cho-nen-kinh-te-188261018152612194.chn",
-      "published_date": "Sun, 18 Oct 26 15:25:00 +0700"
-    },
-    {
-      "title": "Ngân hàng Nhà nước: Giảm lãi suất tiền gửi niêm yết tối thiểu 0,5%/năm với kỳ hạn từ 6 tháng, các ngân hàng tuyệt đối không đua tăng lãi suất huy động",
-      "description": "Ngân hàng Nhà nước Việt Nam (NHNN) vừa ban hành văn bản số 9608/NHNN-CSTT ngày 18/10/2026 về việc triển khai các giải pháp hoạt động của các tổ chức tín dụng.",
-      "source": "CafeF Tài Chính Ngân Hàng",
-      "symbols": [],
-      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-      "sentiment_score": 0.1,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/ngan-hang-nha-nuoc-giam-lai-suat-tien-gui-niem-yet-toi-thieu-05-nam-voi-ky-han-tu-6-thang-cac-ngan-hang-tuyet-doi-khong-dua-tang-lai-suat-huy-dong-188261018150957005.chn",
-      "published_date": "Sun, 18 Oct 26 15:09:00 +0700"
-    },
-    {
-      "title": "Ngân hàng bắt đầu giảm lãi suất cho vay",
-      "description": "Sau chỉ đạo của Chính phủ về giảm lãi suất cho vay từ 1,5 - 2%, một số ngân hàng có động thái \"hạ nhiệt\". Tuy nhiên, chuyên gia cho rằng cần bảo đảm doanh nghiệp thực sự tiếp cận được nguồn vốn ưu đãi.",
-      "source": "CafeF Tài Chính Ngân Hàng",
-      "symbols": [],
-      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-      "sentiment_score": 0.1,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/ngan-hang-bat-dau-giam-lai-suat-cho-vay-188261018112918776.chn",
-      "published_date": "Sun, 18 Oct 26 13:28:00 +0700"
-    },
-    {
       "title": "Thống đốc: 'Cần xem xét giảm lãi suất với cả khoản vay cũ'",
       "description": "Thống đốc yêu cầu các ngân hàng ưu tiên giảm lãi suất cho vay sản xuất kinh doanh và xem xét áp dụng với cả dư nợ hiện hữu thay vì chỉ khoản vay mới.",
       "source": "VnExpress Kinh Doanh",
@@ -1051,12 +893,12 @@
       "published_date": "Sun, 18 Oct 2026 17:33:09 +0700"
     },
     {
-      "title": "Chính phủ trình mục tiêu tăng trưởng kinh tế 2027 từ 10% trở lên",
-      "description": "Chính phủ trình Quốc hội mục tiêu phấn đấu tăng trưởng GDP 2027 từ 10% trở lên gắn với giữ ổn định kinh tế vĩ mô, kiểm soát lạm phát.",
-      "source": "VnExpress Kinh Doanh",
+      "title": "5 nữ doanh nhân đình đám lọt Danh sách 100 phụ nữ quyền lực nhất châu Á năm 2026 của Fortune",
+      "description": "Danh sách 100 phụ nữ quyền lực nhất châu Á năm 2026 của Fortune có sự góp mặt của 5 đại diện Việt Nam là những nữ doanh nhân đình đám.",
+      "source": "CafeF Thị Trường",
       "symbols": [],
-      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-      "sentiment_score": 0.1,
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
       "sentiment_label": "TRUNG TÍNH",
       "sentiment_badge": "neutral",
       "is_red_flag": false,
@@ -1064,16 +906,16 @@
       "triggers_found": [],
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://vnexpress.net/chinh-phu-trinh-muc-tieu-tang-truong-kinh-te-2027-tu-10-tro-len-5133468.html",
-      "published_date": "Sat, 17 Oct 2026 10:34:36 +0700"
+      "link": "https://cafef.vn/5-nu-doanh-nhan-dinh-dam-lot-danh-sach-100-phu-nu-quyen-luc-nhat-chau-a-nam-2026-cua-fortune-188261020134149214.chn",
+      "published_date": "Tue, 20 Oct 26 13:41:00 +0700"
     },
     {
-      "title": "Phó thủ tướng yêu cầu giảm lãi suất cho vay 1,5-2%",
-      "description": "Phó thủ tướng Nguyễn Văn Thắng yêu cầu giảm lãi suất cho vay 1,5-2% với sản xuất, kinh doanh và lĩnh vực ưu tiên, hỗ trợ người dân, doanh nghiệp.",
-      "source": "VnExpress Kinh Doanh",
+      "title": "Chủ tịch Coteccons Bolat Duisenov hé lộ hướng đi mới: Mở rộng mảng xây dựng nhà ở cho khách hàng cá nhân",
+      "description": "Tại ĐHĐCĐ thường niên sáng 20/10, Coteccons (HoSE: CTD) đặt mục tiêu doanh thu 42.000 tỷ đồng và lợi nhuận sau thuế 1.050 tỷ đồng trong năm tài chính 2027. Doanh nghiệp đồng thời tính mở rộng sang lĩnh vực xây dựng nhà ở phục vụ khách hàng cá nhân, bên cạnh các mảng xây dựng dân dụng, công nghiệp và hạ tầng hiện nay.",
+      "source": "CafeF Thị Trường",
       "symbols": [],
-      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-      "sentiment_score": 0.1,
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
       "sentiment_label": "TRUNG TÍNH",
       "sentiment_badge": "neutral",
       "is_red_flag": false,
@@ -1081,17 +923,153 @@
       "triggers_found": [],
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://vnexpress.net/pho-thu-tuong-yeu-cau-giam-lai-suat-cho-vay-1-5-2-5133422.html",
-      "published_date": "Sat, 17 Oct 2026 01:30:00 +0700"
+      "link": "https://cafef.vn/chu-tich-coteccons-bolat-duisenov-he-lo-huong-di-moi-mo-rong-mang-xay-dung-nha-o-cho-khach-hang-ca-nhan-188261020133524134.chn",
+      "published_date": "Tue, 20 Oct 26 13:35:00 +0700"
     },
     {
-      "title": "Mỗi ngày VinFast bán hơn 770 ô tô điện khắp thế giới, ông Phạm Nhật Quân Anh nói gì?",
-      "description": "Trong quý II/2026, VinFast bàn giao tổng cộng 70.085 ô tô điện trên toàn cầu, tăng 20% so với quý I/2026 và 96% so với quý II/2025.",
+      "title": "Thời hoàng kim đã qua của giới startup ĐNÁ: Lần đầu tiên kể từ năm 2018 không có thêm kỳ lân nào, cơn sốt gọi vốn giờ nguội lạnh",
+      "description": "Năm nay Đông Nam Á không xuất hiện thêm bất kỳ kỳ lân mới nào, tức những startup được định giá từ 1 tỷ USD trở lên.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/thoi-hoang-kim-da-qua-cua-gioi-startup-dna-lan-dau-tien-ke-tu-nam-2018-khong-co-them-ky-lan-nao-con-sot-goi-von-gio-nguoi-lanh-188261020133407463.chn",
+      "published_date": "Tue, 20 Oct 26 13:33:00 +0700"
+    },
+    {
+      "title": "Công ty của nữ Chủ tịch sinh năm 1999 phát thông báo quan trọng",
+      "description": "Đây là quyết định tác động đến cổ đông của công ty.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/cong-ty-cua-nu-chu-tich-sinh-nam-1999-phat-thong-bao-quan-trong-18826102011580868.chn",
+      "published_date": "Tue, 20 Oct 26 12:00:00 +0700"
+    },
+    {
+      "title": "Elon Musk tuyên bố sẽ tặng mỗi trẻ em Mỹ một cổ phiếu SpaceX",
+      "description": "Theo mức giá hiện tại, quy mô chương trình có thể lên tới khoảng 10,5-11 tỷ USD.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/elon-musk-tuyen-bo-se-tang-moi-tre-em-my-mot-co-phieu-spacex-188261020114650809.chn",
+      "published_date": "Tue, 20 Oct 26 11:55:00 +0700"
+    },
+    {
+      "title": "Chân dung 5 nữ doanh nhân Việt Nam quyền lực nhất châu Á 2026",
+      "description": "Trong danh sách 100 Phụ nữ quyền lực nhất châu Á công bố mới đây của tạp chí Fortune, 5 đại diện của Việt Nam đã được vinh danh.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/chan-dung-5-nu-doanh-nhan-viet-nam-quyen-luc-nhat-chau-a-2026-188261020113509003.chn",
+      "published_date": "Tue, 20 Oct 26 11:41:00 +0700"
+    },
+    {
+      "title": "Giá vàng bạc 20/10 giảm mạnh: Phú Quý, Bảo Tín Minh Châu thông báo thay đổi lớn",
+      "description": "Giá vàng miếng và vàng nhẫn đồng loạt hạ nhiệt.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/gia-vang-bac-20-10-giam-manh-phu-quy-bao-tin-minh-chau-thong-bao-thay-doi-lon-188261020105012584.chn",
+      "published_date": "Tue, 20 Oct 26 11:17:00 +0700"
+    },
+    {
+      "title": "Mua vàng bằng ví điện tử: Luật đã cho phép, vì sao nhiều tiệm vàng vẫn từ chối?",
+      "description": "Nghị định 390/2026 hạ ngưỡng thanh toán không dùng tiền mặt khi mua bán vàng xuống 5 triệu đồng/ngày và cho phép dùng cả thẻ, ví điện tử thay vì chỉ chuyển khoản như trước. Tuy vậy, theo ông Lương Ngọc Quang, phụ trách pháp chế Bảo Tín Mạnh Hải, việc nhận tiền qua ví điện tử lại khiến doanh nghiệp vàng gặp khó khi phải xác định ai là người trả tiền.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/mua-vang-bang-vi-dien-tu-luat-da-cho-phep-vi-sao-nhieu-tiem-vang-van-tu-choi-188261020094646139.chn",
+      "published_date": "Tue, 20 Oct 26 10:47:00 +0700"
+    },
+    {
+      "title": "20/10 năm ngoái: Chứng khoán Việt Nam giảm 95 điểm",
+      "description": "Bối cảnh thị trường ở thời điểm hiện tại đã khác rất nhiều so với thời điểm một năm trước.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/20-10-nam-ngoai-chung-khoan-viet-nam-giam-95-diem-18826102010410618.chn",
+      "published_date": "Tue, 20 Oct 26 10:45:00 +0700"
+    },
+    {
+      "title": "Chứng khoán VIX báo lãi quý 3 giảm “sốc” 94%, dư nợ margin giảm 1.500 tỷ sau một quý",
+      "description": "Lợi nhuận sau thuế quý 3 bốc hơi mạnh trong bối cảnh doanh thu tự doanh suy giảm và chi phí đánh giá lại tài sản tài chính tăng mạnh.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/chung-khoan-vix-bao-lai-quy-3-giam-soc-94-du-no-margin-giam-1500-ty-sau-mot-quy-188261020102826921.chn",
+      "published_date": "Tue, 20 Oct 26 10:28:00 +0700"
+    },
+    {
+      "title": "Công ty vàng SJC có Tổng Giám đốc mới, từng là Phó Giám đốc Sở Công Thương TPHCM",
+      "description": "Ông Nguyễn Trường Thi, Phó Giám đốc Sở Công Thương TPHCM, được điều động, bổ nhiệm làm thành viên không chuyên trách Hội đồng thành viên kiêm Tổng Giám đốc Công ty TNHH Một thành viên Vàng bạc đá quý Sài Gòn (SJC).",
       "source": "CafeF Thị Trường",
       "symbols": [
-        "VIC"
+        "SJC"
       ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "category": "CÔNG BỐ THÔNG TIN ĐỊNH KỲ",
       "sentiment_score": 0.0,
       "sentiment_label": "TRUNG TÍNH",
       "sentiment_badge": "neutral",
@@ -1100,31 +1078,12 @@
       "triggers_found": [],
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/moi-ngay-vinfast-ban-hon-770-o-to-dien-khap-the-gioi-ong-pham-nhat-quan-anh-noi-gi-188261019182902491.chn",
-      "published_date": "Mon, 19 Oct 26 18:28:00 +0700"
+      "link": "https://cafef.vn/cong-ty-vang-sjc-co-tong-giam-doc-moi-tung-la-pho-giam-doc-so-cong-thuong-tphcm-18826102010102688.chn",
+      "published_date": "Tue, 20 Oct 26 10:11:00 +0700"
     },
     {
-      "title": "Cổ phiếu trụ gây thất vọng, VN-Index lại mất mốc 1.700 điểm",
-      "description": "Nhiều nhóm cổ phiếu vẫn tăng giá, nhưng sức ép từ các mã vốn hóa lớn, đặc biệt là VIC, khiến VN-Index đảo chiều giảm hơn 16 điểm trong phiên 19/10, lùi xuống dưới mốc 1.700 điểm.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "VIC"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/co-phieu-tru-gay-that-vong-vn-index-lai-mat-moc-1700-diem-188261019172140568.chn",
-      "published_date": "Mon, 19 Oct 26 17:30:00 +0700"
-    },
-    {
-      "title": "Một cổ phiếu ngân hàng bất ngờ được tự doanh CTCK mua ròng gần 300 tỷ đồng phiên đầu tuần",
-      "description": "Tự doanh CTCK mua ròng 275 tỷ đồng trên HoSE.",
+      "title": "Tình trạng bán tháo \"hoảng loạn\" lan rộng trên thị trường Indonesia trước nguy cơ bị loại khỏi chỉ số MSCI",
+      "description": "Thị trường vốn Indonesia chịu sức ép nặng nề trong phiên giao dịch ngày thứ Hai 19/10, khi thị trường chứng khoán ghi nhận đợt lao dốc kỷ lục trong hai ngày liên tiếp sau cảnh báo có nguy cơ bị MSCI loại khỏi nhóm thị trường mới nổi. Động thái này khiến các nhà đầu tư hoảng sợ, gia tăng áp lực buộc Jakarta phải phản ứng trước những quan ngại kéo dài của đơn vị cung cấp chỉ số này.",
       "source": "CafeF Thị Trường",
       "symbols": [],
       "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
@@ -1136,8 +1095,8 @@
       "triggers_found": [],
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/mot-co-phieu-ngan-hang-bat-ngo-duoc-tu-doanh-ctck-mua-rong-gan-300-ty-dong-phien-dau-tuan-18826101917203357.chn",
-      "published_date": "Mon, 19 Oct 26 17:20:00 +0700"
+      "link": "https://cafef.vn/tinh-trang-ban-thao-hoang-loan-lan-rong-tren-thi-truong-indonesia-truoc-nguy-co-bi-loai-khoi-chi-so-msci-188261020094118036.chn",
+      "published_date": "Tue, 20 Oct 26 09:40:00 +0700"
     }
   ]
 }
