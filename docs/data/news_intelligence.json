@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-21 12:16:16",
+  "last_updated": "2026-10-21 12:52:15",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 1,
@@ -826,23 +826,6 @@
       "published_date": "Tue, 20 Oct 26 17:47:00 +0700"
     },
     {
-      "title": "Ngân hàng có nhiều tiền gửi nhất hệ thống vừa giảm lãi suất tiết kiệm",
-      "description": "Agribank vừa điều chỉnh giảm lãi suất tiền gửi tại quầy đối với các kỳ hạn từ 6 tháng trở lên, đưa mức lãi suất cao nhất xuống còn 5,5%/năm, giảm 0,5 điểm % so với trước đó.",
-      "source": "CafeF Tài Chính Ngân Hàng",
-      "symbols": [],
-      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-      "sentiment_score": 0.1,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/ngan-hang-co-nhieu-tien-gui-nhat-he-thong-vua-giam-lai-suat-tiet-kiem-188261020112233724.chn",
-      "published_date": "Tue, 20 Oct 26 11:20:00 +0700"
-    },
-    {
       "title": "Ngân hàng Nhà nước giục giảm lãi suất tiết kiệm trên tất cả kênh",
       "description": "Nhà điều hành vừa tiếp tục ra yêu cầu các nhà băng giảm lãi suất trên tất cả kênh bán hàng một cách thực chất.",
       "source": "VnExpress Kinh Doanh",
@@ -1125,6 +1108,23 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/shs-doanh-thu-quy-iii-tang-23-dong-luc-tang-truong-den-tu-cac-tru-cot-moi-188261021103424702.chn",
       "published_date": "Wed, 21 Oct 26 13:30:00 +0700"
+    },
+    {
+      "title": "PNJ chưa chốt giá phát hành 550 triệu cổ phiếu",
+      "description": "Tại Đại hội đồng cổ đông bất thường sáng 21/10, CEO PNJ Phan Quốc Công cho biết kế hoạch phát hành thêm tối đa 550 triệu cổ phiếu chưa có phương án chi tiết. Giá phát hành sẽ căn cứ vào giá trị sổ sách và giá bình quân 30 phiên gần nhất, nên giá cổ phiếu trên thị trường càng cao thì cổ đông hiện hữu càng ít bị pha loãng.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/pnj-chua-chot-gia-phat-hanh-550-trieu-co-phieu-188261021131103292.chn",
+      "published_date": "Wed, 21 Oct 26 13:10:00 +0700"
     }
   ]
 }
