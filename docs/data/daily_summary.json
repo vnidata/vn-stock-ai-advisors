@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-22 12:55:22 (UTC+7)",
+  "last_updated": "2026-10-22 13:16:48 (UTC+7)",
   "trading_date": "2026-10-22",
   "vnindex": {
     "close": 1760.63,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 2,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-22 12:55:18"
+    "last_scanned": "2026-10-22 13:16:46"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -1166,13 +1166,13 @@
       {
         "symbol": "FPT",
         "sector": "Technology",
-        "net_sentiment": 0.45,
+        "net_sentiment": 0.9,
         "sentiment_multiplier": 1.2,
         "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
         "status_badge": "pos",
-        "latest_headline": "FPT bắt tay chủ nhân siêu máy tính lượng tử quang tử mạnh nhất thế giới",
+        "latest_headline": "FPT báo lãi kỷ lục",
         "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
-        "news_count": 2,
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -1380,7 +1380,7 @@
       "quant_criteria": "Tăng trưởng lợi nhuận EPS 20%+ bền vững 5 năm, tỷ lệ nợ vay thấp, dòng tiền thuần dồi dào.",
       "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
       "news_badge": "pos",
-      "latest_headline": "FPT bắt tay chủ nhân siêu máy tính lượng tử quang tử mạnh nhất thế giới"
+      "latest_headline": "FPT báo lãi kỷ lục"
     },
     {
       "symbol": "HPG",

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-22 12:55:18",
+  "last_updated": "2026-10-22 13:16:46",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 2,
@@ -7,26 +7,17 @@
   "symbols_sentiment": {
     "FPT": {
       "symbol": "FPT",
-      "news_count": 2,
-      "net_sentiment": 0.45,
+      "news_count": 1,
+      "net_sentiment": 0.9,
       "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
       "status_badge": "pos",
       "has_red_flag": false,
       "has_catalyst": true,
-      "latest_headline": "FPT bắt tay chủ nhân siêu máy tính lượng tử quang tử mạnh nhất thế giới",
+      "latest_headline": "FPT báo lãi kỷ lục",
       "re_eval_action": "STRONG_BUY_CATALYST",
       "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
       "sentiment_multiplier": 1.2,
       "related_news": [
-        {
-          "title": "FPT bắt tay chủ nhân siêu máy tính lượng tử quang tử mạnh nhất thế giới",
-          "date": "Wed, 21 Oct 26 16:47:00 +0700",
-          "source": "CafeF Doanh Nghiệp (CBTT)",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/fpt-bat-tay-chu-nhan-sieu-may-tinh-luong-tu-quang-tu-manh-nhat-the-gioi-188261021164747188.chn"
-        },
         {
           "title": "FPT báo lãi kỷ lục",
           "date": "Wed, 21 Oct 2026 14:35:14 +0700",
@@ -879,6 +870,40 @@
       "published_date": "Wed, 21 Oct 2026 16:11:56 +0700"
     },
     {
+      "title": "Chứng khoán VIX còn 1.000 tỷ đồng vốn huy động từ chào bán cổ phiếu chưa giải ngân",
+      "description": "Chứng khoán VIX đã chi hơn 10.026 tỷ đồng trong tổng số hơn 11.026 tỷ đồng huy động từ đợt chào bán gần 919 triệu cổ phiếu, còn lại 1.000 tỷ đồng chưa giải ngân.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/chung-khoan-vix-con-1000-ty-dong-von-huy-dong-tu-chao-ban-co-phieu-chua-giai-ngan-188261022200758994.chn",
+      "published_date": "Thu, 22 Oct 26 20:07:00 +0700"
+    },
+    {
+      "title": "Chứng khoán tiếp tục tăng 22 điểm, lên mức cao nhất hơn nửa năm",
+      "description": "Chỉ số VN-Index hôm nay 22/10 tiếp tục tăng mạnh 22 điểm lên mức 1.760, đây là mức cao nhất kể từ tháng 4.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/chung-khoan-tiep-tuc-tang-22-diem-len-muc-cao-nhat-hon-nua-nam-18826102220063376.chn",
+      "published_date": "Thu, 22 Oct 26 20:06:00 +0700"
+    },
+    {
       "title": "CAEX hoàn tất thẩm định An toàn hệ thống thông tin cấp độ 4",
       "description": "Công ty Cổ phần Sàn giao dịch Tài sản mã hóa Việt Nam Thịnh Vượng (CAEX), thành viên trong hệ sinh thái tài chính Ngân hàng TMCP Việt Nam Thịnh Vượng (VPBank), công bố đã được Cục An ninh mạng (Bộ Công an) thẩm định và đồng ý với đề xuất cấp tiêu chuẩn An toàn hệ thống thông tin cấp độ 4.",
       "source": "CafeF Thị Trường",
@@ -1106,42 +1131,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/vicostone-lap-cong-ty-con-von-dieu-le-200-ty-dong-188261022093142229.chn",
       "published_date": "Thu, 22 Oct 26 09:36:00 +0700"
-    },
-    {
-      "title": "VPBankS trình cổ đông kế hoạch tăng vốn vượt 27.100 tỷ đồng",
-      "description": "VPBankS trình cổ đông kế hoạch phát hành 843,75 triệu cổ phiếu thưởng để tăng vốn lên 27.187,5 tỷ đồng.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "VPB"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/vpbanks-trinh-co-dong-ke-hoach-tang-von-vuot-27100-ty-dong-18826102209292489.chn",
-      "published_date": "Thu, 22 Oct 26 09:35:00 +0700"
-    },
-    {
-      "title": "Giá vàng hôm nay 22/10: Thế giới bật tăng, một thương hiệu vàng nhẫn bất ngờ mất 500.000 đồng/lượng",
-      "description": "Diễn biến giá vàng trong nước và thế giới có diễn biến trái chiều trong sáng nay.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/gia-vang-hom-nay-22-10-the-gioi-bat-tang-mot-thuong-hieu-vang-nhan-bat-ngo-mat-500000-dong-luong-188261022092817486.chn",
-      "published_date": "Thu, 22 Oct 26 09:34:00 +0700"
     }
   ]
 }
