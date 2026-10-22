@@ -1,32 +1,23 @@
 {
-  "last_updated": "2026-10-21 13:18:15",
+  "last_updated": "2026-10-22 07:06:59",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
-  "catalysts_detected": 1,
+  "catalysts_detected": 2,
   "system_verdict": "AN TOÀN",
   "symbols_sentiment": {
     "FPT": {
       "symbol": "FPT",
-      "news_count": 5,
-      "net_sentiment": 0.18,
+      "news_count": 3,
+      "net_sentiment": 0.3,
       "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
       "status_badge": "pos",
       "has_red_flag": false,
       "has_catalyst": true,
-      "latest_headline": "FPT công bố kết quả kinh doanh 9 tháng, một mảng tăng trưởng tới 55%",
+      "latest_headline": "FPT bắt tay chủ nhân siêu máy tính lượng tử quang tử mạnh nhất thế giới",
       "re_eval_action": "STRONG_BUY_CATALYST",
       "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
       "sentiment_multiplier": 1.2,
       "related_news": [
-        {
-          "title": "FPT công bố kết quả kinh doanh 9 tháng, một mảng tăng trưởng tới 55%",
-          "date": "Wed, 21 Oct 26 08:40:00 +0700",
-          "source": "CafeF Thị Trường",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/fpt-cong-bo-ket-qua-kinh-doanh-9-thang-mot-mang-tang-truong-toi-55-188261021083848638.chn"
-        },
         {
           "title": "FPT bắt tay chủ nhân siêu máy tính lượng tử quang tử mạnh nhất thế giới",
           "date": "Wed, 21 Oct 26 16:47:00 +0700",
@@ -44,15 +35,6 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/fpt-bat-tay-vien-hon-100-nam-tuoi-dang-phat-trien-may-tinh-luong-tu-18826102113090503.chn"
-        },
-        {
-          "title": "FPT lãi hơn 2.700 tỷ trong quý 3, tiếp tục lập kỷ lục mới",
-          "date": "Wed, 21 Oct 26 09:30:00 +0700",
-          "source": "CafeF Doanh Nghiệp (CBTT)",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/fpt-lai-hon-2700-ty-trong-quy-3-tiep-tuc-lap-ky-luc-moi-188261021093213162.chn"
         },
         {
           "title": "FPT báo lãi kỷ lục",
@@ -80,8 +62,8 @@
     },
     "VCB": {
       "symbol": "VCB",
-      "news_count": 3,
-      "net_sentiment": 0.03,
+      "news_count": 2,
+      "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
@@ -108,35 +90,37 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/ngoi-vuong-von-dieu-le-ngan-hang-sap-doi-chu-mot-nha-bang-sap-vuot-mb-va-vpbank-bo-xa-vietcombank-vietinbank-bidv-va-agribank-18826102116350762.chn"
-        },
-        {
-          "title": "Lãi suất tiết kiệm ngày 20/10 tại Agribank, Vietcombank, VietinBank và BIDV: Chênh lệch lớn ở kỳ hạn 12 - 24 tháng",
-          "date": "Tue, 20 Oct 26 20:58:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
-          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-          "sentiment_score": 0.1,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/lai-suat-tiet-kiem-ngay-20-10-tai-agribank-vietcombank-vietinbank-va-bidv-chenh-lech-lon-o-ky-han-12-24-thang-188261020210034116.chn"
         }
       ]
     },
     "MBB": {
       "symbol": "MBB",
-      "news_count": 0,
+      "news_count": 1,
       "net_sentiment": 0.0,
-      "status": "THÔNG TIN BÌNH ỔN",
+      "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Không có thông tin bất thường gần đây",
+      "latest_headline": "24 quỹ cùng “đổ tiền” vào một cổ phiếu quốc dân, miệt mài gom suốt 6 tháng liên tiếp",
       "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Duy trì khuyến nghị định lượng gốc",
-      "sentiment_multiplier": 1.0
+      "action_desc": "Duy trì tỷ trọng khuyến nghị",
+      "sentiment_multiplier": 1.0,
+      "related_news": [
+        {
+          "title": "24 quỹ cùng “đổ tiền” vào một cổ phiếu quốc dân, miệt mài gom suốt 6 tháng liên tiếp",
+          "date": "Thu, 22 Oct 26 00:04:00 +0700",
+          "source": "CafeF Thị Trường",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/24-quy-cung-do-tien-vao-mot-co-phieu-quoc-dan-miet-mai-gom-suot-6-thang-lien-tiep-18826102122173419.chn"
+        }
+      ]
     },
     "TCB": {
       "symbol": "TCB",
-      "news_count": 8,
-      "net_sentiment": 0.0,
+      "news_count": 7,
+      "net_sentiment": 0.01,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
@@ -156,13 +140,22 @@
           "link": "https://cafef.vn/cap-nhat-bctc-quy-3-2026-sang-ngay-21-10-techcombank-lap-ky-luc-loi-nhuan-mot-cong-ty-chung-khoan-lo-hon-100-ty-dong-188261020224356066.chn"
         },
         {
-          "title": "Cập nhật BCTC quý 3/2026 tối ngày 20/10: Loạt doanh nghiệp lớn công bố, Techcombank lãi hơn 10.000 tỷ, nhiều DN tăng bằng lần",
-          "date": "Tue, 20 Oct 26 18:40:00 +0700",
-          "source": "CafeF Doanh Nghiệp (CBTT)",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "title": "VDSC: Chỉ đạo mới của NHNN có thể khiến một số ngân hàng bị vượt room tín dụng",
+          "date": "Thu, 22 Oct 26 11:31:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+          "sentiment_score": 0.1,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/vdsc-chi-dao-moi-cua-nhnn-co-the-khien-mot-so-ngan-hang-bi-vuot-room-tin-dung-188261022113202819.chn"
+        },
+        {
+          "title": "Ngày 22/10, gửi 100 triệu đồng tại MB, VPBank, Techcombank, Sacombank, SHB, ACB nhận bao nhiêu tiền lãi sau 24 tháng?",
+          "date": "Thu, 22 Oct 26 07:10:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/cap-nhat-bctc-quy-3-2026-sang-ngay-20-10-loat-doanh-nghiep-ten-tuoi-cong-bo-nhieu-ket-qua-bat-ngo-188261020001041675.chn"
+          "link": "https://cafef.vn/ngay-22-10-gui-100-trieu-dong-tai-mb-vpbank-techcombank-sacombank-shb-acb-nhan-bao-nhieu-tien-lai-sau-24-thang-188261021231203821.chn"
         },
         {
           "title": "Ngày 21/10, gửi 100 triệu đồng tại VPBank, Techcombank, HDBank, MB, SHB và Sacombank nhận bao nhiêu tiền lãi sau 12 tháng?",
@@ -181,20 +174,44 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/techcombank-nhan-giai-ngan-hang-tot-nhat-viet-nam-nam-thu-3-lien-tiep-tu-global-finance-tiep-tuc-chuoi-hat-trick-tu-3-to-chuc-danh-gia-the-gioi-188261021103654366.chn"
-        },
-        {
-          "title": "Từ tạo lập tài sản đến quản trị gia sản: Việt Nam cần một chuẩn Private Banking mới",
-          "date": "Wed, 21 Oct 26 10:00:00 +0700",
-          "source": "CafeF Tài Chính Ngân Hàng",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/tu-tao-lap-tai-san-den-quan-tri-gia-san-viet-nam-can-mot-chuan-private-banking-moi-188261021094428281.chn"
         }
       ]
     },
     "ACB": {
       "symbol": "ACB",
+      "news_count": 2,
+      "net_sentiment": 0.0,
+      "status": "THÔNG TIN ỔN ĐỊNH",
+      "status_badge": "neutral",
+      "has_red_flag": false,
+      "has_catalyst": false,
+      "latest_headline": "24 quỹ cùng “đổ tiền” vào một cổ phiếu quốc dân, miệt mài gom suốt 6 tháng liên tiếp",
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Duy trì tỷ trọng khuyến nghị",
+      "sentiment_multiplier": 1.0,
+      "related_news": [
+        {
+          "title": "24 quỹ cùng “đổ tiền” vào một cổ phiếu quốc dân, miệt mài gom suốt 6 tháng liên tiếp",
+          "date": "Thu, 22 Oct 26 00:04:00 +0700",
+          "source": "CafeF Thị Trường",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/24-quy-cung-do-tien-vao-mot-co-phieu-quoc-dan-miet-mai-gom-suot-6-thang-lien-tiep-18826102122173419.chn"
+        },
+        {
+          "title": "Ngày 22/10, gửi 100 triệu đồng tại MB, VPBank, Techcombank, Sacombank, SHB, ACB nhận bao nhiêu tiền lãi sau 24 tháng?",
+          "date": "Thu, 22 Oct 26 07:10:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/ngay-22-10-gui-100-trieu-dong-tai-mb-vpbank-techcombank-sacombank-shb-acb-nhan-bao-nhieu-tien-lai-sau-24-thang-188261021231203821.chn"
+        }
+      ]
+    },
+    "SSI": {
+      "symbol": "SSI",
       "news_count": 0,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN BÌNH ỔN",
@@ -206,53 +223,18 @@
       "action_desc": "Duy trì khuyến nghị định lượng gốc",
       "sentiment_multiplier": 1.0
     },
-    "SSI": {
-      "symbol": "SSI",
-      "news_count": 1,
-      "net_sentiment": 0.0,
-      "status": "THÔNG TIN ỔN ĐỊNH",
-      "status_badge": "neutral",
-      "has_red_flag": false,
-      "has_catalyst": false,
-      "latest_headline": "Cập nhật số liệu CTCK ngày 21/10: Chứng khoán SSI, VNDirect, SHS đồng loạt hé lộ số lợi nhuận quý 3, nhiều khoản thua lỗ lộ diện",
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Duy trì tỷ trọng khuyến nghị",
-      "sentiment_multiplier": 1.0,
-      "related_news": [
-        {
-          "title": "Cập nhật số liệu CTCK ngày 21/10: Chứng khoán SSI, VNDirect, SHS đồng loạt hé lộ số lợi nhuận quý 3, nhiều khoản thua lỗ lộ diện",
-          "date": "Wed, 21 Oct 26 09:53:00 +0700",
-          "source": "CafeF Thị Trường",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/cap-nhat-so-lieu-ctck-ngay-21-10-chung-khoan-ssi-vndirect-shs-dong-loat-he-lo-so-loi-nhuan-quy-3-nhieu-khoan-thua-lo-lo-dien-188261021095346714.chn"
-        }
-      ]
-    },
     "VND": {
       "symbol": "VND",
-      "news_count": 1,
+      "news_count": 0,
       "net_sentiment": 0.0,
-      "status": "THÔNG TIN ỔN ĐỊNH",
+      "status": "THÔNG TIN BÌNH ỔN",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Cập nhật số liệu CTCK ngày 21/10: Chứng khoán SSI, VNDirect, SHS đồng loạt hé lộ số lợi nhuận quý 3, nhiều khoản thua lỗ lộ diện",
+      "latest_headline": "Không có thông tin bất thường gần đây",
       "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Duy trì tỷ trọng khuyến nghị",
-      "sentiment_multiplier": 1.0,
-      "related_news": [
-        {
-          "title": "Cập nhật số liệu CTCK ngày 21/10: Chứng khoán SSI, VNDirect, SHS đồng loạt hé lộ số lợi nhuận quý 3, nhiều khoản thua lỗ lộ diện",
-          "date": "Wed, 21 Oct 26 09:53:00 +0700",
-          "source": "CafeF Thị Trường",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/cap-nhat-so-lieu-ctck-ngay-21-10-chung-khoan-ssi-vndirect-shs-dong-loat-he-lo-so-loi-nhuan-quy-3-nhieu-khoan-thua-lo-lo-dien-188261021095346714.chn"
-        }
-      ]
+      "action_desc": "Duy trì khuyến nghị định lượng gốc",
+      "sentiment_multiplier": 1.0
     },
     "VHM": {
       "symbol": "VHM",
@@ -282,17 +264,35 @@
     },
     "MSN": {
       "symbol": "MSN",
-      "news_count": 3,
-      "net_sentiment": 0.0,
-      "status": "THÔNG TIN ỔN ĐỊNH",
-      "status_badge": "neutral",
+      "news_count": 5,
+      "net_sentiment": 0.16,
+      "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
+      "status_badge": "pos",
       "has_red_flag": false,
-      "has_catalyst": false,
-      "latest_headline": "Masan High-Tech Materials có Tổng giám đốc mới",
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Duy trì tỷ trọng khuyến nghị",
-      "sentiment_multiplier": 1.0,
+      "has_catalyst": true,
+      "latest_headline": "Masan Consumer lãi hơn 5.200 tỷ đồng sau 9 tháng, doanh thu quý 3 tăng mạnh nhất trong 3 năm",
+      "re_eval_action": "STRONG_BUY_CATALYST",
+      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
+      "sentiment_multiplier": 1.2,
       "related_news": [
+        {
+          "title": "Masan Consumer lãi hơn 5.200 tỷ đồng sau 9 tháng, doanh thu quý 3 tăng mạnh nhất trong 3 năm",
+          "date": "Thu, 22 Oct 26 09:13:00 +0700",
+          "source": "CafeF Doanh Nghiệp (CBTT)",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/masan-consumer-lai-hon-5200-ty-dong-sau-9-thang-doanh-thu-quy-3-tang-manh-nhat-trong-3-nam-188261022091444563.chn"
+        },
+        {
+          "title": "Masan lãi hơn 10.300 tỷ đồng sau 9 tháng, gấp 1,5 lần cả năm 2025",
+          "date": "Thu, 22 Oct 26 09:03:00 +0700",
+          "source": "CafeF Doanh Nghiệp (CBTT)",
+          "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
+          "sentiment_score": 0.8,
+          "sentiment_label": "TÍCH CỰC MẠNH",
+          "link": "https://cafef.vn/masan-lai-hon-10300-ty-dong-sau-9-thang-gap-15-lan-ca-nam-2025-188261022090437674.chn"
+        },
         {
           "title": "Masan High-Tech Materials có Tổng giám đốc mới",
           "date": "Wed, 21 Oct 26 16:11:00 +0700",
@@ -303,13 +303,13 @@
           "link": "https://cafef.vn/masan-high-tech-materials-co-tong-giam-doc-moi-188261021161147202.chn"
         },
         {
-          "title": "Điều gì khiến thương hiệu và mạng lưới phân phối của Masan Consumer trở nên giá trị?",
-          "date": "Wed, 21 Oct 26 08:00:00 +0700",
-          "source": "CafeF Doanh Nghiệp (CBTT)",
+          "title": "Kỷ lục doanh thu của Phúc Long sau khi về tay Masan",
+          "date": "Thu, 22 Oct 2026 10:36:03 +0700",
+          "source": "VnExpress Kinh Doanh",
           "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/dieu-gi-khien-thuong-hieu-va-mang-luoi-phan-phoi-cua-masan-consumer-tro-nen-gia-tri-188261020152311483.chn"
+          "link": "https://vnexpress.net/ky-luc-doanh-thu-cua-phuc-long-sau-khi-ve-tay-masan-5135458.html"
         },
         {
           "title": "Công ty vonfram của Masan có CEO mới",
@@ -350,27 +350,16 @@
     },
     "GAS": {
       "symbol": "GAS",
-      "news_count": 1,
+      "news_count": 0,
       "net_sentiment": 0.0,
-      "status": "THÔNG TIN ỔN ĐỊNH",
+      "status": "THÔNG TIN BÌNH ỔN",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "\"Ông lớn\" dầu khí Việt Nam làm việc với Bộ Thương mại Hoa Kỳ",
+      "latest_headline": "Không có thông tin bất thường gần đây",
       "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Duy trì tỷ trọng khuyến nghị",
-      "sentiment_multiplier": 1.0,
-      "related_news": [
-        {
-          "title": "\"Ông lớn\" dầu khí Việt Nam làm việc với Bộ Thương mại Hoa Kỳ",
-          "date": "Wed, 21 Oct 26 10:52:00 +0700",
-          "source": "CafeF Thị Trường",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/ong-lon-dau-khi-viet-nam-lam-viec-voi-bo-thuong-mai-hoa-ky-188261021103639766.chn"
-        }
-      ]
+      "action_desc": "Duy trì khuyến nghị định lượng gốc",
+      "sentiment_multiplier": 1.0
     },
     "GMD": {
       "symbol": "GMD",
@@ -407,25 +396,6 @@
       "published_date": "Wed, 21 Oct 26 19:06:00 +0700"
     },
     {
-      "title": "Ông Nguyễn Như Hoàng Tuấn, Lạc Thái Phước bị bắt, doanh nghiệp phát thông báo quan trọng",
-      "description": "Các quyết định miễn nhiệm lãnh đạo cùng có hiệu lực từ ngày 15/10.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
-      "sentiment_score": -1.0,
-      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
-      "sentiment_badge": "neg-danger",
-      "is_red_flag": true,
-      "is_catalyst": false,
-      "triggers_found": [
-        "bị bắt"
-      ],
-      "re_eval_action": "VETO_REJECT",
-      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
-      "link": "https://cafef.vn/ong-nguyen-nhu-hoang-tuan-lac-thai-phuoc-bi-bat-doanh-nghiep-phat-thong-bao-quan-trong-18826102110121882.chn",
-      "published_date": "Wed, 21 Oct 26 10:12:00 +0700"
-    },
-    {
       "title": "Khởi tố kế toán, thủ quỹ liên quan đến Hải Sapa TV",
       "description": "Ngày 20-10-2026, Cơ quan Cảnh sát điều tra Công an tỉnh Lào Cai đã ra quyết định khởi tố bị can, thi hành lệnh bắt bị can để tạm giam đối với kế toán và thủ quỹ Công ty cổ phần sản xuất và thương mại tổng hợp Hoàng Nam để điều tra về hành vi “Vi phạm quy định về kế toán gây hậu quả nghiêm trọng”.",
       "source": "CafeF Doanh Nghiệp (CBTT)",
@@ -444,26 +414,6 @@
       "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
       "link": "https://cafef.vn/khoi-to-ke-toan-thu-quy-lien-quan-den-hai-sapa-tv-188261021170131778.chn",
       "published_date": "Wed, 21 Oct 26 17:01:00 +0700"
-    },
-    {
-      "title": "Khám xét chỗ ở, khởi tố Giám đốc công ty đòi nợ Bùi Thị Phương",
-      "description": "Cơ quan chức năng đã khởi tố, khám xét chỗ ở của Bùi Thị Phương điều tra về tội “Lạm dụng tín nhiệm chiếm đoạt tài sản” theo quy định tại khoản 2 Điều 175 Bộ luật Hình sự.",
-      "source": "CafeF Doanh Nghiệp (CBTT)",
-      "symbols": [],
-      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
-      "sentiment_score": -1.0,
-      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
-      "sentiment_badge": "neg-danger",
-      "is_red_flag": true,
-      "is_catalyst": false,
-      "triggers_found": [
-        "khởi tố",
-        "điều tra"
-      ],
-      "re_eval_action": "VETO_REJECT",
-      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
-      "link": "https://cafef.vn/kham-xet-cho-o-khoi-to-giam-doc-cong-ty-doi-no-bui-thi-phuong-188261020114555131.chn",
-      "published_date": "Tue, 20 Oct 26 13:50:00 +0700"
     },
     {
       "title": "FPT báo lãi kỷ lục",
@@ -487,6 +437,46 @@
       "published_date": "Wed, 21 Oct 2026 14:35:14 +0700"
     },
     {
+      "title": "Loạt website chính phủ châu Âu khẩn cấp tạm ngừng hoạt động: Lý do xuất phát từ công ty của một kỹ sư người Việt",
+      "description": "Calif, công ty an ninh mạng do kỹ sư người Việt Dương Ngọc Thái đồng sáng lập, vừa tham gia phát hiện hai lỗ hổng bảo mật nghiêm trọng trong PHP. Doanh nghiệp hiện có khoảng 60 nhân sự hoạt động trên 5 châu lục, từng ký hợp đồng với những tên tuổi công nghệ như Google, Anthropic và Anysphere.",
+      "source": "CafeF Doanh Nghiệp (CBTT)",
+      "symbols": [],
+      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
+      "sentiment_score": -0.8,
+      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
+      "sentiment_badge": "neg-danger",
+      "is_red_flag": true,
+      "is_catalyst": false,
+      "triggers_found": [
+        "ngừng hoạt động"
+      ],
+      "re_eval_action": "VETO_REJECT",
+      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
+      "link": "https://cafef.vn/loat-website-chinh-phu-chau-au-khan-cap-tam-ngung-hoat-dong-ly-do-xuat-phat-tu-cong-ty-cua-mot-ky-su-nguoi-viet-188261022133909765.chn",
+      "published_date": "Thu, 22 Oct 26 13:39:00 +0700"
+    },
+    {
+      "title": "Masan lãi hơn 10.300 tỷ đồng sau 9 tháng, gấp 1,5 lần cả năm 2025",
+      "description": "Lợi nhuận sau thuế của Masan đạt 4.552 tỷ đồng trong quý 3/2026, tăng 2,4 lần so với cùng kỳ. Lũy kế 9 tháng đầu năm, tập đoàn ghi nhận lợi nhuận 10.325 tỷ đồng, vượt kế hoạch cơ sở cả năm 2026.",
+      "source": "CafeF Doanh Nghiệp (CBTT)",
+      "symbols": [
+        "MSN"
+      ],
+      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
+      "sentiment_score": 0.8,
+      "sentiment_label": "TÍCH CỰC MẠNH",
+      "sentiment_badge": "pos",
+      "is_red_flag": false,
+      "is_catalyst": true,
+      "triggers_found": [
+        "vượt kế hoạch"
+      ],
+      "re_eval_action": "STRONG_BUY_CATALYST",
+      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
+      "link": "https://cafef.vn/masan-lai-hon-10300-ty-dong-sau-9-thang-gap-15-lan-ca-nam-2025-188261022090437674.chn",
+      "published_date": "Thu, 22 Oct 26 09:03:00 +0700"
+    },
+    {
       "title": "Động thái gây chú ý của Chủ tịch Coteccons",
       "description": "Ngay sau ĐHĐCĐ thường niên với hàng loạt kế hoạch kinh doanh đáng chú ý, Chủ tịch HĐQT Coteccons Bolat Duisenov bất ngờ đăng ký mua thêm cổ phiếu CTD.",
       "source": "CafeF Thị Trường",
@@ -508,9 +498,9 @@
       "published_date": "Wed, 21 Oct 26 18:13:00 +0700"
     },
     {
-      "title": "Hai doanh nghiệp trên UPCoM bị phạt do vi phạm về công bố thông tin",
-      "description": "Thực phẩm G.C và Dịch vụ Vận tải Sài Gòn vừa bị Thanh tra Chứng khoán Nhà nước xử phạt do vi phạm các quy định về công bố thông tin trên thị trường chứng khoán.",
-      "source": "CafeF Thị Trường",
+      "title": "Công bố Quyết định thanh tra tại Tổng Công ty Đầu tư và Phát triển nhà Hà Nội",
+      "description": "Thanh tra Chính phủ vừa công bố Quyết định thanh tra việc phòng, chống lãng phí trong quản lý, sử dụng các cơ sở nhà, đất và hoạt động liên doanh, góp vốn, thoái vốn tại Tổng Công ty Đầu tư và Phát triển nhà Hà Nội.",
+      "source": "CafeF Doanh Nghiệp (CBTT)",
       "symbols": [],
       "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
       "sentiment_score": -0.7,
@@ -523,8 +513,8 @@
       ],
       "re_eval_action": "EMERGENCY_SELL",
       "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
-      "link": "https://cafef.vn/hai-doanh-nghiep-tren-upcom-bi-phat-do-vi-pham-ve-cong-bo-thong-tin-188261021073051512.chn",
-      "published_date": "Wed, 21 Oct 26 08:00:00 +0700"
+      "link": "https://cafef.vn/cong-bo-quyet-dinh-thanh-tra-tai-tong-cong-ty-dau-tu-va-phat-trien-nha-ha-noi-188261022075125913.chn",
+      "published_date": "Thu, 22 Oct 26 08:32:00 +0700"
     },
     {
       "title": "Yeah1 chỉ chào bán thành công 17 triệu cổ phiếu riêng lẻ cho 2 nhà đầu tư",
@@ -565,25 +555,23 @@
       "published_date": "Wed, 21 Oct 26 13:40:00 +0700"
     },
     {
-      "title": "“Ông lớn” sản xuất nha đam, thạch dừa GC Food (GCF) bị phạt gần nửa tỷ đồng vì loạt vi phạm",
-      "description": "GC Food (GCF) - doanh nghiệp hoạt động trong lĩnh vực sản xuất nha đam và thạch dừa vừa bị Thanh tra Chứng khoán Nhà nước xử phạt tổng cộng 425 triệu đồng do nhiều vi phạm liên quan đến công bố thông tin, báo cáo tài chính và sử dụng số tiền thu được từ đợt chào bán cổ phiếu riêng lẻ.",
-      "source": "CafeF Doanh Nghiệp (CBTT)",
-      "symbols": [
-        "GCF"
-      ],
-      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
-      "sentiment_score": -0.7,
-      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
-      "sentiment_badge": "neg-danger",
-      "is_red_flag": true,
-      "is_catalyst": false,
+      "title": "Vợ ông Bùi Thành Nhơn đăng ký bán hơn 6 triệu cổ phiếu Novaland",
+      "description": "Bà Cao Thị Ngọc Sương, vợ Chủ tịch Bùi Thành Nhơn, muốn giảm sở hữu tại Novaland, trong khi cổ đông lớn Diamond Properties đăng ký mua thêm cổ phiếu.",
+      "source": "VnExpress Kinh Doanh",
+      "symbols": [],
+      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
+      "sentiment_score": 0.7,
+      "sentiment_label": "TÍCH CỰC MẠNH",
+      "sentiment_badge": "pos",
+      "is_red_flag": false,
+      "is_catalyst": true,
       "triggers_found": [
-        "thanh tra"
+        "đăng ký mua"
       ],
-      "re_eval_action": "EMERGENCY_SELL",
-      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
-      "link": "https://cafef.vn/ong-lon-san-xuat-nha-dam-thach-dua-gc-food-gcf-bi-phat-gan-nua-ty-dong-vi-loat-vi-pham-188261021091320401.chn",
-      "published_date": "Wed, 21 Oct 26 10:13:00 +0700"
+      "re_eval_action": "STRONG_BUY_CATALYST",
+      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
+      "link": "https://vnexpress.net/vo-ong-bui-thanh-nhon-dang-ky-ban-hon-6-trieu-co-phieu-novaland-5135318.html",
+      "published_date": "Thu, 22 Oct 2026 03:00:00 +0700"
     },
     {
       "title": "Một doanh nghiệp sắp “phát” hơn 2.200 tỷ đồng cho cổ đông ngay đầu tháng 11",
@@ -605,10 +593,12 @@
       "published_date": "Wed, 21 Oct 26 13:38:00 +0700"
     },
     {
-      "title": "Một quỹ đầu tư ngoại vừa thu hồi khoản vay 4 triệu USD tại Dat Bike",
-      "description": "Sau hai năm tài trợ vốn cho Dat Bike, tổ chức đầu tư hạ tầng quốc tế PIDG đã hoàn tất việc rút vốn khỏi hãng xe máy điện Việt Nam. Động thái diễn ra sau khi Dat Bike huy động thành công 26 triệu USD trong vòng gọi vốn Series B, đồng thời mở rộng mạng lưới bán hàng lên 70 cửa hàng.",
+      "title": "Công ty của tỷ phú Phạm Nhật Vượng vận hành trạm sạc ô tô điện lớn nhất Việt Nam: Hơn 1.000 vị trí đỗ, 866 cổng sạc tại Long Biên",
+      "description": "Bãi đỗ xe rộng 28.991 m², với quy mô dự kiến 1.038 vị trí đỗ. Hiện tại, trạm đã đưa vào vận hành Zone 1 và Zone 2 với quy mô 814 trụ sạc, tương ứng với 866 cổng sạc ô tô điện, có khả năng sạc đồng thời cho 866 xe.",
       "source": "CafeF Doanh Nghiệp (CBTT)",
-      "symbols": [],
+      "symbols": [
+        "VIC"
+      ],
       "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
       "sentiment_score": 0.6,
       "sentiment_label": "TÍCH CỰC MẠNH",
@@ -616,18 +606,20 @@
       "is_red_flag": false,
       "is_catalyst": true,
       "triggers_found": [
-        "mở rộng mạng lưới"
+        "đưa vào vận hành"
       ],
       "re_eval_action": "STRONG_BUY_CATALYST",
       "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
-      "link": "https://cafef.vn/mot-quy-dau-tu-ngoai-vua-thu-hoi-khoan-vay-4-trieu-usd-tai-dat-bike-188261020215023533.chn",
-      "published_date": "Tue, 20 Oct 26 22:41:00 +0700"
+      "link": "https://cafef.vn/cong-ty-cua-ty-phu-pham-nhat-vuong-van-hanh-tram-sac-o-to-dien-lon-nhat-viet-nam-hon-1000-vi-tri-do-866-cong-sac-tai-long-bien-188261022110411072.chn",
+      "published_date": "Thu, 22 Oct 26 11:19:00 +0700"
     },
     {
-      "title": "EVN khởi công nhà máy điện khí LNG hơn 40.000 tỷ đồng",
-      "description": "Dự án điện LNG Quảng Trạch II có công suất gần 1.613 MW, tổng mức đầu tư hơn 40.000 tỷ đồng, dự kiến bổ sung sản lượng 9,5 tỷ kWh mỗi năm.",
-      "source": "VnExpress Kinh Doanh",
-      "symbols": [],
+      "title": "Vingroup lên kế hoạch xây nhà máy 500 triệu USD tại một quốc gia trăm triệu dân, công suất 200.000 xe mỗi năm",
+      "description": "Theo kế hoạch được phía Philippines công bố, nhà máy có tổng vốn đầu tư dự kiến khoảng 500 triệu USD, tương đương hơn 13.000 tỷ đồng. Dự án được kỳ vọng khởi công trong quý I/2027 và hoàn thành xây dựng sau khoảng 12-18 tháng.",
+      "source": "CafeF Doanh Nghiệp (CBTT)",
+      "symbols": [
+        "VIC"
+      ],
       "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
       "sentiment_score": 0.6,
       "sentiment_label": "TÍCH CỰC MẠNH",
@@ -639,8 +631,46 @@
       ],
       "re_eval_action": "STRONG_BUY_CATALYST",
       "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
-      "link": "https://vnexpress.net/evn-khoi-cong-nha-may-dien-khi-lng-hon-40-000-ty-dong-5134576.html",
-      "published_date": "Tue, 20 Oct 2026 13:30:17 +0700"
+      "link": "https://cafef.vn/vingroup-len-ke-hoach-xay-nha-may-500-trieu-usd-tai-mot-quoc-gia-tram-trieu-dan-cong-suat-200000-xe-moi-nam-188261022075210223.chn",
+      "published_date": "Thu, 22 Oct 26 07:51:00 +0700"
+    },
+    {
+      "title": "VDSC: Chỉ đạo mới của NHNN có thể khiến một số ngân hàng bị vượt room tín dụng",
+      "description": "Theo Chứng khoán Rồng Việt (VDSC), Công văn 9608 của Ngân hàng Nhà nước có thể tạo sức ép lên biên lãi ròng (NIM) của các ngân hàng, trong khi SHB, TPBank và Techcombank được ước tính đã vượt hạn mức tăng trưởng tín dụng năm 2026 sau khi tính thêm dư nợ mua hẳn L/C.",
+      "source": "CafeF Tài Chính Ngân Hàng",
+      "symbols": [
+        "TCB"
+      ],
+      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+      "sentiment_score": 0.1,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/vdsc-chi-dao-moi-cua-nhnn-co-the-khien-mot-so-ngan-hang-bi-vuot-room-tin-dung-188261022113202819.chn",
+      "published_date": "Thu, 22 Oct 26 11:31:00 +0700"
+    },
+    {
+      "title": "Sau khách hàng doanh nghiệp, SACOMBANK tiếp tục hạ lãi suất cho vay khách hàng cá nhân thấp nhất từ 1,5% đến 2%",
+      "description": "Tiếp tục thực hiện chủ trương của Chính phủ và Ngân hàng Nhà nước (NHNN) về giảm mặt bằng lãi suất, SACOMBANK triển khai thêm gói tín dụng ưu đãi với tổng quy mô 20.000 tỷ đồng, tập trung hỗ trợ nhóm khách hàng cá nhân với mức giảm lãi suất từ 1,5% đến 2%/năm.",
+      "source": "CafeF Tài Chính Ngân Hàng",
+      "symbols": [
+        "STB"
+      ],
+      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
+      "sentiment_score": 0.1,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/sau-khach-hang-doanh-nghiep-sacombank-tiep-tuc-ha-lai-suat-cho-vay-khach-hang-ca-nhan-thap-nhat-tu-15-den-2-188261022105945051.chn",
+      "published_date": "Thu, 22 Oct 26 10:59:00 +0700"
     },
     {
       "title": "Trái phiếu 'nóng' giữa lúc lãi suất ngân hàng ì ạch 'hạ nhiệt'",
@@ -786,46 +816,6 @@
       "published_date": "Tue, 20 Oct 26 22:17:00 +0700"
     },
     {
-      "title": "Lãi suất tiết kiệm ngày 20/10 tại Agribank, Vietcombank, VietinBank và BIDV: Chênh lệch lớn ở kỳ hạn 12 - 24 tháng",
-      "description": "Sau khi Agribank và Vietcombank giảm lãi suất tiền gửi, mặt bằng lãi suất tại nhóm Big4 có sự phân hóa rõ hơn. Ở kỳ hạn 12 tháng, BIDV và VietinBank cùng niêm yết 5,9%/năm, cao hơn mức 5,4%/năm của hai ngân hàng còn lại.",
-      "source": "CafeF Tài Chính Ngân Hàng",
-      "symbols": [
-        "BID",
-        "CTG",
-        "VCB"
-      ],
-      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-      "sentiment_score": 0.1,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/lai-suat-tiet-kiem-ngay-20-10-tai-agribank-vietcombank-vietinbank-va-bidv-chenh-lech-lon-o-ky-han-12-24-thang-188261020210034116.chn",
-      "published_date": "Tue, 20 Oct 26 20:58:00 +0700"
-    },
-    {
-      "title": "SACOMBANK giảm 0,5%/năm lãi suất huy động, \nhưởng ứng chủ trương của Chính phủ",
-      "description": "Hưởng ứng chủ trương của Chính phủ và Ngân hàng Nhà nước Việt Nam (NHNN) về giảm mặt bằng lãi suất, góp phần hỗ trợ hoạt động sản xuất, kinh doanh và thúc đẩy tăng trưởng kinh tế, SACOMBANK điều chỉnh giảm 0,5%/năm lãi suất huy động đối với các kỳ hạn từ 6 tháng trở lên, áp dụng từ ngày 20/10/2026.",
-      "source": "CafeF Tài Chính Ngân Hàng",
-      "symbols": [
-        "STB"
-      ],
-      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-      "sentiment_score": 0.1,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/sacombank-giam-05-nam-lai-suat-huy-dong-huong-ung-chu-truong-cua-chinh-phu-188261020175227405.chn",
-      "published_date": "Tue, 20 Oct 26 17:47:00 +0700"
-    },
-    {
       "title": "Ngân hàng Nhà nước giục giảm lãi suất tiết kiệm trên tất cả kênh",
       "description": "Nhà điều hành vừa tiếp tục ra yêu cầu các nhà băng giảm lãi suất trên tất cả kênh bán hàng một cách thực chất.",
       "source": "VnExpress Kinh Doanh",
@@ -860,8 +850,95 @@
       "published_date": "Wed, 21 Oct 2026 10:30:00 +0700"
     },
     {
-      "title": "Lượng tiền lớn trở lại, chứng khoán tăng mạnh nhất hơn nửa năm",
-      "description": "VN-Index tăng 46,7 điểm, dòng tiền cải thiện mạnh và khối ngoại đảo chiều mua ròng sau 20 phiên bán liên tiếp. Cổ phiếu họ Vingroup trở thành động lực kéo chỉ số, trong khi sắc xanh lan rộng trên bảng điện.",
+      "title": "Một công ty chứng khoán thua lỗ 17 quý liên tiếp, nâng lỗ lũy kế lên hơn 183 tỷ đồng",
+      "description": "Dù doanh thu tăng trưởng và mức lỗ đã thu hẹp đáng kể so với cùng kỳ, công ty chứng khoán này vẫn chưa thể chấm dứt chuỗi 17 quý liên tiếp kinh doanh thua lỗ.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/mot-cong-ty-chung-khoan-thua-lo-17-quy-lien-tiep-nang-lo-luy-ke-len-hon-183-ty-dong-188261022134243898.chn",
+      "published_date": "Thu, 22 Oct 26 13:42:00 +0700"
+    },
+    {
+      "title": "Giá vàng bất động, chênh lệch mua - bán mỗi nơi một kiểu",
+      "description": "Sáng nay (22/10), giá vàng trong nước đứng im so với hôm qua. Theo đó, vàng miếng SJC bán ra ở mức 142,3 triệu đồng/lượng. Tuy nhiên, chênh lệch giá mua vàng miếng SJC mỗi nơi một kiểu, có nơi lên đến hơn 4 triệu đồng/lượng.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/gia-vang-bat-dong-chenh-lech-mua-ban-moi-noi-mot-kieu-188261022105213641.chn",
+      "published_date": "Thu, 22 Oct 26 11:11:00 +0700"
+    },
+    {
+      "title": "Giá vàng 9999 Bảo Tín Mạnh Hải hôm nay 22/10/2026",
+      "description": "Giá vàng hôm nay 22/10/2026, cập nhật mới nhất giá vàng 9999 tại Bảo Tín Mạnh Hải cùng nhiều thương hiệu lớn trên thị trường.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/gia-vang-9999-bao-tin-manh-hai-hom-nay-22-10-2026-188261022104951063.chn",
+      "published_date": "Thu, 22 Oct 26 10:49:00 +0700"
+    },
+    {
+      "title": "TVC không hoàn tất giao dịch mua 500.000 cổ phiếu TVB",
+      "description": "TVC chỉ mua vào 140.300 cổ phiếu trong tổng số 500.000 cổ phiếu TVB đã đăng ký trong thời gian từ 21/9 đến 20/10/2026.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "TVB"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/tvc-khong-hoan-tat-giao-dich-mua-500000-co-phieu-tvb-188261022104835181.chn",
+      "published_date": "Thu, 22 Oct 26 10:48:00 +0700"
+    },
+    {
+      "title": "Công ty con của REE thành lập công ty tài chính vốn điều lệ 1 triệu USD",
+      "description": "REE Energy- công ty con của REE thành lập Công ty TNHH REE Energy Finance tại Trung tâm Tài chính Quốc tế Việt Nam tại TP.HCM, vốn điều lệ ban đầu là 1 triệu USD.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/cong-ty-con-cua-ree-thanh-lap-cong-ty-tai-chinh-von-dieu-le-1-trieu-usd-188261022104706611.chn",
+      "published_date": "Thu, 22 Oct 26 10:47:00 +0700"
+    },
+    {
+      "title": "Vicostone lập công ty con vốn điều lệ 200 tỷ đồng",
+      "description": "Vicostone thành lập Công ty TNHH Hóa chất Vicostone, vốn điều lệ 200 tỷ đồng, ngành nghề kinh doanh chính là sản xuất hóa chất cơ bản.",
       "source": "CafeF Thị Trường",
       "symbols": [
         "VIC"
@@ -875,32 +952,15 @@
       "triggers_found": [],
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/luong-tien-lon-tro-lai-chung-khoan-tang-manh-nhat-hon-nua-nam-188261021182828647.chn",
-      "published_date": "Wed, 21 Oct 26 18:28:00 +0700"
+      "link": "https://cafef.vn/vicostone-lap-cong-ty-con-von-dieu-le-200-ty-dong-188261022093142229.chn",
+      "published_date": "Thu, 22 Oct 26 09:36:00 +0700"
     },
     {
-      "title": "Một người Việt có thêm nhiều tiền nhất thế giới ngày 21/10, vượt qua cả Elon Musk, Warren Buffet",
-      "description": "Khối tài sản của người này tăng khoảng 2,3 tỷ USD, tương đương 7,14%, lên 34,8 tỷ USD.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/mot-nguoi-viet-co-them-nhieu-tien-nhat-the-gioi-ngay-21-10-vuot-qua-ca-elon-musk-warren-buffet-188261021175514738.chn",
-      "published_date": "Wed, 21 Oct 26 17:56:00 +0700"
-    },
-    {
-      "title": "Một cổ phiếu ngân hàng bất ngờ bị bán ròng hàng trăm tỷ trong phiên 21/10",
-      "description": "Tự doanh CTCK bán ròng trên HOSE, trong đó bán mạnh VCB ngược chiều mua ròng hàng trăm tỷ đồng tại VJC.",
+      "title": "VPBankS trình cổ đông kế hoạch tăng vốn vượt 27.100 tỷ đồng",
+      "description": "VPBankS trình cổ đông kế hoạch phát hành 843,75 triệu cổ phiếu thưởng để tăng vốn lên 27.187,5 tỷ đồng.",
       "source": "CafeF Thị Trường",
       "symbols": [
-        "VCB"
+        "VPB"
       ],
       "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
       "sentiment_score": 0.0,
@@ -911,15 +971,119 @@
       "triggers_found": [],
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/hang-hang-khong-cua-ty-phu-nguyen-thi-phuong-thao-dat-hang-188261021173013446.chn",
-      "published_date": "Wed, 21 Oct 26 17:30:00 +0700"
+      "link": "https://cafef.vn/vpbanks-trinh-co-dong-ke-hoach-tang-von-vuot-27100-ty-dong-18826102209292489.chn",
+      "published_date": "Thu, 22 Oct 26 09:35:00 +0700"
     },
     {
-      "title": "Tổ chức liên quan ông Bùi Cao Nhật Quân muốn gom 7 triệu cổ phiếu Novaland",
-      "description": "Ở chiều ngược lại, bà Cao Thị Ngọc Sương, vợ ông Bùi Thành Nhơn và là mẹ Chủ tịch Novaland Bùi Cao Nhật Quân, đăng ký bán 6,3 triệu cổ phiếu NVL nhằm phục vụ nhu cầu cá nhân.",
+      "title": "Giá vàng hôm nay 22/10: Thế giới bật tăng, một thương hiệu vàng nhẫn bất ngờ mất 500.000 đồng/lượng",
+      "description": "Diễn biến giá vàng trong nước và thế giới có diễn biến trái chiều trong sáng nay.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/gia-vang-hom-nay-22-10-the-gioi-bat-tang-mot-thuong-hieu-vang-nhan-bat-ngo-mat-500000-dong-luong-188261022092817486.chn",
+      "published_date": "Thu, 22 Oct 26 09:34:00 +0700"
+    },
+    {
+      "title": "CII gia hạn thời gian phân phối trái phiếu chuyển đổi",
+      "description": "CII đang chào bán gần 67,2 triệu trái phiếu mã CII426001 cho cổ đông hiện hữu. Công ty gia hạn thời gian phân phối trái phiếu thêm 30 ngày.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/cii-gia-han-thoi-gian-phan-phoi-trai-phieu-chuyen-doi-188261022072657052.chn",
+      "published_date": "Thu, 22 Oct 26 07:26:00 +0700"
+    },
+    {
+      "title": "Một hiện tượng lạ vừa xảy ra trên thị trường chứng khoán Việt Nam",
+      "description": "Đây là một tín hiệu tích cực đối với thị trường chứng khoán.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/mot-hien-tuong-la-vua-xay-ra-tren-thi-truong-chung-khoan-viet-nam-188261021232824511.chn",
+      "published_date": "Thu, 22 Oct 26 00:08:00 +0700"
+    },
+    {
+      "title": "Một cổ phiếu ngân hàng được hơn 50 quỹ cùng “xuống tiền” gom hàng, lợi nhuận quý 3 dự báo tăng vọt",
+      "description": "Đây là tháng thứ hai liên tiếp các quỹ mua ròng cổ phiếu ngân hàng.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/mot-co-phieu-ngan-hang-duoc-hon-50-quy-cung-xuong-tien-gom-hang-loi-nhuan-quy-3-du-bao-tang-vot-188261021221923114.chn",
+      "published_date": "Thu, 22 Oct 26 00:07:00 +0700"
+    },
+    {
+      "title": "24 \"cá mập\" đã âm thầm làm điều này trước nhịp tăng 47 điểm của VN-Index",
+      "description": "Theo FiinGroup, trong số các quỹ tăng tỷ trọng tiền mặt tháng 9 có những cái tên đáng chú ý như DCDS, VLGF và EVESG.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/24-ca-map-da-am-tham-lam-dieu-nay-truoc-nhip-tang-47-diem-cua-vn-index-188261021222045899.chn",
+      "published_date": "Thu, 22 Oct 26 00:06:00 +0700"
+    },
+    {
+      "title": "Lãnh đạo Coteccons nói gì khi tỷ lệ nghỉ việc tại CTD tăng mạnh, nhân sự được mời chào mức lương gấp 2-3 lần?",
+      "description": "Bên cạnh vấn đề nhân sự, Coteccons cũng công bố kế hoạch kinh doanh cho năm tài chính 2027 với mục tiêu doanh thu hợp nhất đạt 42.000 tỷ đồng, tăng 22% so với cùng kỳ.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/lanh-dao-coteccons-noi-gi-khi-ty-le-nghi-viec-tai-ctd-tang-manh-nhan-su-duoc-moi-chao-muc-luong-gap-2-3-lan-188261021164933948.chn",
+      "published_date": "Thu, 22 Oct 26 00:05:00 +0700"
+    },
+    {
+      "title": "24 quỹ cùng “đổ tiền” vào một cổ phiếu quốc dân, miệt mài gom suốt 6 tháng liên tiếp",
+      "description": "Đứng đầu danh sách mua ròng là VPB với 28,7 triệu cổ phiếu, tiếp theo là MBB với 21,4 triệu đơn vị và ACB với 13,8 triệu đơn vị.",
       "source": "CafeF Thị Trường",
       "symbols": [
-        "NVL"
+        "ACB",
+        "MBB",
+        "VPB"
       ],
       "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
       "sentiment_score": 0.0,
@@ -930,12 +1094,12 @@
       "triggers_found": [],
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/to-chuc-lien-quan-ong-bui-cao-nhat-quan-muon-gom-7-trieu-co-phieu-novaland-188261021171505153.chn",
-      "published_date": "Wed, 21 Oct 26 17:16:00 +0700"
+      "link": "https://cafef.vn/24-quy-cung-do-tien-vao-mot-co-phieu-quoc-dan-miet-mai-gom-suot-6-thang-lien-tiep-18826102122173419.chn",
+      "published_date": "Thu, 22 Oct 26 00:04:00 +0700"
     },
     {
-      "title": "VPS duy trì vị thế dẫn đầu thị phần môi giới, lợi nhuận trước thuế 9 tháng tăng 26,7%",
-      "description": "Công ty Cổ phần Chứng khoán VPS (Mã CK: VCK) khép lại 9 tháng đầu năm 2026 với lợi nhuận trước thuế đạt 4.044 tỷ đồng, tăng 26,7% so với cùng kỳ.",
+      "title": "Chứng khoán sau nâng hạng: IPO tăng tốc, giao dịch xuyên trưa có khả thi?",
+      "description": "Sau dấu mốc nâng hạng, thị trường chứng khoán Việt Nam đứng trước yêu cầu cải thiện hạ tầng giao dịch, bổ sung hàng hóa chất lượng và thúc đẩy IPO. Mục tiêu huy động 5,4 triệu tỷ đồng vốn trung, dài hạn trong giai đoạn 2026-2030 đã tạo áp lực phải đổi mới để thị trường trở thành kênh dẫn vốn hiệu quả hơn cho nền kinh tế.",
       "source": "CafeF Thị Trường",
       "symbols": [],
       "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
@@ -947,184 +1111,8 @@
       "triggers_found": [],
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/vps-duy-tri-vi-the-dan-dau-thi-phan-moi-gioi-loi-nhuan-truoc-thue-9-thang-tang-267-188261021160445608.chn",
-      "published_date": "Wed, 21 Oct 26 17:00:00 +0700"
-    },
-    {
-      "title": "Vì sao chứng khoán bất ngờ tăng vọt 47 điểm phiên 21/10?",
-      "description": "Đây là mức tăng mạnh của chỉ số trong hơn nửa năm, kể từ ngày 8/4 năm nay.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/vi-sao-chung-khoan-bat-ngo-tang-vot-47-diem-phien-21-10-188261021160921339.chn",
-      "published_date": "Wed, 21 Oct 26 16:23:00 +0700"
-    },
-    {
-      "title": "PNJ cần thêm 100 - 150 tỷ đồng/tháng để duy trì hoạt động",
-      "description": "Tại Đại hội đồng cổ đông bất thường năm 2026, lãnh đạo PNJ cho rằng, công ty này cần thêm 100-150 tỷ đồng/tháng để duy trì hoạt động.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/pnj-can-them-100-150-ty-dong-thang-de-duy-tri-hoat-dong-18826102115164487.chn",
-      "published_date": "Wed, 21 Oct 26 16:07:00 +0700"
-    },
-    {
-      "title": "Tin vui: Khối ngoại ngắt chuỗi 21 phiên “xả hàng”, chi gần 300 tỷ đồng gom một cổ phiếu ngân hàng",
-      "description": "Giao dịch khối ngoại trở thành điểm cộng khi nhóm này quay lại mua ròng khoảng 160 tỷ đồng.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/tin-vui-khoi-ngoai-ngat-chuoi-21-phien-xa-hang-chi-gan-300-ty-dong-gom-mot-co-phieu-ngan-hang-188261021153710281.chn",
-      "published_date": "Wed, 21 Oct 26 15:45:00 +0700"
-    },
-    {
-      "title": "Tỷ phú Phạm Nhật Vượng “đưa” chứng khoán Việt Nam tăng mạnh nhất nhì Châu Á",
-      "description": "Thị trường chứng khoán Việt Nam vừa có phiên tăng mạnh nhất trong hơn nửa năm với đàu tàu là cổ phiếu nhóm Vingroup.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "VIC"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/ty-phu-pham-nhat-vuong-dua-chung-khoan-viet-nam-tang-manh-nhat-nhi-chau-a-188261021152914314.chn",
-      "published_date": "Wed, 21 Oct 26 15:45:00 +0700"
-    },
-    {
-      "title": "Nam Tân Uyên báo lãi ròng quý III/2026 “sụt giảm”, doanh thu chờ phân bổ vượt 5.000 tỷ đồng",
-      "description": "Nam Tân Uyên ghi nhận doanh thu và lợi nhuận quý III/2026 sụt giảm mạnh so với cùng kỳ năm trước, trong khi doanh thu chờ phân bổ tính đến ngày 30/9/2026 vượt 5.000 tỷ đồng.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/nam-tan-uyen-bao-lai-rong-quy-iii-2026-sut-giam-doanh-thu-cho-phan-bo-vuot-5000-ty-dong-188261021150555493.chn",
-      "published_date": "Wed, 21 Oct 26 15:31:00 +0700"
-    },
-    {
-      "title": "Người thân lãnh đạo OCB đăng ký bán cổ phiếu",
-      "description": "Bà Nguyễn Việt Triều, vợ ông Ngô Hà Bắc- Thành viên HĐQT OCB, vừa đăng ký bán ra 500.000 cổ phiếu OCB do nhu cầu cá nhân.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "OCB"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/nguoi-than-lanh-dao-ocb-dang-ky-ban-co-phieu-188261021151234452.chn",
-      "published_date": "Wed, 21 Oct 26 15:12:00 +0700"
-    },
-    {
-      "title": "5 tiệm vàng lớn phát thông báo về thanh toán, nhiều tiệm từ chối ví điện tử: Vướng mắc là gì?",
-      "description": "Theo chuyên gia, việc một số doanh nghiệp vẫn từ chối thanh toán qua ví điện tử xuất phát từ vướng mắc trong việc xác minh danh tính người thanh toán.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/5-tiem-vang-lon-phat-thong-bao-ve-thanh-toan-nhieu-tiem-tu-choi-vi-dien-tu-vuong-mac-la-gi-188261021134327884.chn",
-      "published_date": "Wed, 21 Oct 26 15:00:00 +0700"
-    },
-    {
-      "title": "Chứng khoán Việt Nam định vị mục tiêu hút 5,4 triệu tỷ đồng vốn trung và dài hạn giai đoạn 2026 - 2030",
-      "description": "Trong bối cảnh vừa chính thức thăng hạng thị trường mới nổi, thị trường chứng khoán được kỳ vọng đóng vai trò là \"mạch máu\" dẫn dắt nguồn vốn chiến lược, đáp ứng nhu cầu tăng trưởng kinh tế hai con số của đất nước trong giai đoạn bản lề tới.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/chung-khoan-viet-nam-dinh-vi-muc-tieu-hut-54-trieu-ty-dong-von-trung-va-dai-han-giai-doan-2026-2030-188261021135352526.chn",
-      "published_date": "Wed, 21 Oct 26 14:21:00 +0700"
-    },
-    {
-      "title": "SHS: Doanh thu quý III tăng 23%, động lực tăng trưởng đến từ các trụ cột mới",
-      "description": "Kết thúc quý III/2026, Công ty CP Chứng khoán Sài Gòn – Hà Nội (SHS) ghi nhận doanh thu hoạt động quý III đạt 1.002 tỷ đồng, tăng 23% so với cùng kỳ.",
-      "source": "CafeF Thị Trường",
-      "symbols": [
-        "SHS"
-      ],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/shs-doanh-thu-quy-iii-tang-23-dong-luc-tang-truong-den-tu-cac-tru-cot-moi-188261021103424702.chn",
-      "published_date": "Wed, 21 Oct 26 13:30:00 +0700"
-    },
-    {
-      "title": "PNJ chưa chốt giá phát hành 550 triệu cổ phiếu",
-      "description": "Tại Đại hội đồng cổ đông bất thường sáng 21/10, CEO PNJ Phan Quốc Công cho biết kế hoạch phát hành thêm tối đa 550 triệu cổ phiếu chưa có phương án chi tiết. Giá phát hành sẽ căn cứ vào giá trị sổ sách và giá bình quân 30 phiên gần nhất, nên giá cổ phiếu trên thị trường càng cao thì cổ đông hiện hữu càng ít bị pha loãng.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/pnj-chua-chot-gia-phat-hanh-550-trieu-co-phieu-188261021131103292.chn",
-      "published_date": "Wed, 21 Oct 26 13:10:00 +0700"
+      "link": "https://cafef.vn/chung-khoan-sau-nang-hang-ipo-tang-toc-giao-dich-xuyen-trua-co-kha-thi-18826102120575641.chn",
+      "published_date": "Thu, 22 Oct 26 00:03:00 +0700"
     }
   ]
 }
