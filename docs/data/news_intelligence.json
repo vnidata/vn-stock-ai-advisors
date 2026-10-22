@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-22 08:19:04",
+  "last_updated": "2026-10-22 09:31:54",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 2,
@@ -130,26 +130,17 @@
     },
     "TCB": {
       "symbol": "TCB",
-      "news_count": 8,
+      "news_count": 7,
       "net_sentiment": 0.03,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Cập nhật BCTC quý 3/2026 chiều ngày 21/10: LPBank báo lãi 9 tháng vượt 10.000 tỷ đồng, một CTCK báo lãi gấp 9 lần cùng kỳ",
+      "latest_headline": "Techcombank giảm lãi suất cho vay đến 2%, tập trung vào hoạt động sản xuất kinh doanh",
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Duy trì tỷ trọng khuyến nghị",
       "sentiment_multiplier": 1.0,
       "related_news": [
-        {
-          "title": "Cập nhật BCTC quý 3/2026 chiều ngày 21/10: LPBank báo lãi 9 tháng vượt 10.000 tỷ đồng, một CTCK báo lãi gấp 9 lần cùng kỳ",
-          "date": "Wed, 21 Oct 26 12:21:00 +0700",
-          "source": "CafeF Doanh Nghiệp (CBTT)",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/cap-nhat-bctc-quy-3-2026-sang-ngay-21-10-techcombank-lap-ky-luc-loi-nhuan-mot-cong-ty-chung-khoan-lo-hon-100-ty-dong-188261020224356066.chn"
-        },
         {
           "title": "Techcombank giảm lãi suất cho vay đến 2%, tập trung vào hoạt động sản xuất kinh doanh",
           "date": "Thu, 22 Oct 26 14:39:00 +0700",
@@ -185,6 +176,15 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/ngay-21-10-gui-100-trieu-dong-tai-vpbank-techcombank-hdbank-mb-shb-va-sacombank-nhan-bao-nhieu-tien-lai-sau-12-thang-188261021142713175.chn"
+        },
+        {
+          "title": "Techcombank nhận giải “Ngân hàng Tốt nhất Việt Nam” năm thứ 3 liên tiếp từ Global Finance, tiếp tục “chuỗi hat-trick” từ 3 tổ chức danh giá thế giới",
+          "date": "Wed, 21 Oct 26 10:36:00 +0700",
+          "source": "CafeF Tài Chính Ngân Hàng",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/techcombank-nhan-giai-ngan-hang-tot-nhat-viet-nam-nam-thu-3-lien-tiep-tu-global-finance-tiep-tuc-chuoi-hat-trick-tu-3-to-chuc-danh-gia-the-gioi-188261021103654366.chn"
         }
       ]
     },
@@ -249,16 +249,27 @@
     },
     "VHM": {
       "symbol": "VHM",
-      "news_count": 0,
+      "news_count": 1,
       "net_sentiment": 0.0,
-      "status": "THÔNG TIN BÌNH ỔN",
+      "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Không có thông tin bất thường gần đây",
+      "latest_headline": "Siêu dự án gần 1 triệu tỷ đồng tại Hà Nội có diễn biến mới: Vinhomes muốn ký hợp đồng với 2 công ty, dùng tài sản bảo đảm cho công ty con",
       "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Duy trì khuyến nghị định lượng gốc",
-      "sentiment_multiplier": 1.0
+      "action_desc": "Duy trì tỷ trọng khuyến nghị",
+      "sentiment_multiplier": 1.0,
+      "related_news": [
+        {
+          "title": "Siêu dự án gần 1 triệu tỷ đồng tại Hà Nội có diễn biến mới: Vinhomes muốn ký hợp đồng với 2 công ty, dùng tài sản bảo đảm cho công ty con",
+          "date": "Thu, 22 Oct 26 15:41:00 +0700",
+          "source": "CafeF Doanh Nghiệp (CBTT)",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/sieu-du-an-gan-1-trieu-ty-dong-tai-ha-noi-co-dien-bien-moi-vinhomes-muon-ky-hop-dong-voi-2-cong-ty-dung-tai-san-bao-dam-cho-cong-ty-con-188261022153107281.chn"
+        }
+      ]
     },
     "MWG": {
       "symbol": "MWG",
@@ -684,6 +695,25 @@
       "published_date": "Thu, 22 Oct 26 07:51:00 +0700"
     },
     {
+      "title": "Đại biểu Quốc hội: Nên để chủ đầu tư nhận tiền đặt mua bất động sản sớm hơn",
+      "description": "Đại biểu Bùi Xuân Hải đề xuất cho doanh nghiệp được nhận 5% tiền đặt mua bất động sản hình thành trong tương lai sớm hơn, thay vì chờ đến khi dự án khởi công.",
+      "source": "VnExpress Kinh Doanh",
+      "symbols": [],
+      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
+      "sentiment_score": 0.6,
+      "sentiment_label": "TÍCH CỰC MẠNH",
+      "sentiment_badge": "pos",
+      "is_red_flag": false,
+      "is_catalyst": true,
+      "triggers_found": [
+        "khởi công"
+      ],
+      "re_eval_action": "STRONG_BUY_CATALYST",
+      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
+      "link": "https://vnexpress.net/dai-bieu-quoc-hoi-nen-de-chu-dau-tu-nhan-tien-dat-mua-bat-dong-san-som-hon-5135570.html",
+      "published_date": "Thu, 22 Oct 2026 15:16:08 +0700"
+    },
+    {
       "title": "Techcombank giảm lãi suất cho vay đến 2%, tập trung vào hoạt động sản xuất kinh doanh",
       "description": "Sau chỉ đạo của Chính phủ và Ngân hàng Nhà nước, Techcombank triển khai giảm lãi suất cho vay, với mức giảm tới 2%/năm. Các chương trình ưu đãi lãi suất tập trung vào lĩnh vực sản xuất, kinh doanh, góp phần giảm chi phí vốn cho doanh nghiệp và người dân, với quy mô 40.000 tỷ đồng, đồng thời ngân hàng cũng giảm lãi suất tiền gửi 0,5% cho các kỳ hạn từ 6 tháng trở lên, áp dụng với toàn bộ khách hàng cá nhân và doanh nghiệp.",
       "source": "CafeF Tài Chính Ngân Hàng",
@@ -884,6 +914,42 @@
       "published_date": "Wed, 21 Oct 2026 16:11:56 +0700"
     },
     {
+      "title": "Sở hữu 20% lợi ích tại siêu dự án 9.170 ha ở Hà Nội, lãnh đạo VinFast lên tiếng về khả năng “lấn sân” bất động sản",
+      "description": "Trong quý 3/2026, VinFast đã hoàn tất việc mua lại 100% lợi ích kinh tế tại CTCP Đầu tư Bất động sản Ngọc Hồi từ ông Phạm Nhật Vượng và hai cổ đông thiểu số khác.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "VIC"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/so-huu-20-loi-ich-tai-sieu-du-an-9170-ha-o-ha-noi-lanh-dao-vinfast-len-tieng-ve-kha-nang-lan-san-bat-dong-san-188261022155036414.chn",
+      "published_date": "Thu, 22 Oct 26 16:10:00 +0700"
+    },
+    {
+      "title": "Phiên 22/10: Khối ngoại tiếp tục gom hàng, \"tung\" hơn 700 tỷ đồng mua 4 mã bluechips",
+      "description": "Giao dịch của khối ngoại là điểm cộng khi mua ròng khoảng 347 tỷ đồng cổ phiếu trên toàn thị trường.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/phien-22-10-khoi-ngoai-tiep-tuc-gom-hang-tung-hon-700-ty-dong-mua-4-ma-bluechips-188261022155206817.chn",
+      "published_date": "Thu, 22 Oct 26 15:51:00 +0700"
+    },
+    {
       "title": "Đề xuất sửa đổi, bổ sung nhiều quy định về chứng chỉ hành nghề chứng khoán",
       "description": "Dự thảo Luật sửa đổi, bổ sung một số điều của Luật Chứng khoán bỏ quy định người bị thu hồi chứng chỉ do vi phạm quy định về các hành vi bị nghiêm cấm trong hoạt động về chứng khoán và TTCK tại Điều 12.",
       "source": "CafeF Thị Trường",
@@ -1075,57 +1141,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/cii-gia-han-thoi-gian-phan-phoi-trai-phieu-chuyen-doi-188261022072657052.chn",
       "published_date": "Thu, 22 Oct 26 07:26:00 +0700"
-    },
-    {
-      "title": "Một hiện tượng lạ vừa xảy ra trên thị trường chứng khoán Việt Nam",
-      "description": "Đây là một tín hiệu tích cực đối với thị trường chứng khoán.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/mot-hien-tuong-la-vua-xay-ra-tren-thi-truong-chung-khoan-viet-nam-188261021232824511.chn",
-      "published_date": "Thu, 22 Oct 26 00:08:00 +0700"
-    },
-    {
-      "title": "Một cổ phiếu ngân hàng được hơn 50 quỹ cùng “xuống tiền” gom hàng, lợi nhuận quý 3 dự báo tăng vọt",
-      "description": "Đây là tháng thứ hai liên tiếp các quỹ mua ròng cổ phiếu ngân hàng.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/mot-co-phieu-ngan-hang-duoc-hon-50-quy-cung-xuong-tien-gom-hang-loi-nhuan-quy-3-du-bao-tang-vot-188261021221923114.chn",
-      "published_date": "Thu, 22 Oct 26 00:07:00 +0700"
-    },
-    {
-      "title": "24 \"cá mập\" đã âm thầm làm điều này trước nhịp tăng 47 điểm của VN-Index",
-      "description": "Theo FiinGroup, trong số các quỹ tăng tỷ trọng tiền mặt tháng 9 có những cái tên đáng chú ý như DCDS, VLGF và EVESG.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/24-ca-map-da-am-tham-lam-dieu-nay-truoc-nhip-tang-47-diem-cua-vn-index-188261021222045899.chn",
-      "published_date": "Thu, 22 Oct 26 00:06:00 +0700"
     }
   ]
 }

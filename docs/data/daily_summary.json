@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-22 08:19:07 (UTC+7)",
+  "last_updated": "2026-10-22 09:31:57 (UTC+7)",
   "trading_date": "2026-10-22",
   "vnindex": {
     "close": 1760.63,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 2,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-22 08:19:04"
+    "last_scanned": "2026-10-22 09:31:54"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -1233,9 +1233,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Cập nhật BCTC quý 3/2026 chiều ngày 21/10: LPBank báo lãi 9 tháng vượt 10.000 tỷ đồng, một CTCK báo lãi gấp 9 lần cùng kỳ",
+        "latest_headline": "Techcombank giảm lãi suất cho vay đến 2%, tập trung vào hoạt động sản xuất kinh doanh",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 8,
+        "news_count": 7,
         "re_eval_note": ""
       },
       {
@@ -1279,11 +1279,11 @@
         "sector": "RealEstate",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN BÌNH ỔN",
+        "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Không có thông tin bất thường gần đây",
-        "action_desc": "Duy trì khuyến nghị định lượng gốc",
-        "news_count": 0,
+        "latest_headline": "Siêu dự án gần 1 triệu tỷ đồng tại Hà Nội có diễn biến mới: Vinhomes muốn ký hợp đồng với 2 công ty, dùng tài sản bảo đảm cho công ty con",
+        "action_desc": "Duy trì tỷ trọng khuyến nghị",
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -1492,7 +1492,7 @@
       "quant_criteria": "Tỷ lệ an toàn vốn CAR cao nhất ngành (>15%), biên lãi thuần NIM phục hồi, giao dịch sôi động.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Cập nhật BCTC quý 3/2026 chiều ngày 21/10: LPBank báo lãi 9 tháng vượt 10.000 tỷ đồng, một CTCK báo lãi gấp 9 lần cùng kỳ"
+      "latest_headline": "Techcombank giảm lãi suất cho vay đến 2%, tập trung vào hoạt động sản xuất kinh doanh"
     },
     {
       "symbol": "ACB",
@@ -1602,9 +1602,9 @@
       "ai_radar_action": "Quan sát tín hiệu tích lũy cạn cung; Đưa vào Radar chờ phiên bùng nổ FTD",
       "selection_reason": "Nhà phát triển bất động sản quy mô số 1 Việt Nam với quỹ đất sạch lớn nhất cả nước. Khả năng triển khai đại đô thị và tạo lập dòng tiền bàn giao dự án áp đảo thị trường, chi phối mạnh chỉ số VN-Index.",
       "quant_criteria": "Vốn hóa trụ cột Top 3 VN-Index, quỹ đất hàng nghìn ha, đóng góp lớn vào biến động điểm số chỉ số.",
-      "news_status": "THÔNG TIN BÌNH ỔN",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Không có thông tin bất thường gần đây"
+      "latest_headline": "Siêu dự án gần 1 triệu tỷ đồng tại Hà Nội có diễn biến mới: Vinhomes muốn ký hợp đồng với 2 công ty, dùng tài sản bảo đảm cho công ty con"
     },
     {
       "symbol": "MWG",
@@ -1810,7 +1810,7 @@
           "technical_signal": "BÁM ĐƯỜNG MA20 | Giữ vững xu hướng ngắn hạn trên MA20 (+3.7%) | RS 62",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Cập nhật BCTC quý 3/2026 chiều ngày 21/10: LPBank báo lãi 9 tháng vượt 10.000 tỷ đồng, một CTCK báo lãi gấp 9 lần cùng kỳ",
+          "news_headline": "Techcombank giảm lãi suất cho vay đến 2%, tập trung vào hoạt động sản xuất kinh doanh",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.03
         },
@@ -1960,7 +1960,7 @@
           "technical_signal": "BÁM ĐƯỜNG MA20 | Giữ vững xu hướng ngắn hạn trên MA20 (+3.7%) | RS 62",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Cập nhật BCTC quý 3/2026 chiều ngày 21/10: LPBank báo lãi 9 tháng vượt 10.000 tỷ đồng, một CTCK báo lãi gấp 9 lần cùng kỳ",
+          "news_headline": "Techcombank giảm lãi suất cho vay đến 2%, tập trung vào hoạt động sản xuất kinh doanh",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.03
         },
@@ -2152,7 +2152,7 @@
           "technical_signal": "BÁM ĐƯỜNG MA20 | Giữ vững xu hướng ngắn hạn trên MA20 (+3.7%) | RS 62",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Cập nhật BCTC quý 3/2026 chiều ngày 21/10: LPBank báo lãi 9 tháng vượt 10.000 tỷ đồng, một CTCK báo lãi gấp 9 lần cùng kỳ",
+          "news_headline": "Techcombank giảm lãi suất cho vay đến 2%, tập trung vào hoạt động sản xuất kinh doanh",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.03
         },
