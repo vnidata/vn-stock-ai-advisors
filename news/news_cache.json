@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-22 09:31:54",
+  "last_updated": "2026-10-22 12:18:26",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 2,
@@ -7,8 +7,8 @@
   "symbols_sentiment": {
     "FPT": {
       "symbol": "FPT",
-      "news_count": 3,
-      "net_sentiment": 0.3,
+      "news_count": 2,
+      "net_sentiment": 0.45,
       "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
       "status_badge": "pos",
       "has_red_flag": false,
@@ -26,15 +26,6 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/fpt-bat-tay-chu-nhan-sieu-may-tinh-luong-tu-quang-tu-manh-nhat-the-gioi-188261021164747188.chn"
-        },
-        {
-          "title": "FPT bắt tay viện hơn 100 năm tuổi, đang phát triển máy tính lượng tử",
-          "date": "Wed, 21 Oct 26 13:08:00 +0700",
-          "source": "CafeF Doanh Nghiệp (CBTT)",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/fpt-bat-tay-vien-hon-100-nam-tuoi-dang-phat-trien-may-tinh-luong-tu-18826102113090503.chn"
         },
         {
           "title": "FPT báo lãi kỷ lục",
@@ -249,19 +240,28 @@
     },
     "VHM": {
       "symbol": "VHM",
-      "news_count": 1,
+      "news_count": 2,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Siêu dự án gần 1 triệu tỷ đồng tại Hà Nội có diễn biến mới: Vinhomes muốn ký hợp đồng với 2 công ty, dùng tài sản bảo đảm cho công ty con",
+      "latest_headline": "Trạm sạc ô tô điện có quy mô lớn nhất Việt Nam bắt đầu đi vào hoạt động",
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Duy trì tỷ trọng khuyến nghị",
       "sentiment_multiplier": 1.0,
       "related_news": [
         {
-          "title": "Siêu dự án gần 1 triệu tỷ đồng tại Hà Nội có diễn biến mới: Vinhomes muốn ký hợp đồng với 2 công ty, dùng tài sản bảo đảm cho công ty con",
+          "title": "Trạm sạc ô tô điện có quy mô lớn nhất Việt Nam bắt đầu đi vào hoạt động",
+          "date": "Thu, 22 Oct 26 16:59:00 +0700",
+          "source": "CafeF Doanh Nghiệp (CBTT)",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/tram-sac-o-to-dien-co-quy-mo-lon-nhat-viet-nam-bat-dau-di-vao-hoat-dong-18826102213571073.chn"
+        },
+        {
+          "title": "Siêu dự án gần 1 triệu tỷ đồng tại Hà Nội có diễn biến mới",
           "date": "Thu, 22 Oct 26 15:41:00 +0700",
           "source": "CafeF Doanh Nghiệp (CBTT)",
           "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
@@ -286,25 +286,34 @@
     },
     "MSN": {
       "symbol": "MSN",
-      "news_count": 6,
-      "net_sentiment": 0.13,
+      "news_count": 7,
+      "net_sentiment": 0.11,
       "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
       "status_badge": "pos",
       "has_red_flag": false,
       "has_catalyst": true,
-      "latest_headline": "Cập nhật BCTC quý 3/2026 chiều ngày 22/10: Masan lãi gấp đôi cùng kỳ, 1 công ty vận tải dầu khí lãi tăng hơn 300%",
+      "latest_headline": "Cập nhật BCTC quý 3/2026 tối ngày 22/10: Masan High-Tech Materials lãi trước thuế gấp 165 lần cùng kỳ, xuất hiện công ty đầu tiên lỗ 9 tháng trên 300 tỷ",
       "re_eval_action": "STRONG_BUY_CATALYST",
       "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
       "sentiment_multiplier": 1.2,
       "related_news": [
         {
-          "title": "Cập nhật BCTC quý 3/2026 chiều ngày 22/10: Masan lãi gấp đôi cùng kỳ, 1 công ty vận tải dầu khí lãi tăng hơn 300%",
-          "date": "Thu, 22 Oct 26 11:25:00 +0700",
+          "title": "Cập nhật BCTC quý 3/2026 tối ngày 22/10: Masan High-Tech Materials lãi trước thuế gấp 165 lần cùng kỳ, xuất hiện công ty đầu tiên lỗ 9 tháng trên 300 tỷ",
+          "date": "Thu, 22 Oct 26 17:30:00 +0700",
           "source": "CafeF Doanh Nghiệp (CBTT)",
           "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/cap-nhat-bctc-quy-3-2026-sang-ngay-22-10-sasco-vefac-nhua-tien-phong-vosco-cong-bo-188261022000037689.chn"
+        },
+        {
+          "title": "Masan High-Tech Materials báo lãi 2.148 tỷ đồng trong quý 3/2026, gấp 416 lần cùng kỳ",
+          "date": "Thu, 22 Oct 26 16:47:00 +0700",
+          "source": "CafeF Doanh Nghiệp (CBTT)",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/masan-high-tech-materials-bao-lai-2148-ty-dong-trong-quy-3-2026-gap-416-lan-cung-ky-188261022164748776.chn"
         },
         {
           "title": "Masan Consumer lãi hơn 5.200 tỷ đồng sau 9 tháng, doanh thu quý 3 tăng mạnh nhất trong 3 năm",
@@ -332,15 +341,6 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/masan-high-tech-materials-co-tong-giam-doc-moi-188261021161147202.chn"
-        },
-        {
-          "title": "Kỷ lục doanh thu của Phúc Long sau khi về tay Masan",
-          "date": "Thu, 22 Oct 2026 10:36:03 +0700",
-          "source": "VnExpress Kinh Doanh",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://vnexpress.net/ky-luc-doanh-thu-cua-phuc-long-sau-khi-ve-tay-masan-5135458.html"
         }
       ]
     },
@@ -455,6 +455,26 @@
       "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
       "link": "https://cafef.vn/khoi-to-ke-toan-thu-quy-lien-quan-den-hai-sapa-tv-188261021170131778.chn",
       "published_date": "Wed, 21 Oct 26 17:01:00 +0700"
+    },
+    {
+      "title": "LPBank: Dư nợ cho vay xây dựng tăng vọt 48.000 tỷ trong quý III, lãi kỷ lục nhờ hoạt động dịch vụ",
+      "description": "Dư nợ cho vay lĩnh vực xây dựng của LPBank tăng gần 48.000 tỷ đồng chỉ trong quý III/2026, đưa tỷ trọng ngành này trong tổng dư nợ lên hơn 20%. Trong quý vừa qua, ngân hàng ghi nhận lợi nhuận trước thuế 4.448 tỷ đồng, tăng gần 29% so với cùng kỳ năm trước, nhờ sự tăng trưởng mạnh của các nguồn thu từ hoạt động dịch vụ.",
+      "source": "CafeF Tài Chính Ngân Hàng",
+      "symbols": [],
+      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
+      "sentiment_score": 0.9,
+      "sentiment_label": "TÍCH CỰC MẠNH",
+      "sentiment_badge": "pos",
+      "is_red_flag": false,
+      "is_catalyst": true,
+      "triggers_found": [
+        "lãi kỷ lục",
+        "tăng trưởng mạnh"
+      ],
+      "re_eval_action": "STRONG_BUY_CATALYST",
+      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
+      "link": "https://cafef.vn/lpbank-du-no-cho-vay-xay-dung-tang-vot-48000-ty-trong-quy-iii-lai-ky-luc-nho-hoat-dong-dich-vu-188261022171130776.chn",
+      "published_date": "Thu, 22 Oct 26 17:11:00 +0700"
     },
     {
       "title": "FPT báo lãi kỷ lục",
@@ -577,44 +597,6 @@
       "published_date": "Thu, 22 Oct 26 08:32:00 +0700"
     },
     {
-      "title": "Yeah1 chỉ chào bán thành công 17 triệu cổ phiếu riêng lẻ cho 2 nhà đầu tư",
-      "description": "YEG chỉ chào bán thành công 17 triệu cổ phiếu riêng lẻ cho 2 nhà đầu tư. Còn lại 8 triệu cổ phiếu không được nhà đầu tư đăng ký mua sẽ bị hủy bỏ.",
-      "source": "CafeF Doanh Nghiệp (CBTT)",
-      "symbols": [],
-      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
-      "sentiment_score": 0.7,
-      "sentiment_label": "TÍCH CỰC MẠNH",
-      "sentiment_badge": "pos",
-      "is_red_flag": false,
-      "is_catalyst": true,
-      "triggers_found": [
-        "đăng ký mua"
-      ],
-      "re_eval_action": "STRONG_BUY_CATALYST",
-      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
-      "link": "https://cafef.vn/yeah1-chi-chao-ban-thanh-cong-17-trieu-co-phieu-rieng-le-cho-2-nha-dau-tu-188261021144232125.chn",
-      "published_date": "Wed, 21 Oct 26 15:42:00 +0700"
-    },
-    {
-      "title": "Loạt doanh nghiệp đầu tiên báo lãi trước thuế quý III/2026 tăng bằng lần: Có doanh nghiệp tăng 32.099%",
-      "description": "Mùa công bố báo cáo tài chính quý III/2026 đến thời điểm hiện tại ghi nhận hàng loạt doanh nghiệp có lợi nhuận tăng trưởng ba chữ số, trải rộng từ bất động sản, chứng khoán đến điện lực, dầu khí và vật liệu xây dựng. Một số doanh nghiệp báo lãi tăng hơn 10 lần, thậm chí hàng trăm lần so với cùng kỳ năm trước.",
-      "source": "CafeF Doanh Nghiệp (CBTT)",
-      "symbols": [],
-      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
-      "sentiment_score": 0.7,
-      "sentiment_label": "TÍCH CỰC MẠNH",
-      "sentiment_badge": "pos",
-      "is_red_flag": false,
-      "is_catalyst": true,
-      "triggers_found": [
-        "lợi nhuận tăng trưởng"
-      ],
-      "re_eval_action": "STRONG_BUY_CATALYST",
-      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
-      "link": "https://cafef.vn/loat-doanh-nghiep-dau-tien-bao-lai-truoc-thue-quy-iii-2026-tang-bang-lan-co-doanh-nghiep-tang-32099-188261021114932836.chn",
-      "published_date": "Wed, 21 Oct 26 13:40:00 +0700"
-    },
-    {
       "title": "Vợ ông Bùi Thành Nhơn đăng ký bán hơn 6 triệu cổ phiếu Novaland",
       "description": "Bà Cao Thị Ngọc Sương, vợ Chủ tịch Bùi Thành Nhơn, muốn giảm sở hữu tại Novaland, trong khi cổ đông lớn Diamond Properties đăng ký mua thêm cổ phiếu.",
       "source": "VnExpress Kinh Doanh",
@@ -632,25 +614,6 @@
       "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
       "link": "https://vnexpress.net/vo-ong-bui-thanh-nhon-dang-ky-ban-hon-6-trieu-co-phieu-novaland-5135318.html",
       "published_date": "Thu, 22 Oct 2026 03:00:00 +0700"
-    },
-    {
-      "title": "Một doanh nghiệp sắp “phát” hơn 2.200 tỷ đồng cho cổ đông ngay đầu tháng 11",
-      "description": "Trước đó, ĐHĐCĐ bất thường MSR đã thông qua việc tạm ứng cổ tức đợt 2/2026 bằng tiền với mức dự kiến 50% (1 cổ phiếu được nhận 5.000 đồng), tổng giá trị khoảng 5.500 tỷ đồng.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
-      "sentiment_score": 0.6,
-      "sentiment_label": "TÍCH CỰC MẠNH",
-      "sentiment_badge": "pos",
-      "is_red_flag": false,
-      "is_catalyst": true,
-      "triggers_found": [
-        "tạm ứng cổ tức"
-      ],
-      "re_eval_action": "STRONG_BUY_CATALYST",
-      "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
-      "link": "https://cafef.vn/mot-doanh-nghiep-sap-phat-hon-2200-ty-dong-cho-co-dong-ngay-dau-thang-11-188261021113053647.chn",
-      "published_date": "Wed, 21 Oct 26 13:38:00 +0700"
     },
     {
       "title": "Công ty của tỷ phú Phạm Nhật Vượng vận hành trạm sạc ô tô điện lớn nhất Việt Nam: Sạc được cùng lúc cho hơn 1.000 ô tô điện",
@@ -695,8 +658,8 @@
       "published_date": "Thu, 22 Oct 26 07:51:00 +0700"
     },
     {
-      "title": "Đại biểu Quốc hội: Nên để chủ đầu tư nhận tiền đặt mua bất động sản sớm hơn",
-      "description": "Đại biểu Bùi Xuân Hải đề xuất cho doanh nghiệp được nhận 5% tiền đặt mua bất động sản hình thành trong tương lai sớm hơn, thay vì chờ đến khi dự án khởi công.",
+      "title": "Đại biểu Quốc hội: Nên để chủ đầu tư nhận tiền đặt cọc bất động sản sớm hơn",
+      "description": "Đại biểu Bùi Xuân Hải đề xuất cho doanh nghiệp được nhận 5% tiền đặt cọc bất động sản hình thành trong tương lai sớm hơn, thay vì chờ đến khi dự án khởi công.",
       "source": "VnExpress Kinh Doanh",
       "symbols": [],
       "category": "ĐỘNG LỰC TĂNG TRƯỞNG (CATALYST)",
@@ -710,7 +673,7 @@
       ],
       "re_eval_action": "STRONG_BUY_CATALYST",
       "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin hỗ trợ",
-      "link": "https://vnexpress.net/dai-bieu-quoc-hoi-nen-de-chu-dau-tu-nhan-tien-dat-mua-bat-dong-san-som-hon-5135570.html",
+      "link": "https://vnexpress.net/dai-bieu-quoc-hoi-nen-de-chu-dau-tu-nhan-tien-dat-coc-bat-dong-san-som-hon-5135570.html",
       "published_date": "Thu, 22 Oct 2026 15:16:08 +0700"
     },
     {
@@ -880,23 +843,6 @@
       "published_date": "Wed, 21 Oct 26 06:48:00 +0700"
     },
     {
-      "title": "Giữa làn sóng giảm lãi suất, ngân hàng hút vốn cách nào?",
-      "description": "Sau yêu cầu của Chính phủ và Ngân hàng Nhà nước về giảm lãi suất, thị trường tiền gửi nhanh chóng ghi nhận làn sóng điều chỉnh. Trong khi các nhà băng bắt đầu hạ lãi suất niêm yết, cuộc đua huy động vốn vẫn diễn ra sôi động.",
-      "source": "CafeF Tài Chính Ngân Hàng",
-      "symbols": [],
-      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-      "sentiment_score": 0.1,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/giua-lan-song-giam-lai-suat-ngan-hang-hut-von-cach-nao-188261020212713212.chn",
-      "published_date": "Wed, 21 Oct 26 00:26:00 +0700"
-    },
-    {
       "title": "Ngân hàng Nhà nước giục giảm lãi suất tiết kiệm trên tất cả kênh",
       "description": "Nhà điều hành vừa tiếp tục ra yêu cầu các nhà băng giảm lãi suất trên tất cả kênh bán hàng một cách thực chất.",
       "source": "VnExpress Kinh Doanh",
@@ -914,8 +860,42 @@
       "published_date": "Wed, 21 Oct 2026 16:11:56 +0700"
     },
     {
-      "title": "Sở hữu 20% lợi ích tại siêu dự án 9.170 ha ở Hà Nội, lãnh đạo VinFast lên tiếng về khả năng “lấn sân” bất động sản",
-      "description": "Trong quý 3/2026, VinFast đã hoàn tất việc mua lại 100% lợi ích kinh tế tại CTCP Đầu tư Bất động sản Ngọc Hồi từ ông Phạm Nhật Vượng và hai cổ đông thiểu số khác.",
+      "title": "VN-Index bứt phá gần 70 điểm, vì sao tài khoản vẫn âm?",
+      "description": "VN-Index tăng gần 70 điểm sau hai phiên hồi phục, nhưng không phải nhà đầu tư nào cũng hưởng lợi. Đà tăng tập trung ở nhóm cổ phiếu vốn hóa lớn, trong khi nhiều mã vẫn giảm giá, khiến tài khoản không kịp hồi phục theo chỉ số.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/vn-index-but-pha-gan-70-diem-vi-sao-tai-khoan-van-am-188261022183332454.chn",
+      "published_date": "Thu, 22 Oct 26 18:33:00 +0700"
+    },
+    {
+      "title": "PNJ cạn tiền: Thời gian thử lửa cho 'ông vua' ngành trang sức, kim hoàn",
+      "description": "Từ một doanh nghiệp trang sức, kim hoàn có nguồn tiền dồi dào, PNJ rơi vào cảnh cạn kiệt tiền mặt sau cú sốc thu đổi kim cương chưa từng có.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/pnj-can-tien-thoi-gian-thu-lua-cho-ong-vua-nganh-trang-suc-kim-hoan-188261022162414489.chn",
+      "published_date": "Thu, 22 Oct 26 17:23:00 +0700"
+    },
+    {
+      "title": "VinFast ghi nhận doanh thu quý 2 tăng 85%",
+      "description": "Trong quý 2/2026, VinFast ghi nhận doanh thu 30.300 tỷ đồng, tăng 33% so với quý trước và tăng 85% so với cùng kỳ năm ngoái.",
       "source": "CafeF Thị Trường",
       "symbols": [
         "VIC"
@@ -1141,6 +1121,23 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/cii-gia-han-thoi-gian-phan-phoi-trai-phieu-chuyen-doi-188261022072657052.chn",
       "published_date": "Thu, 22 Oct 26 07:26:00 +0700"
+    },
+    {
+      "title": "Một hiện tượng lạ vừa xảy ra trên thị trường chứng khoán Việt Nam",
+      "description": "Đây là một tín hiệu tích cực đối với thị trường chứng khoán.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/mot-hien-tuong-la-vua-xay-ra-tren-thi-truong-chung-khoan-viet-nam-188261021232824511.chn",
+      "published_date": "Thu, 22 Oct 26 00:08:00 +0700"
     }
   ]
 }

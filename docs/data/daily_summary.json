@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-22 09:31:57 (UTC+7)",
+  "last_updated": "2026-10-22 12:18:28 (UTC+7)",
   "trading_date": "2026-10-22",
   "vnindex": {
     "close": 1760.63,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 2,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-22 09:31:54"
+    "last_scanned": "2026-10-22 12:18:26"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -1166,25 +1166,25 @@
       {
         "symbol": "FPT",
         "sector": "Technology",
-        "net_sentiment": 0.3,
+        "net_sentiment": 0.45,
         "sentiment_multiplier": 1.2,
         "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
         "status_badge": "pos",
         "latest_headline": "FPT bắt tay chủ nhân siêu máy tính lượng tử quang tử mạnh nhất thế giới",
         "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
-        "news_count": 3,
+        "news_count": 2,
         "re_eval_note": ""
       },
       {
         "symbol": "MSN",
         "sector": "Consumer",
-        "net_sentiment": 0.13,
+        "net_sentiment": 0.11,
         "sentiment_multiplier": 1.2,
         "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
         "status_badge": "pos",
-        "latest_headline": "Cập nhật BCTC quý 3/2026 chiều ngày 22/10: Masan lãi gấp đôi cùng kỳ, 1 công ty vận tải dầu khí lãi tăng hơn 300%",
+        "latest_headline": "Cập nhật BCTC quý 3/2026 tối ngày 22/10: Masan High-Tech Materials lãi trước thuế gấp 165 lần cùng kỳ, xuất hiện công ty đầu tiên lỗ 9 tháng trên 300 tỷ",
         "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
-        "news_count": 6,
+        "news_count": 7,
         "re_eval_note": ""
       }
     ],
@@ -1281,9 +1281,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Siêu dự án gần 1 triệu tỷ đồng tại Hà Nội có diễn biến mới: Vinhomes muốn ký hợp đồng với 2 công ty, dùng tài sản bảo đảm cho công ty con",
+        "latest_headline": "Trạm sạc ô tô điện có quy mô lớn nhất Việt Nam bắt đầu đi vào hoạt động",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
+        "news_count": 2,
         "re_eval_note": ""
       },
       {
@@ -1604,7 +1604,7 @@
       "quant_criteria": "Vốn hóa trụ cột Top 3 VN-Index, quỹ đất hàng nghìn ha, đóng góp lớn vào biến động điểm số chỉ số.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Siêu dự án gần 1 triệu tỷ đồng tại Hà Nội có diễn biến mới: Vinhomes muốn ký hợp đồng với 2 công ty, dùng tài sản bảo đảm cho công ty con"
+      "latest_headline": "Trạm sạc ô tô điện có quy mô lớn nhất Việt Nam bắt đầu đi vào hoạt động"
     },
     {
       "symbol": "MWG",
@@ -1660,7 +1660,7 @@
       "quant_criteria": "Mô hình phòng thủ tiêu dùng thiết yếu kết hợp tăng trưởng bán lẻ hiện đại, dòng tiền hoạt động lớn.",
       "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
       "news_badge": "pos",
-      "latest_headline": "Cập nhật BCTC quý 3/2026 chiều ngày 22/10: Masan lãi gấp đôi cùng kỳ, 1 công ty vận tải dầu khí lãi tăng hơn 300%"
+      "latest_headline": "Cập nhật BCTC quý 3/2026 tối ngày 22/10: Masan High-Tech Materials lãi trước thuế gấp 165 lần cùng kỳ, xuất hiện công ty đầu tiên lỗ 9 tháng trên 300 tỷ"
     },
     {
       "symbol": "VNM",
@@ -1837,9 +1837,9 @@
           "technical_signal": "BÁM ĐƯỜNG MA20 | Giữ vững xu hướng ngắn hạn trên MA20 (+2.8%) | RS 57",
           "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
           "news_badge": "pos",
-          "news_headline": "Cập nhật BCTC quý 3/2026 chiều ngày 22/10: Masan lãi gấp đôi cùng kỳ, 1 công ty vận tải dầu khí lãi tăng hơn 300%",
+          "news_headline": "Cập nhật BCTC quý 3/2026 tối ngày 22/10: Masan High-Tech Materials lãi trước thuế gấp 165 lần cùng kỳ, xuất hiện công ty đầu tiên lỗ 9 tháng trên 300 tỷ",
           "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
-          "news_score": 0.13
+          "news_score": 0.11
         },
         {
           "symbol": "GAS",
@@ -1987,9 +1987,9 @@
           "technical_signal": "BÁM ĐƯỜNG MA20 | Giữ vững xu hướng ngắn hạn trên MA20 (+2.8%) | RS 57",
           "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
           "news_badge": "pos",
-          "news_headline": "Cập nhật BCTC quý 3/2026 chiều ngày 22/10: Masan lãi gấp đôi cùng kỳ, 1 công ty vận tải dầu khí lãi tăng hơn 300%",
+          "news_headline": "Cập nhật BCTC quý 3/2026 tối ngày 22/10: Masan High-Tech Materials lãi trước thuế gấp 165 lần cùng kỳ, xuất hiện công ty đầu tiên lỗ 9 tháng trên 300 tỷ",
           "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
-          "news_score": 0.13
+          "news_score": 0.11
         },
         {
           "symbol": "GAS",
@@ -2179,9 +2179,9 @@
           "technical_signal": "BÁM ĐƯỜNG MA20 | Giữ vững xu hướng ngắn hạn trên MA20 (+2.8%) | RS 57",
           "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
           "news_badge": "pos",
-          "news_headline": "Cập nhật BCTC quý 3/2026 chiều ngày 22/10: Masan lãi gấp đôi cùng kỳ, 1 công ty vận tải dầu khí lãi tăng hơn 300%",
+          "news_headline": "Cập nhật BCTC quý 3/2026 tối ngày 22/10: Masan High-Tech Materials lãi trước thuế gấp 165 lần cùng kỳ, xuất hiện công ty đầu tiên lỗ 9 tháng trên 300 tỷ",
           "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
-          "news_score": 0.13
+          "news_score": 0.11
         },
         {
           "symbol": "GAS",
@@ -2302,9 +2302,9 @@
           "technical_signal": "BÁM ĐƯỜNG MA20 | Giữ vững xu hướng ngắn hạn trên MA20 (+2.8%) | RS 57",
           "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
           "news_badge": "pos",
-          "news_headline": "Cập nhật BCTC quý 3/2026 chiều ngày 22/10: Masan lãi gấp đôi cùng kỳ, 1 công ty vận tải dầu khí lãi tăng hơn 300%",
+          "news_headline": "Cập nhật BCTC quý 3/2026 tối ngày 22/10: Masan High-Tech Materials lãi trước thuế gấp 165 lần cùng kỳ, xuất hiện công ty đầu tiên lỗ 9 tháng trên 300 tỷ",
           "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
-          "news_score": 0.13
+          "news_score": 0.11
         },
         {
           "symbol": "MWG",
