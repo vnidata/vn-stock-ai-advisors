@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-22 12:18:28 (UTC+7)",
+  "last_updated": "2026-10-22 12:55:22 (UTC+7)",
   "trading_date": "2026-10-22",
   "vnindex": {
     "close": 1760.63,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 2,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-22 12:18:26"
+    "last_scanned": "2026-10-22 12:55:18"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -1178,13 +1178,13 @@
       {
         "symbol": "MSN",
         "sector": "Consumer",
-        "net_sentiment": 0.11,
+        "net_sentiment": 0.13,
         "sentiment_multiplier": 1.2,
         "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
         "status_badge": "pos",
         "latest_headline": "Cập nhật BCTC quý 3/2026 tối ngày 22/10: Masan High-Tech Materials lãi trước thuế gấp 165 lần cùng kỳ, xuất hiện công ty đầu tiên lỗ 9 tháng trên 300 tỷ",
         "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
-        "news_count": 7,
+        "news_count": 6,
         "re_eval_note": ""
       }
     ],
@@ -1839,7 +1839,7 @@
           "news_badge": "pos",
           "news_headline": "Cập nhật BCTC quý 3/2026 tối ngày 22/10: Masan High-Tech Materials lãi trước thuế gấp 165 lần cùng kỳ, xuất hiện công ty đầu tiên lỗ 9 tháng trên 300 tỷ",
           "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
-          "news_score": 0.11
+          "news_score": 0.13
         },
         {
           "symbol": "GAS",
@@ -1989,7 +1989,7 @@
           "news_badge": "pos",
           "news_headline": "Cập nhật BCTC quý 3/2026 tối ngày 22/10: Masan High-Tech Materials lãi trước thuế gấp 165 lần cùng kỳ, xuất hiện công ty đầu tiên lỗ 9 tháng trên 300 tỷ",
           "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
-          "news_score": 0.11
+          "news_score": 0.13
         },
         {
           "symbol": "GAS",
@@ -2181,7 +2181,7 @@
           "news_badge": "pos",
           "news_headline": "Cập nhật BCTC quý 3/2026 tối ngày 22/10: Masan High-Tech Materials lãi trước thuế gấp 165 lần cùng kỳ, xuất hiện công ty đầu tiên lỗ 9 tháng trên 300 tỷ",
           "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
-          "news_score": 0.11
+          "news_score": 0.13
         },
         {
           "symbol": "GAS",
@@ -2304,7 +2304,7 @@
           "news_badge": "pos",
           "news_headline": "Cập nhật BCTC quý 3/2026 tối ngày 22/10: Masan High-Tech Materials lãi trước thuế gấp 165 lần cùng kỳ, xuất hiện công ty đầu tiên lỗ 9 tháng trên 300 tỷ",
           "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
-          "news_score": 0.11
+          "news_score": 0.13
         },
         {
           "symbol": "MWG",

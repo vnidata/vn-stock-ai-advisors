@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-22 12:18:26",
+  "last_updated": "2026-10-22 12:55:18",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 2,
@@ -286,8 +286,8 @@
     },
     "MSN": {
       "symbol": "MSN",
-      "news_count": 7,
-      "net_sentiment": 0.11,
+      "news_count": 6,
+      "net_sentiment": 0.13,
       "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
       "status_badge": "pos",
       "has_red_flag": false,
@@ -334,13 +334,13 @@
           "link": "https://cafef.vn/masan-lai-hon-10300-ty-dong-sau-9-thang-gap-15-lan-ca-nam-2025-188261022090437674.chn"
         },
         {
-          "title": "Masan High-Tech Materials có Tổng giám đốc mới",
-          "date": "Wed, 21 Oct 26 16:11:00 +0700",
-          "source": "CafeF Doanh Nghiệp (CBTT)",
+          "title": "Kỷ lục doanh thu của Phúc Long sau khi về tay Masan",
+          "date": "Thu, 22 Oct 2026 10:36:03 +0700",
+          "source": "VnExpress Kinh Doanh",
           "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/masan-high-tech-materials-co-tong-giam-doc-moi-188261021161147202.chn"
+          "link": "https://vnexpress.net/ky-luc-doanh-thu-cua-phuc-long-sau-khi-ve-tay-masan-5135458.html"
         }
       ]
     },
@@ -398,6 +398,25 @@
     }
   },
   "recent_articles": [
+    {
+      "title": "Sau khi ông Lê Việt Cường bị bắt, công ty báo lãi quý 3 gấp đôi cùng kỳ",
+      "description": "Lũy kế 9 tháng đầu năm 2026, doanh nghiệp ghi nhận lợi nhuận trước thuế gần 750 tỷ đồng và lợi nhuận sau thuế 600 tỷ đồng, cùng tăng khoảng 51% so với cùng kỳ năm trước.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
+      "sentiment_score": -1.0,
+      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
+      "sentiment_badge": "neg-danger",
+      "is_red_flag": true,
+      "is_catalyst": false,
+      "triggers_found": [
+        "bị bắt"
+      ],
+      "re_eval_action": "VETO_REJECT",
+      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
+      "link": "https://cafef.vn/sau-khi-ong-le-viet-cuong-bi-bat-cong-ty-bao-lai-quy-3-gap-doi-cung-ky-188261022175144545.chn",
+      "published_date": "Thu, 22 Oct 26 19:28:00 +0700"
+    },
     {
       "title": "Ông Dương Sơn Bá bị bắt, doanh nghiệp bất ngờ chuyển từ lỗ sang lãi trong quý 3",
       "description": "Đáng chú ý, chi phí khác của Nhiệt điện Hải Phòng tăng đột biến lên khoảng 116 tỷ đồng, gấp hơn 80 lần cùng kỳ.",
@@ -860,6 +879,25 @@
       "published_date": "Wed, 21 Oct 2026 16:11:56 +0700"
     },
     {
+      "title": "CAEX hoàn tất thẩm định An toàn hệ thống thông tin cấp độ 4",
+      "description": "Công ty Cổ phần Sàn giao dịch Tài sản mã hóa Việt Nam Thịnh Vượng (CAEX), thành viên trong hệ sinh thái tài chính Ngân hàng TMCP Việt Nam Thịnh Vượng (VPBank), công bố đã được Cục An ninh mạng (Bộ Công an) thẩm định và đồng ý với đề xuất cấp tiêu chuẩn An toàn hệ thống thông tin cấp độ 4.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "VPB"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/caex-hoan-tat-tham-dinh-an-toan-he-thong-thong-tin-cap-do-4-188261022192155989.chn",
+      "published_date": "Thu, 22 Oct 26 19:23:00 +0700"
+    },
+    {
       "title": "VN-Index bứt phá gần 70 điểm, vì sao tài khoản vẫn âm?",
       "description": "VN-Index tăng gần 70 điểm sau hai phiên hồi phục, nhưng không phải nhà đầu tư nào cũng hưởng lợi. Đà tăng tập trung ở nhóm cổ phiếu vốn hóa lớn, trong khi nhiều mã vẫn giảm giá, khiến tài khoản không kịp hồi phục theo chỉ số.",
       "source": "CafeF Thị Trường",
@@ -1104,40 +1142,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/gia-vang-hom-nay-22-10-the-gioi-bat-tang-mot-thuong-hieu-vang-nhan-bat-ngo-mat-500000-dong-luong-188261022092817486.chn",
       "published_date": "Thu, 22 Oct 26 09:34:00 +0700"
-    },
-    {
-      "title": "CII gia hạn thời gian phân phối trái phiếu chuyển đổi",
-      "description": "CII đang chào bán gần 67,2 triệu trái phiếu mã CII426001 cho cổ đông hiện hữu. Công ty gia hạn thời gian phân phối trái phiếu thêm 30 ngày.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/cii-gia-han-thoi-gian-phan-phoi-trai-phieu-chuyen-doi-188261022072657052.chn",
-      "published_date": "Thu, 22 Oct 26 07:26:00 +0700"
-    },
-    {
-      "title": "Một hiện tượng lạ vừa xảy ra trên thị trường chứng khoán Việt Nam",
-      "description": "Đây là một tín hiệu tích cực đối với thị trường chứng khoán.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/mot-hien-tuong-la-vua-xay-ra-tren-thi-truong-chung-khoan-viet-nam-188261021232824511.chn",
-      "published_date": "Thu, 22 Oct 26 00:08:00 +0700"
     }
   ]
 }
