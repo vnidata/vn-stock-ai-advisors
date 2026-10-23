@@ -27,14 +27,12 @@ if hasattr(sys.stdout, "reconfigure"):
 
 VN_TZ = pytz.timezone('Asia/Ho_Chi_Minh')
 
-SCHEDULED_SLOTS = [
-    dtime(9, 0),
-    dtime(10, 0),
-    dtime(11, 30),
-    dtime(13, 30),
-    dtime(14, 0),
-    dtime(15, 0)
-]
+# Chu kỳ quét tự động mỗi 5 phút trong phiên giao dịch (09:00 - 15:00 VN Time, Thứ 2 - Thứ 6)
+SCHEDULED_SLOTS = []
+for _h in range(9, 15):
+    for _m in range(0, 60, 5):
+        SCHEDULED_SLOTS.append(dtime(_h, _m))
+SCHEDULED_SLOTS.append(dtime(15, 0))
 
 def run_pipeline():
     now_vn = datetime.now(VN_TZ)
@@ -64,8 +62,8 @@ def get_next_run_info():
 
 def main():
     print("=" * 65)
-    print("  ALPHAQUANT AI - BỘ ĐIỀU PHỐI CẬP NHẬT TỰ ĐỘNG 6 PHIÊN/NGÀY")
-    print("  Lịch quét cố định: 09:00 | 10:00 | 11:30 | 13:30 | 14:00 | 15:00 (UTC+7)")
+    print("  ALPHAQUANT AI - BỘ ĐIỀU PHỐI CẬP NHẬT TỰ ĐỘNG MỖI 5 PHÚT")
+    print("  Lịch quét: Mỗi 5 phút từ 09:00 đến 15:00 (Thứ 2 - Thứ 6, Giờ VN UTC+7)")
     print("=" * 65)
     print(f"Thời gian hiện tại: {datetime.now(VN_TZ).strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"Phiên quét kế tiếp: {get_next_run_info()}\n")

@@ -81,6 +81,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   setupNewsFilters();
   setupChartZoom();
   await loadDashboardData();
+
+  // Tự động làm mới dữ liệu phía client mỗi 5 phút (300.000 ms)
+  setInterval(async () => {
+    try {
+      console.log("[AutoSync] Tự động đồng bộ dữ liệu thị trường (chu kỳ 5 phút)...");
+      await loadDashboardData();
+    } catch (err) {
+      console.warn("[AutoSync] Lỗi làm mới dữ liệu định kỳ:", err);
+    }
+  }, 5 * 60 * 1000);
 });
 
 // ==========================================
@@ -189,73 +199,86 @@ function setupMobileBottomNav() {
   });
 }
 
-// 1B. Real-Time 6-Session Scan Countdown (09:00, 10:00, 11:30, 13:30, 14:00, 15:00)
+// 1B. Real-Time 5-Minute Scan Countdown (09:00 - 15:00 VN Time, Mon - Fri)
 function startScanCountdownTimer() {
-  const scanSlots = [
-    { time: "09:00", label: "09:00 - ATO Mở Phiên", h: 9, m: 0 },
-    { time: "10:00", label: "10:00 - Giữa Phiên Sáng", h: 10, m: 0 },
-    { time: "11:30", label: "11:30 - Chốt Phiên Sáng", h: 11, m: 30 },
-    { time: "13:30", label: "13:30 - Mở Phiên Chiều", h: 13, m: 30 },
-    { time: "14:00", label: "14:00 - Cao Điểm Chiều", h: 14, m: 0 },
-    { time: "15:00", label: "15:00 - Đóng Phiên ATC", h: 15, m: 0 }
-  ];
-
   function updateCountdown() {
     const now = new Date();
     const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
     const vnDate = new Date(utc + (3600000 * 7)); // Vietnam Time (UTC+7)
     
+    const day = vnDate.getDay(); // 0: Sun, 1: Mon, ..., 5: Fri, 6: Sat
     const curH = vnDate.getHours();
     const curM = vnDate.getMinutes();
     const curS = vnDate.getSeconds();
     const curTotalSec = curH * 3600 + curM * 60 + curS;
 
-    let nextSlot = null;
-    let nextTotalSec = 0;
+    const isWeekday = (day >= 1 && day <= 5);
+    const marketOpenSec = 9 * 3600;       // 09:00:00
+    const marketCloseSec = 15 * 3600;     // 15:00:00
+    const isTradingHours = isWeekday && (curTotalSec >= marketOpenSec && curTotalSec < marketCloseSec);
 
-    for (let slot of scanSlots) {
-      const slotSec = slot.h * 3600 + slot.m * 60;
-      if (curTotalSec < slotSec) {
-        nextSlot = slot;
-        nextTotalSec = slotSec;
-        break;
-      }
-    }
+    let nextSlotText = "";
+    let timeFormatted = "";
 
-    let diffSec = 0;
-    if (nextSlot) {
-      diffSec = nextTotalSec - curTotalSec;
+    if (isTradingHours) {
+      // Chu kỳ 5 phút trong phiên giao dịch
+      const currentMinuteTotal = curH * 60 + curM;
+      const nextMinuteTotal = Math.floor(currentMinuteTotal / 5) * 5 + 5;
+      const nextH = Math.floor(nextMinuteTotal / 60);
+      const nextM = nextMinuteTotal % 60;
+      const nextTotalSec = nextH * 3600 + nextM * 60;
+      const diffSec = Math.max(0, nextTotalSec - curTotalSec);
+
+      const diffM = Math.floor(diffSec / 60);
+      const diffS = diffSec % 60;
+
+      nextSlotText = `${String(nextH).padStart(2, '0')}:${String(nextM).padStart(2, '0')}`;
+      timeFormatted = `${String(diffM).padStart(2, '0')}:${String(diffS).padStart(2, '0')}`;
     } else {
-      // Next trading day 09:00
-      nextSlot = scanSlots[0];
-      diffSec = (24 * 3600 - curTotalSec) + (9 * 3600);
-    }
+      // Ngoài phiên: Đếm ngược đến 09:00 phiên tiếp theo
+      let daysUntilNext = 0;
+      if (day === 0) { // Sunday -> Mon
+        daysUntilNext = 1;
+      } else if (day === 6) { // Saturday -> Mon
+        daysUntilNext = 2;
+      } else if (curTotalSec >= marketCloseSec) {
+        // Weekday after 15:00
+        daysUntilNext = (day === 5) ? 3 : 1;
+      } else {
+        // Weekday before 09:00
+        daysUntilNext = 0;
+      }
 
-    const diffH = Math.floor(diffSec / 3600);
-    const diffM = Math.floor((diffSec % 3600) / 60);
-    const diffS = diffSec % 60;
-    const timeFormatted = `${String(diffH).padStart(2, '0')}:${String(diffM).padStart(2, '0')}:${String(diffS).padStart(2, '0')}`;
+      let diffSec = 0;
+      if (daysUntilNext === 0) {
+        diffSec = marketOpenSec - curTotalSec;
+      } else {
+        diffSec = (24 * 3600 - curTotalSec) + ((daysUntilNext - 1) * 24 * 3600) + marketOpenSec;
+      }
+
+      nextSlotText = "09:00 ATO";
+      const diffH = Math.floor(diffSec / 3600);
+      const diffM = Math.floor((diffSec % 3600) / 60);
+      const diffS = diffSec % 60;
+      timeFormatted = `${String(diffH).padStart(2, '0')}:${String(diffM).padStart(2, '0')}:${String(diffS).padStart(2, '0')}`;
+    }
 
     const slotElem = document.getElementById("next-scan-slot");
     const timerElem = document.getElementById("next-scan-timer");
-    if (slotElem) slotElem.innerText = nextSlot.time;
+    if (slotElem) slotElem.innerText = nextSlotText;
     if (timerElem) timerElem.innerText = timeFormatted;
 
-    // Update slot pills
-    const pills = document.querySelectorAll(".slot-pill");
-    pills.forEach(p => {
-      const pTime = p.getAttribute("data-slot");
-      const matched = scanSlots.find(s => s.time === pTime);
-      if (matched) {
-        const slotSec = matched.h * 3600 + matched.m * 60;
-        p.classList.remove("active", "passed");
-        if (matched.time === nextSlot.time) {
-          p.classList.add("active");
-        } else if (curTotalSec >= slotSec) {
-          p.classList.add("passed");
-        }
+    // Update slot pill status
+    const cyclePill = document.getElementById("pill-cycle-5m");
+    if (cyclePill) {
+      if (isTradingHours) {
+        cyclePill.classList.add("active");
+        cyclePill.innerText = "⚡ Quét 5 Phút";
+      } else {
+        cyclePill.classList.remove("active");
+        cyclePill.innerText = "💤 Chờ Phiên";
       }
-    });
+    }
   }
 
   updateCountdown();
@@ -268,12 +291,11 @@ function startAiScanTicker() {
   if (!tickerHeadline) return;
 
   const feeds = [
-    "● [15:00 ATC] Đã quét 15 mã VN30 & 160 tin tức tài chính. Hệ thống duy trì 100% tiền mặt phòng thủ bảo toàn vốn trong Bear Regime.",
-    "● [14:00 Cao Điểm] Radar rà soát RSI & Xung lực dòng tiền MA20. Chưa phát hiện điểm breakout đạt chuẩn, duy trì trạng thái chờ.",
-    "● [13:30 Mở Chiều] Theo dõi hấp thụ cung cầu T+2.5. Tuân thủ kỷ luật Asymmetric Risk/Reward tối thiểu 3.0x.",
-    "● [11:30 Chốt Trưa] VN-Index 1.759,08 điểm dưới MA20 & MA50. 5 AI Advisors đồng thuận kỷ luật bảo toàn vốn 100%.",
-    "● [10:00 Giữa Sáng] Bộ lọc tin tức: Kích hoạt Red Flag Veto đối với 2 mã dính tin tức bất lợi, ngăn ngừa rủi ro tiềm ẩn.",
-    "● [09:00 Mở Phiên] Khởi động radar 6 phiên/ngày từ vnstock API & Yahoo Finance. Đồng bộ hóa sổ lệnh & chỉ báo kỹ thuật."
+    "● [Radar 5 Phút] Tự động cập nhật dữ liệu thị trường và tín hiệu cố vấn mỗi 5 phút trong phiên giao dịch (09:00 - 15:00).",
+    "● [Bear Regime] VN-Index dưới MA50 (1.756,12 < 1.771,88). 5 AI Advisors đồng thuận kỷ luật bảo toàn vốn 100% tiền mặt.",
+    "● [Bảng Xếp Hạng Mạnh] Cập nhật liên tục Top cổ phiếu vượt đỉnh, tỷ lệ Volume/MA20 và chỉ số sức mạnh RS 5 phiên gần nhất.",
+    "● [Kiểm Soát Rủi Ro] Tỷ lệ Asymmetric Risk/Reward tối thiểu 3.0x. Kích hoạt Red Flag Veto khi phát hiện tin tức bất lợi.",
+    "● [Hệ Thống Trực Tuyến] Client auto-sync đồng bộ dữ liệu mỗi 5 phút từ GitHub Actions Pipeline và vnstock real-time feed."
   ];
 
   let feedIdx = 0;
@@ -1719,8 +1741,10 @@ async function loadDashboardData() {
     const pnlTradeHeader = document.getElementById("th-trades-pnl-header");
     if (pnlTradeHeader) pnlTradeHeader.innerText = isUs ? "Lãi/Lỗ USD" : "Lãi/Lỗ VND";
 
+    const nocache = `?_t=${Date.now()}`;
+
     // 1. Fetch daily summary
-    const summaryRes = await fetch(summaryFile).catch(() => null);
+    const summaryRes = await fetch(summaryFile + nocache).catch(() => null);
     globalDailyData = summaryRes && summaryRes.ok ? await summaryRes.json() : getFallbackDailySummary();
     renderDailySummary(globalDailyData);
     renderHoldingsTable(globalDailyData);
@@ -1731,18 +1755,18 @@ async function loadDashboardData() {
     renderNewsActionRecommendations(globalDailyData);
 
     // 2. Fetch 15-year performance metrics
-    const perfRes = await fetch(perfFile).catch(() => null);
+    const perfRes = await fetch(perfFile + nocache).catch(() => null);
     const perfData = perfRes && perfRes.ok ? await perfRes.json() : getFallbackPerformance();
     renderLeaderboard(perfData);
     renderAnnualTable(perfData);
 
     // 3. Fetch Equity Curves
-    const curvesRes = await fetch(curvesFile).catch(() => null);
+    const curvesRes = await fetch(curvesFile + nocache).catch(() => null);
     equityCurvesData = curvesRes && curvesRes.ok ? await curvesRes.json() : getFallbackEquityCurves();
     renderEquityChart(equityCurvesData);
 
     // 4. Fetch Trades History & Symbol Stats
-    const tradesRes = await fetch(tradesFile).catch(() => null);
+    const tradesRes = await fetch(tradesFile + nocache).catch(() => null);
     if (tradesRes && tradesRes.ok) {
       const tradesPayload = await tradesRes.json();
       tradesPayloadMetadata = tradesPayload;
@@ -1770,7 +1794,7 @@ async function loadDashboardData() {
     applyTradeFilters();
 
     // 5. Fetch News & Corporate Disclosures Intelligence
-    const newsRes = await fetch("data/news_intelligence.json").catch(() => null);
+    const newsRes = await fetch("data/news_intelligence.json" + nocache).catch(() => null);
     if (newsRes && newsRes.ok) {
       const newsData = await newsRes.json();
       renderNewsIntelligence(newsData);
@@ -2486,21 +2510,21 @@ function renderBuySignals(data) {
               <span style="font-size: 2rem;">◆</span>
               <div>
                 <h4 style="margin: 0; color: #fbbf24; font-size: 1.15rem; font-weight: 700;">HỆ THỐNG PHÒNG THỦ: 100% TIỀN MẶT (CHƯA PHÁT TÍN HIỆU MUA MỚI)</h4>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Thị trường chung suy yếu (BEAR REGIME) · Bảo vệ vốn tối đa · Quét tự động 6 phiên/ngày</span>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Thị trường chung suy yếu (BEAR REGIME) · Bảo vệ vốn tối đa · Quét tự động mỗi 5 phút (09:00 - 15:00)</span>
               </div>
             </div>
             <span class="signal-action-badge action-hold">◆ CASH DEFENSE</span>
           </div>
 
           <p style="color: var(--text-main); font-size: 0.9rem; line-height: 1.6; margin-bottom: 14px;">
-            Toàn bộ 15 cổ phiếu lớn đang gãy MA20/MA50 hoặc có điểm RS &le; 52.9. Để tránh bẫy giảm giá, 5 Chuyên gia AI kiên quyết giữ tỷ trọng tiền mặt tối đa. Hệ thống đang quét tự động 6 phiên/ngày (<strong>09:00 · 10:00 · 11:30 · 13:30 · 14:00 · 15:00</strong>) để đón đầu cơ hội bùng nổ theo đà.
+            Toàn bộ 15 cổ phiếu lớn đang gãy MA20/MA50 hoặc có điểm RS &le; 52.9. Để tránh bẫy giảm giá, 5 Chuyên gia AI kiên quyết giữ tỷ trọng tiền mặt tối đa. Hệ thống tự động quét và cập nhật mỗi 5 phút trong phiên (<strong>09:00 - 15:00</strong>) để đón đầu cơ hội bùng nổ theo đà.
           </p>
 
           <div class="condition-tags-row">
             <span class="tech-tag">VN-Index dưới MA20 &amp; MA50</span>
             <span class="tech-tag">RS Rating &le; 52.9</span>
             <span class="tech-tag">Kỷ Luật Khóa Mua</span>
-            <span class="tech-tag">Quét 6 Lần/Ngày</span>
+            <span class="tech-tag">Quét Mỗi 5 Phút</span>
             <span class="tech-tag">RR Kỳ Vọng: 3.3x</span>
           </div>
 

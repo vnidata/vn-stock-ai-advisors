@@ -34,22 +34,18 @@
       </div>
 
       <div class="nav-right-controls">
-        <!-- Next Scan Countdown Widget (6 Daily Sessions: 09h, 10h, 11h30, 13h30, 14h, 15h) -->
-        <div class="scan-countdown-widget" id="scan-countdown-widget" title="Lịch quét tự động 6 phiên/ngày: 09:00 • 10:00 • 11:30 • 13:30 • 14:00 • 15:00 (Giờ VN)">
+        <!-- Next Scan Countdown Widget (Mỗi 5 phút trong phiên: 09h - 15h) -->
+        <div class="scan-countdown-widget" id="scan-countdown-widget" title="Chu kỳ quét tự động: Mỗi 5 phút trong phiên giao dịch (09:00 - 15:00, Thứ 2 - Thứ 6)">
           <div class="countdown-badge">
             <span class="scan-radar-icon">●</span>
             <div class="countdown-text-group">
-              <span class="countdown-label">QUÉT KẾ TIẾP: <strong id="next-scan-slot">14:00</strong></span>
-              <span class="countdown-timer" id="next-scan-timer">--:--:--</span>
+              <span class="countdown-label">CẬP NHẬT KẾ TIẾP: <strong id="next-scan-slot">--:--</strong></span>
+              <span class="countdown-timer" id="next-scan-timer">--:--</span>
             </div>
           </div>
           <div class="scan-slots-strip" id="scan-slots-strip">
-            <span class="slot-pill" data-slot="09:00" title="09:00 - Mở phiên ATO">9h</span>
-            <span class="slot-pill" data-slot="10:00" title="10:00 - Giữa sáng">10h</span>
-            <span class="slot-pill" data-slot="11:30" title="11:30 - Chốt trưa">11h30</span>
-            <span class="slot-pill" data-slot="13:30" title="13:30 - Mở chiều">13h30</span>
-            <span class="slot-pill" data-slot="14:00" title="14:00 - Cao điểm">14h</span>
-            <span class="slot-pill" data-slot="15:00" title="15:00 - Đóng ATC">15h</span>
+            <span class="slot-pill active" id="pill-cycle-5m" title="Chu kỳ cập nhật dữ liệu tự động: Mỗi 5 phút">⚡ Mỗi 5 Phút</span>
+            <span class="slot-pill" id="pill-trading-hours" title="Khung giờ giao dịch: 09:00 - 15:00 (Thứ 2 - Thứ 6)">09h - 15h</span>
           </div>
         </div>
         <div class="live-clock-badge" id="live-clock" title="Thời gian giao dịch theo múi giờ">
@@ -95,11 +91,11 @@
       <div class="ticker-left">
         <span class="ticker-tag"><span class="pulse-dot"></span> RADAR QUANT LIVE</span>
         <div class="ticker-text-wrapper">
-          <span class="ticker-headline" id="ticker-headline">● [15:00 ATC] Đã quét 15 mã VN30 &amp; 160 tin tức tài chính. Hệ thống duy trì 100% tiền mặt phòng thủ bảo toàn vốn trong thị trường gấu.</span>
+          <span class="ticker-headline" id="ticker-headline">● [Radar 5 Phút] Tự động cập nhật dữ liệu thị trường và tín hiệu cố vấn mỗi 5 phút trong phiên giao dịch (09:00 - 15:00).</span>
         </div>
       </div>
-      <div class="ticker-schedule-tag" title="Hệ thống quét 6 lần/ngày theo giờ giao dịch Việt Nam">
-        <span class="schedule-clock-icon">●</span> 6 Phiên Quét Hàng Ngày: <strong>09h · 10h · 11h30 · 13h30 · 14h · 15h</strong>
+      <div class="ticker-schedule-tag" title="Hệ thống quét tự động mỗi 5 phút trong phiên giao dịch Việt Nam (09:00 - 15:00)">
+        <span class="schedule-clock-icon">●</span> Chu Kỳ Quét: <strong>Mỗi 5 Phút (09h - 15h)</strong>
       </div>
     </div>
 
