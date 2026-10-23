@@ -139,7 +139,7 @@ class RiskManager:
 
         if close > sma_20 and sma_20 >= sma_50:
             return "BULL"
-        elif close < sma_50 and close < sma_20:
+        elif close < sma_50:
             return "BEAR"
         else:
             return "SIDEWAYS"
