@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-23 11:23:19",
+  "last_updated": "2026-10-23 13:19:03",
   "total_news_scanned": 160,
   "red_flags_detected": 0,
   "catalysts_detected": 0,
@@ -20,7 +20,7 @@
     },
     "HPG": {
       "symbol": "HPG",
-      "news_count": 2,
+      "news_count": 1,
       "net_sentiment": 0.0,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
@@ -39,15 +39,6 @@
           "sentiment_score": 0.0,
           "sentiment_label": "TRUNG TÍNH",
           "link": "https://cafef.vn/mot-co-phieu-dinh-dam-bi-16-quy-dong-loat-xa-hang-188261022214608107.chn"
-        },
-        {
-          "title": "Một DN vốn 9.000 tỷ được chọn để nộp hồ sơ khai thác mỏ sắt lớn nhất Đông Nam Á, nơi tỷ phú Trần Đình Long từng muốn tham gia",
-          "date": "Thu, 22 Oct 26 14:09:00 +0700",
-          "source": "CafeF Doanh Nghiệp (CBTT)",
-          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-          "sentiment_score": 0.0,
-          "sentiment_label": "TRUNG TÍNH",
-          "link": "https://cafef.vn/mot-dn-von-9000-ty-duoc-chon-de-nop-ho-so-khai-thac-mo-sat-lon-nhat-dong-nam-a-noi-ty-phu-tran-dinh-long-tung-muon-tham-gia-188261022140252609.chn"
         }
       ]
     },
@@ -101,7 +92,7 @@
     },
     "TCB": {
       "symbol": "TCB",
-      "news_count": 8,
+      "news_count": 7,
       "net_sentiment": 0.03,
       "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
@@ -194,16 +185,27 @@
     },
     "SSI": {
       "symbol": "SSI",
-      "news_count": 0,
+      "news_count": 1,
       "net_sentiment": 0.0,
-      "status": "THÔNG TIN BÌNH ỔN",
+      "status": "THÔNG TIN ỔN ĐỊNH",
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Không có thông tin bất thường gần đây",
+      "latest_headline": "SSI dự báo thời điểm lợi nhuận PNJ trở lại mốc 1.000 tỷ đồng",
       "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Duy trì khuyến nghị định lượng gốc",
-      "sentiment_multiplier": 1.0
+      "action_desc": "Duy trì tỷ trọng khuyến nghị",
+      "sentiment_multiplier": 1.0,
+      "related_news": [
+        {
+          "title": "SSI dự báo thời điểm lợi nhuận PNJ trở lại mốc 1.000 tỷ đồng",
+          "date": "Fri, 23 Oct 26 12:17:00 +0700",
+          "source": "CafeF Thị Trường",
+          "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+          "sentiment_score": 0.0,
+          "sentiment_label": "TRUNG TÍNH",
+          "link": "https://cafef.vn/ssi-du-bao-thoi-diem-loi-nhuan-pnj-tro-lai-moc-1000-ty-dong-188261023115612973.chn"
+        }
+      ]
     },
     "VND": {
       "symbol": "VND",
@@ -272,14 +274,14 @@
       "status_badge": "neutral",
       "has_red_flag": false,
       "has_catalyst": false,
-      "latest_headline": "Cập nhật BCTC quý 3/2026 sáng ngày 23/10: IDP lãi 9 tháng hơn 800 tỷ, công ty BĐS lãi gấp 12 lần cùng kỳ",
+      "latest_headline": "Cập nhật BCTC quý 3/2026 chiều ngày 23/10: TNG, Masan MeatLife, SLS,... công bố",
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Duy trì tỷ trọng khuyến nghị",
       "sentiment_multiplier": 1.0,
       "related_news": [
         {
-          "title": "Cập nhật BCTC quý 3/2026 sáng ngày 23/10: IDP lãi 9 tháng hơn 800 tỷ, công ty BĐS lãi gấp 12 lần cùng kỳ",
-          "date": "Fri, 23 Oct 26 00:07:00 +0700",
+          "title": "Cập nhật BCTC quý 3/2026 chiều ngày 23/10: TNG, Masan MeatLife, SLS,... công bố",
+          "date": "Fri, 23 Oct 26 12:39:00 +0700",
           "source": "CafeF Doanh Nghiệp (CBTT)",
           "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
           "sentiment_score": 0.0,
@@ -406,25 +408,6 @@
       "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
       "link": "https://cafef.vn/sau-khi-ong-le-viet-cuong-bi-bat-cong-ty-bao-lai-quy-3-gap-doi-cung-ky-188261022175144545.chn",
       "published_date": "Thu, 22 Oct 26 19:28:00 +0700"
-    },
-    {
-      "title": "Công an kiểm tra cửa hàng thời trang, khởi tố ông chủ Lê Tuấn Đức SN 1999",
-      "description": "Ngày 21/10, Công an tỉnh Hưng Yên cho biết đã khởi tố bị can đối với Lê Tuấn Đức về tội “Xâm phạm quyền sở hữu công nghiệp”.",
-      "source": "CafeF Doanh Nghiệp (CBTT)",
-      "symbols": [],
-      "category": "CẢNH BÁO RỦI RO / BẤT THƯỜNG",
-      "sentiment_score": -1.0,
-      "sentiment_label": "CẢNH BÁO NGUY HIỂM",
-      "sentiment_badge": "neg-danger",
-      "is_red_flag": true,
-      "is_catalyst": false,
-      "triggers_found": [
-        "khởi tố"
-      ],
-      "re_eval_action": "VETO_REJECT",
-      "action_desc": "Loại bỏ / Phủ quyết lập tức khỏi danh mục (Red Flag)",
-      "link": "https://cafef.vn/cong-an-kiem-tra-cua-hang-thoi-trang-khoi-to-ong-chu-le-tuan-duc-sn-1999-188261022054055624.chn",
-      "published_date": "Thu, 22 Oct 26 14:12:00 +0700"
     },
     {
       "title": "Công bố quyết định thanh tra tại công ty phân bón lớn",
@@ -783,14 +766,14 @@
       "published_date": "Wed, 21 Oct 26 14:03:00 +0700"
     },
     {
-      "title": "VPBank đồng loạt giảm lãi suất cho vay và huy động",
-      "description": "VPBank giảm 1,5% lãi suất cho vay dành cho khách hàng hoạt động trong 6 ngành nghề trọng điểm, giảm tới 1,5% lãi suất cho vay với khách hàng doanh nghiệp vay bổ sung vốn lưu động phục vụ sản xuất kinh doanh. Bên cạnh đó, ngân hàng cũng triển khai giảm 0,5% lãi suất huy động với khách hàng cá nhân trên kênh trực tuyến.",
-      "source": "CafeF Tài Chính Ngân Hàng",
+      "title": "Kế toán trưởng LDG đăng ký thoái sạch vốn",
+      "description": "Bà Lê Thị Phương Uyên - Kế toán trưởng LDG, đăng ký bán toàn bộ 950 300 cổ phiếu LDG trong thời gian từ 28/10 đến 26/11/2026 nhằm mục đích phục vụ nhu cầu tài chính cá nhân.",
+      "source": "CafeF Thị Trường",
       "symbols": [
-        "VPB"
+        "LDG"
       ],
-      "category": "VĨ MÔ & CHÍNH SÁCH TIỀN TỆ",
-      "sentiment_score": 0.1,
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
       "sentiment_label": "TRUNG TÍNH",
       "sentiment_badge": "neutral",
       "is_red_flag": false,
@@ -798,8 +781,44 @@
       "triggers_found": [],
       "re_eval_action": "SAFE_HOLD",
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/vpbank-dong-loat-giam-lai-suat-cho-vay-va-huy-dong-188261021083511993.chn",
-      "published_date": "Wed, 21 Oct 26 09:00:00 +0700"
+      "link": "https://cafef.vn/ke-toan-truong-ldg-dang-ky-thoai-sach-von-188261023112234124.chn",
+      "published_date": "Fri, 23 Oct 26 12:22:00 +0700"
+    },
+    {
+      "title": "SSI dự báo thời điểm lợi nhuận PNJ trở lại mốc 1.000 tỷ đồng",
+      "description": "Về triển vọng trung hạn, SSI dự báo doanh thu thuần PNJ có thể đạt 39.100 tỷ đồng năm 2026, tăng lên 43.400 tỷ đồng năm 2027 và 57.700 tỷ đồng năm 2029.",
+      "source": "CafeF Thị Trường",
+      "symbols": [
+        "SSI"
+      ],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/ssi-du-bao-thoi-diem-loi-nhuan-pnj-tro-lai-moc-1000-ty-dong-188261023115612973.chn",
+      "published_date": "Fri, 23 Oct 26 12:17:00 +0700"
+    },
+    {
+      "title": "Lộ diện công ty chứng khoán lỗ đậm nhất ngành quý 3/2026",
+      "description": "Khoản lỗ lớn trong quý 3 đã xóa sạch thành quả kinh doanh của hai quý đầu năm của công ty.",
+      "source": "CafeF Thị Trường",
+      "symbols": [],
+      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
+      "sentiment_score": 0.0,
+      "sentiment_label": "TRUNG TÍNH",
+      "sentiment_badge": "neutral",
+      "is_red_flag": false,
+      "is_catalyst": false,
+      "triggers_found": [],
+      "re_eval_action": "SAFE_HOLD",
+      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
+      "link": "https://cafef.vn/lo-dien-cong-ty-chung-khoan-lo-dam-nhat-nganh-quy-3-2026-188261023112149941.chn",
+      "published_date": "Fri, 23 Oct 26 11:21:00 +0700"
     },
     {
       "title": "Xây dựng Hòa Bình miễn nhiệm một Phó Tổng Giám đốc",
@@ -1084,23 +1103,6 @@
       "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
       "link": "https://cafef.vn/chung-khoan-vix-con-1000-ty-dong-von-huy-dong-tu-chao-ban-co-phieu-chua-giai-ngan-188261022200758994.chn",
       "published_date": "Thu, 22 Oct 26 20:07:00 +0700"
-    },
-    {
-      "title": "Chứng khoán tiếp tục tăng 22 điểm, lên mức cao nhất hơn nửa năm",
-      "description": "Chỉ số VN-Index hôm nay 22/10 tiếp tục tăng mạnh 22 điểm lên mức 1.760, đây là mức cao nhất kể từ tháng 4.",
-      "source": "CafeF Thị Trường",
-      "symbols": [],
-      "category": "THỊ TRƯỜNG CHỨNG KHOÁN",
-      "sentiment_score": 0.0,
-      "sentiment_label": "TRUNG TÍNH",
-      "sentiment_badge": "neutral",
-      "is_red_flag": false,
-      "is_catalyst": false,
-      "triggers_found": [],
-      "re_eval_action": "SAFE_HOLD",
-      "action_desc": "Thông tin bình ổn / Duy trì chiến lược",
-      "link": "https://cafef.vn/chung-khoan-tiep-tuc-tang-22-diem-len-muc-cao-nhat-hon-nua-nam-18826102220063376.chn",
-      "published_date": "Thu, 22 Oct 26 20:06:00 +0700"
     }
   ]
 }

@@ -5,6 +5,7 @@ automatic caching, rate-limiting, and error-handling mechanisms.
 import os
 import sys
 import time
+from datetime import datetime
 import logging
 from pathlib import Path
 from typing import Optional, List, Dict, Any
@@ -93,17 +94,21 @@ class VnStockClient:
             except Exception as e:
                 logger.debug("Failed to read csv cache for %s: %s", clean_sym, e)
 
+        today_date = pd.to_datetime(datetime.now().strftime("%Y-%m-%d"))
+        is_today_requested = req_end.normalize() >= today_date
+
         # 2. Check if cache already contains latest requested date
         if existing_df is not None and not existing_df.empty:
             cache_max = pd.to_datetime(existing_df["time"]).max()
             cache_min = pd.to_datetime(existing_df["time"]).min()
             
-            # If cache covers start and reaches end_date, return immediately
-            if cache_max >= req_end.normalize() and cache_min <= req_start + pd.Timedelta(days=60):
-                mask = (existing_df["time"] >= req_start) & (existing_df["time"] <= req_end)
-                filtered = existing_df[mask].copy()
-                if len(filtered) > 10:
-                    return filtered.reset_index(drop=True)
+            # If historical query (not today) and cache covers start and reaches end_date, return immediately
+            if not is_today_requested and not self.force_refresh:
+                if cache_max >= req_end.normalize() and cache_min <= req_start + pd.Timedelta(days=60):
+                    mask = (existing_df["time"] >= req_start) & (existing_df["time"] <= req_end)
+                    filtered = existing_df[mask].copy()
+                    if len(filtered) > 10:
+                        return filtered.reset_index(drop=True)
 
             # Incremental update: only query the delta from (cache_max - 5 days) to avoid API timeouts
             fetch_start = (cache_max - pd.Timedelta(days=5)).strftime("%Y-%m-%d")
@@ -148,58 +153,115 @@ class VnStockClient:
         return df_to_save[mask].reset_index(drop=True)
 
     def _fetch_from_api(self, symbol: str, start_date: str, end_date: str) -> Optional[pd.DataFrame]:
-        """Fetch quotes from VnStock VCI endpoint with retry mechanism and direct live feed fallback."""
+        """Fetch quotes with primary high-speed exchange feed (VNDirect / Entrade / CafeF) and VnStock fallback."""
+        # 1. Primary: Real-time institutional exchange feed (Supports VNINDEX + all equities with high reliability)
+        df_feed = self._fetch_from_live_feed(symbol, start_date, end_date)
+        if df_feed is not None and not df_feed.empty:
+            return df_feed
+
+        # 2. Secondary: VnStock VCI endpoint
         if self._quote_cls is None:
             self._init_vnstock()
 
         if self._quote_cls is not None:
-            retries = 3
-            for attempt in range(retries):
-                try:
-                    time.sleep(0.3)  # Gentle rate limiting
-                    q = self._quote_cls(symbol)
-                    df = q.history(start=start_date, end=end_date)
-                    if df is not None and not df.empty:
-                        return df
-                except Exception as e:
-                    logger.debug("Attempt %d failed for %s: %s", attempt + 1, symbol, e)
-                    time.sleep(1.0 * (attempt + 1))
+            try:
+                q = self._quote_cls(symbol)
+                df = q.history(start=start_date, end=end_date)
+                if df is not None and not df.empty:
+                    return df
+            except Exception as e:
+                logger.debug("VnStock VCI quote failed for %s: %s", symbol, e)
 
-        # Direct feed fallback (e.g. CI/CD runners or when vnstock is unavailable)
-        return self._fetch_from_live_feed(symbol)
+        return None
 
-    def _fetch_from_live_feed(self, symbol: str) -> Optional[pd.DataFrame]:
-        """Fetch latest daily snapshot from exchange feed when vnstock library is unavailable."""
+    def _fetch_from_live_feed(self, symbol: str, start_date: str = None, end_date: str = None) -> Optional[pd.DataFrame]:
+        """Fetch real-time quotes from VNDirect DChart API, Entrade, or CafeF price board."""
         clean_sym = symbol.upper().strip()
-        if clean_sym == "VNINDEX":
-            return None
+        import urllib.request
+        import json
+        import ssl
+
+        ctx = ssl.create_default_context()
+        ctx.check_hostname = False
+        ctx.verify_mode = ssl.CERT_NONE
+
+        start_ts = int(pd.to_datetime(start_date).timestamp()) if start_date else int(time.time() - 30 * 86400)
+        end_dt = pd.to_datetime(end_date) if end_date else datetime.now()
+        end_ts = int(end_dt.timestamp()) + 86400
+
+        # 1. VNDirect DChart API (High speed, zero-auth, real-time intraday OHLCV for VNINDEX & all tickers)
         try:
-            import requests
-            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
-            r = requests.get("https://banggia.cafef.vn/stockhandler.ashx?center=1", headers=headers, timeout=5)
-            if r.status_code == 200:
-                data = r.json()
-                item = next((x for x in data if x.get("a") == clean_sym), None)
-                if item:
-                    close_p = float(item.get("l", 0) or item.get("b", 0))
-                    if close_p > 0:
-                        open_p = float(item.get("b", close_p) or close_p)
-                        high_p = float(item.get("v", close_p) or close_p)
-                        low_p = float(item.get("w", close_p) or close_p)
-                        vol = float(item.get("totalvolume", 0) or 0)
-                        from datetime import datetime
-                        today_dt = pd.to_datetime(datetime.now().strftime("%Y-%m-%d"))
-                        return pd.DataFrame([{
-                            "time": today_dt,
-                            "open": open_p,
-                            "high": high_p,
-                            "low": low_p,
-                            "close": close_p,
-                            "volume": vol,
-                            "symbol": clean_sym
-                        }])
+            url = f"https://dchart-api.vndirect.com.vn/dchart/history?resolution=D&symbol={clean_sym}&from={start_ts}&to={end_ts}"
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
+            with urllib.request.urlopen(req, context=ctx, timeout=5) as r:
+                d = json.loads(r.read().decode('utf-8'))
+                t = d.get('t', [])
+                if t and len(t) > 0:
+                    df = pd.DataFrame({
+                        "time": [datetime.fromtimestamp(ts).strftime("%Y-%m-%d") for ts in t],
+                        "open": [float(x) for x in d.get('o', [])],
+                        "high": [float(x) for x in d.get('h', [])],
+                        "low": [float(x) for x in d.get('l', [])],
+                        "close": [float(x) for x in d.get('c', [])],
+                        "volume": [float(x) for x in d.get('v', [])],
+                        "symbol": clean_sym
+                    })
+                    df["time"] = pd.to_datetime(df["time"])
+                    return df
         except Exception as e:
-            logger.debug("Direct live feed fetch for %s failed: %s", clean_sym, e)
+            logger.debug("VNDirect live feed fetch for %s failed: %s", clean_sym, e)
+
+        # 2. Entrade API (Secondary real-time source for VNINDEX)
+        if clean_sym == "VNINDEX":
+            try:
+                url = f"https://services.entrade.com.vn/chart-api/v2/ohlcs/index?resolution=1D&symbol=VNINDEX&from={start_ts}&to={end_ts}"
+                req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+                with urllib.request.urlopen(req, context=ctx, timeout=5) as r:
+                    d = json.loads(r.read().decode('utf-8'))
+                    t = d.get('t', [])
+                    if t and len(t) > 0:
+                        df = pd.DataFrame({
+                            "time": [datetime.fromtimestamp(ts).strftime("%Y-%m-%d") for ts in t],
+                            "open": [float(x) for x in d.get('o', [])],
+                            "high": [float(x) for x in d.get('h', [])],
+                            "low": [float(x) for x in d.get('l', [])],
+                            "close": [float(x) for x in d.get('c', [])],
+                            "volume": [float(x) for x in d.get('v', [])],
+                            "symbol": clean_sym
+                        })
+                        df["time"] = pd.to_datetime(df["time"])
+                        return df
+            except Exception as e:
+                logger.debug("Entrade live feed fetch for VNINDEX failed: %s", e)
+
+        # 3. CafeF live board snapshot
+        if clean_sym != "VNINDEX":
+            try:
+                url = "https://banggia.cafef.vn/stockhandler.ashx?center=1"
+                req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+                with urllib.request.urlopen(req, context=ctx, timeout=5) as r:
+                    data = json.loads(r.read().decode('utf-8'))
+                    item = next((x for x in data if x.get("a") == clean_sym), None)
+                    if item:
+                        close_p = float(item.get("l", 0) or item.get("b", 0))
+                        if close_p > 0:
+                            open_p = float(item.get("b", close_p) or close_p)
+                            high_p = float(item.get("v", close_p) or close_p)
+                            low_p = float(item.get("w", close_p) or close_p)
+                            vol = float(item.get("totalvolume", 0) or 0)
+                            today_dt = pd.to_datetime(datetime.now().strftime("%Y-%m-%d"))
+                            return pd.DataFrame([{
+                                "time": today_dt,
+                                "open": open_p,
+                                "high": high_p,
+                                "low": low_p,
+                                "close": close_p,
+                                "volume": vol,
+                                "symbol": clean_sym
+                            }])
+            except Exception as e:
+                logger.debug("CafeF live board fetch for %s failed: %s", clean_sym, e)
+
         return None
 
     def _standardize_df(self, df: pd.DataFrame, symbol: str) -> pd.DataFrame:
