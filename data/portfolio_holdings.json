@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-28 07:46:52",
+  "last_updated": "2026-10-28 14:34:08",
   "deployment_date": "2026-01-01",
   "positions": {
     "AI_Advisor_BenBi_3M": [],
@@ -9,9 +9,9 @@
         "shares": 112396600,
         "entry_price": 32.39,
         "entry_date": "2026-09-10",
-        "current_price": 33.5,
+        "current_price": 22.334,
         "holding_days": 34,
-        "current_return_pct": 3.43,
+        "current_return_pct": -31.05,
         "weight_pct": 28.6,
         "sector": "Banking"
       },
@@ -44,9 +44,9 @@
         "shares": 89745100,
         "entry_price": 32.4,
         "entry_date": "2026-09-10",
-        "current_price": 33.5,
+        "current_price": 22.334,
         "holding_days": 34,
-        "current_return_pct": 3.4,
+        "current_return_pct": -31.07,
         "weight_pct": 28.6,
         "sector": "Banking"
       },
@@ -79,9 +79,9 @@
         "shares": 98002300,
         "entry_price": 32.39,
         "entry_date": "2026-09-10",
-        "current_price": 33.5,
+        "current_price": 22.334,
         "holding_days": 34,
-        "current_return_pct": 3.43,
+        "current_return_pct": -31.05,
         "weight_pct": 28.6,
         "sector": "Banking"
       },
