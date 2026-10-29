@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-29 07:52:55 (UTC+7)",
+  "last_updated": "2026-10-29 14:42:35 (UTC+7)",
   "trading_date": "2026-10-29",
   "vnindex": {
     "close": 1755.61,
@@ -33,9 +33,9 @@
   "news_radar": {
     "total_news_scanned": 160,
     "red_flags_detected": 0,
-    "catalysts_detected": 3,
+    "catalysts_detected": 1,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-29 07:52:52"
+    "last_scanned": "2026-10-29 14:42:33"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -66,8 +66,8 @@
       "status_badge": "neg",
       "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
       "technical_signal": "BÁM ĐƯỜNG MA20 | Giữ vững xu hướng ngắn hạn trên MA20 (+1.2%) | RS 56",
-      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-      "news_badge": "pos",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_badge": "neutral",
       "volume": 23642700
     },
     {
@@ -114,7 +114,7 @@
       "status_badge": "neg",
       "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
       "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 2.6x | RS 52",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
       "volume": 2581200
     },
@@ -138,8 +138,8 @@
       "status_badge": "neg",
       "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
       "technical_signal": "BÁM ĐƯỜNG MA20 | Giữ vững xu hướng ngắn hạn trên MA20 (+1.2%) | RS 56",
-      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-      "news_badge": "pos",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_badge": "neutral",
       "volume": 23642700
     },
     {
@@ -186,7 +186,7 @@
       "status_badge": "neg",
       "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
       "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 2.6x | RS 52",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
       "volume": 2581200
     },
@@ -210,8 +210,8 @@
       "status_badge": "neg",
       "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
       "technical_signal": "BÁM ĐƯỜNG MA20 | Giữ vững xu hướng ngắn hạn trên MA20 (+1.2%) | RS 56",
-      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-      "news_badge": "pos",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_badge": "neutral",
       "volume": 23642700
     },
     {
@@ -258,7 +258,7 @@
       "status_badge": "neg",
       "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
       "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 2.6x | RS 52",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
       "volume": 2581200
     },
@@ -403,8 +403,8 @@
       "technical_reason": "Hiệu suất suy giảm -31.02%, chạm ngưỡng kỷ luật dừng lỗ",
       "advisor_rationale": "Cắt lỗ dứt khoát -4.5% để triệt tiêu nguy cơ sụt giảm tài sản lớn (Max Drawdown)",
       "action_advice": "Bán toàn bộ vị thế, thu hồi 100% tiền mặt phòng thủ",
-      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-      "news_badge": "pos"
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_badge": "neutral"
     },
     {
       "id": "SIG-SELL-02",
@@ -424,7 +424,7 @@
       "technical_reason": "Hiệu suất âm -3.65%, áp lực cung gia tăng sát ngưỡng cắt lỗ",
       "advisor_rationale": "Đưa vào danh sách giám sát đặc biệt; Tuyệt đối không trung bình giá xuống",
       "action_advice": "Quan sát hỗ trợ MA20/MA50; Sẵn sàng cắt lỗ nếu gãy nền",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral"
     },
     {
@@ -445,8 +445,8 @@
       "technical_reason": "Hiệu suất suy giảm -31.0%, chạm ngưỡng kỷ luật dừng lỗ",
       "advisor_rationale": "Cắt lỗ dứt khoát -4.5% để triệt tiêu nguy cơ sụt giảm tài sản lớn (Max Drawdown)",
       "action_advice": "Bán toàn bộ vị thế, thu hồi 100% tiền mặt phòng thủ",
-      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-      "news_badge": "pos"
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_badge": "neutral"
     },
     {
       "id": "SIG-SELL-04",
@@ -466,7 +466,7 @@
       "technical_reason": "Hiệu suất âm -3.65%, áp lực cung gia tăng sát ngưỡng cắt lỗ",
       "advisor_rationale": "Đưa vào danh sách giám sát đặc biệt; Tuyệt đối không trung bình giá xuống",
       "action_advice": "Quan sát hỗ trợ MA20/MA50; Sẵn sàng cắt lỗ nếu gãy nền",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral"
     },
     {
@@ -487,8 +487,8 @@
       "technical_reason": "Hiệu suất suy giảm -31.0%, chạm ngưỡng kỷ luật dừng lỗ",
       "advisor_rationale": "Cắt lỗ dứt khoát -4.5% để triệt tiêu nguy cơ sụt giảm tài sản lớn (Max Drawdown)",
       "action_advice": "Bán toàn bộ vị thế, thu hồi 100% tiền mặt phòng thủ",
-      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-      "news_badge": "pos"
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_badge": "neutral"
     },
     {
       "id": "SIG-SELL-06",
@@ -508,7 +508,7 @@
       "technical_reason": "Hiệu suất âm -3.65%, áp lực cung gia tăng sát ngưỡng cắt lỗ",
       "advisor_rationale": "Đưa vào danh sách giám sát đặc biệt; Tuyệt đối không trung bình giá xuống",
       "action_advice": "Quan sát hỗ trợ MA20/MA50; Sẵn sàng cắt lỗ nếu gãy nền",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral"
     },
     {
@@ -594,8 +594,8 @@
       "technical_reason": "Hiệu suất suy giảm -31.02%, chạm ngưỡng kỷ luật dừng lỗ",
       "advisor_rationale": "Cắt lỗ dứt khoát -4.5% để triệt tiêu nguy cơ sụt giảm tài sản lớn (Max Drawdown)",
       "action_advice": "Bán toàn bộ vị thế, thu hồi 100% tiền mặt phòng thủ",
-      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-      "news_badge": "pos"
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_badge": "neutral"
     },
     {
       "id": "SIG-SELL-02",
@@ -615,7 +615,7 @@
       "technical_reason": "Hiệu suất âm -3.65%, áp lực cung gia tăng sát ngưỡng cắt lỗ",
       "advisor_rationale": "Đưa vào danh sách giám sát đặc biệt; Tuyệt đối không trung bình giá xuống",
       "action_advice": "Quan sát hỗ trợ MA20/MA50; Sẵn sàng cắt lỗ nếu gãy nền",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral"
     },
     {
@@ -636,8 +636,8 @@
       "technical_reason": "Hiệu suất suy giảm -31.0%, chạm ngưỡng kỷ luật dừng lỗ",
       "advisor_rationale": "Cắt lỗ dứt khoát -4.5% để triệt tiêu nguy cơ sụt giảm tài sản lớn (Max Drawdown)",
       "action_advice": "Bán toàn bộ vị thế, thu hồi 100% tiền mặt phòng thủ",
-      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-      "news_badge": "pos"
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_badge": "neutral"
     },
     {
       "id": "SIG-SELL-04",
@@ -657,7 +657,7 @@
       "technical_reason": "Hiệu suất âm -3.65%, áp lực cung gia tăng sát ngưỡng cắt lỗ",
       "advisor_rationale": "Đưa vào danh sách giám sát đặc biệt; Tuyệt đối không trung bình giá xuống",
       "action_advice": "Quan sát hỗ trợ MA20/MA50; Sẵn sàng cắt lỗ nếu gãy nền",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral"
     },
     {
@@ -678,8 +678,8 @@
       "technical_reason": "Hiệu suất suy giảm -31.0%, chạm ngưỡng kỷ luật dừng lỗ",
       "advisor_rationale": "Cắt lỗ dứt khoát -4.5% để triệt tiêu nguy cơ sụt giảm tài sản lớn (Max Drawdown)",
       "action_advice": "Bán toàn bộ vị thế, thu hồi 100% tiền mặt phòng thủ",
-      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-      "news_badge": "pos"
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_badge": "neutral"
     },
     {
       "id": "SIG-SELL-06",
@@ -699,7 +699,7 @@
       "technical_reason": "Hiệu suất âm -3.65%, áp lực cung gia tăng sát ngưỡng cắt lỗ",
       "advisor_rationale": "Đưa vào danh sách giám sát đặc biệt; Tuyệt đối không trung bình giá xuống",
       "action_advice": "Quan sát hỗ trợ MA20/MA50; Sẵn sàng cắt lỗ nếu gãy nền",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral"
     },
     {
@@ -851,39 +851,15 @@
   "news_action_recommendations": {
     "catalysts": [
       {
-        "symbol": "HPG",
-        "sector": "Materials",
-        "net_sentiment": 0.2,
-        "sentiment_multiplier": 1.2,
-        "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-        "status_badge": "pos",
-        "latest_headline": "Nông nghiệp Hòa Phát chốt ngày tạm ứng cổ tức năm 2026",
-        "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
-        "news_count": 3,
-        "re_eval_note": ""
-      },
-      {
-        "symbol": "TCB",
-        "sector": "Banking",
-        "net_sentiment": 0.08,
-        "sentiment_multiplier": 1.2,
-        "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-        "status_badge": "pos",
-        "latest_headline": "Lãi suất ngày 29/10 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
-        "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
-        "news_count": 10,
-        "re_eval_note": ""
-      },
-      {
         "symbol": "MWG",
         "sector": "Retail",
-        "net_sentiment": 0.43,
+        "net_sentiment": 0.11,
         "sentiment_multiplier": 1.2,
         "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
         "status_badge": "pos",
-        "latest_headline": "Bất ngờ với lợi nhuận Bách Hóa Xanh trong quý 3",
+        "latest_headline": "Việt Nam sắp có nơi trải nghiệm ăn, ngủ được phục vụ hoàn toàn bởi robot",
         "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
-        "news_count": 4,
+        "news_count": 7,
         "re_eval_note": ""
       }
     ],
@@ -896,9 +872,21 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Cổ phiếu \"thủng\" đáy 3 năm, FPT phát thông báo quan trọng",
+        "latest_headline": "FPT Retail ghi nhận doanh thu 48.273 tỷ đồng sau 9 tháng, tăng 33% so với cùng kỳ",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 2,
+        "news_count": 4,
+        "re_eval_note": ""
+      },
+      {
+        "symbol": "HPG",
+        "sector": "Materials",
+        "net_sentiment": 0.0,
+        "sentiment_multiplier": 1.0,
+        "status": "THÔNG TIN ỔN ĐỊNH",
+        "status_badge": "neutral",
+        "latest_headline": "Hòa Phát lãi 8.265 tỷ đồng, tăng 106% trong quý 3/2026",
+        "action_desc": "Duy trì tỷ trọng khuyến nghị",
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -910,7 +898,7 @@
         "status_badge": "neutral",
         "latest_headline": "Lãi suất ngày 29/10 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 4,
+        "news_count": 3,
         "re_eval_note": ""
       },
       {
@@ -926,15 +914,27 @@
         "re_eval_note": ""
       },
       {
+        "symbol": "TCB",
+        "sector": "Banking",
+        "net_sentiment": 0.0,
+        "sentiment_multiplier": 1.0,
+        "status": "THÔNG TIN ỔN ĐỊNH",
+        "status_badge": "neutral",
+        "latest_headline": "Ngày 29/10, gửi dưới 1 tỷ đồng kỳ hạn 24 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB được hưởng lãi suất bao nhiêu?",
+        "action_desc": "Duy trì tỷ trọng khuyến nghị",
+        "news_count": 8,
+        "re_eval_note": ""
+      },
+      {
         "symbol": "ACB",
         "sector": "Banking",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Cập nhật báo cáo tài chính quý 3/2026 tối ngày 28/10: Điện Máy Xanh, Thế giới di động lãi gần gấp đôi cùng kỳ, nhiều doanh nghiệp tăng bằng lần",
+        "latest_headline": "Ngày 29/10, gửi dưới 1 tỷ đồng kỳ hạn 24 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB được hưởng lãi suất bao nhiêu?",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 5,
+        "news_count": 4,
         "re_eval_note": ""
       },
       {
@@ -966,11 +966,11 @@
         "sector": "RealEstate",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN BÌNH ỔN",
+        "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Không có thông tin bất thường gần đây",
-        "action_desc": "Duy trì khuyến nghị định lượng gốc",
-        "news_count": 0,
+        "latest_headline": "Nhận lương cứng tới 8,5 triệu/tháng, môi giới trẻ vững tin làm sale độc quyền cho Vinhomes",
+        "action_desc": "Duy trì tỷ trọng khuyến nghị",
+        "news_count": 3,
         "re_eval_note": ""
       },
       {
@@ -990,11 +990,11 @@
         "sector": "Consumer",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN BÌNH ỔN",
+        "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Không có thông tin bất thường gần đây",
-        "action_desc": "Duy trì khuyến nghị định lượng gốc",
-        "news_count": 0,
+        "latest_headline": "Vinamilk sắp chi hơn 5.200 tỷ đồng trả cổ tức",
+        "action_desc": "Duy trì tỷ trọng khuyến nghị",
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -1014,11 +1014,11 @@
         "sector": "Energy",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN ỔN ĐỊNH",
+        "status": "THÔNG TIN BÌNH ỔN",
         "status_badge": "neutral",
-        "latest_headline": "Sắp xét xử vắng mặt nguyên Giám đốc SeaBank Hai Bà Trưng trốn truy nã",
-        "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
+        "latest_headline": "Không có thông tin bất thường gần đây",
+        "action_desc": "Duy trì khuyến nghị định lượng gốc",
+        "news_count": 0,
         "re_eval_note": ""
       },
       {
@@ -1035,9 +1035,9 @@
       }
     ],
     "summary": {
-      "total_catalysts": 3,
+      "total_catalysts": 1,
       "total_red_flags": 0,
-      "total_cautions": 12
+      "total_cautions": 14
     }
   },
   "watchlist_items": [
@@ -1067,7 +1067,7 @@
       "quant_criteria": "Tăng trưởng lợi nhuận EPS 20%+ bền vững 5 năm, tỷ lệ nợ vay thấp, dòng tiền thuần dồi dào.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Cổ phiếu \"thủng\" đáy 3 năm, FPT phát thông báo quan trọng"
+      "latest_headline": "FPT Retail ghi nhận doanh thu 48.273 tỷ đồng sau 9 tháng, tăng 33% so với cùng kỳ"
     },
     {
       "symbol": "HPG",
@@ -1093,9 +1093,9 @@
       "ai_radar_action": "Quan sát tín hiệu tích lũy cạn cung; Đưa vào Radar chờ phiên bùng nổ FTD",
       "selection_reason": "Doanh nghiệp sản xuất thép số 1 Đông Nam Á, thanh khoản cao nhất toàn thị trường (thường xuyên >15-30M cp/phiên). Hưởng lợi từ chu kỳ giải ngân đầu tư công hạ tầng và đại dự án Dung Quất 2. Dòng tiền ngoại và tổ chức quan tâm đặc biệt.",
       "quant_criteria": "Thanh khoản top 1 VN30, Beta cao theo sóng hồi, biên lợi nhuận cải thiện theo chu kỳ phục hồi giá thép HRC.",
-      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-      "news_badge": "pos",
-      "latest_headline": "Nông nghiệp Hòa Phát chốt ngày tạm ứng cổ tức năm 2026"
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_badge": "neutral",
+      "latest_headline": "Hòa Phát lãi 8.265 tỷ đồng, tăng 106% trong quý 3/2026"
     },
     {
       "symbol": "VCB",
@@ -1177,9 +1177,9 @@
       "ai_radar_action": "Quan sát tín hiệu tích lũy cạn cung; Đưa vào Radar chờ phiên bùng nổ FTD",
       "selection_reason": "Ngân hàng tư nhân dẫn đầu về năng lực vốn và quản trị tài sản cá nhân giàu có. Hưởng lợi từ sự phục hồi của thị trường bất động sản, trái phiếu doanh nghiệp và hệ sinh thái khách hàng cao cấp.",
       "quant_criteria": "Tỷ lệ an toàn vốn CAR cao nhất ngành (>15%), biên lãi thuần NIM phục hồi, giao dịch sôi động.",
-      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-      "news_badge": "pos",
-      "latest_headline": "Lãi suất ngày 29/10 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,..."
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_badge": "neutral",
+      "latest_headline": "Ngày 29/10, gửi dưới 1 tỷ đồng kỳ hạn 24 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB được hưởng lãi suất bao nhiêu?"
     },
     {
       "symbol": "ACB",
@@ -1207,7 +1207,7 @@
       "quant_criteria": "ROE ổn định 22-25%, hồ sơ rủi ro tín dụng sạch, cổ tức tiền mặt và cổ phiếu đều đặn hàng năm.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Cập nhật báo cáo tài chính quý 3/2026 tối ngày 28/10: Điện Máy Xanh, Thế giới di động lãi gần gấp đôi cùng kỳ, nhiều doanh nghiệp tăng bằng lần"
+      "latest_headline": "Ngày 29/10, gửi dưới 1 tỷ đồng kỳ hạn 24 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB được hưởng lãi suất bao nhiêu?"
     },
     {
       "symbol": "SSI",
@@ -1289,9 +1289,9 @@
       "ai_radar_action": "Chưa kích hoạt điểm mua an toàn; Tuân thủ kỷ luật 100% tiền mặt phòng thủ",
       "selection_reason": "Nhà phát triển bất động sản quy mô số 1 Việt Nam với quỹ đất sạch lớn nhất cả nước. Khả năng triển khai đại đô thị và tạo lập dòng tiền bàn giao dự án áp đảo thị trường, chi phối mạnh chỉ số VN-Index.",
       "quant_criteria": "Vốn hóa trụ cột Top 3 VN-Index, quỹ đất hàng nghìn ha, đóng góp lớn vào biến động điểm số chỉ số.",
-      "news_status": "THÔNG TIN BÌNH ỔN",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Không có thông tin bất thường gần đây"
+      "latest_headline": "Nhận lương cứng tới 8,5 triệu/tháng, môi giới trẻ vững tin làm sale độc quyền cho Vinhomes"
     },
     {
       "symbol": "MWG",
@@ -1319,7 +1319,7 @@
       "quant_criteria": "Doanh thu tăng trưởng sau tái cấu trúc, dòng tiền FCF mạnh, cổ phiếu phục hồi chu kỳ tiêu dùng.",
       "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
       "news_badge": "pos",
-      "latest_headline": "Bất ngờ với lợi nhuận Bách Hóa Xanh trong quý 3"
+      "latest_headline": "Việt Nam sắp có nơi trải nghiệm ăn, ngủ được phục vụ hoàn toàn bởi robot"
     },
     {
       "symbol": "MSN",
@@ -1373,9 +1373,9 @@
       "ai_radar_action": "Chưa kích hoạt điểm mua an toàn; Tuân thủ kỷ luật 100% tiền mặt phòng thủ",
       "selection_reason": "Thương hiệu quốc gia nắm thị phần sữa áp đảo (>50%). Tỷ suất cổ tức tiền mặt ổn định, tài chính lành mạnh với lượng tiền mặt ròng khổng lồ, đóng vai trò cổ phiếu phòng thủ và giữ nhịp chỉ số khi thị trường biến động.",
       "quant_criteria": "Dòng tiền kinh doanh đều đặn, tỷ lệ chi trả cổ tức tiền mặt cao, tính phòng thủ cao trong pha gấu.",
-      "news_status": "THÔNG TIN BÌNH ỔN",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Không có thông tin bất thường gần đây"
+      "latest_headline": "Vinamilk sắp chi hơn 5.200 tỷ đồng trả cổ tức"
     },
     {
       "symbol": "DGC",
@@ -1429,9 +1429,9 @@
       "ai_radar_action": "Chưa kích hoạt điểm mua an toàn; Tuân thủ kỷ luật 100% tiền mặt phòng thủ",
       "selection_reason": "Doanh nghiệp độc quyền thu gom, vận chuyển và kinh doanh khí tự nhiên, khí hóa lỏng LNG tại Việt Nam. Vị thế tài chính cực kỳ vững mạnh, đóng vai trò trụ cột chiến lược năng lượng quốc gia và điều tiết VN-Index.",
       "quant_criteria": "Tỷ suất sinh lời cao, dự trữ tiền mặt hàng chục nghìn tỷ đồng, hưởng lợi từ Quy hoạch Điện VIII.",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
-      "latest_headline": "Sắp xét xử vắng mặt nguyên Giám đốc SeaBank Hai Bà Trưng trốn truy nã"
+      "latest_headline": "Không có thông tin bất thường gần đây"
     },
     {
       "symbol": "GMD",
@@ -1477,7 +1477,7 @@
         {
           "symbol": "TCB",
           "weight_pct": 28.6,
-          "score": 0.4783,
+          "score": 0.3986,
           "confidence_score": 63,
           "sector": "Banking",
           "entry_price": 32.4,
@@ -1495,11 +1495,11 @@
           "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
           "volume": 23642700,
           "technical_signal": "BÁM ĐƯỜNG MA20 | Giữ vững xu hướng ngắn hạn trên MA20 (+1.2%) | RS 56",
-          "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-          "news_badge": "pos",
-          "news_headline": "Lãi suất ngày 29/10 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
-          "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
-          "news_score": 0.08
+          "news_status": "THÔNG TIN ỔN ĐỊNH",
+          "news_badge": "neutral",
+          "news_headline": "Ngày 29/10, gửi dưới 1 tỷ đồng kỳ hạn 24 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB được hưởng lãi suất bao nhiêu?",
+          "news_action": "Duy trì tỷ trọng khuyến nghị",
+          "news_score": 0.0
         },
         {
           "symbol": "MSN",
@@ -1549,16 +1549,14 @@
           "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
           "volume": 2581200,
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 2.6x | RS 52",
-          "news_status": "THÔNG TIN ỔN ĐỊNH",
+          "news_status": "THÔNG TIN BÌNH ỔN",
           "news_badge": "neutral",
-          "news_headline": "Sắp xét xử vắng mặt nguyên Giám đốc SeaBank Hai Bà Trưng trốn truy nã",
-          "news_action": "Duy trì tỷ trọng khuyến nghị",
+          "news_headline": "Không có thông tin bất thường gần đây",
+          "news_action": "Duy trì khuyến nghị định lượng gốc",
           "news_score": 0.0
         }
       ],
       "news_notes": {
-        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))",
-        "HPG": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))",
         "MWG": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
       }
     },
@@ -1575,7 +1573,7 @@
         {
           "symbol": "TCB",
           "weight_pct": 28.6,
-          "score": 0.5173,
+          "score": 0.4311,
           "confidence_score": 63,
           "sector": "Banking",
           "entry_price": 32.39,
@@ -1593,11 +1591,11 @@
           "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
           "volume": 23642700,
           "technical_signal": "BÁM ĐƯỜNG MA20 | Giữ vững xu hướng ngắn hạn trên MA20 (+1.2%) | RS 56",
-          "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-          "news_badge": "pos",
-          "news_headline": "Lãi suất ngày 29/10 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
-          "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
-          "news_score": 0.08
+          "news_status": "THÔNG TIN ỔN ĐỊNH",
+          "news_badge": "neutral",
+          "news_headline": "Ngày 29/10, gửi dưới 1 tỷ đồng kỳ hạn 24 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB được hưởng lãi suất bao nhiêu?",
+          "news_action": "Duy trì tỷ trọng khuyến nghị",
+          "news_score": 0.0
         },
         {
           "symbol": "MSN",
@@ -1647,16 +1645,14 @@
           "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
           "volume": 2581200,
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 2.6x | RS 52",
-          "news_status": "THÔNG TIN ỔN ĐỊNH",
+          "news_status": "THÔNG TIN BÌNH ỔN",
           "news_badge": "neutral",
-          "news_headline": "Sắp xét xử vắng mặt nguyên Giám đốc SeaBank Hai Bà Trưng trốn truy nã",
-          "news_action": "Duy trì tỷ trọng khuyến nghị",
+          "news_headline": "Không có thông tin bất thường gần đây",
+          "news_action": "Duy trì khuyến nghị định lượng gốc",
           "news_score": 0.0
         }
       ],
       "news_notes": {
-        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))",
-        "HPG": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))",
         "MWG": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
       }
     },
@@ -1671,8 +1667,6 @@
       "cash_ratio_pct": 100.0,
       "top5": [],
       "news_notes": {
-        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))",
-        "HPG": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))",
         "MWG": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
       }
     },
@@ -1689,7 +1683,7 @@
         {
           "symbol": "TCB",
           "weight_pct": 28.6,
-          "score": 0.5119,
+          "score": 0.4266,
           "confidence_score": 63,
           "sector": "Banking",
           "entry_price": 32.39,
@@ -1707,11 +1701,11 @@
           "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
           "volume": 23642700,
           "technical_signal": "BÁM ĐƯỜNG MA20 | Giữ vững xu hướng ngắn hạn trên MA20 (+1.2%) | RS 56",
-          "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-          "news_badge": "pos",
-          "news_headline": "Lãi suất ngày 29/10 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
-          "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
-          "news_score": 0.08
+          "news_status": "THÔNG TIN ỔN ĐỊNH",
+          "news_badge": "neutral",
+          "news_headline": "Ngày 29/10, gửi dưới 1 tỷ đồng kỳ hạn 24 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB được hưởng lãi suất bao nhiêu?",
+          "news_action": "Duy trì tỷ trọng khuyến nghị",
+          "news_score": 0.0
         },
         {
           "symbol": "MSN",
@@ -1761,16 +1755,14 @@
           "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
           "volume": 2581200,
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 2.6x | RS 52",
-          "news_status": "THÔNG TIN ỔN ĐỊNH",
+          "news_status": "THÔNG TIN BÌNH ỔN",
           "news_badge": "neutral",
-          "news_headline": "Sắp xét xử vắng mặt nguyên Giám đốc SeaBank Hai Bà Trưng trốn truy nã",
-          "news_action": "Duy trì tỷ trọng khuyến nghị",
+          "news_headline": "Không có thông tin bất thường gần đây",
+          "news_action": "Duy trì khuyến nghị định lượng gốc",
           "news_score": 0.0
         }
       ],
       "news_notes": {
-        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))",
-        "HPG": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))",
         "MWG": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
       }
     },
@@ -1834,9 +1826,9 @@
           "technical_signal": "THẮT CHẶT BIÊN ĐỘ (VCP) | Biên độ co thắt Bollinger Squeeze cực hẹp | Cạn cung chờ bùng nổ | Vol 0.7x",
           "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
           "news_badge": "pos",
-          "news_headline": "Bất ngờ với lợi nhuận Bách Hóa Xanh trong quý 3",
+          "news_headline": "Việt Nam sắp có nơi trải nghiệm ăn, ngủ được phục vụ hoàn toàn bởi robot",
           "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
-          "news_score": 0.43
+          "news_score": 0.11
         },
         {
           "symbol": "VCB",
@@ -1915,14 +1907,12 @@
           "technical_signal": "BÁM ĐƯỜNG MA20 | Giữ vững xu hướng ngắn hạn trên MA20 (+2.8%) | RS 49",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Cập nhật báo cáo tài chính quý 3/2026 tối ngày 28/10: Điện Máy Xanh, Thế giới di động lãi gần gấp đôi cùng kỳ, nhiều doanh nghiệp tăng bằng lần",
+          "news_headline": "Ngày 29/10, gửi dưới 1 tỷ đồng kỳ hạn 24 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB được hưởng lãi suất bao nhiêu?",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         }
       ],
       "news_notes": {
-        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))",
-        "HPG": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))",
         "MWG": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
       }
     },
@@ -1937,8 +1927,6 @@
       "cash_ratio_pct": 100.0,
       "top5": [],
       "news_notes": {
-        "TCB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))",
-        "HPG": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))",
         "MWG": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
       }
     }
