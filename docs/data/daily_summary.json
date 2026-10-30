@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-30 07:56:29 (UTC+7)",
+  "last_updated": "2026-10-30 14:44:52 (UTC+7)",
   "trading_date": "2026-10-30",
   "vnindex": {
     "close": 1741.62,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 2,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-10-30 07:56:26"
+    "last_scanned": "2026-10-30 14:44:50"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -354,7 +354,7 @@
       "status_badge": "pos",
       "action_advice": "Tiếp tục nắm giữ theo xu hướng tăng",
       "technical_signal": "THẮT CHẶT BIÊN ĐỘ (VCP) | Biên độ co thắt Bollinger Squeeze cực hẹp | Cạn cung chờ bùng nổ | Vol 0.8x",
-      "news_status": "THÔNG TIN BÌNH ỔN",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
       "volume": 9473400
     },
@@ -937,13 +937,13 @@
       {
         "symbol": "VHM",
         "sector": "RealEstate",
-        "net_sentiment": 0.16,
+        "net_sentiment": 0.4,
         "sentiment_multiplier": 1.2,
         "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
         "status_badge": "pos",
         "latest_headline": "Chưa từng có: Vinhomes lãi 9 tháng kỷ lục hơn 75.000 tỷ đồng, vượt 25% kế hoạch cả năm",
         "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
-        "news_count": 5,
+        "news_count": 2,
         "re_eval_note": ""
       },
       {
@@ -968,9 +968,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "FPT Retail ghi nhận doanh thu 48.273 tỷ đồng sau 9 tháng, tăng 33% so với cùng kỳ",
+        "latest_headline": "FPT Retail báo doanh thu 48.273 tỷ đồng sau 9 tháng, tăng 33% so với cùng kỳ",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 2,
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -980,9 +980,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Nợ vay của Hòa Phát lần đầu vượt 100.000 tỷ đồng",
+        "latest_headline": "Thành viên HĐQT Hòa Phát muốn bán bớt cổ phiếu HPG",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
+        "news_count": 2,
         "re_eval_note": ""
       },
       {
@@ -992,9 +992,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Vietcombank, VietinBank, BIDV, Agribank đồng loạt phát thông báo quan trọng, người dùng chú ý để tránh mất tiền",
+        "latest_headline": "Cập nhật lợi nhuận 28 ngân hàng tối 30/10: Vietcombank, MB, VietinBank, BIDV, Eximbank,....",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 4,
+        "news_count": 5,
         "re_eval_note": ""
       },
       {
@@ -1002,11 +1002,11 @@
         "sector": "Banking",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN BÌNH ỔN",
+        "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Không có thông tin bất thường gần đây",
-        "action_desc": "Duy trì khuyến nghị định lượng gốc",
-        "news_count": 0,
+        "latest_headline": "MB chính thức lên tiếng về thông tin App MBBank đang lan truyền trên mạng xã hội",
+        "action_desc": "Duy trì tỷ trọng khuyến nghị",
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -1018,7 +1018,7 @@
         "status_badge": "neutral",
         "latest_headline": "Lãi suất ngày 30/10 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 7,
+        "news_count": 5,
         "re_eval_note": ""
       },
       {
@@ -1030,7 +1030,7 @@
         "status_badge": "neutral",
         "latest_headline": "ACB cảnh báo nguy cơ mã độc trên iPhone, khuyến nghị cập nhật iOS mới để tăng cường bảo mật",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 5,
+        "news_count": 3,
         "re_eval_note": ""
       },
       {
@@ -1066,7 +1066,7 @@
         "status_badge": "neutral",
         "latest_headline": "Một cựu sinh viên Kinh tế TP.HCM tạo ra hàng chục nghìn việc làm từ Bắc tới Nam",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 7,
+        "news_count": 5,
         "re_eval_note": ""
       },
       {
@@ -1086,11 +1086,11 @@
         "sector": "Consumer",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN ỔN ĐỊNH",
+        "status": "THÔNG TIN BÌNH ỔN",
         "status_badge": "neutral",
-        "latest_headline": "Vinamilk sắp chi hơn 5.200 tỷ đồng trả cổ tức",
-        "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
+        "latest_headline": "Không có thông tin bất thường gần đây",
+        "action_desc": "Duy trì khuyến nghị định lượng gốc",
+        "news_count": 0,
         "re_eval_note": ""
       },
       {
@@ -1151,7 +1151,7 @@
       "quant_criteria": "Tăng trưởng lợi nhuận EPS 20%+ bền vững 5 năm, tỷ lệ nợ vay thấp, dòng tiền thuần dồi dào.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "FPT Retail ghi nhận doanh thu 48.273 tỷ đồng sau 9 tháng, tăng 33% so với cùng kỳ"
+      "latest_headline": "FPT Retail báo doanh thu 48.273 tỷ đồng sau 9 tháng, tăng 33% so với cùng kỳ"
     },
     {
       "symbol": "HPG",
@@ -1179,7 +1179,7 @@
       "quant_criteria": "Thanh khoản top 1 VN30, Beta cao theo sóng hồi, biên lợi nhuận cải thiện theo chu kỳ phục hồi giá thép HRC.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Nợ vay của Hòa Phát lần đầu vượt 100.000 tỷ đồng"
+      "latest_headline": "Thành viên HĐQT Hòa Phát muốn bán bớt cổ phiếu HPG"
     },
     {
       "symbol": "VCB",
@@ -1207,7 +1207,7 @@
       "quant_criteria": "Vốn hóa số 1, trụ đỡ tâm lý điều tiết thị trường, sức khỏe tài chính chuẩn mực Basel III.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Vietcombank, VietinBank, BIDV, Agribank đồng loạt phát thông báo quan trọng, người dùng chú ý để tránh mất tiền"
+      "latest_headline": "Cập nhật lợi nhuận 28 ngân hàng tối 30/10: Vietcombank, MB, VietinBank, BIDV, Eximbank,...."
     },
     {
       "symbol": "MBB",
@@ -1233,9 +1233,9 @@
       "ai_radar_action": "Chưa kích hoạt điểm mua an toàn; Tuân thủ kỷ luật 100% tiền mặt phòng thủ",
       "selection_reason": "Ngân hàng thương mại cổ phần dẫn đầu về tốc độ số hóa và tỷ lệ tiền gửi không kỳ hạn (CASA > 40%). Hiệu quả sinh lời ROE > 20%, định giá P/B ở vùng chiết khấu sâu thu hút dòng tiền định chế.",
       "quant_criteria": "CASA top 1, tăng trưởng tín dụng vượt trội ngành, thanh khoản trung bình >15M cp/phiên.",
-      "news_status": "THÔNG TIN BÌNH ỔN",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Không có thông tin bất thường gần đây"
+      "latest_headline": "MB chính thức lên tiếng về thông tin App MBBank đang lan truyền trên mạng xã hội"
     },
     {
       "symbol": "TCB",
@@ -1457,9 +1457,9 @@
       "ai_radar_action": "Chưa kích hoạt điểm mua an toàn; Tuân thủ kỷ luật 100% tiền mặt phòng thủ",
       "selection_reason": "Thương hiệu quốc gia nắm thị phần sữa áp đảo (>50%). Tỷ suất cổ tức tiền mặt ổn định, tài chính lành mạnh với lượng tiền mặt ròng khổng lồ, đóng vai trò cổ phiếu phòng thủ và giữ nhịp chỉ số khi thị trường biến động.",
       "quant_criteria": "Dòng tiền kinh doanh đều đặn, tỷ lệ chi trả cổ tức tiền mặt cao, tính phòng thủ cao trong pha gấu.",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
-      "latest_headline": "Vinamilk sắp chi hơn 5.200 tỷ đồng trả cổ tức"
+      "latest_headline": "Không có thông tin bất thường gần đây"
     },
     {
       "symbol": "DGC",
@@ -1929,7 +1929,7 @@
           "technical_signal": "THẮT CHẶT BIÊN ĐỘ (VCP) | Biên độ co thắt Bollinger Squeeze cực hẹp | Cạn cung chờ bùng nổ | Vol 1.1x",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Vietcombank, VietinBank, BIDV, Agribank đồng loạt phát thông báo quan trọng, người dùng chú ý để tránh mất tiền",
+          "news_headline": "Cập nhật lợi nhuận 28 ngân hàng tối 30/10: Vietcombank, MB, VietinBank, BIDV, Eximbank,....",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
@@ -1954,10 +1954,10 @@
           "action_advice": "Tiếp tục nắm giữ theo xu hướng tăng",
           "volume": 9473400,
           "technical_signal": "THẮT CHẶT BIÊN ĐỘ (VCP) | Biên độ co thắt Bollinger Squeeze cực hẹp | Cạn cung chờ bùng nổ | Vol 0.8x",
-          "news_status": "THÔNG TIN BÌNH ỔN",
+          "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Không có thông tin bất thường gần đây",
-          "news_action": "Duy trì khuyến nghị định lượng gốc",
+          "news_headline": "MB chính thức lên tiếng về thông tin App MBBank đang lan truyền trên mạng xã hội",
+          "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
         {
