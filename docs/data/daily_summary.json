@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-03 08:52:43 (UTC+7)",
+  "last_updated": "2026-11-03 16:40:21 (UTC+7)",
   "trading_date": "2026-11-03",
   "vnindex": {
     "close": 1699.62,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 1,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-11-03 08:52:40"
+    "last_scanned": "2026-11-03 16:40:18"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -1000,7 +1000,7 @@
         "status_badge": "neutral",
         "latest_headline": "Niềm vui của tỷ phú Trần Đình Long",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 5,
+        "news_count": 3,
         "re_eval_note": ""
       },
       {
@@ -1010,9 +1010,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Chứng khoán 'đỏ lửa', loạt cổ phiếu nằm sàn",
+        "latest_headline": "Vietcombank được Ngân hàng Nhà nước chấp thuận tăng vốn điều lệ thêm 5.431 tỷ đồng",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 6,
+        "news_count": 5,
         "re_eval_note": ""
       },
       {
@@ -1034,9 +1034,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Lãi suất tiết kiệm ngày 2/11 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
+        "latest_headline": "CEO Techcombank cùng các lãnh đạo quốc tế bàn về cơ hội tăng trưởng tại Việt Nam",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 5,
+        "news_count": 7,
         "re_eval_note": ""
       },
       {
@@ -1046,9 +1046,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Không chỉ vì tỷ giá: Điều gì đang thúc đẩy doanh nghiệp giao dịch đồng Nhân Dân Tệ?",
+        "latest_headline": "Ngày 3/11, gửi 200 triệu đồng kỳ hạn 12 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi?",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
+        "news_count": 2,
         "re_eval_note": ""
       },
       {
@@ -1084,7 +1084,7 @@
         "status_badge": "neutral",
         "latest_headline": "Một doanh nghiệp có doanh thu vượt Vingroup, bỏ xa Vinhomes, gấp hơn 2 lần Hòa Phát và Thế Giới Di Động",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 2,
+        "news_count": 3,
         "re_eval_note": ""
       },
       {
@@ -1249,7 +1249,7 @@
       "quant_criteria": "Vốn hóa số 1, trụ đỡ tâm lý điều tiết thị trường, sức khỏe tài chính chuẩn mực Basel III.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Chứng khoán 'đỏ lửa', loạt cổ phiếu nằm sàn"
+      "latest_headline": "Vietcombank được Ngân hàng Nhà nước chấp thuận tăng vốn điều lệ thêm 5.431 tỷ đồng"
     },
     {
       "symbol": "MBB",
@@ -1305,7 +1305,7 @@
       "quant_criteria": "Tỷ lệ an toàn vốn CAR cao nhất ngành (>15%), biên lãi thuần NIM phục hồi, giao dịch sôi động.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Lãi suất tiết kiệm ngày 2/11 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,..."
+      "latest_headline": "CEO Techcombank cùng các lãnh đạo quốc tế bàn về cơ hội tăng trưởng tại Việt Nam"
     },
     {
       "symbol": "ACB",
@@ -1333,7 +1333,7 @@
       "quant_criteria": "ROE ổn định 22-25%, hồ sơ rủi ro tín dụng sạch, cổ tức tiền mặt và cổ phiếu đều đặn hàng năm.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Không chỉ vì tỷ giá: Điều gì đang thúc đẩy doanh nghiệp giao dịch đồng Nhân Dân Tệ?"
+      "latest_headline": "Ngày 3/11, gửi 200 triệu đồng kỳ hạn 12 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi?"
     },
     {
       "symbol": "SSI",
@@ -1623,7 +1623,7 @@
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 0.6x | RS 52",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Lãi suất tiết kiệm ngày 2/11 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
+          "news_headline": "CEO Techcombank cùng các lãnh đạo quốc tế bàn về cơ hội tăng trưởng tại Việt Nam",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
@@ -1717,7 +1717,7 @@
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 0.6x | RS 52",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Lãi suất tiết kiệm ngày 2/11 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
+          "news_headline": "CEO Techcombank cùng các lãnh đạo quốc tế bàn về cơ hội tăng trưởng tại Việt Nam",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
@@ -1823,7 +1823,7 @@
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 0.6x | RS 52",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Lãi suất tiết kiệm ngày 2/11 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
+          "news_headline": "CEO Techcombank cùng các lãnh đạo quốc tế bàn về cơ hội tăng trưởng tại Việt Nam",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
@@ -1971,7 +1971,7 @@
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 2.2x | RS 43",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Chứng khoán 'đỏ lửa', loạt cổ phiếu nằm sàn",
+          "news_headline": "Vietcombank được Ngân hàng Nhà nước chấp thuận tăng vốn điều lệ thêm 5.431 tỷ đồng",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
@@ -2025,7 +2025,7 @@
           "technical_signal": "PULLBACK MA20 | Test thành công hỗ trợ MA20/Nền 20D (+1.0% từ đáy) | Tỷ lệ R:R tối ưu",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Không chỉ vì tỷ giá: Điều gì đang thúc đẩy doanh nghiệp giao dịch đồng Nhân Dân Tệ?",
+          "news_headline": "Ngày 3/11, gửi 200 triệu đồng kỳ hạn 12 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi?",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         }
