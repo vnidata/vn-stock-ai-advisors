@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-05 08:48:06 (UTC+7)",
+  "last_updated": "2026-11-05 16:53:59 (UTC+7)",
   "trading_date": "2026-11-05",
   "vnindex": {
     "close": 1740.73,
@@ -35,7 +35,7 @@
     "red_flags_detected": 1,
     "catalysts_detected": 0,
     "system_verdict": "CẢNH BÁO (1 MÃ RỦI RO BẤT THƯỜNG)",
-    "last_scanned": "2026-11-05 08:48:04"
+    "last_scanned": "2026-11-05 16:53:56"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -354,7 +354,7 @@
       "status_badge": "pos",
       "action_advice": "Tiếp tục nắm giữ theo xu hướng tăng",
       "technical_signal": "THẮT CHẶT BIÊN ĐỘ (VCP) | Biên độ co thắt Bollinger Squeeze cực hẹp | Cạn cung chờ bùng nổ | Vol 0.9x",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
       "volume": 11586100
     },
@@ -902,7 +902,7 @@
         "status_badge": "neg-danger",
         "latest_headline": "Bắt tạm giam quản lý một cửa hàng của ông Nguyễn Đức Tài",
         "action_desc": "Phủ quyết / Loại bỏ khẩn cấp khỏi danh mục",
-        "news_count": 4,
+        "news_count": 3,
         "re_eval_note": ""
       }
     ],
@@ -914,9 +914,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "FPT \"tái sinh\"",
+        "latest_headline": "Tập đoàn của ông Trương Gia Bình tuyển 4 vị trí, đảm bảo thu nhập từ 500 triệu đồng/năm, thưởng thêm 100 triệu nếu làm được 1 việc",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 3,
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -924,11 +924,11 @@
         "sector": "Materials",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN BÌNH ỔN",
+        "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Không có thông tin bất thường gần đây",
-        "action_desc": "Duy trì khuyến nghị định lượng gốc",
-        "news_count": 0,
+        "latest_headline": "Con trai tỷ phú Trần Đình Long chỉ mua 1/5 số cổ phiếu HPG đã đăng ký",
+        "action_desc": "Duy trì tỷ trọng khuyến nghị",
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -940,7 +940,7 @@
         "status_badge": "neutral",
         "latest_headline": "Lãi suất tiết kiệm ngày 5/11 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 6,
+        "news_count": 5,
         "re_eval_note": ""
       },
       {
@@ -948,11 +948,11 @@
         "sector": "Banking",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN ỔN ĐỊNH",
+        "status": "THÔNG TIN BÌNH ỔN",
         "status_badge": "neutral",
-        "latest_headline": "Khối ngoại giảm bán phiên VN-Index bứt phá, \"tung\" 350 tỷ gom 2 cổ phiếu VN30",
-        "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
+        "latest_headline": "Không có thông tin bất thường gần đây",
+        "action_desc": "Duy trì khuyến nghị định lượng gốc",
+        "news_count": 0,
         "re_eval_note": ""
       },
       {
@@ -1034,9 +1034,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Bà Mai Kiều Liên nhận vinh danh tại Hội nghị thượng đỉnh Fortune",
+        "latest_headline": "Bà Mai Kiều Liên cùng Vinamilk ba năm liền góp mặt trong hai bảng xếp hạng danh giá của Fortune",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
+        "news_count": 2,
         "re_eval_note": ""
       },
       {
@@ -1109,7 +1109,7 @@
       "quant_criteria": "Tăng trưởng lợi nhuận EPS 20%+ bền vững 5 năm, tỷ lệ nợ vay thấp, dòng tiền thuần dồi dào.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "FPT \"tái sinh\""
+      "latest_headline": "Tập đoàn của ông Trương Gia Bình tuyển 4 vị trí, đảm bảo thu nhập từ 500 triệu đồng/năm, thưởng thêm 100 triệu nếu làm được 1 việc"
     },
     {
       "symbol": "HPG",
@@ -1135,9 +1135,9 @@
       "ai_radar_action": "Chưa kích hoạt điểm mua an toàn; Tuân thủ kỷ luật 100% tiền mặt phòng thủ",
       "selection_reason": "Doanh nghiệp sản xuất thép số 1 Đông Nam Á, thanh khoản cao nhất toàn thị trường (thường xuyên >15-30M cp/phiên). Hưởng lợi từ chu kỳ giải ngân đầu tư công hạ tầng và đại dự án Dung Quất 2. Dòng tiền ngoại và tổ chức quan tâm đặc biệt.",
       "quant_criteria": "Thanh khoản top 1 VN30, Beta cao theo sóng hồi, biên lợi nhuận cải thiện theo chu kỳ phục hồi giá thép HRC.",
-      "news_status": "THÔNG TIN BÌNH ỔN",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Không có thông tin bất thường gần đây"
+      "latest_headline": "Con trai tỷ phú Trần Đình Long chỉ mua 1/5 số cổ phiếu HPG đã đăng ký"
     },
     {
       "symbol": "VCB",
@@ -1191,9 +1191,9 @@
       "ai_radar_action": "Quan sát tín hiệu tích lũy cạn cung; Đưa vào Radar chờ phiên bùng nổ FTD",
       "selection_reason": "Ngân hàng thương mại cổ phần dẫn đầu về tốc độ số hóa và tỷ lệ tiền gửi không kỳ hạn (CASA > 40%). Hiệu quả sinh lời ROE > 20%, định giá P/B ở vùng chiết khấu sâu thu hút dòng tiền định chế.",
       "quant_criteria": "CASA top 1, tăng trưởng tín dụng vượt trội ngành, thanh khoản trung bình >15M cp/phiên.",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
-      "latest_headline": "Khối ngoại giảm bán phiên VN-Index bứt phá, \"tung\" 350 tỷ gom 2 cổ phiếu VN30"
+      "latest_headline": "Không có thông tin bất thường gần đây"
     },
     {
       "symbol": "TCB",
@@ -1417,7 +1417,7 @@
       "quant_criteria": "Dòng tiền kinh doanh đều đặn, tỷ lệ chi trả cổ tức tiền mặt cao, tính phòng thủ cao trong pha gấu.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Bà Mai Kiều Liên nhận vinh danh tại Hội nghị thượng đỉnh Fortune"
+      "latest_headline": "Bà Mai Kiều Liên cùng Vinamilk ba năm liền góp mặt trong hai bảng xếp hạng danh giá của Fortune"
     },
     {
       "symbol": "DGC",
@@ -1920,10 +1920,10 @@
           "action_advice": "Tiếp tục nắm giữ theo xu hướng tăng",
           "volume": 11586100,
           "technical_signal": "THẮT CHẶT BIÊN ĐỘ (VCP) | Biên độ co thắt Bollinger Squeeze cực hẹp | Cạn cung chờ bùng nổ | Vol 0.9x",
-          "news_status": "THÔNG TIN ỔN ĐỊNH",
+          "news_status": "THÔNG TIN BÌNH ỔN",
           "news_badge": "neutral",
-          "news_headline": "Khối ngoại giảm bán phiên VN-Index bứt phá, \"tung\" 350 tỷ gom 2 cổ phiếu VN30",
-          "news_action": "Duy trì tỷ trọng khuyến nghị",
+          "news_headline": "Không có thông tin bất thường gần đây",
+          "news_action": "Duy trì khuyến nghị định lượng gốc",
           "news_score": 0.0
         },
         {
