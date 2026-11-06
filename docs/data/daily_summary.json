@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-06 08:48:15 (UTC+7)",
+  "last_updated": "2026-11-06 16:21:56 (UTC+7)",
   "trading_date": "2026-11-06",
   "vnindex": {
     "close": 1725.36,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 1,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-11-06 08:48:12"
+    "last_scanned": "2026-11-06 16:21:54"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -1042,7 +1042,7 @@
         "status_badge": "neutral",
         "latest_headline": "CTCK đưa ra dự báo bất ngờ về lợi nhuận quý 4 của FPT",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 2,
+        "news_count": 3,
         "re_eval_note": ""
       },
       {
@@ -1052,7 +1052,7 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Lãi suất tiết kiệm ngày 5/11 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
+        "latest_headline": "Lãi suất ngân hàng ngày 6/11 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
         "news_count": 4,
         "re_eval_note": ""
@@ -1076,9 +1076,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Techcombank kết nối giải pháp tài chính, đồng hành cùng doanh nghiệp biên mậu Việt – Trung",
+        "latest_headline": "TCBS hoàn tất chào bán 1.500 tỷ đồng trái phiếu",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 6,
+        "news_count": 7,
         "re_eval_note": ""
       },
       {
@@ -1162,7 +1162,7 @@
         "status_badge": "neutral",
         "latest_headline": "Bà Mai Kiều Liên cùng Vinamilk ba năm liền góp mặt trong hai bảng xếp hạng danh giá của Fortune",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 2,
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -1291,7 +1291,7 @@
       "quant_criteria": "Vốn hóa số 1, trụ đỡ tâm lý điều tiết thị trường, sức khỏe tài chính chuẩn mực Basel III.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Lãi suất tiết kiệm ngày 5/11 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,..."
+      "latest_headline": "Lãi suất ngân hàng ngày 6/11 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,..."
     },
     {
       "symbol": "MBB",
@@ -1347,7 +1347,7 @@
       "quant_criteria": "Tỷ lệ an toàn vốn CAR cao nhất ngành (>15%), biên lãi thuần NIM phục hồi, giao dịch sôi động.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Techcombank kết nối giải pháp tài chính, đồng hành cùng doanh nghiệp biên mậu Việt – Trung"
+      "latest_headline": "TCBS hoàn tất chào bán 1.500 tỷ đồng trái phiếu"
     },
     {
       "symbol": "ACB",
@@ -1665,7 +1665,7 @@
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 0.6x | RS 51",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Techcombank kết nối giải pháp tài chính, đồng hành cùng doanh nghiệp biên mậu Việt – Trung",
+          "news_headline": "TCBS hoàn tất chào bán 1.500 tỷ đồng trái phiếu",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
@@ -1761,7 +1761,7 @@
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 0.6x | RS 51",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Techcombank kết nối giải pháp tài chính, đồng hành cùng doanh nghiệp biên mậu Việt – Trung",
+          "news_headline": "TCBS hoàn tất chào bán 1.500 tỷ đồng trái phiếu",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
@@ -1871,7 +1871,7 @@
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 0.6x | RS 51",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Techcombank kết nối giải pháp tài chính, đồng hành cùng doanh nghiệp biên mậu Việt – Trung",
+          "news_headline": "TCBS hoàn tất chào bán 1.500 tỷ đồng trái phiếu",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
@@ -2021,7 +2021,7 @@
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 1.2x | RS 43",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Lãi suất tiết kiệm ngày 5/11 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
+          "news_headline": "Lãi suất ngân hàng ngày 6/11 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.03
         },
