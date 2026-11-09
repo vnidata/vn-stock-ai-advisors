@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-09 08:54:32 (UTC+7)",
+  "last_updated": "2026-11-09 19:16:32 (UTC+7)",
   "trading_date": "2026-11-09",
   "vnindex": {
     "close": 1714.32,
@@ -32,10 +32,10 @@
   },
   "news_radar": {
     "total_news_scanned": 160,
-    "red_flags_detected": 0,
+    "red_flags_detected": 1,
     "catalysts_detected": 0,
-    "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-11-09 08:54:29"
+    "system_verdict": "CẢNH BÁO (1 MÃ RỦI RO BẤT THƯỜNG)",
+    "last_scanned": "2026-11-09 19:16:29"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -378,8 +378,8 @@
       "status_badge": "neutral",
       "action_advice": "Giữ vị thế, quan sát hỗ trợ MA20",
       "technical_signal": "PULLBACK MA20 | Test thành công hỗ trợ MA20/Nền 20D (+2.2% từ đáy) | Tỷ lệ R:R tối ưu",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
-      "news_badge": "neutral",
+      "news_status": "CẢNH BÁO BẤT THƯỜNG (RED FLAG)",
+      "news_badge": "neg-danger",
       "volume": 8106500
     }
   ],
@@ -592,8 +592,8 @@
       "technical_reason": "Nắm giữ 23 phiên nhưng biến động đi ngang (-0.82%), dòng tiền yếu",
       "advisor_rationale": "Tái cơ cấu danh mục định kỳ, giải phóng sức mua để chuẩn bị đón đầu cơ hội bùng nổ mới",
       "action_advice": "Hạ tỷ trọng dần để luân chuyển sang cổ phiếu có RS dẫn dắt",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
-      "news_badge": "neutral"
+      "news_status": "CẢNH BÁO BẤT THƯỜNG (RED FLAG)",
+      "news_badge": "neg-danger"
     }
   ],
   "new_signals": [
@@ -804,8 +804,8 @@
       "technical_reason": "Nắm giữ 23 phiên nhưng biến động đi ngang (-0.82%), dòng tiền yếu",
       "advisor_rationale": "Tái cơ cấu danh mục định kỳ, giải phóng sức mua để chuẩn bị đón đầu cơ hội bùng nổ mới",
       "action_advice": "Hạ tỷ trọng dần để luân chuyển sang cổ phiếu có RS dẫn dắt",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
-      "news_badge": "neutral"
+      "news_status": "CẢNH BÁO BẤT THƯỜNG (RED FLAG)",
+      "news_badge": "neg-danger"
     }
   ],
   "advisor_performance_audit": {
@@ -892,7 +892,20 @@
   },
   "news_action_recommendations": {
     "catalysts": [],
-    "red_flags": [],
+    "red_flags": [
+      {
+        "symbol": "ACB",
+        "sector": "Banking",
+        "net_sentiment": -1.0,
+        "sentiment_multiplier": 0.0,
+        "status": "CẢNH BÁO BẤT THƯỜNG (RED FLAG)",
+        "status_badge": "neg-danger",
+        "latest_headline": "Vợ chồng bầu Kiên vẫn đều đặn nhận hàng trăm tỷ đồng mỗi năm từ ACB",
+        "action_desc": "Phủ quyết / Loại bỏ khẩn cấp khỏi danh mục",
+        "news_count": 5,
+        "re_eval_note": ""
+      }
+    ],
     "cautions": [
       {
         "symbol": "FPT",
@@ -903,7 +916,7 @@
         "status_badge": "neutral",
         "latest_headline": "FPT Telecom sắp phát hành hơn 110 triệu cổ phiếu thưởng cho cổ đông",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 3,
+        "news_count": 5,
         "re_eval_note": ""
       },
       {
@@ -911,11 +924,11 @@
         "sector": "Materials",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN ỔN ĐỊNH",
+        "status": "THÔNG TIN BÌNH ỔN",
         "status_badge": "neutral",
-        "latest_headline": "Tỷ phú Long bán 258 triệu quả trứng nhưng chỉ mang về 1% lợi nhuận: Bí mật bàn tính nằm ở 5.000 tấn cám mỗi tháng",
-        "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
+        "latest_headline": "Không có thông tin bất thường gần đây",
+        "action_desc": "Duy trì khuyến nghị định lượng gốc",
+        "news_count": 0,
         "re_eval_note": ""
       },
       {
@@ -949,21 +962,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Ngày 9/11, gửi dưới 1 tỷ đồng kỳ hạn 9 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi?",
+        "latest_headline": "Chứng khoán TCBS: \"Áp lực chi phí vốn của ngành chưa được chuyển sang khách vay margin\"",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 10,
-        "re_eval_note": ""
-      },
-      {
-        "symbol": "ACB",
-        "sector": "Banking",
-        "net_sentiment": 0.0,
-        "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN ỔN ĐỊNH",
-        "status_badge": "neutral",
-        "latest_headline": "Ngày 9/11, gửi dưới 1 tỷ đồng kỳ hạn 9 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi?",
-        "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 3,
+        "news_count": 11,
         "re_eval_note": ""
       },
       {
@@ -995,11 +996,11 @@
         "sector": "RealEstate",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN ỔN ĐỊNH",
+        "status": "THÔNG TIN BÌNH ỔN",
         "status_badge": "neutral",
-        "latest_headline": "Vinmec của tỷ phú Phạm Nhật Vượng khai trương bệnh viện đầu tiên tại Trung du và miền núi phía Bắc",
-        "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 1,
+        "latest_headline": "Không có thông tin bất thường gần đây",
+        "action_desc": "Duy trì khuyến nghị định lượng gốc",
+        "news_count": 0,
         "re_eval_note": ""
       },
       {
@@ -1033,9 +1034,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Cú chốt của nữ tướng Mai Kiều Liên và quả ngọt: Những người bỏ ra 53 triệu đồng mua Vinamilk giờ có hơn 1,2 tỷ",
+        "latest_headline": "Petrolimex từng lớn gấp đôi MB nay bằng 1/4, Vinamilk từng gấp 1,5 lần Vingroup nay bằng 1/16: 10 năm viết lại bản đồ tỷ đô trên TTCK",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 2,
+        "news_count": 3,
         "re_eval_note": ""
       },
       {
@@ -1077,8 +1078,8 @@
     ],
     "summary": {
       "total_catalysts": 0,
-      "total_red_flags": 0,
-      "total_cautions": 15
+      "total_red_flags": 1,
+      "total_cautions": 14
     }
   },
   "watchlist_items": [
@@ -1134,9 +1135,9 @@
       "ai_radar_action": "Chưa kích hoạt điểm mua an toàn; Tuân thủ kỷ luật 100% tiền mặt phòng thủ",
       "selection_reason": "Doanh nghiệp sản xuất thép số 1 Đông Nam Á, thanh khoản cao nhất toàn thị trường (thường xuyên >15-30M cp/phiên). Hưởng lợi từ chu kỳ giải ngân đầu tư công hạ tầng và đại dự án Dung Quất 2. Dòng tiền ngoại và tổ chức quan tâm đặc biệt.",
       "quant_criteria": "Thanh khoản top 1 VN30, Beta cao theo sóng hồi, biên lợi nhuận cải thiện theo chu kỳ phục hồi giá thép HRC.",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
-      "latest_headline": "Tỷ phú Long bán 258 triệu quả trứng nhưng chỉ mang về 1% lợi nhuận: Bí mật bàn tính nằm ở 5.000 tấn cám mỗi tháng"
+      "latest_headline": "Không có thông tin bất thường gần đây"
     },
     {
       "symbol": "VCB",
@@ -1220,7 +1221,7 @@
       "quant_criteria": "Tỷ lệ an toàn vốn CAR cao nhất ngành (>15%), biên lãi thuần NIM phục hồi, giao dịch sôi động.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Ngày 9/11, gửi dưới 1 tỷ đồng kỳ hạn 9 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi?"
+      "latest_headline": "Chứng khoán TCBS: \"Áp lực chi phí vốn của ngành chưa được chuyển sang khách vay margin\""
     },
     {
       "symbol": "ACB",
@@ -1246,9 +1247,9 @@
       "ai_radar_action": "Quan sát tín hiệu tích lũy cạn cung; Đưa vào Radar chờ phiên bùng nổ FTD",
       "selection_reason": "Chuẩn mực quản trị rủi ro khắt khe nhất trong nhóm ngân hàng tư nhân. Danh mục tín dụng tập trung bán lẻ an toàn, không có dư nợ trái phiếu rủi ro cao, tỷ lệ nợ xấu luôn thuộc nhóm thấp nhất.",
       "quant_criteria": "ROE ổn định 22-25%, hồ sơ rủi ro tín dụng sạch, cổ tức tiền mặt và cổ phiếu đều đặn hàng năm.",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
-      "news_badge": "neutral",
-      "latest_headline": "Ngày 9/11, gửi dưới 1 tỷ đồng kỳ hạn 9 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi?"
+      "news_status": "CẢNH BÁO BẤT THƯỜNG (RED FLAG)",
+      "news_badge": "neg-danger",
+      "latest_headline": "Vợ chồng bầu Kiên vẫn đều đặn nhận hàng trăm tỷ đồng mỗi năm từ ACB"
     },
     {
       "symbol": "SSI",
@@ -1330,9 +1331,9 @@
       "ai_radar_action": "Chưa kích hoạt điểm mua an toàn; Tuân thủ kỷ luật 100% tiền mặt phòng thủ",
       "selection_reason": "Nhà phát triển bất động sản quy mô số 1 Việt Nam với quỹ đất sạch lớn nhất cả nước. Khả năng triển khai đại đô thị và tạo lập dòng tiền bàn giao dự án áp đảo thị trường, chi phối mạnh chỉ số VN-Index.",
       "quant_criteria": "Vốn hóa trụ cột Top 3 VN-Index, quỹ đất hàng nghìn ha, đóng góp lớn vào biến động điểm số chỉ số.",
-      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_status": "THÔNG TIN BÌNH ỔN",
       "news_badge": "neutral",
-      "latest_headline": "Vinmec của tỷ phú Phạm Nhật Vượng khai trương bệnh viện đầu tiên tại Trung du và miền núi phía Bắc"
+      "latest_headline": "Không có thông tin bất thường gần đây"
     },
     {
       "symbol": "MWG",
@@ -1416,7 +1417,7 @@
       "quant_criteria": "Dòng tiền kinh doanh đều đặn, tỷ lệ chi trả cổ tức tiền mặt cao, tính phòng thủ cao trong pha gấu.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Cú chốt của nữ tướng Mai Kiều Liên và quả ngọt: Những người bỏ ra 53 triệu đồng mua Vinamilk giờ có hơn 1,2 tỷ"
+      "latest_headline": "Petrolimex từng lớn gấp đôi MB nay bằng 1/4, Vinamilk từng gấp 1,5 lần Vingroup nay bằng 1/16: 10 năm viết lại bản đồ tỷ đô trên TTCK"
     },
     {
       "symbol": "DGC",
@@ -1538,7 +1539,7 @@
           "technical_signal": "ĐẢO CHIỀU PHÂN KỲ | Hồi phục từ vùng quá bán kỹ thuật (RSI 32) | Phân kỳ động lượng dương MACD/RSI",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Ngày 9/11, gửi dưới 1 tỷ đồng kỳ hạn 9 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi?",
+          "news_headline": "Chứng khoán TCBS: \"Áp lực chi phí vốn của ngành chưa được chuyển sang khách vay margin\"",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
@@ -1632,7 +1633,7 @@
           "technical_signal": "ĐẢO CHIỀU PHÂN KỲ | Hồi phục từ vùng quá bán kỹ thuật (RSI 32) | Phân kỳ động lượng dương MACD/RSI",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Ngày 9/11, gửi dưới 1 tỷ đồng kỳ hạn 9 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi?",
+          "news_headline": "Chứng khoán TCBS: \"Áp lực chi phí vốn của ngành chưa được chuyển sang khách vay margin\"",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
@@ -1738,7 +1739,7 @@
           "technical_signal": "ĐẢO CHIỀU PHÂN KỲ | Hồi phục từ vùng quá bán kỹ thuật (RSI 32) | Phân kỳ động lượng dương MACD/RSI",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Ngày 9/11, gửi dưới 1 tỷ đồng kỳ hạn 9 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi?",
+          "news_headline": "Chứng khoán TCBS: \"Áp lực chi phí vốn của ngành chưa được chuyển sang khách vay margin\"",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
@@ -1839,7 +1840,7 @@
         {
           "symbol": "MWG",
           "weight_pct": 19.5,
-          "score": 0.0,
+          "score": 0.2486,
           "confidence_score": 60,
           "sector": "Retail",
           "entry_price": 76.98,
@@ -1920,7 +1921,7 @@
         {
           "symbol": "ACB",
           "weight_pct": 19.6,
-          "score": 0.2521,
+          "score": 0.0,
           "confidence_score": 60,
           "sector": "Banking",
           "entry_price": 20.67,
@@ -1938,14 +1939,16 @@
           "action_advice": "Giữ vị thế, quan sát hỗ trợ MA20",
           "volume": 8106500,
           "technical_signal": "PULLBACK MA20 | Test thành công hỗ trợ MA20/Nền 20D (+2.2% từ đáy) | Tỷ lệ R:R tối ưu",
-          "news_status": "THÔNG TIN ỔN ĐỊNH",
-          "news_badge": "neutral",
-          "news_headline": "Ngày 9/11, gửi dưới 1 tỷ đồng kỳ hạn 9 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi?",
-          "news_action": "Duy trì tỷ trọng khuyến nghị",
-          "news_score": 0.0
+          "news_status": "CẢNH BÁO BẤT THƯỜNG (RED FLAG)",
+          "news_badge": "neg-danger",
+          "news_headline": "Vợ chồng bầu Kiên vẫn đều đặn nhận hàng trăm tỷ đồng mỗi năm từ ACB",
+          "news_action": "Phủ quyết / Loại bỏ khẩn cấp khỏi danh mục",
+          "news_score": -1.0
         }
       ],
-      "news_notes": {}
+      "news_notes": {
+        "ACB": "BỊ PHỦ QUYẾT: Xuất hiện tin tức bất thường / rủi ro nghiêm trọng"
+      }
     },
     "AI_Advisor_Turtle_Donchian": {
       "name": "AI_Advisor_Turtle_Donchian",
