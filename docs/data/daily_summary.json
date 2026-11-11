@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-11 08:41:04 (UTC+7)",
+  "last_updated": "2026-11-11 16:36:40 (UTC+7)",
   "trading_date": "2026-11-11",
   "vnindex": {
     "close": 1746.9,
@@ -33,9 +33,9 @@
   "news_radar": {
     "total_news_scanned": 160,
     "red_flags_detected": 1,
-    "catalysts_detected": 2,
+    "catalysts_detected": 1,
     "system_verdict": "CẢNH BÁO (1 MÃ RỦI RO BẤT THƯỜNG)",
-    "last_scanned": "2026-11-11 08:41:01"
+    "last_scanned": "2026-11-11 16:36:37"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -378,8 +378,8 @@
       "status_badge": "neutral",
       "action_advice": "Giữ vị thế, quan sát hỗ trợ MA20",
       "technical_signal": "PULLBACK MA20 | Test thành công hỗ trợ MA20/Nền 20D (+2.7% từ đáy) | Tỷ lệ R:R tối ưu",
-      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-      "news_badge": "pos",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_badge": "neutral",
       "volume": 9201400
     }
   ],
@@ -592,8 +592,8 @@
       "technical_reason": "Nắm giữ 25 phiên nhưng biến động đi ngang (-0.34%), dòng tiền yếu",
       "advisor_rationale": "Tái cơ cấu danh mục định kỳ, giải phóng sức mua để chuẩn bị đón đầu cơ hội bùng nổ mới",
       "action_advice": "Hạ tỷ trọng dần để luân chuyển sang cổ phiếu có RS dẫn dắt",
-      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-      "news_badge": "pos"
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_badge": "neutral"
     }
   ],
   "new_signals": [
@@ -804,8 +804,8 @@
       "technical_reason": "Nắm giữ 25 phiên nhưng biến động đi ngang (-0.34%), dòng tiền yếu",
       "advisor_rationale": "Tái cơ cấu danh mục định kỳ, giải phóng sức mua để chuẩn bị đón đầu cơ hội bùng nổ mới",
       "action_advice": "Hạ tỷ trọng dần để luân chuyển sang cổ phiếu có RS dẫn dắt",
-      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-      "news_badge": "pos"
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_badge": "neutral"
     }
   ],
   "advisor_performance_audit": {
@@ -891,20 +891,7 @@
     }
   },
   "news_action_recommendations": {
-    "catalysts": [
-      {
-        "symbol": "ACB",
-        "sector": "Banking",
-        "net_sentiment": 0.14,
-        "sentiment_multiplier": 1.2,
-        "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-        "status_badge": "pos",
-        "latest_headline": "Bất ngờ: Chủ tịch Trần Hùng Huy nhận tiền cổ tức từ ACB ít hơn vợ chồng bầu Kiên",
-        "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
-        "news_count": 5,
-        "re_eval_note": ""
-      }
-    ],
+    "catalysts": [],
     "red_flags": [
       {
         "symbol": "MWG",
@@ -929,7 +916,7 @@
         "status_badge": "neutral",
         "latest_headline": "Bất ngờ cựu TGĐ Vietcombank, TGĐ VPBank, FPT Telecom và loạt founder đình đám cùng học tại ngôi trường được ví như 'Harvard Việt Nam'",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 2,
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -947,13 +934,13 @@
       {
         "symbol": "VCB",
         "sector": "Banking",
-        "net_sentiment": 0.0,
+        "net_sentiment": 0.03,
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Bất ngờ cựu TGĐ Vietcombank, TGĐ VPBank, FPT Telecom và loạt founder đình đám cùng học tại ngôi trường được ví như 'Harvard Việt Nam'",
+        "latest_headline": "Lãi suất ngân hàng ngày 11/11 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 3,
+        "news_count": 4,
         "re_eval_note": ""
       },
       {
@@ -965,19 +952,31 @@
         "status_badge": "neutral",
         "latest_headline": "Gần 4,6 triệu chuyến xe sau 3 năm, hãng taxi của tỷ phú Phạm Nhật Vượng tiếp tục bắt tay 10 đối tác lớn tại Lào",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 3,
+        "news_count": 2,
         "re_eval_note": ""
       },
       {
         "symbol": "TCB",
         "sector": "Banking",
+        "net_sentiment": 0.01,
+        "sentiment_multiplier": 1.0,
+        "status": "THÔNG TIN ỔN ĐỊNH",
+        "status_badge": "neutral",
+        "latest_headline": "Lãi suất ngân hàng ngày 11/11 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
+        "action_desc": "Duy trì tỷ trọng khuyến nghị",
+        "news_count": 8,
+        "re_eval_note": ""
+      },
+      {
+        "symbol": "ACB",
+        "sector": "Banking",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Ngày 11/11, gửi 100 triệu đồng kỳ hạn 12 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi?",
+        "latest_headline": "ACB & Sun Life: Khi “tin vào điều mình chọn\", điều gì giúp chúng ta đi đến cùng?",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 8,
+        "news_count": 4,
         "re_eval_note": ""
       },
       {
@@ -1011,9 +1010,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Vinhomes bắt tay “gã khổng lồ” Mitsubishi của Nhật Bản, mở sang loạt lĩnh vực mới",
+        "latest_headline": "VN-Index tăng điểm, tài khoản nhà đầu tư vẫn 'mỏng' đi",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 2,
+        "news_count": 3,
         "re_eval_note": ""
       },
       {
@@ -1025,7 +1024,7 @@
         "status_badge": "neutral",
         "latest_headline": "Không chỉ mở rộng kinh doanh, Masan đang tạo ra nhiều lợi nhuận hơn trên mỗi cổ phiếu",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 4,
+        "news_count": 2,
         "re_eval_note": ""
       },
       {
@@ -1078,9 +1077,9 @@
       }
     ],
     "summary": {
-      "total_catalysts": 1,
+      "total_catalysts": 0,
       "total_red_flags": 1,
-      "total_cautions": 13
+      "total_cautions": 14
     }
   },
   "watchlist_items": [
@@ -1166,7 +1165,7 @@
       "quant_criteria": "Vốn hóa số 1, trụ đỡ tâm lý điều tiết thị trường, sức khỏe tài chính chuẩn mực Basel III.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Bất ngờ cựu TGĐ Vietcombank, TGĐ VPBank, FPT Telecom và loạt founder đình đám cùng học tại ngôi trường được ví như 'Harvard Việt Nam'"
+      "latest_headline": "Lãi suất ngân hàng ngày 11/11 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,..."
     },
     {
       "symbol": "MBB",
@@ -1222,7 +1221,7 @@
       "quant_criteria": "Tỷ lệ an toàn vốn CAR cao nhất ngành (>15%), biên lãi thuần NIM phục hồi, giao dịch sôi động.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Ngày 11/11, gửi 100 triệu đồng kỳ hạn 12 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi?"
+      "latest_headline": "Lãi suất ngân hàng ngày 11/11 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,..."
     },
     {
       "symbol": "ACB",
@@ -1248,9 +1247,9 @@
       "ai_radar_action": "Chưa kích hoạt điểm mua an toàn; Tuân thủ kỷ luật 100% tiền mặt phòng thủ",
       "selection_reason": "Chuẩn mực quản trị rủi ro khắt khe nhất trong nhóm ngân hàng tư nhân. Danh mục tín dụng tập trung bán lẻ an toàn, không có dư nợ trái phiếu rủi ro cao, tỷ lệ nợ xấu luôn thuộc nhóm thấp nhất.",
       "quant_criteria": "ROE ổn định 22-25%, hồ sơ rủi ro tín dụng sạch, cổ tức tiền mặt và cổ phiếu đều đặn hàng năm.",
-      "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-      "news_badge": "pos",
-      "latest_headline": "Bất ngờ: Chủ tịch Trần Hùng Huy nhận tiền cổ tức từ ACB ít hơn vợ chồng bầu Kiên"
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
+      "news_badge": "neutral",
+      "latest_headline": "ACB & Sun Life: Khi “tin vào điều mình chọn\", điều gì giúp chúng ta đi đến cùng?"
     },
     {
       "symbol": "SSI",
@@ -1334,7 +1333,7 @@
       "quant_criteria": "Vốn hóa trụ cột Top 3 VN-Index, quỹ đất hàng nghìn ha, đóng góp lớn vào biến động điểm số chỉ số.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Vinhomes bắt tay “gã khổng lồ” Mitsubishi của Nhật Bản, mở sang loạt lĩnh vực mới"
+      "latest_headline": "VN-Index tăng điểm, tài khoản nhà đầu tư vẫn 'mỏng' đi"
     },
     {
       "symbol": "MWG",
@@ -1540,9 +1539,9 @@
           "technical_signal": "ĐẢO CHIỀU PHÂN KỲ | Hồi phục từ vùng quá bán kỹ thuật (RSI 34) | Phân kỳ động lượng dương MACD/RSI",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Ngày 11/11, gửi 100 triệu đồng kỳ hạn 12 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi?",
+          "news_headline": "Lãi suất ngân hàng ngày 11/11 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
-          "news_score": 0.0
+          "news_score": 0.01
         },
         {
           "symbol": "MSN",
@@ -1636,9 +1635,9 @@
           "technical_signal": "ĐẢO CHIỀU PHÂN KỲ | Hồi phục từ vùng quá bán kỹ thuật (RSI 34) | Phân kỳ động lượng dương MACD/RSI",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Ngày 11/11, gửi 100 triệu đồng kỳ hạn 12 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi?",
+          "news_headline": "Lãi suất ngân hàng ngày 11/11 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
-          "news_score": 0.0
+          "news_score": 0.01
         },
         {
           "symbol": "MSN",
@@ -1746,9 +1745,9 @@
           "technical_signal": "ĐẢO CHIỀU PHÂN KỲ | Hồi phục từ vùng quá bán kỹ thuật (RSI 34) | Phân kỳ động lượng dương MACD/RSI",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Ngày 11/11, gửi 100 triệu đồng kỳ hạn 12 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi?",
+          "news_headline": "Lãi suất ngân hàng ngày 11/11 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
-          "news_score": 0.0
+          "news_score": 0.01
         },
         {
           "symbol": "MSN",
@@ -1896,14 +1895,14 @@
           "technical_signal": "PULLBACK MA20 | Test thành công hỗ trợ MA20/Nền 20D (+2.1% từ đáy) | Tỷ lệ R:R tối ưu",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Bất ngờ cựu TGĐ Vietcombank, TGĐ VPBank, FPT Telecom và loạt founder đình đám cùng học tại ngôi trường được ví như 'Harvard Việt Nam'",
+          "news_headline": "Lãi suất ngân hàng ngày 11/11 tại Agribank, Vietcombank, BIDV, VietinBank, MB, VPBank, Techcombank, Sacombank, HDBank,...",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
-          "news_score": 0.0
+          "news_score": 0.03
         },
         {
           "symbol": "MBB",
           "weight_pct": 19.6,
-          "score": 0.0,
+          "score": 0.3137,
           "confidence_score": 60,
           "sector": "Banking",
           "entry_price": 19.12,
@@ -1930,7 +1929,7 @@
         {
           "symbol": "ACB",
           "weight_pct": 19.6,
-          "score": 0.3151,
+          "score": 0.0,
           "confidence_score": 60,
           "sector": "Banking",
           "entry_price": 20.67,
@@ -1948,16 +1947,15 @@
           "action_advice": "Giữ vị thế, quan sát hỗ trợ MA20",
           "volume": 9201400,
           "technical_signal": "PULLBACK MA20 | Test thành công hỗ trợ MA20/Nền 20D (+2.7% từ đáy) | Tỷ lệ R:R tối ưu",
-          "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
-          "news_badge": "pos",
-          "news_headline": "Bất ngờ: Chủ tịch Trần Hùng Huy nhận tiền cổ tức từ ACB ít hơn vợ chồng bầu Kiên",
-          "news_action": "Ưu tiên giải ngân / Đón sóng thông tin",
-          "news_score": 0.14
+          "news_status": "THÔNG TIN ỔN ĐỊNH",
+          "news_badge": "neutral",
+          "news_headline": "ACB & Sun Life: Khi “tin vào điều mình chọn\", điều gì giúp chúng ta đi đến cùng?",
+          "news_action": "Duy trì tỷ trọng khuyến nghị",
+          "news_score": 0.0
         }
       ],
       "news_notes": {
-        "MWG": "BỊ PHỦ QUYẾT: Xuất hiện tin tức bất thường / rủi ro nghiêm trọng",
-        "ACB": "ĐIỀU CHỈNH TIN TỨC: Hệ số 1.20x (ĐỘNG LỰC TÍCH CỰC (CATALYST))"
+        "MWG": "BỊ PHỦ QUYẾT: Xuất hiện tin tức bất thường / rủi ro nghiêm trọng"
       }
     },
     "AI_Advisor_Turtle_Donchian": {
