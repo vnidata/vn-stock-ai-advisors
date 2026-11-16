@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-16 08:49:52 (UTC+7)",
+  "last_updated": "2026-11-16 18:58:14 (UTC+7)",
   "trading_date": "2026-11-16",
   "vnindex": {
     "close": 1736.89,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 0,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-11-16 08:49:49"
+    "last_scanned": "2026-11-16 18:58:11"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -945,7 +945,7 @@
         "status_badge": "neutral",
         "latest_headline": "Soi dòng tiền của Thế Giới Di Động và loạt đại gia bán lẻ: Hé lộ bài toán khó đằng sau con số lợi nhuận",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 2,
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -967,9 +967,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Chân dung tân Bí thư Đảng ủy VCCI Phạm Quang Dũng: 21 tuổi gia nhập Vietcombank, 34 tuổi làm Phó Tổng Giám đốc, 48 tuổi giữ chức Chủ tịch ngân hàng",
+        "latest_headline": "6 năm qua, vốn hóa Vietcombank không tăng thậm chí sụt giảm - từng lớn hơn 10 ngân hàng tư nhân cộng lại, nay chưa bằng tổng giá trị Techcombank và VPBank",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 7,
+        "news_count": 8,
         "re_eval_note": ""
       },
       {
@@ -991,9 +991,9 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Ngày 16/11, gửi 100 triệu tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi sau 9 tháng?",
+        "latest_headline": "Nhà đất khó bán, 14 công ty BĐS vẫn có hơn 221.000 tỷ đồng tiền khách trả trước: Tập đoàn tỷ phú Phạm Nhật Vượng chiếm quá nửa",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 8,
+        "news_count": 9,
         "re_eval_note": ""
       },
       {
@@ -1003,7 +1003,7 @@
         "sentiment_multiplier": 1.0,
         "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Dấu ấn thương hiệu ACB 2026: Tăng 18 bậc trên bảng xếp hạng toàn cầu, giá trị đạt 1,4 tỷ USD",
+        "latest_headline": "ACB: Một cổ đông đã bán sạch gần 51,5 triệu cổ phiếu",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
         "news_count": 4,
         "re_eval_note": ""
@@ -1037,11 +1037,11 @@
         "sector": "RealEstate",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN BÌNH ỔN",
+        "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Không có thông tin bất thường gần đây",
-        "action_desc": "Duy trì khuyến nghị định lượng gốc",
-        "news_count": 0,
+        "latest_headline": "Hà Nội duyệt khu đô thị 111.000 tỷ đồng của Vinhomes, hé lộ quỹ đất 'khủng' tái định cư mở rộng Quốc lộ 1A",
+        "action_desc": "Duy trì tỷ trọng khuyến nghị",
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -1053,7 +1053,7 @@
         "status_badge": "neutral",
         "latest_headline": "“Cỗ máy” thu hơn 600 tỷ mỗi ngày của ông Nguyễn Đức Tài lớn cỡ nào?",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 4,
+        "news_count": 3,
         "re_eval_note": ""
       },
       {
@@ -1109,11 +1109,11 @@
         "sector": "Logistics",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN BÌNH ỔN",
+        "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Không có thông tin bất thường gần đây",
-        "action_desc": "Duy trì khuyến nghị định lượng gốc",
-        "news_count": 0,
+        "latest_headline": "Lộ diện “con gà đẻ trứng vàng” của Gemadept (GMD), đóng góp gần 40% lợi nhuận trước thuế",
+        "action_desc": "Duy trì tỷ trọng khuyến nghị",
+        "news_count": 1,
         "re_eval_note": ""
       }
     ],
@@ -1206,7 +1206,7 @@
       "quant_criteria": "Vốn hóa số 1, trụ đỡ tâm lý điều tiết thị trường, sức khỏe tài chính chuẩn mực Basel III.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Chân dung tân Bí thư Đảng ủy VCCI Phạm Quang Dũng: 21 tuổi gia nhập Vietcombank, 34 tuổi làm Phó Tổng Giám đốc, 48 tuổi giữ chức Chủ tịch ngân hàng"
+      "latest_headline": "6 năm qua, vốn hóa Vietcombank không tăng thậm chí sụt giảm - từng lớn hơn 10 ngân hàng tư nhân cộng lại, nay chưa bằng tổng giá trị Techcombank và VPBank"
     },
     {
       "symbol": "MBB",
@@ -1262,7 +1262,7 @@
       "quant_criteria": "Tỷ lệ an toàn vốn CAR cao nhất ngành (>15%), biên lãi thuần NIM phục hồi, giao dịch sôi động.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Ngày 16/11, gửi 100 triệu tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi sau 9 tháng?"
+      "latest_headline": "Nhà đất khó bán, 14 công ty BĐS vẫn có hơn 221.000 tỷ đồng tiền khách trả trước: Tập đoàn tỷ phú Phạm Nhật Vượng chiếm quá nửa"
     },
     {
       "symbol": "ACB",
@@ -1290,7 +1290,7 @@
       "quant_criteria": "ROE ổn định 22-25%, hồ sơ rủi ro tín dụng sạch, cổ tức tiền mặt và cổ phiếu đều đặn hàng năm.",
       "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Dấu ấn thương hiệu ACB 2026: Tăng 18 bậc trên bảng xếp hạng toàn cầu, giá trị đạt 1,4 tỷ USD"
+      "latest_headline": "ACB: Một cổ đông đã bán sạch gần 51,5 triệu cổ phiếu"
     },
     {
       "symbol": "SSI",
@@ -1372,9 +1372,9 @@
       "ai_radar_action": "Quan sát tín hiệu tích lũy cạn cung; Đưa vào Radar chờ phiên bùng nổ FTD",
       "selection_reason": "Nhà phát triển bất động sản quy mô số 1 Việt Nam với quỹ đất sạch lớn nhất cả nước. Khả năng triển khai đại đô thị và tạo lập dòng tiền bàn giao dự án áp đảo thị trường, chi phối mạnh chỉ số VN-Index.",
       "quant_criteria": "Vốn hóa trụ cột Top 3 VN-Index, quỹ đất hàng nghìn ha, đóng góp lớn vào biến động điểm số chỉ số.",
-      "news_status": "THÔNG TIN BÌNH ỔN",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Không có thông tin bất thường gần đây"
+      "latest_headline": "Hà Nội duyệt khu đô thị 111.000 tỷ đồng của Vinhomes, hé lộ quỹ đất 'khủng' tái định cư mở rộng Quốc lộ 1A"
     },
     {
       "symbol": "MWG",
@@ -1540,9 +1540,9 @@
       "ai_radar_action": "Chưa kích hoạt điểm mua an toàn; Tuân thủ kỷ luật 100% tiền mặt phòng thủ",
       "selection_reason": "Sở hữu hệ thống cảng biển nước sâu và hạ tầng logistics hiện đại bậc nhất Việt Nam (nổi bật là Cụm cảng nước sâu Gemalink). Đón đầu trực tiếp dòng vốn FDI và làn sóng dịch chuyển chuỗi cung ứng thương mại quốc tế.",
       "quant_criteria": "Tăng trưởng sản lượng container qua cảng vượt trội toàn ngành, hưởng lợi từ xuất nhập khẩu phục hồi.",
-      "news_status": "THÔNG TIN BÌNH ỔN",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Không có thông tin bất thường gần đây"
+      "latest_headline": "Lộ diện “con gà đẻ trứng vàng” của Gemadept (GMD), đóng góp gần 40% lợi nhuận trước thuế"
     }
   ],
   "universe_count": 15,
@@ -1580,7 +1580,7 @@
           "technical_signal": "ĐẢO CHIỀU PHÂN KỲ | Hồi phục từ vùng quá bán kỹ thuật (RSI 35) | Phân kỳ động lượng dương MACD/RSI",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Ngày 16/11, gửi 100 triệu tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi sau 9 tháng?",
+          "news_headline": "Nhà đất khó bán, 14 công ty BĐS vẫn có hơn 221.000 tỷ đồng tiền khách trả trước: Tập đoàn tỷ phú Phạm Nhật Vượng chiếm quá nửa",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
@@ -1674,7 +1674,7 @@
           "technical_signal": "ĐẢO CHIỀU PHÂN KỲ | Hồi phục từ vùng quá bán kỹ thuật (RSI 35) | Phân kỳ động lượng dương MACD/RSI",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Ngày 16/11, gửi 100 triệu tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi sau 9 tháng?",
+          "news_headline": "Nhà đất khó bán, 14 công ty BĐS vẫn có hơn 221.000 tỷ đồng tiền khách trả trước: Tập đoàn tỷ phú Phạm Nhật Vượng chiếm quá nửa",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
@@ -1780,7 +1780,7 @@
           "technical_signal": "ĐẢO CHIỀU PHÂN KỲ | Hồi phục từ vùng quá bán kỹ thuật (RSI 35) | Phân kỳ động lượng dương MACD/RSI",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Ngày 16/11, gửi 100 triệu tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi sau 9 tháng?",
+          "news_headline": "Nhà đất khó bán, 14 công ty BĐS vẫn có hơn 221.000 tỷ đồng tiền khách trả trước: Tập đoàn tỷ phú Phạm Nhật Vượng chiếm quá nửa",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
@@ -1928,7 +1928,7 @@
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 0.7x | RS 45",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Chân dung tân Bí thư Đảng ủy VCCI Phạm Quang Dũng: 21 tuổi gia nhập Vietcombank, 34 tuổi làm Phó Tổng Giám đốc, 48 tuổi giữ chức Chủ tịch ngân hàng",
+          "news_headline": "6 năm qua, vốn hóa Vietcombank không tăng thậm chí sụt giảm - từng lớn hơn 10 ngân hàng tư nhân cộng lại, nay chưa bằng tổng giá trị Techcombank và VPBank",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.01
         },
@@ -1982,7 +1982,7 @@
           "technical_signal": "PULLBACK MA20 | Test thành công hỗ trợ MA20/Nền 20D (+2.0% từ đáy) | Tỷ lệ R:R tối ưu",
           "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Dấu ấn thương hiệu ACB 2026: Tăng 18 bậc trên bảng xếp hạng toàn cầu, giá trị đạt 1,4 tỷ USD",
+          "news_headline": "ACB: Một cổ đông đã bán sạch gần 51,5 triệu cổ phiếu",
           "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         }
