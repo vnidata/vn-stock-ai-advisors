@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-23 10:02:30 (UTC+7)",
+  "last_updated": "2026-11-24 11:52:22 (UTC+7)",
   "trading_date": "2026-11-23",
   "vnindex": {
     "close": 1697.14,
@@ -35,7 +35,7 @@
     "red_flags_detected": 0,
     "catalysts_detected": 1,
     "system_verdict": "AN TOÀN",
-    "last_scanned": "2026-11-23 10:02:28"
+    "last_scanned": "2026-11-24 11:52:20"
   },
   "portfolio_summary": {
     "total_positions": 14,
@@ -306,7 +306,7 @@
       "status_badge": "neg",
       "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
       "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 0.9x | RS 46",
-      "news_status": "THÔNG TIN BÌNH ỔN",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
       "volume": 2446100
     },
@@ -613,7 +613,7 @@
       "technical_reason": "Hiệu suất suy giảm -7.9%, chạm ngưỡng kỷ luật dừng lỗ",
       "advisor_rationale": "Cắt lỗ dứt khoát -4.5% để triệt tiêu nguy cơ sụt giảm tài sản lớn (Max Drawdown)",
       "action_advice": "Bán toàn bộ vị thế, thu hồi 100% tiền mặt phòng thủ",
-      "news_status": "THÔNG TIN BÌNH ỔN",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral"
     },
     {
@@ -909,7 +909,7 @@
       "technical_reason": "Hiệu suất suy giảm -7.9%, chạm ngưỡng kỷ luật dừng lỗ",
       "advisor_rationale": "Cắt lỗ dứt khoát -4.5% để triệt tiêu nguy cơ sụt giảm tài sản lớn (Max Drawdown)",
       "action_advice": "Bán toàn bộ vị thế, thu hồi 100% tiền mặt phòng thủ",
-      "news_status": "THÔNG TIN BÌNH ỔN",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral"
     },
     {
@@ -1063,13 +1063,13 @@
       {
         "symbol": "FPT",
         "sector": "Technology",
-        "net_sentiment": 0.33,
+        "net_sentiment": 0.19,
         "sentiment_multiplier": 1.2,
         "status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
         "status_badge": "pos",
-        "latest_headline": "Phó giáo sư nổi tiếng Việt Nam vừa có thêm 240 tỷ đồng chỉ trong một ngày",
+        "latest_headline": "CEO nêu tình hình tài chính 'hết sức khẩn cấp', cổ phiếu PNJ nằm sàn",
         "action_desc": "Ưu tiên giải ngân / Đón sóng thông tin",
-        "news_count": 6,
+        "news_count": 7,
         "re_eval_note": ""
       }
     ],
@@ -1080,11 +1080,11 @@
         "sector": "Materials",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN BÌNH ỔN",
+        "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Không có thông tin bất thường gần đây",
-        "action_desc": "Duy trì khuyến nghị định lượng gốc",
-        "news_count": 0,
+        "latest_headline": "Liên danh Đại Quang Minh - THACO - Hòa Phát được giao lấy ý kiến về 2 trục đại lộ ven sông Hồng dài gần 80km",
+        "action_desc": "Duy trì tỷ trọng khuyến nghị",
+        "news_count": 2,
         "re_eval_note": ""
       },
       {
@@ -1096,7 +1096,7 @@
         "status_badge": "neutral",
         "latest_headline": "Cuộc chiến \"tài khoản chính\" trên điện thoại người Việt: Techcombank, MB đua hệ sinh thái; Vietcombank, BIDV, VietinBank và VPBank xoay xở thế nào?",
         "action_desc": "Duy trì tỷ trọng khuyến nghị",
-        "news_count": 4,
+        "news_count": 3,
         "re_eval_note": ""
       },
       {
@@ -1176,11 +1176,11 @@
         "sector": "Retail",
         "net_sentiment": 0.0,
         "sentiment_multiplier": 1.0,
-        "status": "THÔNG TIN BÌNH ỔN",
+        "status": "THÔNG TIN ỔN ĐỊNH",
         "status_badge": "neutral",
-        "latest_headline": "Không có thông tin bất thường gần đây",
-        "action_desc": "Duy trì khuyến nghị định lượng gốc",
-        "news_count": 0,
+        "latest_headline": "Những doanh nghiệp vươn mình: Từ tăng trưởng vượt bậc đến khát vọng ghi dấu toàn cầu",
+        "action_desc": "Duy trì tỷ trọng khuyến nghị",
+        "news_count": 1,
         "re_eval_note": ""
       },
       {
@@ -1277,7 +1277,7 @@
       "quant_criteria": "Tăng trưởng lợi nhuận EPS 20%+ bền vững 5 năm, tỷ lệ nợ vay thấp, dòng tiền thuần dồi dào.",
       "news_status": "ĐỘNG LỰC TÍCH CỰC (CATALYST)",
       "news_badge": "pos",
-      "latest_headline": "Phó giáo sư nổi tiếng Việt Nam vừa có thêm 240 tỷ đồng chỉ trong một ngày"
+      "latest_headline": "CEO nêu tình hình tài chính 'hết sức khẩn cấp', cổ phiếu PNJ nằm sàn"
     },
     {
       "symbol": "HPG",
@@ -1303,9 +1303,9 @@
       "ai_radar_action": "Chưa kích hoạt điểm mua an toàn; Tuân thủ kỷ luật 100% tiền mặt phòng thủ",
       "selection_reason": "Doanh nghiệp sản xuất thép số 1 Đông Nam Á, thanh khoản cao nhất toàn thị trường (thường xuyên >15-30M cp/phiên). Hưởng lợi từ chu kỳ giải ngân đầu tư công hạ tầng và đại dự án Dung Quất 2. Dòng tiền ngoại và tổ chức quan tâm đặc biệt.",
       "quant_criteria": "Thanh khoản top 1 VN30, Beta cao theo sóng hồi, biên lợi nhuận cải thiện theo chu kỳ phục hồi giá thép HRC.",
-      "news_status": "THÔNG TIN BÌNH ỔN",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Không có thông tin bất thường gần đây"
+      "latest_headline": "Liên danh Đại Quang Minh - THACO - Hòa Phát được giao lấy ý kiến về 2 trục đại lộ ven sông Hồng dài gần 80km"
     },
     {
       "symbol": "VCB",
@@ -1527,9 +1527,9 @@
       "ai_radar_action": "Chưa kích hoạt điểm mua an toàn; Tuân thủ kỷ luật 100% tiền mặt phòng thủ",
       "selection_reason": "Chuỗi bán lẻ đa ngành số 1 Việt Nam (Thế Giới Di Động, Điện Máy Xanh, Bách Hóa Xanh, An Khang). Tái cấu trúc thành công chuỗi Bách Hóa Xanh đạt điểm hòa vốn và bước vào chu kỳ đóng góp lợi nhuận ròng tăng tốc.",
       "quant_criteria": "Doanh thu tăng trưởng sau tái cấu trúc, dòng tiền FCF mạnh, cổ phiếu phục hồi chu kỳ tiêu dùng.",
-      "news_status": "THÔNG TIN BÌNH ỔN",
+      "news_status": "THÔNG TIN ỔN ĐỊNH",
       "news_badge": "neutral",
-      "latest_headline": "Không có thông tin bất thường gần đây"
+      "latest_headline": "Những doanh nghiệp vươn mình: Từ tăng trưởng vượt bậc đến khát vọng ghi dấu toàn cầu"
     },
     {
       "symbol": "MSN",
@@ -2026,10 +2026,10 @@
           "action_advice": "Gần ngưỡng cắt lỗ -4.5%, sẵn sàng hạ tỷ trọng",
           "volume": 2446100,
           "technical_signal": "TÍCH LŨY CẠN CUNG | Cân bằng cung cầu vùng hỗ trợ | Vol 0.9x | RS 46",
-          "news_status": "THÔNG TIN BÌNH ỔN",
+          "news_status": "THÔNG TIN ỔN ĐỊNH",
           "news_badge": "neutral",
-          "news_headline": "Không có thông tin bất thường gần đây",
-          "news_action": "Duy trì khuyến nghị định lượng gốc",
+          "news_headline": "Những doanh nghiệp vươn mình: Từ tăng trưởng vượt bậc đến khát vọng ghi dấu toàn cầu",
+          "news_action": "Duy trì tỷ trọng khuyến nghị",
           "news_score": 0.0
         },
         {
